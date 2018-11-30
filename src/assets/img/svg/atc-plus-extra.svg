@@ -1,0 +1,8 @@
+<svg id="atc-plus-extra" xmlns="http://www.w3.org/2000/svg" width="36px" aria-labelledby="increase-quantity-extra-fkw" height="36px" viewBox="0 0 36 36">
+  <title id="increase-quantity-extra-fkw">Add product to cart</title>
+  <defs></defs>
+  <g id="product-card-count">
+    <circle id="product-card-count-oval" class="cls-1" cx="18" cy="18" r="18"/>
+  </g>
+  <path id="product-card-count-plus" class="cls-2" d="M25.68,19.32H19.32v6.36a1.32,1.32,0,0,1-2.64,0V19.32H10.32a1.32,1.32,0,0,1,0-2.64h6.36V10.32a1.32,1.32,0,0,1,2.64,0v6.36h6.36a1.32,1.32,0,0,1,0,2.64"/>
+</svg>

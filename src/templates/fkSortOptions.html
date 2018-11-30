@@ -1,0 +1,15 @@
+<div ng-if="$ctrl.sortOptions && ($ctrl.sortOptions.sortOptions && $ctrl.sortOptions.sortOptions.length || $ctrl.sortOptions.sortDropDowns)">
+  <label class="fk-custom-field">
+    <span>Sort by:</span>
+    <div class="select--wrapper">
+      <select class="sort-options" name="sortOption" ng-select="sortOptionChanged()" ng-model="sortOption" ng-model-options="{getterSetter: true}">
+        <option ng-repeat="option in $ctrl.sortOptions.sortOptions" value="{{option.id}}{{option.orderAscending ? '|asc' : '|desc'}}" ng-selected="option.selected" ng-bind-html="option.name"></option>
+        <optgroup ng-repeat="group in $ctrl.sortOptions.sortDropDowns" ng-attr-label="{{group.name || group.options[0].name}}">
+          <option ng-repeat="option in group.options" value="{{option.id}}{{option.orderAscending ? '|asc' : '|desc'}}" ng-if="option.id" ng-selected="option.selected" ng-bind-html="option.name"></option>
+        </optgroup>
+      </select>
+      <fk-icon fk-icon-id="#down"></fk-icon>
+    </div>
+  </label>
+  <button aria-label="Change sorting order" class="asc-desc-button button-primary-ghost" ng-click="changeAscDesc()"><span offscreen>Change order</span><fk-icon fk-icon-id="#order-toggle"></fk-icon></button>
+</div>

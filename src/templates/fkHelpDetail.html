@@ -1,0 +1,21 @@
+<div class="row" id="help-details-page">
+  <div class="col-sm-15 col-xs-15 mobile-title fk-help-detail-only-mobile">
+    {{mainTitle}}<fk-icon fk-icon-id="#close" id="close-details" ng-click="$ctrl.goBack()"></fk-icon>
+  </div>
+
+  <div class="content content-only-mobile col-sm-15 col-xs-15">
+    <div class="col-sm-15 col-xs-15">
+      <div class="title fk-help-detail-only-desktop"><h2>{{topic.title}}</h2></div>
+      <div class="title fk-help-detail-only-mobile">{{subtitle}}</div>
+      <div>
+        <div ng-if="topic.detail" ng-bind-html="topic.detail" data-sub="{{selectedSub}}" ng-click="$ctrl.scrollToDetails($event)"></div>
+        <div ng-if="topic.entries">
+          <div ng-repeat="entry in topic.entries">
+              <b>{{entry.title}}</b>
+              <div ng-bind-html="entry.detail" data-sub="{{selectedSub}}"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

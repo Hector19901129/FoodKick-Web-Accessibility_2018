@@ -1,0 +1,9 @@
+<fk-tabs class="sign-in" ng-attr-selected="selected" select-history="selectHistory">
+  <fk-tab tabheading="SIGN IN" tab-id="signin">
+    <fk-sign-in ng-if="selectHistory.signin" sign-in-errors="signInErrors"></fk-sign-in>
+  </fk-tab>
+  <fk-tab tabheading="CREATE ACCOUNT" tab-id="signup">
+    <fk-create-account ng-if="selectHistory.signup"></fk-create-account>
+  </fk-tab>
+</fk-tabs>
+<fk-ngdialog-close ng-click="closeAction()"></fk-ngdialog-close>

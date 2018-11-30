@@ -1,0 +1,94 @@
+@import url(variables.css);
+
+fk-cart-tabbed-recommenders {
+  overflow: hidden;
+
+  .fk-cart-recommenders {
+    .cr-recommendations {
+      .cr-dealinfo {
+        font-family: Graphik;
+        font-weight: 500;
+        color: var(--fk-color-white);
+        font-size: var(--fk-font-size-base);
+      }
+    }
+
+    .cr-separator {
+      font-family: Graphik;
+      font-size: var(--fk-font-size-medium);
+      font-weight: 500;
+      text-align: center;
+      color: var(--fk-color-white);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+
+      span {
+        padding: 0 calc(var(--fk-horizontal-space)*2.5);
+        line-height: 0;
+      }
+    }
+
+    .cr-separator-line {
+      flex-grow: 1;
+
+      &::before {
+        content: ' ';
+        background-color: var(--fk-color-white-a);
+        height: 1px;
+        display: block;
+      }
+    }
+  }
+}
+
+@media (--fk-extra-small-screen), (--fk-small-screen) {
+  fk-cart-tabbed-recommenders {
+    .fk-cart-recommenders {
+      margin-top: calc(var(--fk-vertical-space)*2);
+      background-color: var(--fk-color-primary-darker);
+
+      .cr-recommendations {
+        padding: 0 calc(var(--fk-horizontal-space)*0.5);
+
+        .cr-dealinfo {
+          padding: calc(var(--fk-vertical-space)*1.5) calc(var(--fk-horizontal-space)*0.5);
+        }
+      }
+
+      .cr-separator {
+        margin: calc(var(--fk-vertical-space)*2.5) calc(var(--fk-horizontal-space)*0.5) calc(var(--fk-vertical-space)*3.5);
+      }
+
+      .recommendation-sticky-ref {
+        height: calc(var(--fk-vertical-space)*2);
+      }
+    }
+  }
+}
+
+@media (--fk-medium-screen),(--fk-large-screen) {
+  fk-cart-tabbed-recommenders {
+    .fk-cart-recommenders {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      margin-right: calc(var(--fk-horizontal-space)*4);
+      margin-left: calc(var(--fk-horizontal-space)*1);
+
+      .cr-recommendations {
+        overflow-y: auto;
+        height: 100vh;
+
+        .cr-dealinfo {
+          margin: calc(var(--fk-vertical-space)*0.5) calc(var(--fk-horizontal-space)*0.5) calc(var(--fk-vertical-space)*2);
+        }
+
+        .cr-separator {
+          margin: calc(var(--fk-vertical-space)*3) calc(var(--fk-horizontal-space)*0.5) calc(var(--fk-vertical-space)*4);
+        }
+      }
+
+    }
+  }
+}

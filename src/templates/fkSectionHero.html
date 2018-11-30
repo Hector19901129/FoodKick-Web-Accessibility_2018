@@ -1,0 +1,43 @@
+<div ng-if="!$ctrl.withCaption && $ctrl.section.displayType === 'ShortBanner'" class="section-banner-holder section-banner-short" style="background-image:url({{$ctrl.sectionHeader}})"></div>
+<div ng-if="!$ctrl.withCaption && $ctrl.section.displayType !== 'ShortBanner' && !$ctrl.module" class="section-banner-holder" style="background-image:url({{$ctrl.sectionHeader}})">
+  <div class="section-banner-holder-content">
+    <h3>{{$ctrl.section.imageBanner.description}}</h3>
+  </div>
+</div>
+<div ng-if="$ctrl.withCaption && $ctrl.useLazyImg" class="section-content-wrapper" lazy-img="{{$ctrl.sectionHeader}}"></div>
+<div ng-if="$ctrl.withCaption && !$ctrl.useLazyImg" class="section-content-wrapper" style="background-image:url({{$ctrl.sectionHeader}})"></div>
+<div ng-if="!$ctrl.withCaption && $ctrl.section.displayType !== 'ShortBanner' && !$ctrl.module && $ctrl.type === 'picklist' && $ctrl.products.length === 1" class="single-product-tile-pick">
+  <fk-product-tile-list class="" channel="'rec_cms'" location="$ctrl.location" list-title="$ctrl.slug" products="$ctrl.products" displaytype="$ctrl.section.displayType" item-class="$ctrl.itemClass"></fk-product-tile-list>
+</div>
+<div ng-if="$ctrl.products.length > 1" ng-class="!$ctrl.withCaption ? 'section-content-without-text':'section-content-text'">
+  <div ng-if="$ctrl.section.captionText" class="section-caption">{{$ctrl.section.captionText | fkGreetingFilter}}</div>
+  <h3 ng-if="$ctrl.section.headlineText" class="section-title"><span ng-if="$ctrl.section.captionText" class="offscreen">{{$ctrl.section.captionText | fkGreetingFilter}}</span>{{$ctrl.section.headlineText | fkGreetingFilter}}</h3>
+  <p ng-if="$ctrl.section.bodyText" class="section-content" ng-transclude></p>
+</div>
+<div ng-if="$ctrl.products.length === 1 && $ctrl.type === 'feed'" class="section-content-text" ng-class="{'single-story-module': $ctrl.products.length === 1}">
+  <div ng-if="$ctrl.section.captionText" class="section-caption">{{$ctrl.section.captionText | fkGreetingFilter}}</div>
+  <div class="module-wrapper">
+    <div class="single-module-container-content">
+      <h3 ng-if="$ctrl.section.headlineText" class="section-title"><span ng-if="$ctrl.section.captionText" class="offscreen">{{$ctrl.section.captionText | fkGreetingFilter}}</span>{{$ctrl.section.headlineText | fkGreetingFilter}}</h3>
+      <p ng-if="$ctrl.section.bodyText" class="section-content" ng-transclude></p>
+    </div>
+    <div class="single-product-tile-home">
+      <fk-product-tile-list class="" channel="'rec_cms'" location="$ctrl.location" list-title="$ctrl.slug" products="$ctrl.products" displaytype="$ctrl.section.displayType" item-class="$ctrl.itemClass"></fk-product-tile-list>
+    </div>
+  </div>
+</div>
+<div ng-if="$ctrl.module && $ctrl.useLazyImg" class="section-banner-holder" lazy-img="{{$ctrl.module.moduleData.products[0].productData.productJumboImage}}">
+  <div class="section-banner-holder-content">
+    <h1>{{$ctrl.title}} {{title}}</h1>
+  </div>
+</div>
+<div ng-if="$ctrl.module && !$ctrl.useLazyImg" class="section-banner-holder" style="background-image:url({{$ctrl.module.moduleData.products[0].productData.productJumboImage}})">
+  <div class="section-banner-holder-content">
+    <h1>{{$ctrl.title}} {{title}}</h1>
+  </div>
+</div>
+<div ng-if="$ctrl.module && !$ctrl.useLazyImg" class="section-banner-holder" ng-style="{'background-image':'url({{$ctrl.sectionHeader}})'}">
+  <div class="section-banner-holder-content">
+    <h1>{{$ctrl.title}} {{title}}</h1>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="module-group-header row" lazy-img="{{$ctrl.moduleGroup.imageBanner}}">
+  <div class="module-group-header-text">
+    <h3 class="module-group-name" module-group="$ctrl.moduleGroup">{{$ctrl.moduleGroup.title}}</h3>
+    <h4 class="module-text-banner">{{$ctrl.moduleGroup.banner}}</h4>
+  </div>
+</div>
+
+<div class="module row" module-group="$ctrl.moduleGroup" ng-repeat="module in $ctrl.moduleGroup.modules" module="module">
+
+  <div class="module-content-header" ng-if="module.sourceType !== 'EDITORIAL_MODULE'">
+    <h3 class="module-category-name">{{module.contentTitle}}</h3>
+    <fk-section-more products="module.moduleData.products" module="module" title="module.contentTitle"></fk-section-more>
+  </div>
+
+  <div class="module-content">
+
+    <fd-product-carousel module="module" ng-if="module.sourceType === 'PRODUCT_CAROUSEL_MODULE'" nr-of-products="module.moduleData.products.length" item-id="module.moduleId" class="col-lg-15 col-md-15 col-sm-15 col-xs-15">
+      <fk-product-tile-list class="carousel-items"  products="module.moduleData.products" item-class="'product-carousel-item'"></fk-product-tile-list>
+    </fd-product-carousel>
+
+    <fd-product-carousel module="module" ng-if="module.sourceType === 'ICON_CAROUSEL_MODULE'" nr-of-products="module.moduleData.icons.length" item-id="module.moduleId" class="col-lg-15 col-md-15 col-sm-15 col-xs-15">
+      <fd-icon-tile-list module="module"></fd-icon-tile-list>
+    </fd-product-carousel>
+
+    <fd-section ng-if="module.sourceType === 'ICON_CAROUSEL_MODULE'" module="module" type="picklist" module-group="$ctrl.moduleGroup" class="" item-class="'col-sm-5 col-xs-75'"></fd-section>
+
+    <fd-section ng-if="module.sourceType === 'PRODUCT_CAROUSEL_MODULE'" module="module" type="picklist" limit="$ctrl.limit" module-group="$ctrl.moduleGroup" class="" item-class="'col-sm-5 col-xs-75'"></fd-section>
+
+    <fk-product-tile-list class="row" ng-if="module.sourceType === 'PRODUCT_LIST_MODULE'" products="module.moduleData.products" item-class="'col-lg-375 col-md-375 col-sm-5 col-xs-75'"></fk-product-tile-list>
+
+    <fd-editorial-content module="module" module-group="$ctrl.moduleGroup" ng-if="module.sourceType === 'EDITORIAL_MODULE'"></fd-editorial-content>
+
+  </div>
+</div>

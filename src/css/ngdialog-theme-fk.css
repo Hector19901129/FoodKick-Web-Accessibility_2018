@@ -1,0 +1,221 @@
+@import url(variables.css);
+
+.ngdialog-theme-fk .ngdialog-backdrop {
+  background-color: var(--fk-color-white-a);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1040;
+}
+.ngdialog-theme-fk .ngdialog-backdrop.fade {
+  opacity: 0;
+}
+.ngdialog-theme-fk .ngdialog-backdrop,
+.ngdialog-backdrop.fade.in {
+  filter: alpha(opacity=80);
+  opacity: 0.8;
+}
+.ngdialog.ngdialog-theme-fk {
+  background-clip: padding-box;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  outline: none;
+  position: fixed;
+  z-index: 1050;
+  padding: 0;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-animation: ngdialog-flyin .5s;
+  animation: ngdialog-flyin .5s!important;
+}
+
+.ngdialog.ngdialog-theme-fk.fade {
+  transition: opacity .3s linear, top .3s ease-out;
+  top: -25%;
+}
+
+.ngdialog.ngdialog-theme-fk.fade.in {
+  top: 10%;
+}
+
+.ngdialog.ngdialog-theme-fk .ngdialog-overlay {
+  background-color: var(--fk-color-primary-bg-a);
+
+}
+
+.ngdialog-theme-fk .ngdialog-header {
+  padding: 9px var(--fk-horizontal-space);
+}
+
+.ngdialog-theme-fk .ngdialog-header .close {
+  margin-top: 2px;
+}
+
+
+.ngdialog-theme-fk .ngdialog-footer {
+  margin: var(--fk-vertical-space) var(--fk-horizontal-space);
+  text-align: center;
+}
+
+.ngdialog-theme-fk .ngdialog-footer a {
+  color: var(--fk-color-gray-dark);
+}
+
+.ngdialog.ngdialog-theme-fk .ngdialog-content {
+  border-radius: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  background: transparent;
+  color: var(--fk-color-primary);
+  font-family: var(--fk-font-sans-serif);
+  font-size: var(--fk-font-size-base);
+  line-height: 1.5em;
+  align-items: center;
+  justify-content:center;
+  padding:0;
+  width: 100%;
+
+  .delivery-selection-picker {
+    width: 100%;
+  }
+}
+
+.ngdialog.ngdialog-theme-fk .close-continer {
+  background: transparent;
+  color: var(--fk-color-white);
+  font-family: var(--fk-font-sans-serif);
+  font-size: var(--fk-font-size-large);
+  font-weight: 600;
+  height:50px;
+  min-height: 44px;
+  letter-spacing: 2px;
+  position: absolute;
+  line-height: 2.27em;
+  width: 100%;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right: auto;
+}
+
+.ngdialog.ngdialog-theme-fk.narrow .close-continer {
+  position: relative;
+  width: 100%;
+  margin-left: 0;
+  min-height: 44px;
+  top: 0;
+}
+
+.ngdialog.ngdialog-theme-fk .ngdialog-close:before {
+  content: '';
+}
+
+.ngdialog.ngdialog-theme-fk.modify-bar-active {
+  justify-content: flex-start;
+
+  .ngdialog-content {
+  height: calc(100% - 40px);
+  }
+}
+
+@media (--fk-extra-small-screen),(--fk-small-screen) {
+  .ngdialog.ngdialog-theme-fk {
+    display:block;
+
+    .ngdialog-overlay {
+      position: fixed;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      height: auto;
+    }
+    .ngdialog-content {
+      position: fixed;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+    }
+  }
+}
+
+@media (--fk-extra-small-screen) {
+  .ngdialog.ngdialog-theme-fk .ngdialog-content {
+    justify-content: flex-end;
+  }
+}
+
+@media (--fk-small-screen) {
+
+  .ngdialog.ngdialog-theme-fk.narrow .ngdialog-content {
+    height: auto;
+    margin:auto;
+    height: 100%;
+    width: 460px;
+  }
+  .ngdialog.ngdialog-theme-fk.narrow .close-continer {
+    margin-left: 44px;
+    min-height: auto;
+
+    & .title {
+      margin-left: -44px;
+    }
+  }
+}
+
+@media (--fk-medium-screen) {
+  .ngdialog.ngdialog-theme-fk.narrow .ngdialog-content {
+    width: 460px;
+    height: auto;
+    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ngdialog.ngdialog-theme-fk.narrow .close-continer {
+    margin-left: 44px;
+    min-height: auto;
+
+    & .title {
+      margin-left: -44px;
+    }
+  }
+  .ngdialog.ngdialog-theme-fk .close-continer {
+    width: var(--fk-medium-container-size);
+  }
+}
+
+@media (--fk-large-screen) {
+  .ngdialog.ngdialog-theme-fk.narrow .ngdialog-content {
+    width: 460px;
+    height: auto;
+    max-height: 100%;
+  }
+  .ngdialog.ngdialog-theme-fk.narrow .close-continer {
+    margin-left: 44px;
+    min-height: auto;
+
+    & .title {
+      margin-left: -44px;
+    }
+  }
+  .ngdialog.ngdialog-theme-fk .close-continer {
+    width: var(--fk-large-container-size);
+  }
+}
+
+@media (--fk-large-screen), (--fk-medium-screen) {
+  .ngdialog.ngdialog-theme-fk .ngdialog-content {
+    height: 100%;
+  }
+}
+
+.dialog-header-row {
+  padding-top:7px;
+  padding-bottom:7px;
+  box-sizing: border-box;
+  background: var(--fk-color-primary-lighter);
+  height: 50px;
+}

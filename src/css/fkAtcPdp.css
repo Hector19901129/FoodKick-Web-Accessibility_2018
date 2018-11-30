@@ -1,0 +1,64 @@
+@import url(variables.css);
+
+fk-atc-pdp {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+
+  .subtotal {
+    margin-right: 5px;
+    font-size: 1.5em;
+    line-height: 2em;
+    flex: 1;
+  }
+
+  .inventory-quantity-checker {
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #b73f42;
+  }
+
+  .atc-fields {
+    flex: 1;
+    display: flex;
+  }
+
+  fk-quantity-drop-down-selector {
+    margin-right: 10px;
+    display: inline-block;
+
+    .quantity-select {
+      height: 2.5em;
+    }
+  }
+
+  button {
+    margin-top: 0;
+    flex: 1;
+    text-transform: uppercase;
+  }
+}
+
+@media (--fk-medium-screen), (--fk-large-screen) {
+  fk-atc-pdp {
+    margin: 20px 0;
+
+    display: block;
+    .subtotal, .atc-fields, fk-quantity-drop-down-selector {
+      display: inline-block;
+    }
+  }
+}
+
+@media (--fk-extra-small-screen), (--fk-small-screen) {
+  fk-atc-pdp {
+    .subtotal {
+      display: inline-block;
+    }
+
+    .inventory-quantity-checker {
+      display: inline-block;
+    }
+  }
+}

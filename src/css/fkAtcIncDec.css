@@ -1,0 +1,114 @@
+@import url(variables.css);
+
+fk-atc-inc-dec {
+  position: relative;
+  display: block;
+  height: 60px;
+  overflow: hidden;
+
+  & .incdec--holder {
+    transition: all .3s ease;
+    transition-delay: .22s;
+  }
+
+  & .incdec--holder.incart {
+    margin-top: -60px;
+
+    .atc {
+      visibility: hidden;
+    }
+    .incdec {
+      visibility: visible;
+    }
+  }
+
+  & .atc {
+    height: 60px;
+    width: 100%;
+    visibility: visible;
+  }
+
+  & .atc button {
+    height: 60px;
+    width: 100%;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  & .incdec {
+    height: 60px;
+    width: 100%;
+    visibility: hidden;
+  }
+
+  & .incdec .quantity-indicator {
+    display: block;
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    transition: all .3s ease;
+    background-color: #3e3f49;
+    opacity: 0.97;
+    font-size: 14px;
+    color: #ffffff;
+  }
+
+  & .incdec button {
+    display: block;
+    float: left;
+    margin: 0;
+    height: 60px;
+    width: 50%;
+    transition: all .3s ease;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  & .incdec button[disabled] {
+    .svgicon {
+      opacity: 0.5;
+    }
+  }
+
+  & .incdec button .svgicon {
+    opacity: .5;
+    height: 2.3em;
+    width: 2.3em;
+    fill: var(--fk-color-white);
+  }
+
+  button.button.incdec--add {
+    border-left: 1px solid #1B1A21;
+  }
+
+  button.button.incdec--add[disabled] {
+    background-color: #3e3f49;
+    color: #e1e1e1;
+    fill: #e1e1e1;
+  }
+
+  .button:active,
+  .button:hover .svgicon {
+    opacity: 1;
+  }
+}
+
+@media (--fk-medium-screen), (--fk-large-screen) {
+  fk-atc-inc-dec {
+    & .incdec--holder {
+      transition: none;
+    }
+
+    & .button {
+        width: 50%;
+        height: 100%;
+    }
+  }
+}

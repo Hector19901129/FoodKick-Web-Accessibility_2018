@@ -1,0 +1,206 @@
+@import url(variables.css);
+
+fk-delivery-timeslots .timeslot {
+  cursor: pointer;
+  display: flex;
+}
+
+fk-delivery-timeslots fk-tabs > ul.nav > li > button {
+  height: 56px;
+  margin-bottom: 16px;
+  display:block;
+}
+
+.timeslot-time {
+  display: flex;
+}
+
+ .delivery-fee {
+   display: flex;
+   flex: 1;
+   justify-content: flex-end;
+ }
+
+ .original-delivery-fee {
+   color: var(--fk-color-primary);
+ }
+
+.alcohol-restricted {
+  text-align: center;
+  flex: 1;
+}
+
+fk-delivery-timeslots fk-tabs fk-tab ul> li div p{
+  margin-right: var(--fk-horizontal-space);
+}
+
+fk-delivery-timeslots .button-container .button {
+  background-color: var(--fk-color-gray-lighter);
+  color: var(--fk-color-gray-dark);
+}
+
+fk-delivery-timeslots .button-container .button-primary::after {
+  position: absolute;
+  content: ' ';
+  width: 0;
+  height: 0;
+  border-bottom: none;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 16px solid var(--fk-color-primary);
+  bottom: -16px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 1;
+}
+
+
+fk-delivery-timeslots .no-timeslot {
+  font-size: var(--fk-font-size-large);
+  font-weight: bold;
+  text-align: center;
+  justify-content: center;
+  line-height: 3em;
+}
+
+
+fk-delivery-timeslots ul li {
+  height: 60px;
+  line-height: 60px;
+  width: 100%;
+  font-weight: 500;
+
+  .timeslot-time,
+  .delivery-fee {
+    border-bottom: 1px solid var(--fk-color-primary-darker-light-a);
+  }
+}
+
+fk-delivery-timeslots ul li .timeslot-selected {
+  width: 50px;
+  text-align: center;
+  color: var(--fk-color-primary);
+}
+
+fk-delivery-timeslots ul li fk-icon>svg {
+  fill: transparent;
+  height: 15.8px;
+  width: 21px;
+}
+
+fk-delivery-timeslots ul .selected-elem fk-icon>svg {
+  fill: var(--fk-color-primary);
+}
+
+fk-delivery-timeslots p {
+  color: var(--fk-color-gray-darkest);
+  font-family: var(--fk-font-sans-serif);
+  font-size: var(--fk-font-size-medium);
+  font-weight: 500;
+  line-height: 4.29;
+  letter-spacing: .8px;
+  margin-top: 0;
+}
+
+fk-delivery-timeslots ul .selected-elem p {
+  color: var(--fk-color-primary);
+}
+
+fk-delivery-timeslots .timeslot span {
+  margin-bottom: 0;
+  font-weight: 500;
+  text-align: right;
+}
+
+fk-delivery-timeslots .timeslot-disable {
+  color: var(--fk-color-gray);
+  cursor: not-allowed;
+  border-bottom: 1px solid var(--fk-color-primary-darker-light-a);
+  padding-right: 10px;
+}
+
+fk-delivery-timeslots .timeslot-selection-not-allowed {
+  cursor: not-allowed;
+}
+
+fk-delivery-timeslots .timeslot-gray-out {
+  color: var(--fk-color-gray);
+  cursor: not-allowed;
+  text-decoration: line-through;
+  border-bottom: 1px solid var(--fk-color-primary-darker-light-a);
+  display: flex;
+  flex: 1;
+}
+
+fk-delivery-timeslots .timeslot-selection-disabled {
+  margin-bottom: 0;
+  width: 50px;
+  cursor: not-allowed;
+  color: var(--fk-color-gray);
+}
+
+fk-delivery-timeslots .timeslot-time .sterring-promotion {
+  margin-left: var(--fk-horizontal-space);
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  color: var(--fk-color-red);
+  font-size: var(--fk-font-size-small);
+}
+
+fk-delivery-timeslots .delivery-fee {
+  margin-bottom: auto;
+  padding-right: var(--fk-horizontal-space);
+}
+
+fk-delivery-timeslots ul li .delivery-fee .original-delivery-fee.promo {
+  color: var(--fk-color-gray);
+  text-decoration: line-through;
+  margin-right: var(--fk-horizontal-space);
+}
+
+fk-delivery-timeslots ul li.selected-elem.selected-time-slot {
+  color: var(--fk-color-primary);
+}
+
+fk-delivery-timeslots .label {
+  height: 40px;
+  background-color: var(--fk-color-gray-light);
+  color: var(--fk-color-gray-darker);
+  text-align: center;
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  h2 {
+    padding-top: 10px;
+    font-size: var(--fk-font-size-medium);
+    letter-spacing: .8px;
+    font-weight: 600;
+    font-family: var(--fk-font-sans-serif);
+    color: var(--fk-color-gray-dark);
+  }
+}
+
+fk-delivery-timeslots .timeslot .promo-delivery-fee {
+  color: var(--fk-color-primary);
+}
+
+@media (--fk-extra-small-screen) {
+  fk-delivery-timeslots ul li .timeslot-selected {
+   width: 25px;
+  }
+  fk-delivery-timeslots ul li .timeslot-selection-disabled {
+   width: 30px;
+  }
+  fk-delivery-timeslots ul li {
+    font-size: calc(var(--fk-font-size-small) + 1);
+  }
+  fk-delivery-timeslots ul li fk-icon>svg {
+    width: 15px;
+  }
+  fk-delivery-timeslots .timeslot-time .sterring-promotion {
+    font-size: var(--fk-font-size-small);
+  }
+}

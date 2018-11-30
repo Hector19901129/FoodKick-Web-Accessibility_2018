@@ -1,0 +1,7 @@
+<div class="fk-cart-recommenders-selector">
+  <div class="cr-selector">
+    <div ng-repeat="recommendation in $ctrl.recommendations" class="cr-recommender">
+      <div class="cr-button" ng-class="{'cr-selected': $first}" ng-click="$ctrl.scrollToRecommendation(recommendation.id)" id="button-cr-{{recommendation.id}}" tabindex="0" fk-a11y-click><span offscreen>Navigate to </span>{{recommendation.title}}<span offscreen> recommendations</span></div>
+    </div>
+  </div>
+</div>

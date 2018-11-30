@@ -1,0 +1,5 @@
+@import url(variables.css);
+
+.delivery-pass-page {
+  padding: calc(var(--fk-vertical-space) * 2) 0;
+}

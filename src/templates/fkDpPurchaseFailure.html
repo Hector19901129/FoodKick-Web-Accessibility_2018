@@ -1,0 +1,8 @@
+<div class="dp_failure">
+  <span ng-if="failure.errors.checkout_error">{{failure.errors.checkout_error}}</span>
+  <span ng-if="!failure.errors.checkout_error">We are currently experiencing technical difficulties that is not allowing to submit the order. Please contact customer service.</span>
+  <div class="button-container">
+    <button class="button button-primary" ng-click="closeThisDialog()">OK</button>
+  </div>
+</div>
+<fk-ngdialog-close ng-click="closeThisDialog()">PURCHASE FAILED</fk-ngdialog-close>

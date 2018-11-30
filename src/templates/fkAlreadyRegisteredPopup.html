@@ -1,0 +1,12 @@
+<div class="popup-information">
+  <div class="error">
+    <ul ng-repeat="(key, value) in $ctrl.signUpErrors">
+      <li>{{value}}</li>
+    </ul>
+  </div>
+  <div class="changes-buttons"  ng-repeat="(key, value) in $ctrl.signUpErrors" ng-if="key === 'GENERIC0'">
+    <button class="button-primary" ng-click="$ctrl.signIn()">SIGN IN</button>
+    <button class="button-primary-ghost" ng-click="closeThisDialog()">NOT NOW</button>
+  </div>
+</div>
+<fk-ngdialog-close ng-click="closeThisDialog()"></fk-ngdialog-close>

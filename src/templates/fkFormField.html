@@ -1,0 +1,169 @@
+<div class="field--container"
+     ng-attr-fk-tmp-value="{{form[$c.descriptor.name].$viewValue}}"
+     ng-attr-fk-value="{{$c.fkFormCtrl.formData[$c.descriptor.name]}}"
+     ng-attr-fk-label-type="{{$c.descriptor.labelType}}"
+     ng-attr-fk-field-type="{{$c.descriptor.type}}}"
+     ng-if="$c.descriptor.type !== 'textarea' &&
+            $c.descriptor.type !== 'radio' &&
+            $c.descriptor.type !== 'checkbox' &&
+            $c.descriptor.type !== 'select' &&
+            $c.descriptor.type !== 'hidden' &&
+            $c.descriptor.type !== 'html' &&
+            $c.descriptor.type !== 'button' &&
+            $c.descriptor.type !== 'showpassword'">
+  <label for="{{$c.formId}}" ng-class="$c.descriptor.required ? 'required' : 'optional'" data-optional-text="{{$c.descriptor.optionalText || 'Optional' }}">{{$c.descriptor.label || $c.descriptor.placeholder}}</label>
+  <input
+      id="{{$c.formId}}"
+      ng-model-options="{updateOn: 'default blur'}"
+      ng-model="$c.fkFormCtrl.formData[$c.descriptor.name]"
+      name="{{$c.descriptor.name}}"
+      type="{{$c.descriptor.type}}"
+      placeholder="{{$c.descriptor.placeholder || $c.descriptor.label}}"
+      ng-disabled="{{$c.descriptor.disabled}}"
+      ng-required="{{$c.descriptor.required}}"
+      ng-attr-pattern="{{$c.descriptor.pattern}}"
+      fk-field-compare-to="{{$c.descriptor.fkFieldCompareTo}}"
+    />
+  <div fk-error-for="{{$c.descriptor.name}}"></div>
+</div>
+
+<div class="field--container"
+     ng-attr-fk-tmp-value="{{form[$c.descriptor.name].$viewValue}}"
+     ng-attr-fk-value="{{$c.fkFormCtrl.formData[$c.descriptor.name]}}"
+     ng-attr-fk-label-type="{{$c.descriptor.labelType}}"
+     fk-field-type="textarea"
+     ng-if="$c.descriptor.type === 'textarea'">
+  <label for="{{$c.formId}}">{{$c.descriptor.label || $c.descriptor.placeholder}}</label>
+  <textarea
+      name="{{$c.descriptor.name}}"
+      id="{{$c.formId}}"
+      ng-model-options="{updateOn: 'default blur'}"
+      ng-model="$c.fkFormCtrl.formData[$c.descriptor.name]"
+      ng-disabled="{{$c.descriptor.disabled}}"
+      name="{{$c.descriptor.name}}"
+      placeholder="{{$c.descriptor.placeholder || $c.descriptor.label}}"
+      ng-required="{{$c.descriptor.required}}"
+      fk-field-compare-to="{{$c.descriptor.fkFieldCompareTo}}"
+      >
+  </textarea>
+  <div fk-error-for="{{$c.descriptor.name}}"></div>
+</div>
+
+<div ng-if="$c.descriptor.type === 'html'" ng-bind-html="$c.descriptor.content">
+</div>
+
+<div ng-if="$c.descriptor.type === 'hidden'">
+  <input
+      id="{{$c.formId}}"
+      ng-model="$c.fkFormCtrl.formData[$c.descriptor.name]"
+      ng-disabled="{{$c.descriptor.disabled}}"
+      name="{{$c.descriptor.name}}"
+      type="hidden"
+    />
+</div>
+
+<div class="field--container"
+     fk-field-type="checkbox"
+     ng-if="$c.descriptor.type === 'checkbox'">
+  <input
+      id="{{$c.formId}}"
+      ng-model-options="{updateOn: 'default blur'}"
+      ng-model="$c.fkFormCtrl.formData[$c.descriptor.name]"
+      name="{{$c.descriptor.name}}"
+      type="checkbox"
+      ng-disabled="{{$c.descriptor.disabled}}"
+      ng-required="{{$c.descriptor.required}}"
+      ng-checked="$c.fkFormCtrl.formData[$c.descriptor.name]"
+    />
+  <label for="{{$c.formId}}">{{$c.descriptor.label || $c.descriptor.placeholder}}</label>
+  <div fk-error-for="{{$c.descriptor.name}}"></div>
+</div>
+
+<div class="field--container"
+     fk-field-type="button"
+     ng-if="$c.descriptor.type === 'button'">
+
+  <button id="{{$c.formId}}"
+  name="{{$c.descriptor.name}}"
+  type="{{$c.descriptor.buttontype || 'button'}}"
+  ng-disabled="{{$c.descriptor.disabled}}"
+  fk-click="{{$c.descriptor.fkClick}}" fk-click-scope="{{$c.descriptor.fkClickScope || ''}}" >
+    {{$c.descriptor.label || $c.descriptor.placeholder}}
+  </button>
+</div>
+
+<div class="field--container"
+     fk-field-type="radio"
+     ng-if="$c.descriptor.type === 'radio'">
+  <div ng-repeat="option in $c.descriptor.options">
+    <input
+        id="{{$c.formId}}_{{option.value}}"
+        ng-model-options="{updateOn: 'default blur'}"
+        ng-model="$c.fkFormCtrl.formData[$c.descriptor.name]"
+        ng-disabled="{{$c.descriptor.disabled || option.disabled}}"
+        name="{{$c.descriptor.name}}"
+        type="radio"
+        ng-value="option.value"
+        ng-required="{{$c.descriptor.required}}"
+      />
+    <label
+        for="{{$c.formId}}_{{option.value}}"
+        ng-class="option.value"
+    >{{option.name || option.label || option.value}}</label>
+  </div>
+  <div fk-error-for="{{$c.descriptor.name}}"></div>
+</div>
+
+<div class="field--container"
+     fk-field-type="radio"
+     ng-attr-fk-tmp-value="{{form[$c.descriptor.name].$viewValue}}"
+     ng-attr-fk-value="{{$c.fkFormCtrl.formData[$c.descriptor.name]}}"
+     ng-attr-fk-label-type="{{$c.descriptor.labelType}}"
+     ng-if="$c.descriptor.type === 'select'">
+  <label for="{{$c.formId}}">{{$c.descriptor.label || $c.descriptor.placeholder}}</label>
+  <div class="select--wrapper">
+    <select
+        id="{{$c.formId}}"
+        name="{{$c.descriptor.name}}"
+        ng-model="$c.fkFormCtrl.formData[$c.descriptor.name]"
+        ng-disabled="{{$c.descriptor.disabled}}"
+        ng-options="option as option.name disable when option.disabled for option in $c.descriptor.options track by option.value"
+        ng-required="{{$c.descriptor.required}}">
+      <option ng-if="!$c.descriptor.noEmptyOption" value="">{{$c.descriptor.emptyOption || $c.descriptor.placeholder || $c.descriptor.label || '-- Please select --'}}</option>
+    </select>
+    <fk-icon fk-icon-id="#down"></fk-icon>
+  </div>
+  <div fk-error-for="{{$c.descriptor.name}}"></div>
+</div>
+
+<div class="field--container"
+     fk-field-type="showpassword"
+     ng-attr-fk-tmp-value="{{form[$c.descriptor.name].$viewValue}}"
+     ng-attr-fk-value="{{$c.fkFormCtrl.formData[$c.descriptor.name]}}"
+     ng-attr-fk-label-type="{{$c.descriptor.labelType}}"
+     ng-if="$c.descriptor.type === 'showpassword'">
+  <label for="{{$c.formId}}">{{$c.descriptor.label || $c.descriptor.placeholder}}</label>
+  <input
+      id="{{$c.formId}}"
+      ng-model-options="{updateOn: 'default blur'}"
+      ng-model="$c.fkFormCtrl.formData[$c.descriptor.name]"
+      name="{{$c.descriptor.name}}"
+      type= "{{form[$c.formId+'_showpassword'].$viewValue ? 'textarea' : 'password'}}"
+      placeholder="{{$c.descriptor.placeholder || $c.descriptor.label}}"
+      ng-disabled="{{$c.descriptor.disabled}}"
+      ng-required="{{$c.descriptor.required}}"
+      ng-attr-pattern="{{$c.descriptor.pattern}}"
+      fk-field-compare-to="{{$c.descriptor.fkFieldCompareTo}}"
+    />
+  <div class="showpassword--cb">
+    <input
+        id="{{$c.formId}}_showpassword"
+        ng-model-options="{updateOn: 'default blur'}"
+        ng-model="show"
+        name="{{$c.formId}}_showpassword"
+        type="checkbox"
+      />
+    <label for="{{$c.formId}}_showpassword">Show password</label>
+  </div>
+  <div fk-error-for="{{$c.descriptor.name}}"></div>
+</div>

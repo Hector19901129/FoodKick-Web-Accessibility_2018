@@ -1,0 +1,90 @@
+@import url(variables.css);
+
+.page-account {
+   #accountmenu-holder {
+     padding-bottom: calc(var(--fk-horizontal-space) * 7);
+   }
+
+   .empty-space {
+    display: none;
+   }
+
+  .main {
+    padding-bottom: var(--fk-vertical-space);
+    background-color: var(--fk-color-off-white);
+    &.mobileaccountdetails {
+      background: var(--fk-color-white);
+      height: 100%;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 500;
+      overflow: auto;
+      & > div {
+        height: 100%;
+        & .content {
+          height: 100%;
+        }
+      }
+    }
+  }
+  #account-title {
+    padding: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+    h2 {
+      font-size: var(--fk-font-size-large);
+      font-weight: 600;
+      letter-spacing: .4px;
+      font-family: var(--fk-font-sans-serif);
+      margin: 0;
+    }
+  }
+}
+
+#account-details-page{
+  height: auto;
+  .mobile-title {
+    background: var(--fk-color-primary-darkest);
+    color: var(--fk-color-white);
+    text-transform: uppercase;
+    height: 40px;
+    padding: 0 var(--fk-horizontal-space);
+    position: relative;
+  }
+
+  .title {
+    padding: 24px;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  #close-details{
+    fill: var(--fk-color-white);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 10px;
+    cursor: pointer;
+  }
+}
+
+@media (--fk-medium-screen), (--fk-large-screen) {
+  .page-account {
+    .main {
+      padding-left: calc(var(--fk-horizontal-space) * 2.5);
+      border-left: 1px solid var(--fk-color-gray-light);
+    }
+    #accountmenu-holder {
+      padding-right: 0;
+    }
+  }
+}
+
+@media (--fk-small-screen), (--fk-extra-small-screen) {
+  .page-account {
+    .main {
+      padding-bottom: 2px;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+  <section ng-if="$ctrl.section.products.length || $ctrl.section.displayType === 'ShortBanner'" ng-fk-displaytype="{{$ctrl.section.displayType}}" class="">
+    <fk-section-hero use-lazy-img="$ctrl.useLazyImg" column="$ctrl.column" position="$ctrl.position" section="$ctrl.section" products="$ctrl.topProducts" type="$ctrl.type">{{$ctrl.section.bodyText | fkGreetingFilter}}</fk-section-hero>
+    <fk-product-tile-list class="" ng-if="$ctrl.topProducts.length > 1" channel="'rec_cms'" location="$ctrl.location" list-title="$ctrl.slug" products="$ctrl.topProducts" displaytype="$ctrl.section.displayType" item-class="$ctrl.itemClass"></fk-product-tile-list>
+    <fk-section-more ng-if="$ctrl.restOfProducts.length" channel="'rec_cms'" location="$ctrl.location" slug="$ctrl.slug" products="$ctrl.section.products" section="$ctrl.section" type="$ctrl.type"></fk-section-more>
+  </section>

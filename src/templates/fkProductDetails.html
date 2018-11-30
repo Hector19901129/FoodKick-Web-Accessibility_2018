@@ -1,0 +1,151 @@
+<div class="row" ng-if="$ctrl.getProduct().productData.msgCutoffHeader || $ctrl.getProduct().productData.msgCutoffNotice || $ctrl.getProduct().productData.msgDayOfWeekHeader || $ctrl.getProduct().productData.msgDayOfWeek || $ctrl.getProduct().productData.msgDeliveryNote"><!-- TODO messages? -->
+  <div class="pdp-info col-xs-15 col-sm-15 col-md-15 col-lg-15">
+    <div class="icon-container">
+      <fk-icon fk-icon-id="#info" class="info"></fk-icon>
+    </div>
+    <div class="messages row">
+      <div class="message col-xs-14 col-sm-14 col-md-14 col-lg-14" ng-repeat="message in [$ctrl.getProduct().productData.msgCutoffHeader, $ctrl.getProduct().productData.msgCutoffNotice, $ctrl.getProduct().productData.msgDayOfWeekHeader, $ctrl.getProduct().productData.msgDayOfWeek, $ctrl.getProduct().productData.msgDeliveryNote] track by $index" ng-if="message" ng-bind-html="message"></div>
+    </div>
+  </div>
+</div>
+<fk-group-scale-selector pdp-feed-type="$ctrl.pdpFeedType" ng-if="$ctrl.getProduct().productData.dealInfo"></fk-group-scale-selector>
+<div ng-if="!$ctrl.showBuyMore()" class="pdp-container">
+  <div class="header-content">
+    <div class="row pdp-header" ng-if="!$ctrl.getProduct().fake" ng-class="$ctrl.getProduct().productData.available ? 'available' : 'unavailable'">
+      <div class="product--flag">
+        <!-- TODO -->
+      </div>
+      <div class="available-tomorrow" ng-if="$ctrl.getProduct().productData.msgEarliestAvailability && $ctrl.getProduct().productData.availableQty > 0 && !$ctrl.getProduct().productData.variations[0]"><div class="alert-icon"><fk-icon fk-icon-id="#info_alert_icon"></fk-icon></div><div class="alert-text">This item is no longer available today, but can be delivered tomorrow.</div></div>
+      <div class="col-xs-15 col-sm-15 col-md-9 col-lg-9 pdp-image-nopadding">
+        <div class="product-carousel">
+          <fk-carousel class="contain" images="images" imagestyle="contain" dotstyle="secondary-pdp" arrowstyle="arrow-pdp" showarrow="true" autoplay="false"></fk-carousel>
+        </div>
+      </div>
+      <div class="product-details-static-position col-xs-15 col-sm-15 col-md-6 col-lg-6" ng-class="$ctrl.getProduct().productData.msgEarliestAvailability && $ctrl.getProduct().productData.availableQty > 0 ? 'product-details-static-height' : ''">
+        <div class="product-details-wrap" ng-class="$ctrl.getProduct().productData.msgEarliestAvailability && $ctrl.getProduct().productData.availableQty > 0 ? 'availability-bar' : ''">
+          <div class="product-details">
+            <h2>
+              <div class="product--brand" ng-bind-html="$ctrl.getProduct().productData.brandName">{{$ctrl.getProduct().productData.brandName}}</div>
+              <div class="product--name" ng-bind-html="$ctrl.getProduct().productData.productNameNoBrand">{{$ctrl.getProduct().productData.productNameNoBrand}}</div>
+              <div class="product--subtitle">{{$ctrl.getProduct().productData.akaName}}</div>
+            </h2>
+            <div class="product--rating">
+              <fk-rating class="rating" product="$ctrl.getProduct()"></fk-rating>
+              <span class="pdp-purple-text fresh-factor" ng-click="$ctrl.openFreshFactorHelps()" ng-if="$ctrl.getProduct().productData.expertRating">Daily Fresh Factor</span>
+            </div>
+            <div class="product--unitinfo">
+              <span ng-if="$ctrl.getProduct().productData.salesUnitDescrPDP && $ctrl.getProduct().productData.scaleUnit ==='ea'">{{$ctrl.getProduct().productData.salesUnitDescrPDP}}</span>
+              <span ng-if="$ctrl.getProduct().productData.suRatios[0].ratio && !$ctrl.getProduct().productData.salesUnitDescrPDP && $ctrl.getProduct().productData.scaleUnit === 'lb'">{{$ctrl.getProduct().productData.suRatios[0].ratio}}{{$ctrl.getProduct().productData.scaleUnit}}</span>
+              <span ng-if="$ctrl.getProduct().productData.suRatios[0].ratio && $ctrl.getProduct().productData.salesUnitDescrPDP && $ctrl.getProduct().productData.scaleUnit === 'lb'">{{$ctrl.getProduct().productData.salesUnitDescrPDP}}</span>
+              <span ng-if="$ctrl.getProduct().productData.utPrice && $ctrl.getProduct().productData.scaleUnit === 'ea'">(${{$ctrl.getProduct().productData.utPrice}}<span ng-if="$ctrl.getProduct().productData.utSalesUnit">/{{$ctrl.getProduct().productData.utSalesUnit}}</span>)</span>
+              <span ng-if="!$ctrl.getProduct().productData.utPrice && $ctrl.getProduct().productData.price && $ctrl.getProduct().productData.scaleUnit === 'lb'"><span ng-class="{'promo-price-by-weight': $ctrl.getProduct().productData.wasPrice, 'normal-price': !$ctrl.getProduct().productData.wasPrice}">
+                ${{$ctrl.getProduct().productData.price}}<span ng-if="$ctrl.getProduct().productData.scaleUnit">/{{$ctrl.getProduct().productData.scaleUnit}}</span></span>
+                <span class="was-price-by-weight" ng-if="$ctrl.getProduct().productData.wasPrice">{{$ctrl.getProduct().productData.wasPrice|currency:'$':2}}</span>
+              </span>
+            </div>
+            <div ng-if="!$ctrl.getProduct().productData.wasPrice" class="product--price">
+              <span class="product--pricewrapper">
+                <span ng-if="$ctrl.getProduct().productData.configuredPrice && $ctrl.getProduct().productData.quantity.qMin<=1" class="price">{{$ctrl.getProduct().productData.configuredPrice || $ctrl.getProduct().productData.price|currency:'$':2}}</span>
+                <span ng-if="$ctrl.getProduct().productData.price && $ctrl.getProduct().productData.quantity.qMin>=2 && $ctrl.getProduct().productData.scaleUnit ==='ea'" class="price">{{$ctrl.getProduct().productData.price || $ctrl.getProduct().productData.configuredPrice|currency:'$':2}}</span>
+                <span ng-if="$ctrl.getProduct().productData.price && $ctrl.getProduct().productData.quantity.qMin>=2 && $ctrl.getProduct().productData.scaleUnit ==='lb'" class="price">{{($ctrl.getProduct().productData.configuredPrice /$ctrl.getProduct().productData.quantity.qMin)|currency:'$':2}}</span>
+                <span class="minimum-quantity" ng-if="$ctrl.getProduct().productData.quantity.qMin>=2">  min. of {{$ctrl.getProduct().productData.quantity.qMin}}</span>
+                <div ng-if="fkCartService.productsInCart[$ctrl.getProduct().productData.productId].subtotal" class="product--subtotal">Total: {{fkCartService.productsInCart[$ctrl.getProduct().productData.productId].subtotal|currency:'$':2}}</div>
+              </span>
+            </div>
+            <div ng-if="$ctrl.getProduct().productData.wasPrice" class="product--price">
+              <span class="product--pricewrapper">
+                <span class="price promo-price" ng-if="$ctrl.getProduct().productData.price  && $ctrl.getProduct().productData.scaleUnit === 'ea'">{{$ctrl.getProduct().productData.price|currency:'$':2}}</span>
+                <span class="price promo-price-configured" ng-if="$ctrl.getProduct().productData.configuredPrice && !$ctrl.getProduct().productData.utPrice && $ctrl.getProduct().productData.quantity.qMin<2  && $ctrl.getProduct().productData.scaleUnit === 'lb'">{{$ctrl.getProduct().productData.configuredPrice|currency:'$':2}}</span>
+                <span class="price promo-price-configured" ng-if="$ctrl.getProduct().productData.configuredPrice && $ctrl.getProduct().productData.quantity.qMin>=2 && !$ctrl.getProduct().productData.utPrice && $ctrl.getProduct().productData.scaleUnit ==='lb'">{{($ctrl.getProduct().productData.configuredPrice /$ctrl.getProduct().productData.quantity.qMin)|currency:'$':2}}</span>
+                <span class="promo-save" ng-if="$ctrl.getProduct().productData.wasPrice && $ctrl.getProduct().productData.price">SAVE {{(100*($ctrl.getProduct().productData.wasPrice- $ctrl.getProduct().productData.price)/$ctrl.getProduct().productData.wasPrice).toFixed(0)}}%</span>
+                <span class="was-price" ng-if="$ctrl.getProduct().productData.scaleUnit === 'ea'">{{$ctrl.getProduct().productData.wasPrice|currency:'$':2}}</span>
+                 <span class="minimum-quantity" ng-if="$ctrl.getProduct().productData.quantity.qMin>=2">  min. of {{$ctrl.getProduct().productData.quantity.qMin}}</span>
+              </span>
+            </div>
+            <div ng-if="$ctrl.getProduct().productData.savingString" class="product--deal">
+              {{$ctrl.getProduct().productData.savingString}}
+            </div>
+            <div class="estimated-weight" ng-if="$ctrl.getProduct().productData.suRatios[0].salesUnit === 'LB'">
+              <div class="approx-weight">{{$ctrl.estimatedWeight |  number:1}} {{$ctrl.getProduct().productData.suRatios[0].salesUnit | lowercase}}<span> Est. Weight</span></div>
+              <div class="estimated-text">Actual weight may vary from estimate due to seasonality and/or sourcing.</div>
+            </div>
+            <div class="product--freshness" ng-if="$ctrl.getProduct().productExtraData.freshness">
+              <div>Guaranteed Fresh</div>
+              <div class="pdp-purple-text" ng-if="$ctrl.getProduct().productExtraData.freshness === 1" ng-click='$ctrl.openGuaranteedFreshPopup()'>At least <span>{{$ctrl.getProduct().productExtraData.freshness}}</span> day from delivery</div>
+              <div class="pdp-purple-text" ng-if="$ctrl.getProduct().productExtraData.freshness > 1" ng-click='$ctrl.openGuaranteedFreshPopup()'>At least <span>{{$ctrl.getProduct().productExtraData.freshness}}</span> days from delivery</div>
+            </div>
+            <button ng-click="$ctrl.changePdpFeed('buyMoreAndSave')" ng-if="$ctrl.getProduct().productData.dealInfo" class="button-primary-ghost product--deal group-scale-button">
+              {{$ctrl.getProduct().productData.dealInfo}}<fk-icon fk-icon-id="#right"></fk-icon>
+            </button>
+          </div>
+          <!-- TODO -->
+          <div ng-if="$ctrl.getProduct().productData.available" class="product--atc desktop">
+            <div class="availability-checker-desktop" ng-if="(selectedQty || $ctrl.prodQuantity || fkCartService.productsInCart[$ctrl.getProduct().productData.productId].quantity) >=  $ctrl.getProduct().productData.availableQty && $ctrl.getProduct().productData.availableQty > 0 || $ctrl.showAvailQty">Only {{$ctrl.getProduct().productData.availableQty}} Available.
+            </div>
+            <fk-atc-pdp product="$ctrl.getProduct()" subtotal="$ctrl.calculatedSubTotal" on-update="$ctrl.updateHandler(quantity)" product-quantity ="$ctrl.prodQuantity" available="$ctrl.getProduct().productData.availableQty"></fk-atc-pdp>
+          </div>
+        </div>
+      </div>
+  </div>
+  <fk-product-variant-list class="container-fluid pdp-variations" variations="$ctrl.salesUnits" on-select="$ctrl.salesUnitSelectHandler(selectedVariantValues)" ng-if="$ctrl.salesUnits && $ctrl.salesUnits[0] && $ctrl.salesUnits[0].values && $ctrl.salesUnits[0].values.length > 1" missing-variants="$ctrl.missingVariants"></fk-product-variant-list>
+  <fk-product-variant-list class="container-fluid pdp-variations" variations="$ctrl.getProduct().productData.variations" on-select="$ctrl.variantSelectHandler(selectedVariantValues)" missing-variants="$ctrl.missingVariants" ng-if="$ctrl.getProduct().productData.available && $ctrl.getProduct().productData.variations && $ctrl.getProduct().productData.variations.length"></fk-product-variant-list>
+  <div class="row pdp-content">
+    <div class="pdp-tab-description col-xs-15 col-sm-15 col-md-15 col-lg-15" ng-if="(!$ctrl.getProduct().productExtraData.ingredients && $ctrl.getProduct().productExtraData.ingredients.length < 1) && (!$ctrl.getProduct().productExtraData.allergens || $ctrl.getProduct().productExtraData.allergens.length < 1) && (!$ctrl.getProduct().productExtraData.heatingInstructions || $ctrl.getProduct().productExtraData.heatingInstructions.length < 1)">
+      <h3>Description</h3>
+      <div class="mealkit-container" ng-if="$ctrl.isMealkits()">
+        <a  class="mealkit-link" ng-href="{{$ctrl.getProduct().productExtraData.productAboutMediaPath}}" target="_blank">Get the Recipe</a>
+      </div>
+      <div class="product-description" ng-class="$ctrl.getProduct().productExtraData.nutritionPanel || $ctrl.getProduct().productExtraData.oldNutritionPanel ? 'col-xs-15 col-sm-15 col-md-75 col-lg-75' : 'col-xs-15 col-sm-15 col-md-15 col-lg-15'">
+        <div ng-bind-html="$ctrl.getProduct().productExtraData.productDescription" ng-click="$ctrl.openDescriptionPopup($event)"></div>
+        <div ng-if="$ctrl.getProduct().productExtraData.productDescriptionNote" ng-bind-html="$ctrl.getProduct().productExtraData.productDescriptionNote"></div>
+        <fk-kosher-information ng-if="$ctrl.getProduct().productExtraData.kosherIconPath && $ctrl.getProduct().productExtraData.kosherType" kosher-icon="$ctrl.getProduct().productExtraData.kosherIconPath" kosher-type="$ctrl.getProduct().productExtraData.kosherType"></fk-kosher-information>
+        <fk-claims-information ng-if="$ctrl.getProduct().productExtraData.claims" claims="$ctrl.getProduct().productExtraData.claims"></fk-claims-information>
+        <fk-origin-information ng-if="$ctrl.getProduct().productExtraData.origin && $ctrl.getProduct().productExtraData.originTitle" origin="$ctrl.getProduct().productExtraData.origin" origin-title="$ctrl.getProduct().productExtraData.originTitle"></fk-origin-information>
+        <fk-wine-information ng-if="$ctrl.hasWineData($ctrl.getProduct().productExtraData.wineData)" wine-data="$ctrl.getProduct().productExtraData.wineData"></fk-wine-information>
+      </div>
+      <div ng-if="$ctrl.getProduct().productExtraData.nutritionPanel  || $ctrl.getProduct().productExtraData.oldNutritionPanel" class="product-nutrition col-xs-15 col-sm-15 col-md-75 col-lg-75">
+        <fk-nutrition nutrition-panel="$ctrl.getProduct().productExtraData.nutritionPanel" old-nutrition-panel="$ctrl.getProduct().productExtraData.oldNutritionPanel"></fk-nutrition>
+      </div>
+    </div>
+      <fk-tabs class="pdp-tab-info col-xs-15 col-sm-15 col-md-15 col-lg-15" ng-attr-selected="selected" mobile="list" ng-if="$ctrl.getProduct().productExtraData.ingredients.length > 0 || $ctrl.getProduct().productExtraData.allergens.length > 0 || $ctrl.getProduct().productExtraData.heatingInstructions.length > 0">
+        <fk-tab tabheading="Description" tab-id="desciption" class="row">
+          <div class="product-tab-holder col-xs-15 col-sm-15 col-md-15 col-lg-15">
+            <div class="product-description" ng-class="$ctrl.getProduct().productExtraData.nutritionPanel || $ctrl.getProduct().productExtraData.oldNutritionPanel ? 'col-xs-15 col-sm-15 col-md-75 col-lg-75' : 'col-xs-15 col-sm-15 col-md-15 col-lg-15'">
+            <div class="mealkit-container multiple-tabs" ng-if="$ctrl.isMealkits()"><a class="mealkit-link" ng-href="{{$ctrl.getProduct().productExtraData.productAboutMediaPath}}" target="_blank">Get the Recipe</a></div>
+              <div ng-bind-html="$ctrl.getProduct().productExtraData.productDescription" ng-click="$ctrl.openDescriptionPopup($event)"></div>
+              <div ng-if="$ctrl.getProduct().productExtraData.productDescriptionNote" ng-bind-html="$ctrl.getProduct().productExtraData.productDescriptionNote"></div>
+              <fk-kosher-information ng-if="$ctrl.getProduct().productExtraData.kosherIconPath && $ctrl.getProduct().productExtraData.kosherType" kosher-icon="$ctrl.getProduct().productExtraData.kosherIconPath" kosher-type="$ctrl.getProduct().productExtraData.kosherType"></fk-kosher-information>
+              <fk-claims-information ng-if="$ctrl.getProduct().productExtraData.claims" claims="$ctrl.getProduct().productExtraData.claims"></fk-claims-information>
+              <fk-origin-information ng-if="$ctrl.getProduct().productExtraData.origin && $ctrl.getProduct().productExtraData.originTitle" origin="$ctrl.getProduct().productExtraData.origin" origin-title="$ctrl.getProduct().productExtraData.originTitle"></fk-origin-information>
+            </div>
+            <div ng-if="$ctrl.getProduct().productExtraData.nutritionPanel  || $ctrl.getProduct().productExtraData.oldNutritionPanel" class="product-nutrition col-xs-15 col-sm-15 col-md-75 col-lg-75">
+              <fk-nutrition nutrition-panel="$ctrl.getProduct().productExtraData.nutritionPanel" old-nutrition-panel="$ctrl.getProduct().productExtraData.oldNutritionPanel"></fk-nutrition>
+            </div>
+          </div>
+        </fk-tab>
+        <fk-tab tabheading="Ingredients/Allergens" tab-id="ingredients" class="row" ng-if="$ctrl.getProduct().productExtraData.ingredients.length > 0 || $ctrl.getProduct().productExtraData.allergens.length > 0">
+          <div class="product-tab-holder col-xs-15 col-sm-15 col-md-15 col-lg-15">
+            <div class="product-ingredients" ng-if="$ctrl.getProduct().productExtraData.ingredients">
+              <h4>Ingredients:</h4>
+              <div ng-bind-html="$ctrl.getProduct().productExtraData.ingredients"></div>
+            </div>
+            <div class="product-allergens" ng-if="$ctrl.getProduct().productExtraData.allergens">
+              <h4>Allergens:</h4>
+              <ul>
+                <li ng-repeat="allergen in $ctrl.getProduct().productExtraData.allergens">{{allergen}}
+              </ul>
+            </div>
+          </div>
+        </fk-tab>
+        <fk-tab tabheading="Prep. Instructions" tab-id="instructions" class="row" ng-if="$ctrl.getProduct().productExtraData.heatingInstructions.length > 0">
+          <div class="product-instructions col-xs-15 col-sm-15 col-md-15 col-lg-15" ng-bind-html="$ctrl.getProduct().productExtraData.heatingInstructions"></div>
+        </fk-tab>
+      </fk-tabs>
+    </div>
+  </div>
+  <div ng-if="$ctrl.getProduct().productData.available" class="product--atc mobile">
+    <fk-atc-pdp product="$ctrl.getProduct()" subtotal="$ctrl.calculatedSubTotal" on-update="$ctrl.updateHandler(quantity)"  product-quantity ="selectedQty" available="$ctrl.getProduct().productData.availableQty"></fk-atc-pdp>
+  </div>
+</div>
+
+<fk-group-scale-details pdp-feed-type="$ctrl.pdpFeedType" product="$ctrl.getProduct()" deal-info="$ctrl.getProduct().productData.dealInfo" ng-if="$ctrl.showBuyMore()"></fk-group-scale-details>

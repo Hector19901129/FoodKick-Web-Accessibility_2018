@@ -1,0 +1,39 @@
+ @import url(variables.css);
+
+.fk-landing-page-popup {
+  .popup-information {
+    background-color: var(--fk-color-off-white);
+    color: var(--fk-color-gray-darker);
+    padding: calc(var(--fk-vertical-space) * 3) calc(var(--fk-horizontal-space) * 1.5);
+    padding-bottom: var(--fk-vertical-space);
+    font-family: var(--fk-font-sans-serif);
+    width: 100%;
+    text-align: center;
+    .error {
+      padding-bottom: var(--fk-vertical-space);
+      ul {
+        font-size: calc(var(--fk-font-size-base) + 2);;
+        font-weight: 500;
+        line-height: 1.56;
+      }
+    }
+    button {
+      margin: 0;
+      height: 60px;
+      width: 100%;
+      font-size: var(--fk-font-size-base);
+    }
+    .changes-buttons {
+      padding-top: var(--fk-vertical-space);
+      width: 100%;
+      text-align: center;
+    }
+    .button-primary-ghost {
+      box-shadow: none;
+      font-size: var(--fk-font-size-medium);
+    }
+    .button-primary {
+      font-size: calc(var(--fk-font-size-base) + 2);
+    }
+  }
+}

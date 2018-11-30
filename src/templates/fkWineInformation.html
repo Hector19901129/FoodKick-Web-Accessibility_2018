@@ -1,0 +1,37 @@
+<div class="fk-wine-information">
+  <h3>Wine Information</h3>
+  <div class="wi-wrapper">
+    <div class="wi-underlined" ng-if="$ctrl.wineData.country">
+      <span class="wi-bold-heading">Country</span>
+      <span>{{$ctrl.wineData.country}}</span>
+    </div>
+    <div class="wi-underlined" ng-if="$ctrl.wineData.region">
+      <span class="wi-bold-heading">Region</span>
+      <span>{{$ctrl.wineData.region}}</span>
+    </div>
+    <div class="wi-underlined" ng-if="$ctrl.wineData.city">
+      <span class="wi-bold-heading">City</span>
+      <span>{{$ctrl.wineData.city}}</span>
+    </div>
+    <div class="wi-underlined" ng-if="$ctrl.wineData.types[0]">
+      <span class="wi-bold-heading">Type</span>
+      <span>{{$ctrl.wineData.types[0]}}</span>
+    </div>
+    <div class="wi-underlined" ng-if="$ctrl.wineData.varietals[0]">
+      <span class="wi-bold-heading">Varietal</span>
+      <span>{{$ctrl.wineData.varietals[0]}}</span>
+    </div>
+    <div class="wi-underlined" ng-if="$ctrl.wineData.vintage">
+      <span class="wi-bold-heading">Vintage</span>
+      <span>{{$ctrl.wineData.vintage}}</span>
+    </div>
+    <div class="wi-underlined" ng-if="$ctrl.wineData.alcoholGrade">
+      <span class="wi-bold-heading">Alcohol</span>
+      <span>{{$ctrl.wineData.alcoholGrade}}</span>
+    </div>
+    <div class="wi-underlined" ng-if="$ctrl.wineData.grape">
+      <span class="wi-bold-heading">Grape</span>
+      <span>{{$ctrl.wineData.grape}}</span>
+    </div>
+  </div>
+</div>

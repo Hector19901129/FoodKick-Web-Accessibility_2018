@@ -1,0 +1,55 @@
+@import url(variables.css);
+
+.fk-recommendation-popup {
+  flex: 1;
+  overflow: auto;
+  margin-top: 10px;
+
+  .container {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .row {
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+
+  [class*="col-lg-"],
+  [class*="col-md-"],
+  [class*="col-sm-"],
+  [class*="col-xs-"] {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+.fk-recommendation-popup fk-product-tile-list[orientation=vertical] {
+  display: inline;
+  overflow: visible;
+}
+
+#recommendation-scroll-bar::-webkit-scrollbar {
+  width: 12px;
+}
+
+#recommendation-scroll-bar::-webkit-scrollbar-thumb {
+  border-radius: 9px;
+  background-color: var(--fk-color-gray-darkest);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--fk-color-gray-a);
+}
+
+#recommendation-scroll-bar::-webkit-scrollbar-track {
+  border-color: var(--fk-color-black-a);
+  border-radius: 10px;
+  background-color: var(--fk-color-primary-bg);
+}
+
+@media (--fk-small-screen),
+(--fk-extra-small-screen) {
+  .fk-recommendation-popup {
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,7 @@
+<div class="content">
+<p ng-repeat="subject in timeSlotsAlert track by $index">{{subject}}</p>
+  <div class="button-container">
+    <button class="button button-primary" ng-click="closeThisDialog()">GOT IT</button>
+  </div>
+</div>
+<fk-ngdialog-close ng-click="closeThisDialog()">DELIVERY NOTICE</fk-ngdialog-close>

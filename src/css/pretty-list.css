@@ -1,0 +1,77 @@
+@import url(variables.css);
+
+.pretty-list h3 {
+  margin: 0;
+}
+
+.pretty-list ul li h3 {
+  color: var(--fk-color-gray-darkest);
+  font-family: var(--fk-font-sans-serif);
+  font-size: var(--fk-font-size-medium);
+  font-weight: 400;
+  line-height: 2;
+}
+
+.pretty-list ul li> div {
+  cursor: pointer;
+}
+
+.pretty-list ul li {
+  margin-top: calc(var(--fk-vertical-space) * 2);
+}
+
+.pretty-list ul li> .element{
+  display: flex;
+}
+
+.pretty-list ul li> .button-container {
+  border-bottom: 1px solid var(--fk-color-primary-darker-light-a);
+  margin-left: 80px;
+  text-align: right;
+}
+
+.pretty-list ul li> .button-container button {
+  background-color: transparent;
+  color: var(--fk-color-secondary);
+  margin: 0;
+  width: 25%;
+  &:hover,
+  &:focus {
+    color: #0098b3;
+    text-decoration: underline;
+    outline: 0;
+  }
+}
+
+.pretty-list ul li>div>div fk-icon>svg {
+  fill: var(--fk-color-gray);
+  height: 18px;
+  width: 18px;
+  margin-right: var(--fk-horizontal-space);
+  margin-left: calc(var(--fk-horizontal-space) - 1);
+}
+
+.pretty-list div> button {
+  height: 41px;
+  width: 100%;
+}
+
+.pretty-list> .button-container,
+.pretty-list ul li>div fk-icon>svg {
+  margin-left: calc(var(--fk-horizontal-space) * 2);
+  margin-right: calc(var(--fk-horizontal-space) * 2);
+}
+
+.pretty-list> .button-container {
+  margin-top: calc(var(--fk-horizontal-space) * 2);
+}
+
+.pretty-list ul li>div fk-icon>svg {
+  fill: var(--fk-color-gray);
+  height: 36px;
+  width: 36px;
+}
+
+.pretty-list ul li .icon-done>svg {
+  fill: var(--fk-color-primary-darker);
+}

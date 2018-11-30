@@ -1,0 +1,11 @@
+@import url(variables.css);
+
+.fk-kosher-information {
+  display: flex;
+  align-items: center;
+
+  span {
+    padding-left: 10px;
+    height: 18px;
+  }
+}

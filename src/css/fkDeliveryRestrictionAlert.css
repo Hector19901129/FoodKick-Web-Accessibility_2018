@@ -1,0 +1,56 @@
+@import url(variables.css);
+
+.fk-delivery-time-warning {
+  display: block;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  & .button-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+  }
+
+  & .button {
+    height: 60px;
+    width: 420px;
+  }
+
+  & .content {
+    background-color: var(--fk-color-off-white);
+    color: var(--fk-color-gray-darkest);
+    font-size: var(--fk-font-size-base);
+    text-align: left;
+    width: 100%;
+    max-width: 460px;
+    padding: 20px;
+    line-height: 1.56;
+  }
+}
+
+@media (--fk-extra-small-screen) {
+
+  .fk-delivery-time-warning {
+
+    & .content {
+      padding: 0 calc(var(--fk-horizontal-space) * 2);
+    }
+
+    & .button-container {
+      display: block;
+    }
+
+    & .button {
+      width: 100%;
+    }
+  }
+}
+
+@media (--fk-extra-small-screen) {
+  .ngdialog.ngdialog-theme-fk.fk-delivery-time-warning .ngdialog-content {
+    .close-continer {
+      margin-top: 40px;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@import url(variables.css);
+
+.fk-timeslot-popup h2,
+.fk-timeslot-popup h3,
+.fk-timeslot-popup h4 {
+  text-align: center;
+}
+
+.fk-timeslot-popup .selected .timeslot{
+  cursor: none;
+  opacity: 0.6;
+}

@@ -1,0 +1,25 @@
+<a offscreen ng-click="$ctrl.goToContent()" id="skip-to-content" href="">Skip to content</a>
+<header class="primary print-hide">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 col-lg-5 ">
+          <a href="{{$ctrl.SITE.URL.Anothersite}}" class="fd-logo" fk-icon fk-icon-id="{{$ctrl.SITE.AnothersiteLogo}}"><span offscreen>{{$ctrl.SITE.AnothersiteOffscreen}}</span></a>
+      </div>
+      <div  class="col-md-10 col-lg-10">
+        <fk-address-picker></fk-address-picker>
+        <!-- modified -->
+        <!-- <fk-profile-button fk-touch ng-mouseover="$ctrl.enable()" ng-mouseleave="$ctrl.disable()" ng-keyup="hitEnter($event)"></fk-profile-button> -->
+        <fk-profile-button fk-touch ng-mouseover="$ctrl.enable()" ng-mouseleave="$ctrl.disable()"></fk-profile-button>
+        <fk-popup-cart></fk-popup-cart>
+      </div>
+    </div>
+  </div>
+</header>
+<fk-secondary-header show-buttons="true" show-menu-button="$ctrl.type === 'collapsed'" on-menu-toggle="$ctrl.menuOpenChange(menuOpen)" ng-class="{top40: (showModifyAlertBar || showGlobalAlertbar), openmenu:$ctrl.menuOpen, heightWithModifyGlobalBar:(showModifyAlertBar || showGlobalAlertbar) && $ctrl.menuOpen }"></fk-secondary-header>
+<div class="container" ng-if="!$ctrl.menuOpen && $ctrl.type==='full'">
+  <div class="row">
+    <div class="positionHelper col-lg-3 col-md-3">
+      <fk-department-list class="home" on-select="$ctrl.openMenu(departmentId)"></fk-department-list>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="scrollable-delivery-days">
+  <div ng-if="fkDeliveryTimeslotService.timeslot.weeklyTimeslot.length !== 0" ng-repeat="day in fkDeliveryTimeslotService.timeslot.weeklyTimeslot">
+    <fd-delivery-days day="day" set-timeslot="setTimeslot(data, errors)"></fd-delivery-days>
+  </div>
+</div>
+<div class="no-timeslot" ng-if="fkDeliveryTimeslotService.timeslot.weeklyTimeslot.length === 0">
+  No available timeslots found.
+</div>

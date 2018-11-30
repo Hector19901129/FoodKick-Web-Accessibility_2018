@@ -1,0 +1,3 @@
+<span offscreen>Add to bag a(n) {{$ctrl.product.productData.productNameNoBrand}}</span>
+<fk-icon fk-icon-id="#atc-plus" class="svgicon" ng-if="!fkCartService.productsInCart[$ctrl.product.productData.productId].quantity"></fk-icon>
+<div class="incart--quantity" ng-if="fkCartService.productsInCart[$ctrl.product.productData.productId].quantity"><span offscreen>You already have: </span><span class="quantity">{{fkCartService.productsInCart[$ctrl.product.productData.productId].quantity}}</span><fk-icon ng-if="!(fkCartService.productsInCart[$ctrl.product.productData.productId].quantity === $ctrl.product.productData.availableQty)" fk-icon-id="#atc-plus-extra" class="extra-add"></fk-icon></div>

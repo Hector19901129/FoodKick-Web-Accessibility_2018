@@ -1,0 +1,63 @@
+@import url(variables.css);
+
+a.tooltip {
+  display: inline-block;
+  font-size: 13px;
+  color: var(--fk-color-white);
+  text-decoration: none;
+  text-align: center;
+  width: 19px;
+  height: 19px;
+  margin: 0;
+  padding: 0;
+  background-color: var(--fk-color-gray);
+  border-radius: 50%;
+  position: relative;
+  top: -10px;
+  z-index: 98;
+}
+
+a.tooltip:hover:after,
+a.tooltip[fk-touched="hasTouched"]:after {
+  text-align: left;
+  outline: 0;
+  border-radius: 3px;
+  border: 1px solid var(--fk-color-gray-dark);
+  background-color: var(--fk-color-white);
+  box-shadow: 0 0 3px var(--fk-color-gray), 0 0 3px var(--fk-color-gray);
+  color: var(--fk-color-gray-dark);
+  content: attr(info);
+  right: -6px;
+  bottom: -6px;
+  padding: 18px;
+  position: absolute;
+  z-index: 4;
+  height: auto;
+  max-width: 220px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 120%;
+}
+
+a.tooltip:hover:before,
+a.tooltip[fk-touched="hasTouched"]:before {
+  color: var(--fk-color-white);
+  text-decoration: none;
+  text-align: center;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  padding: 0;
+  background-color: var(--fk-color-primary);
+  border-radius: 16px;
+  content: "?";
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 99;
+}
+
+a.tooltip.info:hover:before,
+a.tooltip.[fk-touched="hasTouched"]:before {
+  content: "i";
+}

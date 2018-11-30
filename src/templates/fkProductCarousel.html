@@ -1,0 +1,9 @@
+<ng-transclude></ng-transclude>
+<!-- <div class="carousel-controll" ng-if="$ctrl.nrOfProducts > 3">  -->
+<!-- FKW-347 Increased while don't show picture insteed of the fourth tile -->
+<div class="carousel-controll" ng-if="$ctrl.nrOfProducts > 4">
+  <button fk-icon fk-icon-id="#left" ng-click="$ctrl.back()" ng-if="!$ctrl.isFirstPage" class="back-button" aria-label="back-button"></button>
+  <div class="spacer"></div>
+  <button fk-icon fk-icon-id="#right" ng-click="$ctrl.forward()" ng-if="!$ctrl.isLastPage" class="forward-button" aria-label="forward-button"></button>
+  <button ng-click="$ctrl.seeAll()" ng-if="$ctrl.isLastPage" class="see-allbutton" aria-label="View all">SEE ALL <fk-icon fk-icon-id="#right"></fk-icon></button>
+</div>

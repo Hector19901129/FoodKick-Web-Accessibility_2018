@@ -1,0 +1,89 @@
+/*@import 'fdColors.css';*/
+/*@import 'fkColors.css';*/
+@import 'variables.css';
+@import 'base.css';
+
+@import 'fdHome.css';
+
+/* common rules */
+@import 'animations.css';
+@import 'buttons.css';
+@import 'boldChat.css';
+@import 'cart.css';
+@import 'footer.css';
+@import 'fkGrid.css';
+@import 'grid.css';
+@import 'editorialmedia.css';
+@import 'mobile-menu-list.css';
+@import 'ngdialog-theme-fk.css';
+@import 'notifications.css';
+@import 'pretty-list.css';
+@import 'spinners.css';
+@import 'svgicon.css';
+@import 'tooltip.css';
+
+/*
+ * components
+ * TODO remove
+ */
+@import 'fkAddBankFormConfirm.css';
+@import 'fkAddressSelector.css';
+@import 'fkBankPaymentMethodSelect.css';
+@import 'fkConfirmPopup.css';
+@import 'fkHelpDetail.css';
+@import 'fkInfoIcon.css';
+@import 'fkMobileNumber.css';
+@import 'fkOrderCancel.css';
+/*@import 'fkPastOrdersNav.css';*/
+@import 'fkPaymentMethods.css';
+@import 'fkPlantIdChange.css';
+@import 'fkPopupCart.css';
+@import 'fkProductCarousel.css';
+@import 'fkProductDetails.css';
+@import 'fkProductTile.css';
+@import 'fkProductTileList.css';
+@import 'fkProductVariant.css';
+@import 'fkProductVariantList.css';
+@import 'fkProfileButton.css';
+@import 'fkPromoCode.css';
+@import 'fkQuantityDropDownSelector.css';
+@import 'fkQuantitySelector.css';
+@import 'fkRating.css';
+@import 'fkReceiptButton.css';
+@import 'fkReceipt.css';
+@import 'fkReceiptPopup.css';
+@import 'fkRefineButton.css';
+@import 'fkRefine.css';
+@import 'fkSearchButton.css';
+@import 'fkSearch.css';
+@import 'fkSecondaryHeader.css';
+@import 'fkSection.css';
+@import 'fkSectionHero.css';
+@import 'fkSectionMore.css';
+@import 'fkSectionMorePopup.css';
+@import 'fkSessionExpired.css';
+@import 'fkSignIn.css';
+@import 'fkSignInPopup.css';
+@import 'fkSortOptions.css';
+@import 'fkTabs.css';
+@import 'fkTermsPopup.css';
+@import 'fkTimeslotPopup.css';
+@import 'fkWineInformation.css';
+@import 'fkZipCheck.css';
+@import 'fkZipEmailNotification.css';
+@import 'fkZipEmailNotifyComplete.css';
+@import 'fdWelcomePopup.css';
+@import 'fdConfirmNewSite.css';
+
+/* page related */
+@import '404.css';
+@import 'account.css';
+@import 'addresses.css';
+@import 'changepassword.css';
+@import 'department.css';
+@import 'help.css';
+@import 'pastItems.css';
+@import 'pastOrders.css';
+@import 'paymentMethods.css';
+@import 'plp.css';
+@import 'search.css';

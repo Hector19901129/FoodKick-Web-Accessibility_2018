@@ -1,0 +1,100 @@
+@import url(variables.css);
+
+.fk_raf_page {
+  font-family: var(--fk-font-sans-serif);
+  color: var(--fk-color-gray-dark);
+  background-color: var(--fk-color-white);
+
+  .referal-banner {
+    background-image: url(/assets/img/referral.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .referal-terms {
+    font-size: var(--fk-font-size-medium);
+    line-height: 1.42;
+    text-align: justify;
+    color: var(--fk-color-gray-dark);
+    height: auto;
+    border-top: 2px solid var(--fk-color-gray-light);
+    border-bottom: 2px solid var(--fk-color-gray-light);
+    padding: 30px 10px;
+    font-family: var(--fk-font-sans-serif);
+  }
+
+  .referal-footer {
+    height: 150px;
+  }
+
+  .offer-label {
+    position: absolute;
+    color: var(--fk-color-fd-logo);
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+    top: -10px;
+  }
+}
+
+@media (--fk-extra-small-screen) {
+  .fk_raf_page {
+    .referal-banner {
+      height: 420px;
+    }
+
+    .form-section {
+      margin-top: calc(var(--fk-vertical-space) * 2);
+      height: 500px;
+    }
+
+    fk-raf-registration-form fk-form {
+      border: 1px solid var(--fk-color-primary);
+      padding: calc(var(--fk-vertical-space) * 2) var(--fk-horizontal-space);
+    }
+
+    .offer-label h3 {
+      font-size: var(--fk-font-size-base);
+    }
+  }
+}
+
+@media (--fk-small-screen) {
+  .fk_raf_page {
+    .referal-banner {
+      height: 500px;
+      margin-top: calc(var(--fk-vertical-space) * 2);
+      margin-bottom: calc(var(--fk-vertical-space) * 2);
+      background-size: contain;
+    }
+
+    .form-section {
+      margin-top: calc(var(--fk-vertical-space) * 2);
+      height: 480px;
+    }
+
+    fk-raf-registration-form fk-form {
+      border: 1px solid var(--fk-color-primary);
+      padding: calc(var(--fk-vertical-space) * 2) var(--fk-horizontal-space);
+    }
+  }
+}
+
+@media (--fk-large-screen),
+(--fk-medium-screen) {
+  .fk_raf_page {
+    .referal-banner {
+      height: 450px;
+      margin-top: calc(var(--fk-vertical-space) * 2);
+      margin-bottom: calc(var(--fk-vertical-space) * 2);
+    }
+
+    .form-section {
+      height: 450px;
+      border: 1px solid var(--fk-color-primary);
+      padding: 20px;
+      margin-top: calc(var(--fk-vertical-space) * 2);
+      margin-bottom: calc(var(--fk-vertical-space) * 2);
+    }
+  }
+}

@@ -1,0 +1,63 @@
+<div class="dp_checkout_footer" ng-class="hideElement('payment')">
+  <button class="button-secondary" ng-click="purchase()" tabindex="0" ng-disabled="avoidMultipleClick || !selectedPaymentMethod()">{{$ctrl.submitText}}</button>
+  <br>
+  <a href="" ng-click="closeThisDialog()">Cancel</a>
+</div>
+<div class="dp_checkout_content">
+  <div class="payment_options" ng-class="[isSelected('payment'), isHidden('payment')]" ng-click="open('payment')" fk-a11y-click tabindex="0">
+    <div class="add_pm" ng-if="!selectedPaymentMethod() && show !== 'payment'">
+      <span><fk-icon fk-icon-id="#open"></fk-icon> ADD PAYMENT METHOD <fk-icon fk-icon-id="#down"></fk-icon></span>
+    </div>
+    <div class="default_pm" ng-if="selectedPaymentMethod() || show === 'payment'" ng-class="hideElement('payment')">
+      <div class="label">PAYMENT METHOD
+        <fk-icon ng-class="hideElement('payment')" fk-icon-id="#down"></fk-icon>
+        <button class="button-primary-ghost" ng-class="isSelectedElem('payment')" ng-click="done($event)" aria-label="payment method selection completed">Done</button>
+      </div>
+      <div class="payment-info {{selectedPaymentMethod().cardType}}" ng-class="hideElement('payment')" ng-attr-card="{{selectedPaymentMethod().cardType}}">{{ (selectedPaymentMethod().cardType === "ECheck" ? selectedPaymentMethod().description : selectedPaymentMethod().cardType) + ' Ending: '}}{{selectedPaymentMethod().maskedAccountNumber | limitTo : -4}}
+        <span ng-if="selectedPaymentMethod().cardType !== 'ECheck'">{{' Exp. ' + selectedPaymentMethod().expirationMonth | date:'d'}}/{{selectedPaymentMethod().expirationYear | limitTo: -2}}</span>
+      </div>
+    </div>
+    <div ng-class="elemSelector('payment')" class="payment-selection">
+      <div class="label">
+        <span>PAYMENT METHOD</span>
+        <button class="button-primary-ghost" ng-class="isSelectedElem('payment')" ng-click="done($event)" aria-label="payment method selection completed">Done</button>
+      </div>
+      <fk-payment-methods class="pretty-list" ng-class="elemSelector('payment')" show-edit="true" payment-type="creditCards" payment-validation="true" dp-payment="true" title="CREDIT/DEBIT CARD" button-title="ADD CREDIT / DEBIT CARD" set-payment="setSelected()" source="dp"></fk-payment-methods>
+      <fk-payment-methods class="pretty-list" ng-class="elemSelector('payment')" show-edit="true" payment-type="electronicChecks" dp-payment="true" payment-validation="true" title="BANK ACCOUNT" button-title="ADD BANK ACCOUNT" set-payment="setSelected()" ng-if="bankFormOn()" source="dp"></fk-payment-methods>
+    </div>
+  </div>
+  <div class="fk_promo_section" ng-class="hideElement('payment')">
+    <fk-promo-code dp-cart="true"></fk-promo-code>
+  </div>
+  <div class="dp_purchase_details" ng-class="hideElement('payment')" ng-if="fkCartService.dpCartDetail">
+    <div class="dpcost cost" tabindex="0">
+      <div class="label">DeliveryPass®: All Week, Monthly</div>
+      <div class="amount">{{fkCartService.dpCartDetail.dlvPassCharge | currency:"$":2}}</div>
+    </div>
+    <div class="charges cost" ng-repeat="charge in fkCartService.dpCartDetail.summaryLineCharges" ng-class="{taxable: charge.taxable, discount: charge.discount, 'display-amount': charge.displayAmount, waived: charge.waived}" ng-if="charge.label !== 'Delivery Charge'" tabindex="0">
+      <div class="label">{{charge.label.replace('Delivery Charge','Delivery Fee')}}:</div>
+      <div class="amount">{{charge.amount | currency:"$":2}}</div>
+    </div>
+    <div class="charges cost" ng-repeat="disount in fkCartService.dpCartDetail.discounts" ng-if="!disount.automatic" tabindex="0">
+      <div class="label">Promo Code: {{disount.redemptionCode | uppercase}}</div>
+      <div class="amount">-{{disount.amount | currency:"$":2}}</div>
+    </div>
+    <div class="total cost" tabindex="0">
+      <div class="label">TOTAL:</div>
+      <div class="amount">{{fkCartService.dpCartDetail.estimatedTotal | currency:"$":2}}</div>
+    </div>
+    <div class="total_promo_discount cost" ng-if="fkCartService.dpCartDetail.discounts.length > 0" tabindex="0">
+      <div class="label">You've Saved:</div>
+      <div class="amount">{{fkCartService.dpCartDetail.totalSavedAmount | currency:"$":2}}</div>
+    </div>
+  </div>
+</div>
+<div class="dp_checkout_header">
+  <div class="labels">
+    <h2>Monthly</h2>
+    <h3>Membership</h3>
+    <fk-icon fk-icon-id="#fruit-3"></fk-icon>
+  </div>
+</div>
+<fk-icon class="spinner checkout-spinner" fk-icon-id="#spinner"></fk-icon>
+<fk-ngdialog-close ng-click="closeThisDialog()"></fk-ngdialog-close>

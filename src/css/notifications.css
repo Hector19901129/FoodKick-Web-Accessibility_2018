@@ -1,0 +1,61 @@
+@import url(variables.css);
+
+.notification-setting-page {
+  background-color: var(--fk-color-off-white);
+  .settings-notifications h2 {
+    font-size: var(--fk-font-size-large);
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    color: var(--fk-color-gray-darker);
+    margin: 0;
+    font-family: var(--fk-font-sans-serif);
+  }
+
+  h3 {
+    font-family: var(--fk-font-sans-serif);
+    font-size: var(--fk-font-size-base);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: var(--fk-color-gray-dark);
+    text-transform: uppercase;
+  }
+
+  .terms-conditions {
+    font-size: var(--fk-font-size-small);
+    line-height: 1.42;
+    text-align: center;
+    color: var(--fk-color-gray-dark);
+    a {
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+        color: var(--fk-color-primary-lightest);
+      }
+    }
+  }
+}
+
+@media (--fk-medium-screen), (--fk-large-screen) {
+  .notification-setting-page {
+    .notifications-only-mobile {
+      display: none;
+    }
+
+    .settings-notifications {
+      margin-bottom: var(--fk-vertical-space);
+    }
+  }
+}
+
+@media (--fk-extra-small-screen), (--fk-small-screen) {
+  .notification-setting-page {
+    .settings-notifications {
+      margin-top: calc(var(--fk-vertical-space)*7.5);
+      margin-bottom: calc(var(--fk-vertical-space)*1.5);
+    }
+
+    .notification-wrapper {
+      padding: 0 calc(var(--fk-vertical-space)*2);
+    }
+  }
+}

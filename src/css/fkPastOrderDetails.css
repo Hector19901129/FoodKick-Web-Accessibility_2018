@@ -1,0 +1,50 @@
+@import url(variables.css);
+
+.past-order-details-holder {
+  padding: 25px 20px;
+  font-family: Graphik;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  color: var(--fk-color-gray-dark);
+
+  .bold {
+    font-weight: 600;
+  }
+
+  fk-icon[fk-icon-id="#ds-vespa"] svg{
+    width: 2em;
+  }
+
+  fk-icon {
+    margin-left: 7px;
+
+    svg {
+      padding-bottom: 5px;
+      font-size: 30px;
+    }
+  }
+
+  .delivery-and-payment-details span{
+    display: block;
+    line-height: 1.3em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .order-details-subtitle {
+    padding-top: 20px;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+  }
+
+  .total-and-status-wrapper {
+    margin-bottom: 10px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid var(--fk-color-gray-light);
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+}

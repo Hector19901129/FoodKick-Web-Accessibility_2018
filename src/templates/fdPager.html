@@ -1,0 +1,36 @@
+<div id="pager">
+
+  <div class="pager-container">
+    <div class="pre" ng-class="{disabled: $ctrl.activePage==1}" ng-if="$ctrl.pager.pageCount > 1">
+      <a ng-href="{{$ctrl.prevPage}}{{$ctrl.pageFiltersSortAndAscending}}" ng-click="$ctrl.goToTop()">
+        <fk-icon fk-icon-id="#left"></fk-icon><span offscreen>previous page</span>
+      </a>
+    </div>
+
+    <div class="jump first" ng-if="$ctrl.canJumpToFirstPage()">
+      <a ng-href="{{$ctrl.initPage}}{{$ctrl.pageFiltersSortAndAscending}}" ng-click="$ctrl.goToTop()">1</a>
+      <span class="dots" ng-if="$ctrl.activePage > 5">...</span>
+    </div>
+
+    <div class="pages">
+      <a ng-repeat="page in $ctrl.pageList | filter: $ctrl.filterPageList" ng-href="{{$ctrl.link}}{{page}}{{$ctrl.pageFiltersSortAndAscending}}" ng-if="$ctrl.pager.pageCount > 1" ng-click="$ctrl.goToTop()"><span offscreen>page {{ page }}</span>
+        <ul>
+          <li class="page" ng-if="page !== $ctrl.activePage">{{ page }}</li>
+          <li class="page activePage" ng-if="page === $ctrl.activePage">{{ page }}</li>
+        </ul>
+      </a>
+    </div>
+
+    <div class="jump last" ng-if="$ctrl.canJumpToLastPage()">
+      <span class="dots" ng-if="($ctrl.lastPage - $ctrl.activePage) > 4">...</span>
+      <a ng-href="{{$ctrl.toLastPage}}{{$ctrl.pageFiltersSortAndAscending}}" ng-click="$ctrl.goToTop()">{{$ctrl.lastPage}}</a>
+    </div>
+
+    <div class="next" ng-class="{disabled: $ctrl.activePage==$ctrl.lastPage}" ng-if="$ctrl.pager.pageCount > 1">
+      <a ng-href="{{$ctrl.nextPage}}{{$ctrl.pageFiltersSortAndAscending}}" ng-click="$ctrl.goToTop()">
+        <fk-icon fk-icon-id="#right"></fk-icon><span offscreen>next page</span>
+      </a>
+    </div>
+  </div>
+
+</div>

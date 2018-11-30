@@ -1,0 +1,8 @@
+<div class="atp-notification" ng-if="$ctrl.showAtpNotification && $ctrl.fkUserService.user">
+  <div class="atp-text">
+    <fk-icon fk-icon-id="#warning_icon"></fk-icon><span>Sorry, it looks like some item(s) in your bag are no longer available.</span></div>
+  <div class="atp-options">
+    <button class="button button-primary-ghost" ng-click="ignore()">IGNORE</span>
+    <button class="button button-primary-ghost" ng-click="$ctrl.showAtpPopup()">REPLACE ITEMS</span>
+  </div>
+</div>

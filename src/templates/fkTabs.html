@@ -1,0 +1,9 @@
+<ul class="nav nav-tabs" ng-class="tabs.mobile" role="tablist">
+  <li ng-repeat="tab in tabs.tabs" index="{{tab.index}}" ng-attr-aria-selected="{{tab.selected}}">
+    <button role="tab" aria-label="tab" ng-click="tabs.selectTab(tab)" ng-bind-html="tab.heading" fk-track-click="TAB:{{tab.tabId}}|TABS"></button>
+    <fk-icon fk-icon-id="#up"></fk-icon>
+  </li>
+</ul>
+
+<ng-transclude>
+</ng-transclude>

@@ -1,0 +1,3 @@
+<button ng-attr-id="{{$ctrl.prefix && $ctrl.prefix+'-qty-button-less'}}"  ng-click="removeItem()" aria-label="Remove Quantity" fk-icon fk-icon-id="#remove"></button>
+<input ng-attr-id="{{$ctrl.prefix && $ctrl.prefix+'-qty-input'}}" class="quantity-input" type="number" ng-model="quantity" ng-blur="checkValue()"></input>
+<button ng-attr-id="{{$ctrl.prefix && $ctrl.prefix+'-qty-button-more'}}"  ng-click="addItem()" aria-label="Add Quantity" fk-icon fk-icon-id="#add"></button>

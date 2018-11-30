@@ -1,0 +1,9 @@
+@import url(variables.css);
+
+.page-search {
+  .no-result {
+    font-weight: bold;
+    font-size: var(--fk-font-size-large);
+    margin: 2em 0;
+  }
+}

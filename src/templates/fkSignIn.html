@@ -1,0 +1,23 @@
+<div class="ngdialog-header" ng-class="slide ? 'slide': ''">
+  <svg class="svgicon"><use xlink:href="#avatar"/></svg>
+  <div class="freshdirect">
+    <fk-icon  fk-icon-id="#avatar" class="avatar-logo"></fk-icon>
+    <div class="content">SIGN IN WITH A ACCOUNT</div>
+  </div>
+</div>
+<fk-sign-in-form class="ngdialog-form" default-action="signin"></fk-sign-in-form>
+<div class="ngdialog-footer">
+  <button ng-click="forgotPassword()">Forgot your password</button>
+  <div class="error" ng-attr-invalid="{{$ctrl.signInErrors}}">
+    <div ng-repeat="(key, value) in $ctrl.signInErrors">{{value}}</div>
+  </div>
+</div>
+<div class="sign-in-with"><span>OR SIGN IN WITH</span></div>
+<div class="social">
+  <button class="" type="button" name="avatar" aria-label="SIGN IN WITH A ACCOUNT" ng-click="slide= !slide"><span offscreen>SIGN IN WITH A ACCOUNT</span></button>
+  <div id="social-login"></div>
+</div>
+<fk-icon class="spinner login-spinner" fk-icon-id="#spinner"></fk-icon>
+<div class="policy">
+  By registering you agree to the <a  href="/help/legal/privacy" target="_blank" rel="noopener" class="noopener_class secondary-dark-background">privacy policy</a> and <a href="/help/legal/agreement" target="_blank" rel="noopener" class="noopener_class secondary-dark-background">customer agreement</a>.
+</div>

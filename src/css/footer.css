@@ -1,0 +1,30 @@
+@import url(variables.css);
+
+footer {
+  background-color: var( --fk-color-gray-dark);
+  width: 100%;
+}
+
+footer .back-to-top {
+  background-color: var(--fk-color-gray-dark);
+  cursor: pointer;
+  text-align: center;
+  padding: calc(var(--fk-horizontal-space)+5) 0;
+  font-family: var(--fk-font-sans-serif);
+  font-size: var(--fk-font-size-base);
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  color: var(--fk-color-white);
+}
+
+footer #scrollTop:focus {
+  outline: 5px auto var(--fk-color-gray-light);
+}
+
+footer fk-footer-apps {
+  border-top: 2px solid var(--fk-color-gray-dark);
+  min-height: calc(136 - var(--fk-vertical-space) * 7);
+  padding-bottom: calc(var(--fk-vertical-space) * 3.5);
+  padding-top: calc(var(--fk-vertical-space) * 3.5);
+}

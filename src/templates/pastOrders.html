@@ -1,0 +1,43 @@
+<div class="page-past-orders">
+  <div class="header">
+    <a href="/pastitems">Past Items</a>
+    <div class="current-page">Past Orders</div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="past-orders-nav col-lg-3 col-md-3 col-sm-15 col-xs-15">
+        <div class="button-mobile-past-order-menu" ng-click="$ctrl.openPastOrderMenu()">
+          <div ng-if="noPastOrders" class="no-past-orders">
+            <span class="first-word">{{noPastOrdersDate | date:'MMMM'}}</span>
+            <span class="vertical-space-around">{{noPastOrdersDate | date:'yyyy'}}</span>
+            <fk-icon fk-icon-id="#down"></fk-icon>
+          </div>
+          <div ng-if="!noPastOrders">
+            <span class="first-word">{{orderService.order.date | date:'MMMM'}}</span>
+            <span class="vertical-space-around">{{orderService.order.date | date:'yyyy'}}</span>
+            <fk-icon fk-icon-id="#down"></fk-icon>
+          </div>
+        </div>
+        <div class="mobile-menu-wrapper">
+          <fk-past-orders-nav class="closed-past-order-menu" menu-items="orderService.pastOrdersMenu" past-order-id="pastOrderId" past-order-group="orderService.order.group"></fk-past-orders-nav>
+        </div>
+      </div>
+      <div class="products-wrapper col-lg-12 col-md-12 col-sm-15 col-xs-15">
+        <div ng-if="!noPastOrders" class="title-wrapper">
+          <h1 class="uppercase"><span class="bold">{{orderService.order.date | date:'MMMM'}}</span><span class="left-vertical-space">{{orderService.order.date | date:'yyyy'}}</span></h1>
+          <div>
+            <div class="past-order-details right-floated" ng-click="$ctrl.openPastOrderDetails()" fk-a11y-click tabindex="0"><span class="past-orders-only-desktop">Order </span>Details <fk-icon fk-icon-id="#down"></fk-icon></div>
+            <h2><span class="bold">{{orderService.order.reservationDate}}</span><span class="uppercase left-vertical-space past-orders-only-desktop">{{orderService.order.reservationTime}}</span></h2>
+          </div>
+          <fk-past-order-details order-details="orderService.order.details" ng-if="isPastOrderDetailsOpen"></fk-past-order-details>
+        </div>
+        <fk-product-tile-list class="row" ng-if="orderService.order.products && !noPastOrders" products="orderService.order.products" channel="'reorder'" location="'past_orders'" item-class="'col-lg-375 col-md-375 col-sm-75 col-xs-75'"></fk-product-tile-list>
+        <div class="no-past-orders-products" ng-if="noPastOrders">
+          <div tabindex="0">You haven’t placed an order.</div>
+          <a href="/"><button class="button-primary uppercase">Start shopping</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<fk-icon class="spinner get-order-spinner" fk-icon-id="#spinner"></fk-icon>

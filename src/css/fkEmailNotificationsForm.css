@@ -1,0 +1,63 @@
+@import url(variables.css);
+
+fk-email-notifications-form h4 {
+  padding-bottom: var(--fk-vertical-space);
+  font-size: var(--fk-font-size-base);
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.3px;
+  color: var(--fk-color-gray-dark);
+  text-transform: uppercase;
+  margin-top: calc(var(--fk-vertical-space) * 5);
+}
+
+#email_notifications_form .buttons {
+  margin: 0;
+  background-color: var(--fk-color-off-white);
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+fk-email-notifications-form {
+  padding: 0;
+  background-color: var(--fk-color-off-white);
+  box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.2);
+
+  & .fields{
+    padding: 25px 20px 5px;
+    background-color: #fff;
+    border-top: 2px solid var(--fk-color-primary);
+  }
+
+  & button{
+    margin: 0;
+    height: 55px;
+    width: 260px;
+  }
+}
+
+fk-email-notifications-form .uppercased {
+  text-transform: uppercase;
+}
+
+@media (--fk-medium-screen), (--fk-large-screen) {
+  fk-email-notifications-form .fourtypercentwidth {
+    display: block;
+    width: 40%;
+  }
+}
+
+@media (--fk-extra-small-screen), (--fk-small-screen) {
+  fk-email-notifications-form h4 {
+    text-transform: uppercase;
+  }
+
+  fk-email-notifications-form .fourtypercentwidth {
+    width: 100%;
+  }
+}

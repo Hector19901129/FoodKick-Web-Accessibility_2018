@@ -1,0 +1,12 @@
+@import url(variables.css);
+/* fk-checkout .checkout .checkout-top> div> div,
+fk-checkout .checkout .checkout-bottom .delivery-tip .sticky{
+  top: 0;
+  position: sticky;
+}
+
+fk-checkout .checkout .checkout-top .selected-done {
+  background-color: var(--fk-color-white);
+  z-index: 2;
+}
+conflicting with fk-checkout stylesheet */

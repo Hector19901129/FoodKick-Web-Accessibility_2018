@@ -1,0 +1,12 @@
+<div class="fk-add-bank-form-confirm" ng-init="init()">
+	<div class="ngdialog-close"></div>
+
+	<h1>Thank You</h1>
+	<br/>
+	<div>
+		<span ng-if="editType == ''">Account was added.</span>
+		<span ng-if="editType == 'edit'">Account information was updated.</span>
+		<span ng-if="editType == 'del'">Account was deleted.</span>
+	</div>
+</div>
+<fk-ngdialog-close ng-click="closeThisDialog()"></fk-ngdialog-close>

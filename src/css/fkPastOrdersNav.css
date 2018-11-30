@@ -1,0 +1,135 @@
+@import url(variables.css);
+
+.past-orders-menu-holder {
+  padding: 25px 0;
+  font-family: Graphik;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  letter-spacing: 0.2px;
+  color: #a6a8b1;
+  max-height: 58vh;
+  overflow-y: auto;
+
+  .active {
+    margin: 4px 0;
+    padding-top: 3px;
+    flex-grow: 1;
+    background-color: var(--fk-color-primary);
+
+    a {
+      color: white;
+    }
+  }
+
+  .dot-and-line {
+    display: flex;
+    flex-direction: column;
+    float: left;
+  }
+
+  .dot {
+    margin-top: 10px;
+    background-color: #a6a8b1;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 10.8px;
+    width: 10.8px;
+
+    &.has-element {
+      background-color: var(--fk-color-primary);
+    }
+  }
+
+  .dot-vertical {
+    margin-left: 5px;
+    background-color: #a6a8b1;
+    height: 13px;
+    width: 2px;
+  }
+
+  .first-word,
+  .bold {
+    font-weight: 600;
+  }
+
+  .menu-group {
+    height: 34px;
+    cursor: pointer;
+
+    :not(.active-group) {
+      .has-element {
+        color: var(--fk-color-gray-darker);
+      }
+    }
+  }
+
+  .menu-group-texts {
+    padding-top: 4px;
+  }
+
+  .menu-entry {
+    display: flex;
+  }
+
+  .right-floated {
+    float: right;
+  }
+
+  .sub-menu-item:not(.active) {
+    flex-grow: 1;
+    margin: 4px 0;
+    padding-top: 3px;
+    &:hover,
+    &:focus-within {
+      background-color: #e1e1e1;
+    }
+
+    a {
+      color: var(--fk-color-gray-darker);
+    }
+  }
+
+  .vertical-line::before {
+    margin: 0 0 3px;
+    content: " ";
+    height: 2px;
+    width: 10px;
+    background: #a6a8b1;
+    display: inline-block;
+  }
+
+  .vertical-line {
+    padding: 7px 0;
+    margin-left: 5px;
+    border-left: 2px solid #a6a8b1;
+    float: left;
+  }
+
+  .vertical-space-around {
+    margin:0 var(--fk-vertical-space);
+  }
+
+}
+
+@media (--fk-medium-screen), (--fk-large-screen) {
+  .past-orders-menu-holder {
+    .active-group {
+      color: var(--fk-color-primary);
+    }
+
+    .closed-subtopic-group {
+      display: none;
+    }
+  }
+}
+
+@media (--fk-extra-small-screen), (--fk-small-screen) {
+  .past-orders-menu-holder {
+    .menu-group {
+      .has-element {
+        color: var(--fk-color-gray-darker);
+      }
+    }
+  }
+}

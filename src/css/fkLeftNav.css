@@ -1,0 +1,262 @@
+@import url(variables.css);
+
+fk-left-nav {
+  display: block;
+  background: var(--fk-color-gray-lighter);
+  box-shadow: 2px 2px 0 0 var(--fk-color-black-a);
+  font-size: var(--fk-font-size-medium);
+  color: var(--fk-color-gray-darker);
+
+  .menubox>div {
+    border-bottom: 1px solid var(--fk-color-black-a);
+  }
+
+  .menubox:last-child>div {
+    border-bottom: none;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: var(--fk-font-size-medium);
+    color: var(--fk-color-gray-darker);
+    font-weight: 500;
+    font-family: var(--fk-font-sans-serif);
+    text-transform: uppercase;
+    padding: calc(var(--fk-vertical-space) * 3) calc(var(--fk-vertical-space) * 3) var(--fk-vertical-space) calc(6px + var(--fk-vertical-space) * 3);
+  }
+
+  nav>ul>li {
+    margin: var(--fk-vertical-space) 0;
+    color: var(--fk-color-gray-darker);
+    font-weight: 500;
+    margin: 0;
+
+    a,
+    i {
+      color: var(--fk-color-gray-darker);
+      display: block;
+      border-left: 6px solid transparent;
+      padding: calc(var(--fk-vertical-space) / 2) calc(var(--fk-vertical-space) * 3);
+    }
+
+    &.selected a {
+      border-left: 6px solid var(--fk-color-primary);
+    }
+
+    &.inactive {
+      color: var(--fk-color-gray);
+      cursor: not-allowed;
+    }
+
+    &.inactive i {
+      font-style: normal;
+    }
+
+    &.fk-custom-field input[type=radio]+label,
+    &.fk-custom-field input[type=checkbox]+label {
+      font-weight: 500;
+      border-left: 6px solid transparent;
+      padding: calc(var(--fk-vertical-space) / 2) calc(var(--fk-vertical-space) * 3);
+      white-space: nowrap;
+      vertical-align: middle;
+
+      span {
+        display: inline-block;
+        white-space: normal;
+        vertical-align: middle;
+      }
+
+      .product-number {
+        display: none;
+        opacity: .5;
+        position: absolute;
+        right: 20px;
+      }
+
+      .selected .product-number {
+        opacity: 1;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: calc(3 * var(--fk-vertical-space));
+    }
+  }
+
+  .popup-filter {
+    padding: calc(var(--fk-vertical-space) / 2) calc(var(--fk-vertical-space) * 3) calc(var(--fk-vertical-space) * 3);
+  }
+
+  .popup-filter .offscreen {
+    display: none;
+  }
+
+  .departments {
+
+    .fk-custom-field input[type=radio]+label:before {
+      display: none;
+    }
+
+    .fk-custom-field input[type=radio]+label .product-number {
+      display: inline-block;
+    }
+
+    .fk-custom-field.form-radio.selected input[type=radio]+label .product-number {
+      opacity: 1;
+    }
+
+    .form-radio.selected {
+      border-left: 6px solid var(--fk-color-primary);
+      background: var(--fk-color-white);
+
+      &.fk-custom-field input[type=radio]+label {
+        border: 0;
+        .filter-name {
+          color: var(--fk-color-primary);
+          font-weight: 500;
+        }
+        .product-number {
+          opacity: 1;
+          color: var(--fk-color-primary);
+        }
+      }
+
+      &:hover,
+      &:focus-within {
+        border-left: 6px solid var(--fk-color-primary);
+        background: var(--fk-color-white);
+        .filter-name {
+          color: var(--fk-color-primary);
+          font-weight: 500;
+        }
+
+        .product-number {
+          opacity: 1;
+        }
+      }
+    }
+
+    .form-radio:hover,
+    .form-radio:focus-within {
+      border-left: 6px solid var(--fk-color-gray);
+      background: var(--fk-color-gray-light);
+      &.fk-custom-field input[type=radio]+label {
+        border: 0;
+      }
+    }
+  }
+
+  .onlyShow {
+
+    .form-radio.selected {
+      border-left: 6px solid transparent;
+      background: var(--fk-color-white);
+
+      &.fk-custom-field input[type=checkbox]+label {
+        border: 0;
+      }
+
+      &:hover,
+      &:focus-within {
+        border-left: 6px solid transparent;
+        background: var(--fk-color-white);
+        .filter-name {
+          color: var(--fk-color-primary);
+          font-weight: 500;
+        }
+      }
+    }
+
+    .form-radio:hover,
+    .form-radio:focus-within {
+      border-left: 6px solid transparent;
+      background: var(--fk-color-gray-light);
+      &.fk-custom-field input[type=checkbox]+label {
+        border: 0;
+      }
+    }
+  }
+
+  .department-radio {
+
+    .fk-custom-field input[type=radio]+label .product-number {
+      display: inline-block;
+    }
+
+    .fk-custom-field.form-radio.selected input[type=radio]+label .product-number {
+      opacity: 1;
+    }
+
+    .form-radio.selected {
+      border-left: 6px solid transparent;
+      background: var(--fk-color-white);
+
+      &.fk-custom-field input[type=radio]+label {
+        border: 0;
+        .filter-name {
+          color: var(--fk-color-primary);
+          font-weight: 500;
+        }
+        .product-number {
+          opacity: 1;
+          color: var(--fk-color-primary);
+        }
+      }
+
+      &:hover,
+      &:focus-within {
+        border-left: 6px solid transparent;
+        background: var(--fk-color-white);
+        .filter-name {
+          color: var(--fk-color-primary);
+          font-weight: 500;
+        }
+
+        .product-number {
+          opacity: 1;
+        }
+      }
+    }
+
+    .form-radio:hover,
+    .form-radio:focus-within {
+      border-left: 6px solid transparent;
+      background: var(--fk-color-gray-light);
+      &.fk-custom-field input[type=radio]+label {
+        border: 0;
+      }
+    }
+  }
+
+  .noninput-filter {
+    .non-input.selected {
+      border-left: 6px solid var(--fk-color-primary);
+      background: var(--fk-color-white);
+      a,
+      i {
+        border: 0;
+      }
+
+      a {
+        color: var(--fk-color-primary);
+        font-weight: 500;
+      }
+
+      &:hover,
+      &:focus-within {
+        border-left: 6px solid var(--fk-color-primary);
+        background: var(--fk-color-white);
+      }
+    }
+
+    .non-input:hover,
+    .non-input:focus-within {
+      border-left: 6px solid var(--fk-color-gray);
+      background: var(--fk-color-gray-light);
+      a,
+      i {
+        border: 0;
+      }
+    }
+  }
+}

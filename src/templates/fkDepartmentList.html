@@ -1,0 +1,5 @@
+<ul role="tablist">
+  <li ng-repeat="departmentId in $ctrl.globalNavService.departments" aria-label="{{$ctrl.globalNavService.getItem(departmentId).name}}" aria-controls="panel{{$index}}" aria-selected="false" role="tab" tabindex="0" ng-focus="$ctrl.focus($event,departmentId)" class="col" ng-keyup="$ctrl.arrowRight($event, departmentId)">
+    <a ng-class="{selected: departmentId === $ctrl.selected}" fk-href="{{departmentId}}" fk-mouse-slow="$ctrl.mouseOverHandler($event,departmentId)" fk-touch="$ctrl.touchHandler($event,departmentId)" ng-click="$ctrl.click($ctrl.globalNavService.getItem(departmentId).name)" tabindex="-1">{{$ctrl.globalNavService.getItem(departmentId).name}}</a>
+  </li>
+</ul>

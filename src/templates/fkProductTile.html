@@ -1,0 +1,74 @@
+<div class="product--tile {{$ctrl.orientation}}" fk-product-id="{{$ctrl.product.productData.productId}}" ng-class="{available: $ctrl.product.productData.available, unavailable: !$ctrl.product.productData.available}" ng-attr-atc-status="{{atcData.status}}">
+  <!-- div class="product--flag">
+    TODO
+  </div -->
+  <fk-atc-inc-dec product="$ctrl.product" position="$ctrl.position" class="product--atc" ng-class="fkCartService.productsInCart[$ctrl.product.productData.productId].quantity >= $ctrl.product.productData.availableQty && $ctrl.product.productData.availableQty > 0 ? 'product--atc-inventory-checker': ''"></fk-atc-inc-dec>
+  <div class="product--view-alcoholic" ng-if="$ctrl.product.productData.available && !$ctrl.isSimpleProduct()">
+    <a ng-click="pdpOpen($event, 'details')" ng-href="{{$ctrl.productUrl($ctrl.product.productData.productId)}}">Details<span offscreen> for {{$ctrl.product.productData.productNameNoBrand}}</span></a>
+  </div>
+  <div class="product--wrapper" ng-class="fkCartService.productsInCart[$ctrl.product.productData.productId].quantity >= $ctrl.product.productData.availableQty &&  $ctrl.product.productData.availableQty > 0 ? 'inventory-checker': ''">
+    <a class="product--image-holder" ng-click="pdpOpen($event, 'details')" ng-href="{{$ctrl.productUrl($ctrl.product.productData.productId)}}">
+      <div class="product--image" ng-style="!$ctrl.useLazyImg && {'background-image':'url(' +  $ctrl.product.productData.productZoomImage + ')'}" ng-attr-lazy-img="{{$ctrl.useLazyImg? $ctrl.product.productData.productZoomImage : undefined}}"></div>
+      <div ng-if="$ctrl.product.productData.savingString" class="product--flag">{{$ctrl.product.productData.savingString}}</div>
+      <button ng-if="$ctrl.product.productData.grpPrice && !$ctrl.gsdpage" ng-click="pdpOpen($event, 'buyMoreAndSave')" class="button-primary mix-and-match-flag">Any {{$ctrl.product.productData.grpPrice}}
+        <fk-icon fk-icon-id="#right"></fk-icon>
+      </button>
+      <span offscreen>{{$ctrl.product.productData.description}} image</span>
+      <fk-icon ng-if="$ctrl.product.productData.usq" class="wine-store-trade-icon" fk-icon-id="#icon-wine-n-spirits"></fk-icon>
+    </a>
+    <div class="product--details">
+      <div class="product-to-pdp" ng-click="pdpOpen($event, 'details')">
+        <div class="product--brand-name">
+          <div class="product--brand" ng-bind-html="$ctrl.product.productData.brandName">{{$ctrl.product.productData.brandName}}</div>
+          <a class="product--name" ng-href="{{$ctrl.productUrl($ctrl.product.productData.productId)}}"><span ng-bind-html="$ctrl.product.productData.productNameNoBrand">{{$ctrl.product.productData.productNameNoBrand}}</span><span offscreen>details</span></a>
+        </div>
+        <div ng-if="!$ctrl.product.productData.available" class="product--unavailable">Unavailable</div>
+        <div class="product--rating" ng-if="$ctrl.product.productData.available">
+          <fk-rating product="$ctrl.product"></fk-rating>
+        </div>
+        <div class="product--unitinfo" ng-if="$ctrl.product.productData.available">
+          <span ng-if="$ctrl.product.productData.salesUnitDescrPDP && $ctrl.product.productData.scaleUnit === 'ea'">{{$ctrl.product.productData.salesUnitDescrPDP}}</span>
+          <span ng-if="$ctrl.product.productData.suRatios[0].ratio && !$ctrl.product.productData.salesUnitDescrPDP && $ctrl.product.productData.scaleUnit === 'lb'">{{$ctrl.product.productData.suRatios[0].ratio}}{{$ctrl.product.productData.scaleUnit}}</span>
+          <span ng-if="$ctrl.product.productData.suRatios[0].ratio && $ctrl.product.productData.salesUnitDescrPDP && $ctrl.product.productData.scaleUnit === 'lb'">{{$ctrl.product.productData.salesUnitDescrPDP}}</span>
+          <span ng-if="$ctrl.product.productData.utPrice && $ctrl.product.productData.scaleUnit === 'ea'">${{$ctrl.product.productData.utPrice}}<span ng-if="$ctrl.product.productData.utSalesUnit">/{{$ctrl.product.productData.utSalesUnit}}</span></span>
+          <span ng-if="!$ctrl.product.productData.utPrice && $ctrl.product.productData.price && $ctrl.product.productData.scaleUnit === 'lb'"><span ng-class="{'promo-price-by-weight': $ctrl.product.productData.wasPrice, 'normal-price': !$ctrl.product.productData.wasPrice}">${{$ctrl.product.productData.price}}<span ng-if="$ctrl.product.productData.scaleUnit">/{{$ctrl.product.productData.scaleUnit}}</span></span>
+          <span class="was-price-by-weight" ng-if="$ctrl.product.productData.wasPrice">{{$ctrl.product.productData.wasPrice|currency:'$':2}}</span></span>
+        </div>
+        <div ng-if="!$ctrl.product.productData.wasPrice && $ctrl.product.productData.available" class="product--price">
+          <span class="product--pricewrapper">
+          <span ng-if="$ctrl.product.productData.configuredPrice && $ctrl.product.productData.quantity.qMin<=1" class="price">{{$ctrl.product.productData.configuredPrice || $ctrl.product.productData.price|currency:'$':2}}</span>
+          <span ng-if="$ctrl.product.productData.price && $ctrl.product.productData.quantity.qMin>=2  && $ctrl.product.productData.scaleUnit ==='ea'" class="price">{{$ctrl.product.productData.price || $ctrl.product.productData.configuredPrice|currency:'$':2}}</span>
+          <span ng-if="$ctrl.product.productData.price && $ctrl.product.productData.quantity.qMin>=2 && $ctrl.product.productData.scaleUnit ==='lb'" class="price">{{($ctrl.product.productData.configuredPrice /  $ctrl.product.productData.quantity.qMin) |currency:'$':2}}</span>
+          <span class="minimum-quantity" ng-if="$ctrl.product.productData.quantity.qMin>=2">  min. of {{$ctrl.product.productData.quantity.qMin}}</span>
+          <div ng-if="fkCartService.productsInCart[$ctrl.product.productData.productId].subtotal" class="product--subtotal">Total: {{fkCartService.productsInCart[$ctrl.product.productData.productId].subtotal|currency:'$':2}}</div>
+          </span>
+        </div>
+        <div ng-if="$ctrl.product.productData.wasPrice && $ctrl.product.productData.available" class="product--price">
+          <span class="product--pricewrapper">
+          <span class="price promo-price" ng-if="$ctrl.product.productData.price && $ctrl.product.productData.scaleUnit === 'ea'">{{$ctrl.product.productData.price|currency:'$':2}}</span>
+          <span class="price promo-price-configured" ng-if="$ctrl.product.productData.configuredPrice && !$ctrl.product.productData.utPrice && $ctrl.product.productData.scaleUnit === 'lb'">{{$ctrl.product.productData.configuredPrice|currency:'$':2}}</span>
+          <span class="was-price" ng-if="$ctrl.product.productData.scaleUnit === 'ea'">{{$ctrl.product.productData.wasPrice|currency:'$':2}}</span>
+          <div ng-if="fkCartService.productsInCart[$ctrl.product.productData.productId].subtotal" class="product--subtotal">Total: {{fkCartService.productsInCart[$ctrl.product.productData.productId].subtotal|currency:'$':2}}</div>
+          </span>
+        </div>
+      </div>
+      <fk-atc-incart product="$ctrl.product" ng-if="$ctrl.product.productData.available && $ctrl.isSimpleProduct()" class="product--atc-quick"></fk-atc-incart>
+      <div class="product--incart-alcoholic" ng-if="$ctrl.product.productData.available && !$ctrl.isSimpleProduct()">
+        <a ng-click="pdpOpen($event, 'details')" ng-href="{{$ctrl.productUrl($ctrl.product.productData.productId)}}">
+          <fk-incart-badge product="$ctrl.product"></fk-incart-badge>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="quantity-indicator-mobile" ng-if="(fkCartService.productsInCart[$ctrl.product.productData.productId].quantity >=  $ctrl.product.productData.availableQty) && $ctrl.ismobile && $ctrl.product.productData.availableQty > 0">Only {{$ctrl.product.productData.availableQty}} Available</div>
+  <fk-icon class="spinner atc-spinner" fk-icon-id="#spinner"></fk-icon>
+</div>
+<div class="availability-messaging" ng-show="$ctrl.product.productData.showEarlyMsg">
+  <button class="btn-close" ng-click="close()">
+    <fk-icon fk-icon-id="#close"></fk-icon>
+  </button>
+  <div class="availability-text"><span>This item is no longer available today, but can be delivered tomorrow.</span></div>
+  <div class="availability-addon">
+    <button class="button-secondary" ng-click="increase()">Add to bag</button>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<ul>
+  <li ng-repeat="timeslot in fkDeliveryTimeslotService.timeslot[$ctrl.day]" ng-class="[timeslot.id === fkDeliveryTimeslotService.timeslot.selectedTimeslotId ? 'selected-elem selected-time-slot' : '']">
+    <div class="timeslot" ng-if="!timeslot.unavailable" ng-click="timeslot.full|| setTimeslot(timeslot)" fk-a11y-click tabindex="0">
+      <div class="timeslot-selected" ng-if="!timeslot.full"><fk-icon fk-icon-id="#tick"></fk-icon></div>
+      <div class="timeslot-selection-disabled" ng-if="timeslot.full"></div>
+      <div ng-class="timeslot.full ? 'timeslot-gray-out': 'timeslot-time'">
+        <div>{{timeslot | fkTimeSlot}}</div>
+        <div class="sterring-promotion" ng-if="timeslot.steeringDiscount > 0 && timeslot.promoDeliveryFee > 0 && !timeslot.full">SAVE {{timeslot.steeringDiscount | currency:"$":2}}</div>
+    </div>
+      <div class="delivery-fee" ng-if="!timeslot.full">
+        <div class="alcohol-restricted" ng-if="timeslot.alcoholRestricted && !timeslot.unavailable">
+          <fk-icon fk-icon-id="#no-alcohol"></fk-icon>
+        </div>
+        <div class="original-delivery-fee" ng-class="timeslot.deliveryFee > timeslot.promoDeliveryFee ? 'promo' : timeslot.promoDeliveryFee === 0 ? 'promo' : timeslot.steeringDiscount > 0 && timeslot.promoDeliveryFee > 0 ? 'promo':''">{{timeslot.deliveryFee | currency:"$":2}}</div>
+        <div class="original-delivery-fee" ng-class="timeslot.deliveryFee > timeslot.promoDeliveryFee ? 'promo' : timeslot.promoDeliveryFee === 0 ? 'promo' : ''" ng-if="timeslot.steeringDiscount > 0 && timeslot.promoDeliveryFee > 0">{{timeslot.deliveryFee - timeslot.steeringDiscount | currency:"$":2}}</div>
+        <span class="promo-delivery-fee" ng-if="timeslot.deliveryFee > timeslot.promoDeliveryFee && timeslot.promoDeliveryFee > 0">{{timeslot.promoDeliveryFee | currency:"$":2}}</span>
+        <span class="promo-delivery-fee" ng-if="timeslot.promoDeliveryFee === 0">FREE</span>
+      </div>
+       <div class="timeslot-disable" ng-if="timeslot.full">
+        <span>SOLD OUT</span>
+        </div>
+    </div>
+  </li>
+</ul>

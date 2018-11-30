@@ -1,0 +1,14 @@
+<div class="empty" ng-if="$ctrl.product.productData.expertRating || $ctrl.product.productData.wineRating || $ctrl.templateRating">
+  <fk-icon fk-icon-id="#star-empty"></fk-icon>
+  <fk-icon fk-icon-id="#star-empty"></fk-icon>
+  <fk-icon fk-icon-id="#star-empty"></fk-icon>
+  <fk-icon fk-icon-id="#star-empty"></fk-icon>
+  <fk-icon fk-icon-id="#star-empty"></fk-icon>
+</div>
+<div class="full" ng-style="{width: ($ctrl.templateRating || $ctrl.product.productData.expertRating || $ctrl.product.productData.wineRating) * 10 + '%'}">
+  <fk-icon fk-icon-id="#star"></fk-icon>
+  <fk-icon fk-icon-id="#star"></fk-icon>
+  <fk-icon fk-icon-id="#star"></fk-icon>
+  <fk-icon fk-icon-id="#star"></fk-icon>
+  <fk-icon fk-icon-id="#star"></fk-icon>
+</div>

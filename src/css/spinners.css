@@ -1,0 +1,104 @@
+@import url(variables.css);
+
+/* basic spinner */
+.spinner svg {
+  stroke: var(--fk-color-primary);
+  fill: none;
+}
+.login-spinner,
+.spinner {
+  position: absolute;
+  display: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255,255,255,.7);
+  z-index: 100;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-spinner:before,
+.spinner:before {
+  content: url(/assets/img/svg/spinner.svg);
+  display: block;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  max-width: 50%;
+}
+
+fk-icon.spinner:before {
+  content: none;
+  display: none;
+}
+
+fk-icon.spinner svg {
+  width: 60px;
+  height: 60px;
+  display: block;
+  margin: 50% auto;
+}
+/* end of basic spinner */
+
+/* custom spinners */
+fk-product-tile .atc-spinner {
+  background: rgba(255,255,255,.5);
+  opacity: 0;
+  display: block;
+  visibility: hidden;
+  transition: visibility .25s, opacity .25s linear;
+  z-index: 9;
+}
+
+fk-product-tile.adding .atc-spinner,
+fk-product-tile.removing .atc-spinner{
+  opacity: 1;
+  visibility: visible;
+  transition: display 0s, opacity .25s linear;
+}
+
+/* spinner triggers, animation */
+fk-product-tile.adding .atc-spinner,
+fk-product-tile.removing .atc-spinner,
+[network-spinner-cartline-update] .cartline-update-spinner,
+[network-spinner-get-order-details] .checkout-spinner,
+[network-spinner-get-order] .get-order-spinner,
+[network-spinner-checkout] .checkout-spinner,
+[network-spinner-timeslot] .checkout-timeslot-spinner,
+[network-spinner-address] .checkout-address-spinner,
+[network-spinner-address] .address-spinner,
+[network-spinner-payment] .checkout-payment-spinner,
+[network-spinner-payment] .setting-payment-spinner,
+[network-spinner-product] .pdp--spinner,
+[network-spinner-form-submit] .form-submit-spinner,
+[network-spinner-settings] .settings--spinner,
+[network-spinner-login] .login-spinner,
+[network-spinner-notifications] .notifications--spinner,
+[network-spinner-delivery-pass] .delivery-pass-setting-spinner,
+[network-spinner-empty-bag] .empty-bag-spinner,
+[network-spinner-modify-order] .initiate-order-modify-spinner,
+[network-spinner-category] .department-spinner,
+[network-spinner-get-past-items] .get-past-items-spinner,
+[network-spinner-settings] .settings--spinner,
+[network-spinner-product] .product-spinner,
+[network-spinner-get-order] .receipt-spinner,
+[network-spinner-search] .search--spinner,
+[network-spinner-category] .plp--spinner,
+[network-spinner-credits] .credits-spinner,
+[network-spinner-homefeed] .spinner {
+  display: flex;
+  svg {
+    transform-origin: center;
+    transform: rotate(0deg);
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

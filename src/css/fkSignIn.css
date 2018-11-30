@@ -1,0 +1,360 @@
+@import url(variables.css);
+
+fk-sign-in-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+fk-sign-in-button button {
+  text-transform: uppercase;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-weight:500;
+  font-family: var(--fk-font-sans-serif);
+  font-size: var(--fk-font-size-medium);
+  line-height:1.5em;
+  padding: var(--fk-input-padding);
+  height:auto;
+  white-space: nowrap;
+}
+
+fk-sign-in-button button.button-logout,
+fk-sign-in-button button.button-signin {
+  background:transparent;
+  color:var(--fk-color-white);
+  border:1px solid var(--fk-color-white);
+  padding: 0 calc(var(--fk-horizontal-space) + 2);
+  padding-top: 0.15em;
+  line-height: 30px;
+}
+
+fk-sign-in {
+  font-size: var(--fk-font-size-medium);
+  line-height: var(--fk-font-size-medium);
+
+  fk-sign-in-form .policy {
+    display: none;
+  }
+}
+
+.ngdialog-theme-fk fk-sign-in .ngdialog-header .freshdirect{
+  text-align: center;
+}
+
+.ngdialog-theme-fk fk-sign-in .ngdialog-header,
+.ngdialog-theme-fk fk-sign-in #sign_in_form,
+.ngdialog-theme-fk fk-sign-in .sign-in-with,
+.ngdialog-theme-fk fk-sign-in .social,
+.ngdialog-theme-fk fk-sign-in .ngdialog-footer {
+  background-color: var(--fk-color-white);
+  padding: 0 calc(var(--fk-vertical-space) * 2);
+  text-align: center;
+  margin: 0;
+}
+
+.ngdialog-theme-fk fk-sign-in form button {
+  height: 60px;
+  width: 100%;
+}
+
+.ngdialog-theme-fk fk-sign-in .social {
+  padding-bottom: var(--fk-horizontal-space);
+  padding-top: var(--fk-horizontal-space);
+}
+
+.ngdialog-theme-fk fk-sign-in .ngdialog-header {
+  height: 14.5em;
+  padding-top: var(--fk-horizontal-space);
+  position: relative;
+}
+
+fk-sign-in .freshdirect {
+  display: none;
+  font-weight: bold;
+}
+
+fk-sign-in .slide .freshdirect {
+  min-height: 3.5em;
+  position: absolute;
+  bottom: 0.2em;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0 calc(var(--fk-vertical-space) * 2);
+  animation-duration: 1s;
+  animation-name: fd-animation;
+  z-index: 2;
+  left: 50%;
+  margin-left: -50%;
+}
+
+fk-sign-in .freshdirect fk-icon.freshdirect-logo {
+  background-color: var(--fd-color-green);
+  height: 3.5em;
+  width: 3.5em;
+  flex-grow: 1;
+}
+fk-sign-in .freshdirect fk-icon.freshdirect-logo svg {
+  height: 3.5em;
+  padding: .5em;
+  width: 3.5em;
+}
+
+fk-sign-in .freshdirect .content{
+  flex-grow: 9;
+  background-color: var(--fd-color-green-light);
+  color: var(--fk-color-white);
+  height: 3.5em;
+  width: auto;
+  vertical-align: middle;
+  margin: 0;
+  vertical-align: middle;
+  padding-top: 1.25em;
+}
+
+fk-sign-in svg.foodkick-logo {
+  height: 9em;
+  width: auto;
+  margin-top: 3.5em;
+  transition: margin-top .5s ease;
+}
+
+fk-sign-in .slide svg.foodkick-logo {
+  margin-top: .5em;
+}
+
+fk-sign-in-button button.button-createaccount {
+  margin-left: var(--fk-horizontal-space);
+}
+
+fk-sign-in-button button.button-createaccount.referalPage {
+  display: none;
+}
+
+/* TODO refactor this for forms in general */
+fk-sign-in .error {
+  color: var(--fk-color-red);
+  min-height: 2.5em;
+}
+
+fk-sign-in .ngdialog-button {
+  display: flex;
+}
+
+fk-sign-in .ngdialog-button button {
+  height: 50px;
+  margin: 0;
+}
+
+fk-sign-in .sign-in-note .login-required {
+  display: none;
+  color: var(--fk-color-red); /* TODO */
+}
+
+fk-sign-in [login-required] .sign-in-note .login-required {
+  display: block;
+}
+
+fk-sign-in .ngdialog-sign-in-logo {
+  text-align: center;
+}
+
+fk-sign-in .ngdialog-ok-button {
+  font-weight: bold;
+  width: 100%;
+  color: var(--fk-color-white);
+  background-color: var(--fk-color-gray);
+}
+
+fk-sign-in .ngdialog-body .email {
+  border-bottom: solid 0.1em var(--fk-color-gray-dark);
+}
+
+fk-sign-in .ngdialog-body .password,
+fk-sign-in .ngdialog-body .email,
+fk-sign-in .ngdialog-button {
+  height: 3.5em;
+}
+
+fk-sign-in .ngdialog-body {
+  height: 10.6em;
+}
+
+.ngdialog-theme-fk fk-sign-in .ngdialog-footer {
+  padding-top: var(--fk-horizontal-space);
+}
+
+.ngdialog-theme-fk fk-sign-in .ngdialog-footer > button {
+  background-color: transparent;
+  color: var(--fk-color-primary);
+  font-size: var(--fk-font-size-base);
+  font-weight: normal;
+  height: inherit;
+  margin: 0;
+  padding: 0;
+
+  &:hover {
+    color: var(--fk-color-primary-lightest);
+    text-decoration: underline;
+    outline: 0;
+  }
+}
+
+.ngdialog-theme-fk fk-sign-in .ngdialog-footer > button:focus {
+  color: var(--fk-color-primary-lightest);
+  border-bottom:1px solid var(--fk-color-primary-lightest);
+}
+
+fk-sign-in .sign-in-with {
+  color: var(--fk-color-gray-darker);
+  line-height: 1em;
+  margin: 0 var(--fk-horizontal-space);
+  padding: 0;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+}
+
+fk-sign-in .sign-in-with:before {
+  background-color: var(--fk-color-primary);
+  content: ' ';
+  display: block;
+  height: 2px;
+  left: 70px;
+  position: absolute;
+  right: 70px;
+  top: 50%;
+}
+
+fk-sign-in .sign-in-with span {
+  background-color: #fff;
+  display: inline-block;
+  padding: 0 3em;
+  position: relative;
+  z-index: 2;
+}
+
+fk-sign-in .social {
+  color: var(--fk-color-white);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+fk-sign-in .social button {
+  height: 64px;
+  width: 101px;
+  margin: 0;
+  padding: 0;
+}
+
+fk-sign-in .social .freshdirect-sign-in {
+  background-color: transparent;
+  background-image: url('/assets/oneall/icon-fd.png');
+  background-size: 101px 64px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 8.5px;
+}
+
+#social-login iframe {
+  height: 64px !important;
+  width: 210.5px !important;
+}
+
+fk-sign-in .policy {
+  color: var(--fk-color-gray-light);
+  text-align: center;
+  line-height: 1.4em;
+  opacity: 1;
+  padding: 0 calc(var(--fk-vertical-space) * 2);
+  padding-top: var(--fk-horizontal-space);
+}
+
+fk-sign-in .fields .captcha-block {
+  margin-top: calc(var(--fk-vertical-space) * 3);
+  margin-bottom: calc(var(--fk-vertical-space) * 2);
+  display: inline-block;
+}
+
+.ngdialog.ngdialog-theme-default.ngdialog-theme-fk.fk-sign-in .ngdialog-content {
+  padding: 0;
+}
+
+@keyframes fd-animation {
+  from {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@media (--fk-small-screen) {
+  .sign-in {
+    height: auto;
+
+    ng-transclude {
+      display: block;
+      overflow:visible;
+    }
+  }
+
+}
+
+@media (--fk-extra-small-screen) {
+  fk-sign-in .policy {
+    color: var(--fk-color-primary-darker);
+    background-color: var(--fk-color-white);
+    opacity: 1;
+  }
+
+  .sign-in {
+    height: auto;
+    background-color: var(--fk-color-white);
+
+    ng-transclude {
+      display: block;
+      overflow:visible;
+    }
+  }
+
+  .ngdialog.ngdialog-theme-default.ngdialog-theme-fk.fk-sign-in .ngdialog-content {
+    padding: 0;
+  }
+
+  .ngdialog-theme-fk fk-sign-in .ngdialog-header,
+  .ngdialog-theme-fk fk-sign-in #sign_in_form,
+  .ngdialog-theme-fk fk-sign-in .ngdialog-footer {
+    padding: 0 var(--fk-vertical-space);
+  }
+
+  .ngdialog-theme-fk fk-sign-in .sign-in-with,
+  .ngdialog-theme-fk fk-sign-in .social {
+    padding: 0;
+  }
+
+  .ngdialog-theme-fk fk-create-account .social {
+    padding-top: var(--fk-horizontal-space);
+  }
+
+  .ngdialog-theme-fk fk-sign-in .sign-in-with {
+    width: 320px;
+    margin: auto;
+    text-align: center;
+  }
+
+  fk-sign-in .sign-in-with:before {
+    left: 0;
+    right: 0;
+  }
+
+  fk-sign-in .slide .freshdirect {
+    padding: 0 var(--fk-vertical-space);
+  }
+}

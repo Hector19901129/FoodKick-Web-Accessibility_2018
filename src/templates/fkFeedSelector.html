@@ -1,0 +1,8 @@
+  <div class="feed-selector-container" >
+    <div ng-click="$ctrl.changeFeed('home')" ng-class="$ctrl.feedType === 'home' ? 'selected': ''">
+      <fk-icon  fk-icon-id="#home-icon" class="home-icon"></fk-icon>HOME
+    </div>
+    <div ng-click="$ctrl.changeFeed('todaysPicks')" ng-class="$ctrl.feedType === 'todaysPicks' ? 'selected': ''">
+      <fk-icon  fk-icon-id="#picks-icon" class="picks-icon"></fk-icon>TODAY'S PICKS
+    </div>
+  </div>

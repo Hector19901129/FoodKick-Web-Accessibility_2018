@@ -1,0 +1,25 @@
+<div class="payment-label" ng-if="paymentMethods">
+  <h2>{{$ctrl.title}}</h2>
+</div>
+<div class="payment-methods-wrapper">
+  <ul class="{{$ctrl.showEdit ? 'show-edit' : ''}}" ng-if="paymentMethods[$ctrl.paymentType]" role="tablist">
+    <li ng-repeat="paymentMethod in paymentMethods[$ctrl.paymentType] | orderBy:'-id'" aria-controls="panell{{$index}}" aria-selected="false" id="panell{{$index}}" role="tab" tabindex="0" ng-keyup="checkPayment($event, paymentMethod, $index)">
+      <div class="element" ng-click="select(paymentMethod, $index)" fk-a11y-click>
+        <fk-icon ng-if="paymentMethod.selected" fk-icon-id="#done" class="icon-done"></fk-icon>
+        <fk-icon ng-if="!paymentMethod.selected" fk-icon-id="#check" class="icon-check"></fk-icon>
+        <div class="content">
+          <fk-payment-method payment-method="paymentMethod" payment-validation="paymentValidation"  ng-attr-selected="{{paymentMethod.selected}}" dp-payment="dpPayment"></fk-payment-method>
+        </div>
+      </div>
+      <div class="button-container">
+        <button ng-if="$ctrl.showEdit" ng-click="addEdit(paymentValidation, paymentMethod)" class="button-edit" aria-label="Edit payment method">Edit</button>
+      </div>
+    </li>
+  </ul>
+  <div ng-if="$ctrl.paymentValidation === false" class="button-container add-payment-container">
+    <button class="button-secondary new-payment" type="button" ng-click="addEdit(paymentValidation)" aria-label="Edit payment method">{{$ctrl.buttonTitle}}</button>
+  </div>
+  <div ng-if="$ctrl.paymentValidation === true" class="button-container new-payment-checkout">
+    <button class="button-primary-ghost" type="button" ng-click="addEdit(paymentValidation)" aria-label="add credit or debit card">{{$ctrl.buttonTitle}}</button>
+  </div>
+</div>

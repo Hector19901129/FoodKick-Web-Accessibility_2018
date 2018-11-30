@@ -1,0 +1,10 @@
+<div ng-if="!$ctrl.isUser()" class="zip-check--footer">
+  Have an account? <a href="" ng-click="$ctrl.signIn()" class="sign-in secondary-dark-background">Sign in</a> or <a href="" ng-click="$ctrl.signUp()" class="sign-up secondary-dark-background">Create an account</a>
+</div>
+<div class="zip-check--content">
+  <h1>WHERE SHOULD WE DELIVER?</h1>
+  <div class="zip-check--form">
+    <fk-zip-check-form></fk-zip-check-form>
+  </div>
+</div>
+<fk-ngdialog-close ng-click="$ctrl.closeDialogWithX()"></fk-ngdialog-close>

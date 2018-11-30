@@ -1,0 +1,246 @@
+@import url(variables.css);
+
+.page-order-history {
+  .button-primary {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .buttons-wrapper {
+    padding: 0;
+  }
+
+  .block {
+    display: block;
+  }
+
+  .bold {
+    font-weight: 500;
+  }
+
+  .flex-grow {
+    flex-grow: 1;
+  }
+
+  .gray-darker,
+  .timeslot-header,
+  h2 {
+    color: var(--fk-color-gray-darker);
+  }
+
+  .no-order-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .order-wrapper {
+    margin-bottom: calc(var(--fk-vertical-space)*3);
+    background-color: var(--fk-color-white);
+    box-shadow: 1px 1px 0 0 rgba(0,0,0,.2);
+    width: 100%;
+  }
+
+  .no-order-wrapper,
+  .order-specifics-wrapper,
+  .order-heading-wrapper {
+    display: flex;
+  }
+
+  .order-heading-wrapper {
+    border-bottom: 1px solid var(--fk-color-gray-light);
+    align-items: center;
+  }
+
+  .order-specifics-wrapper {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .right-text-align {
+    text-align: right;
+  }
+
+  .uppercase {
+    text-transform: uppercase;
+  }
+
+  .vertical-offset {
+    padding-top: 2px;
+  }
+
+  .oh-button-receipt,
+  .button {
+    padding: 0;
+  }
+
+  .button,
+  button {
+    text-transform: uppercase;
+    letter-spacing: 0.9px;
+    width: 100%;
+    padding: 0;
+    height: calc(var(--fk-vertical-space)*4.5);
+    margin: 0;
+  }
+
+  fk-icon {
+    margin-left: var(--fk-vertical-space);
+
+    svg {
+      font-size: 25px;
+    }
+  }
+
+  fk-icon[fk-icon-id="#ds-vespa"] svg{
+    width: 2em;
+  }
+
+  h2 {
+    margin: calc(var(--fk-vertical-space)*2.5) 0;
+    font-family: var(--fk-font-sans-serif);
+    letter-spacing: 0.5px;
+  }
+
+}
+
+@media (--fk-medium-screen), (--fk-large-screen) {
+  .page-order-history {
+    .more-letter-spacing {
+      letter-spacing: 1px;
+    }
+
+    .no-order-wrapper {
+      padding: calc(var(--fk-vertical-space)*17) 0;
+      font-size: 22px;
+
+      .button {
+        height: calc(var(--fk-vertical-space)*6);
+        line-height: calc(var(--fk-vertical-space)*6);
+        font-size: 20px;
+      }
+
+      div {
+        margin-bottom: calc(var(--fk-vertical-space)*3)
+      }
+    }
+
+    .oh-button {
+
+    }
+
+    .order-heading-wrapper {
+      padding: var(--fk-vertical-space) calc(var(--fk-horizontal-space)*2);
+    }
+
+    .order-history-wrapper{
+      margin: 0 10%;
+      padding: 0;
+    }
+
+    .order-specifics-wrapper {
+      padding: calc(var(--fk-vertical-space)*2) var(--fk-horizontal-space);
+    }
+
+    .specifics-headers {
+      font-size: 14px;
+      letter-spacing: 0.9px;
+    }
+
+    .timeslot-header {
+      font-size: 22px;
+      letter-spacing: 0.6px;
+
+      div {
+        display: inline-block;
+        margin-right: var(--fk-vertical-space);
+      }
+    }
+
+    .button {
+      height: calc(var(--fk-vertical-space)*5.5);
+      line-height: calc(var(--fk-vertical-space)*4.5);
+    }
+
+  }
+}
+
+@media (--fk-extra-small-screen), (--fk-small-screen) {
+  .page-order-history {
+    &.container {
+      padding: 0;
+    }
+
+    .buttons-wrapper {
+      margin-top: calc(var(--fk-vertical-space)*1.5);
+    }
+
+    .no-order-wrapper {
+      padding: calc(var(--fk-vertical-space)*6.5) 0;
+      font-size: 16px;
+
+      .button {
+        height: calc(var(--fk-vertical-space)*4.5);
+        line-height: calc(var(--fk-vertical-space)*4.5);
+        font-size: 14px;
+        letter-spacing: 0.9px;
+      }
+
+      div {
+        margin-bottom: calc(var(--fk-vertical-space)*1.5)
+      }
+    }
+
+    .oh-button {
+      padding: 0 0 0 var(--fk-vertical-space);
+    }
+
+    .order-heading-wrapper,
+    .order-specifics-wrapper {
+      padding: var(--fk-vertical-space);
+    }
+
+    .order-heading-wrapper span {
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .more-letter-spacing,
+    .specifics-headers,
+    .timeslot-header {
+      letter-spacing: 0.3px;
+    }
+
+    .specifics-headers {
+      font-size: 12px;
+    }
+
+    .timeslot-header {
+      padding-top: 2px;
+      font-size: 16px;
+
+      div {
+        margin-left: calc(var(--fk-horizontal-space)*0.5);
+        margin-right: var(--fk-horizontal-space);
+        white-space: nowrap;
+      }
+    }
+
+    .zero-padding {
+      padding: 0;
+    }
+
+    button {
+      height: calc(var(--fk-vertical-space)*5.5);
+      line-height: calc(var(--fk-vertical-space)*5.5);
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 22px;
+    }
+  }
+}

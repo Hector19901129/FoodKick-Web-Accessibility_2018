@@ -1,0 +1,31 @@
+@import url(variables.css);
+
+fk-payment-methods .payment-info:before {
+  background-size: cover;
+  content: "";
+  display: inline-block;
+  height: 27px;
+  padding-right: var(--fk-horizontal-space);
+  vertical-align: bottom;
+  width: 44px;
+}
+
+fk-payment-methods h3[card="Amex"]:before {
+  background-image: url(/assets/img/amex.png);
+}
+
+fk-payment-methods h3[card="Discover"]:before {
+  background-image: url(/assets/img/discover.png);
+}
+
+fk-payment-methods h3[card="MasterCard"]:before {
+  background-image: url(/assets/img/mastercard.png);
+}
+
+fk-payment-methods h3[card="Visa"]:before {
+  background-image: url(/assets/img/visa.png);
+}
+
+fk-payment-method h3{
+  color: var(--fk-color-gray-darker);
+}

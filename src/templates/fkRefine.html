@@ -1,0 +1,46 @@
+<div class="refine-popup-content">
+  <ul>
+    <li ng-if="!$ctrl.hideCategories">
+      <div class="refine-group-button categories" ng-if="show === null" ng-click="switchTo('cat')" ng-keypress="openWithKeyboard($event, 'cat')" tabindex="0">CATEGORIES<fk-icon fk-icon-id="#down"></fk-icon></div>
+      <div class="refine-group-content" ng-if="show === 'cat'">
+        <div class="refine-group-header">
+          CATEGORIES <button class="button-linklike" ng-click="switchTo(null)">Done</button>
+        </div>
+        <fk-left-nav class="refine-group-body categories" menu-boxes="$ctrl.category.menuBoxes.menuBoxes" filters="false" filter-string="$ctrl.filterString" prefix="refine_categories_"></fk-left-nav>
+      </div>
+    </li>
+    <li>
+      <div class="refine-group-button filters" ng-if="show === null" ng-click="switchTo('filters')" ng-keypress="openWithKeyboard($event, 'filters')" tabindex="0" ng-attr-filter="{{getFilter()}}">FILTER BY<fk-icon fk-icon-id="#down"></fk-icon><div class="active" ng-bind-html="getFilter()"></div></div>
+      <div class="refine-group-content" ng-if="show === 'filters'">
+        <div class="refine-group-header">
+          FILTER BY <button class="button-linklike" ng-click="switchTo(null)">Done</button>
+        </div>
+        <fk-left-nav class="refine-group-body filters" menu-boxes="$ctrl.category.menuBoxes.menuBoxes" categories="false" filter-string="$ctrl.filterString" prefix="refine_filters_"></fk-left-nav>
+        <div class="refine-reset">
+          <button class="button-linklike" ng-click="reset()">RESET</button>
+        </div>
+      </div>
+    </li>
+    <li ng-if="$ctrl.category.sortOptions && ($ctrl.category.sortOptions.sortOptions && $ctrl.category.sortOptions.sortOptions.length || $ctrl.category.sortOptions.sortDropDowns)">
+      <div class="refine-group-button sort" ng-if="show === null" ng-click="switchTo('sort')" ng-keypress="openWithKeyboard($event, 'sort')" tabindex="0" ng-attr-sort="{{getSort()}}">SORT BY<fk-icon fk-icon-id="#down"></fk-icon><div class="active" ng-bind-html="getSort()"></div></div>
+      <div class="refine-group-content" ng-if="show === 'sort'">
+        <div class="refine-group-header">
+          SORT BY <button class="button-linklike" ng-click="switchTo(null)">Done</button>
+        </div>
+        <div class="refine-group-body sort-options">
+          <ul>
+            <li class="fk-custom-field" ng-repeat="option in $ctrl.category.sortOptions.sortOptions"><input type="radio" name="refine_sort" value="{{option.id}}{{option.orderAscending ? '|asc' : '|desc'}}" ng-checked="option.selected" id="refine_sort_{{option.id}}{{option.orderAscending ? '_asc' : '_desc'}}"><label for="refine_sort_{{option.id}}{{option.orderAscending ? '_asc' : '_desc'}}" ng-click="sortChange(option.id, option.orderAscending)"><span ng-bind-html="option.name"></span></label>
+          </ul>
+          <ul ng-repeat="group in $ctrl.category.sortOptions.sortDropDowns" ng-attr-label="{{group.name || group.options[0].name}}">
+            <li class="sort-group-title">{{group.name || group.options[0].name}}
+            <li class="fk-custom-field" ng-repeat="option in group.options" ng-if="option.id"><input type="radio" name="refine_sort" value="{{option.id}}{{option.orderAscending ? '|asc' : '|desc'}}" ng-checked="option.selected" id="refine_sort_{{option.id}}{{option.orderAscending ? '_asc' : '_desc'}}"><label for="refine_sort_{{option.id}}{{option.orderAscending ? '_asc' : '_desc'}}" ng-click="sortChange(option.id, option.orderAscending)"><span ng-bind-html="option.name"></span></label>
+          </ul>
+        </div>
+        <div class="refine-reset">
+          <button class="button-linklike" ng-click="reset()">RESET</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<fk-ngdialog-close ng-click="closeThisDialog()"><b>REFINE</b> <span>({{$ctrl.category.products.length || $ctrl.category.productsResult}} results)<span></fk-ngdialog-close>

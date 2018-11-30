@@ -1,0 +1,47 @@
+@import url(variables.css);
+
+.fk-fresh-factor {
+  .fresh-factor-cointainer {
+    background: var(--fk-color-white);
+    color: var(--fk-color-gray-dark);
+    padding: var(--fk-vertical-space);
+    font-size: var(--fk-font-size-medium);
+    line-height: 1.2;
+    font-family: Graphik;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+
+    p {
+      margin: 0;
+    }
+
+    .title {
+      font-weight: bold;
+      margin-bottom: var(--fk-vertical-space);
+    }
+
+    .description {
+      margin-top: var(--fk-vertical-space);
+      display: flex;
+      justify-content: center;
+    }
+
+    .rating-descriptions {
+      margin-left: var(--fk-vertical-space);
+      p {
+        font-weight: bolder;
+        margin: 0;
+        height: 1.5em;
+      }
+    }
+  }
+}
+
+@media (--fk-extra-small-screen) {
+  .fk-fresh-factor {
+    & .close-continer {
+      margin-top: 40px;
+    }
+  }
+}

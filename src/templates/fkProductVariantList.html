@@ -1,0 +1,1 @@
+<fk-product-variant ng-repeat="variant in $ctrl.variations" missing="$ctrl.isMissing(variant.name)"  variant="variant" open="$ctrl.isOpen($index)" selected="$ctrl.selectedValue(variant.name)" ng-click="$ctrl.openHandler($index)" on-close="$ctrl.closeHandler()" on-select="$ctrl.selectHandler(name, value)" ng-if="$ctrl.isShown($index)"></fk-product-variant>

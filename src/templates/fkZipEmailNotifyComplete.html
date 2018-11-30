@@ -1,0 +1,29 @@
+<div class="zip-emailnotifycomplete--footer">
+  Have an account? <a href="" ng-click="$ctrl.signIn()" class="user_sign-in secondary-dark-background">Sign in</a> or <a href="" ng-click="$ctrl.signUp()" class="sign-up secondary-dark-background">Create an account</a>
+</div>
+<div class="zip-emailnotifycomplete-popup">
+  <div class="zip-emailnotify-confirmation">
+    <div class="zip-emailconfirmation-greetings">
+      <h1>Thanks!<br>
+ We hope to see you soon.</h1>
+      <div class="button-container">
+        <button class="browse-storebtn button-primary-ghost" ng-click="goToHome()" title=" browse page">BROWSE STORE</button>
+      </div>
+      <div class="try-another-zip">
+        <button ng-click="checkAnotherZip()" class="basic-btn" aria-label="Try another zip code ">Try Another Zip Code</button>
+      </div>
+    </div>
+    <div class="zip-emailconfir-fd-cover">
+      <div class="fd-content">
+        <span><b>Still need food?</b><br>Get next-day delivery on our sister site.</span>
+      </div>
+      <div class="fd-btn-contanier">
+        <a href="https://www.google.com/" class="shop-fd-btn" target="_blank" rel="noopener" class="noopener_class"><span offscreen>shop from site</span>Shop</a>
+      </div>
+    </div>
+    <div class="fd-logo">
+      <fk-icon fk-icon-id="#zip-fd-logo"></fk-icon>
+    </div>
+  </div>
+</div>
+<fk-ngdialog-close ng-click="closeThisDialog()"></fk-ngdialog-close>

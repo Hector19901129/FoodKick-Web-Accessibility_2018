@@ -1,0 +1,83 @@
+@import url(variables.css);
+
+.ngdialog.ngdialog-theme-fk.fk-send-message-popup .ngdialog-content fk-support-message-section {
+  background-color: var(--fk-color-white);
+  overflow: auto;
+  overflow-x: hidden;
+  padding: calc(var(--fk-vertical-space) * 2) var(--fk-horizontal-space);
+  width: 100%;
+}
+
+.ngdialog.ngdialog-theme-fk.fk-send-message-popup .ngdialog-content fk-support-message-section {
+  padding: 20px;
+  .additional {
+    margin-bottom: calc(var(--fk-vertical-space) * 3);
+  }
+}
+
+.ngdialog.ngdialog-theme-fk.fk-send-message-popup .ngdialog-content fk-support-message-section .buttons {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.ngdialog.ngdialog-theme-fk.fk-send-message-popup .ngdialog-content fk-support-message-section .buttons>button {
+  width: 100%;
+  height: 60px;
+  margin: 0;
+}
+
+.ngdialog.ngdialog-theme-fk.fk-send-message-popup .ngdialog-content fk-support-message-section .fields .full {
+  margin-bottom: calc(var(--fk-vertical-space) * 2);
+}
+
+.ngdialog.ngdialog-theme-fk.fk-send-message-popup .ngdialog-content fk-support-message-section .fields .full .optional-text {
+  float: right;
+}
+
+.ngdialog.ngdialog-theme-fk.fk-send-message-popup .ngdialog-content fk-support-message-section .fields .firstname .field--container {
+  float: left;
+  margin-right: calc(var(--fk-horizontal-space) * 2);
+  width: 46%;
+}
+
+.ngdialog.ngdialog-theme-fk.fk-send-message-popup .ngdialog-content fk-support-message-section .fields .lastname .field--container {
+  width: 46%;
+  float: left;
+}
+
+.ngdialog.ngdialog-theme-fk.fk-send-message-popup .ngdialog-content fk-support-message-section .fields .full .field--container textarea {
+  position: relative;
+  z-index: 1;
+  border: none;
+  border: 2px solid #a6a8b1;
+  border-radius: 0;
+  box-sizing: inherit;
+  color: #3e3f49;
+  display: block;
+  font-size: 16px;
+  font-family: var(--fk-font-sans-serif);
+  font-weight: 400;
+  width: 100%;
+  box-shadow: none;
+  margin: 0;
+  outline: none;
+  padding: 6px 0;
+}
+
+.ngdialog.ngdialog-theme-fk.fk-send-message-popup .ngdialog-content .respond-note {
+  opacity: 1;
+  font-family: var(--fk-font-sans-serif);
+  font-size: var(--fk-font-size-medium);
+  line-height: 1.21;
+  text-align: center;
+  color: var(--fk-color-white);
+  margin: calc(var(--fk-horizontal-space) + 5) calc(var(--fk-horizontal-space) * 6);
+}
+
+@media (--fk-extra-small-screen) {
+  .ngdialog.ngdialog-theme-fk.fk-send-message-popup.narrow .ngdialog-content {
+    .close-continer {
+      margin-top: 40px;
+    }
+  }
+}

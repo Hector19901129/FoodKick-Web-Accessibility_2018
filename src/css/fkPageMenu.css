@@ -1,0 +1,123 @@
+@import url(variables.css);
+
+fk-page-menu {
+  display: block;
+  background: var(--fk-color-gray-lighter);
+
+  a {
+    color: var(--fk-color-gray-dark);
+    font-weight: 400;
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  fk-icon {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    fill: var(--fk-color-gray-dark);
+  }
+
+  ul li {
+    font-size:var(--fk-font-size-medium);
+    border-bottom: 1px solid var(--fk-color-gray-light);
+    line-height: 68px;
+    background: var(--fk-color-gray-lighter);
+    &:hover,
+    &:focus-within {
+      background: var(--fk-color-gray-light);
+    }
+  }
+
+  ul li.subitem-open {
+    background: var(--fk-color-off-white);
+
+    .item a {
+      color: var(--fk-color-primary);
+    }
+  }
+
+  .item {
+    display: block;
+    position: relative;
+
+    a {
+      font-weight: 500;
+    }
+
+    &.active {
+      border-left: 6px solid var(--fk-color-primary);
+      background: var(--fk-color-white);
+
+      a {
+        color: var(--fk-color-primary);
+        padding-left: 9px;
+      }
+    }
+
+    .togglesubitem {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+  }
+
+  & .subitem:first-child {
+    border-top: 1px solid var(--fk-color-gray-light);
+  }
+
+  & .subitem:not(:first-child) span a {
+    border-top: 1px solid var(--fk-color-gray-light);
+  }
+
+  .subitem {
+    text-transform: lowercase;
+    background: var(--fk-color-white);
+    border: none;
+
+    a {
+      display: block;
+      text-transform: capitalize;
+    }
+
+    span {
+      display: block;
+      border-left: 6px solid var(--fk-color-white);
+      background: var(--fk-color-white);
+
+      & a {
+        margin-left: 20px;
+        padding:0;
+        height: 50px;
+        line-height: 50px;
+        width: inherit;
+      }
+
+      &.active {
+        border-left: 6px solid var(--fk-color-primary);
+        background: var(--fk-color-white);
+
+        a {
+          color: var(--fk-color-primary);
+          margin-left: var(--fk-font-size-medium);
+        }
+
+      }
+
+      &:hover,
+      &:focus-within {
+        border-left: 6px solid var(--fk-color-gray);
+        background: var(--fk-color-white);
+      }
+    }
+  }
+
+  .subitem .active + .item {
+    background: red;
+  }
+
+}

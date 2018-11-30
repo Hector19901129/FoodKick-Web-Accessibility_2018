@@ -1,0 +1,16 @@
+<div class="zip-emailnotification--footer">
+  Have an account? <a href="" ng-click="$ctrl.signIn()" class="user_sign-in secondary-dark-background">Sign in</a> or <a href="" ng-click="$ctrl.signUp()" class="sign-up secondary-dark-background">Create an account</a>
+</div>
+<div class="zip-email-notification-popup">
+  <div class="zip-email-zipcode_section">
+    <h1>We only deliver to select ZIPs right now.</h1>
+    <div class="button-container">
+      <button class="basic_btn button-primary-ghost" title="try another zip code" ng-click="checkAnotherZip()">TRY ANOTHER ZIP CODE</button>
+    </div>
+  </div>
+  <div class="zip-email-container">
+    <h1>We’ll give you a shout when we’re in your area.</h1>
+    <fk-zip-email-registration class="ngdialog-form"></fk-zip-email-registration>
+  </div>
+</div>
+<fk-ngdialog-close ng-click="closeThisDialog()"></fk-ngdialog-close>

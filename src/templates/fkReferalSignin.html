@@ -1,0 +1,18 @@
+<div class="ngdialog-header" ng-class="slide ? 'slide': ''">
+  <svg class="svgicon"><use xlink:href="#avatar"/></svg>
+</div>
+<fk-sign-in-form class="ngdialog-form" default-action="signin" source="referral"></fk-sign-in-form>
+<div class="ngdialog-footer">
+  <button ng-click="forgotPassword()">Forgot your password</button>
+  <div class="error" ng-attr-invalid="{{$ctrl.signInErrors}}">
+    <div ng-repeat="(key, value) in $ctrl.signInErrors">{{value}}</div>
+  </div>
+</div>
+<div class="sign-in-with"><span>OR SIGN IN WITH</span></div>
+<div class="social">
+  <div id="social-login"></div>
+</div>
+<fk-icon class="spinner login-spinner" fk-icon-id="#spinner"></fk-icon>
+<div class="policy">
+  By registering you agree to the <a  href="/help/legal/privacy" target="_blank" rel="noopener" class="noopener_class">privacy policy</a> and <a href="/help/legal/agreement" target="_blank" rel="noopener" class="noopener_class">customer agreement</a>.
+</div>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" aria-labelledby="increase-quantity-extra-fkw" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title id="increase-quantity-fkw">Add to cart</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="raw-card" stroke="none" stroke-width="1" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-506.000000, -1327.000000)">
+            <g id="iPhone" transform="translate(166.000000, 949.000000)">
+                <g id="Body">
+                    <g id="plus" transform="translate(340.000000, 378.000000)">
+                        <g id="quanty-plus-">
+                            <g id="product-card-count-copy-2">
+                                <circle id="Oval" cx="18" cy="18" r="18"></circle>
+                            </g>
+                            <path d="M25.6765483,19.3208101 L19.3208101,19.3208101 L19.3208101,25.6791899 C19.3208101,26.4082771 18.7290872,27 18,27 C17.2682712,27 16.6791899,26.4082771 16.6791899,25.6791899 L16.6791899,19.3208101 L10.3208101,19.3208101 C9.59172292,19.3208101 9,18.7290872 9,18 C9,17.2709128 9.59172292,16.6791899 10.3208101,16.6791899 L16.6791899,16.6791899 L16.6791899,10.3208101 C16.6791899,9.59172292 17.2682712,9 18,9 C18.7290872,9 19.3208101,9.59172292 19.3208101,10.3208101 L19.3208101,16.6791899 L25.6765483,16.6791899 C26.4056355,16.6791899 26.9973584,17.2709128 26.9973584,18 C26.9973584,18.7290872 26.4056355,19.3208101 25.6765483,19.3208101" id="Path" fill="#ffffff"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

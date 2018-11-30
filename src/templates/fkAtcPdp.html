@@ -1,0 +1,11 @@
+<!-- temp is temporary class, until price component done -->
+<div ng-if="$ctrl.subtotal && !$ctrl.ismobile" class="subtotal">{{fkCartService.productsInCart[$ctrl.product.productData.productId].subtotal || $ctrl.subtotal | currency:'$':2}}</div>
+<div ng-if="$ctrl.subtotal && $ctrl.ismobile">
+  <div class="subtotal">{{fkCartService.productsInCart[$ctrl.product.productData.productId].subtotal || $ctrl.subtotal | currency:'$':2}}</div>
+  <div class="inventory-quantity-checker" ng-if=" (quantity || fkCartService.productsInCart[$ctrl.product.productData.productId].quantity) >=  $ctrl.product.productData.availableQty && $ctrl.product.productData.availableQty > 0">Only {{$ctrl.product.productData.availableQty}} Available.
+  </div>
+</div>
+<div class="atc-fields">
+  <fk-quantity-drop-down-selector quantity="quantity" product="$ctrl.product" min="$ctrl.product.productData.quantity.qMin" max="$ctrl.product.productData.quantity.qMax" inc="$ctrl.product.productData.quantity.qInc" emit-event="false" available="$ctrl.product.productData.availableQty" prefix="$ctrl.product.productData.catId"></fk-quantity-drop-down-selector>
+  <button class="button-secondary" ng-click="updateBag()" ng-disabled="+fkCartService.productsInCart[$ctrl.product.productData.productId].quantity === +quantity">{{buttonText}}</button>
+</div>

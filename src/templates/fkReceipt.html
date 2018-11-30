@@ -1,0 +1,121 @@
+<div class="receipt">
+  <div class="rp-delivery-details">
+    <div>
+      <p class="title col-xs-10 col-sm-10 col-md-10 col-lg-10">DELIVERY DETAILS</p>
+      <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 print-button-cointainer">
+        <a class="button-primary-ghost hide-print" href="/receipt/{{$ctrl.orderId}}" title="Print Page" target="_blank" rel="noopener" class="noopener_class">PRINT</a>
+        <span class="fklogo-print"><a href="/" title="Home page" fk-icon fk-icon-id="#footer-fk-logo"><span offscreen>Redirect to homepage</span></a>
+        </span>
+      </div>
+    </div>
+    <div class="col-xs-15 col-sm-15 col-md-15 col-lg-15 print-grid">
+      <div class="col-xs-15 col-sm-7 col-md-7 col-lg-7 print-layout">
+        <div class="delivery-data-box" ng-if="$ctrl.order.deliveryDetails.dpCart">
+          <span class="block" tabindex="0">ORDER NUMBER</span>
+          <span class="bold uppercase">{{$ctrl.order.deliveryDetails.number}}</span>
+        </div>
+        <div class="delivery-data-box" ng-if="!$ctrl.order.deliveryDetails.dpCart">
+          <span class="block" tabindex="0">DELIVERY DATE & TIME</span>
+          <span class="bold uppercase">{{$ctrl.order.deliveryDetails.date}}</span>
+        </div>
+        <div class="delivery-data-box personal-info" ng-if="!$ctrl.order.deliveryDetails.dpCart">
+          <span class="block" tabindex="0">PERSONAL INFO</span>
+          <span class="bold uppercase block">{{$ctrl.order.deliveryDetails.name}}</span>
+          <span class="bold uppercase block">{{$ctrl.order.deliveryDetails.address.street}}, {{$ctrl.order.deliveryDetails.address.apartment}}</span>
+          <span class="bold uppercase block">{{$ctrl.order.deliveryDetails.address.city}} {{$ctrl.order.deliveryDetails.address.state}} {{$ctrl.order.deliveryDetails.address.zip}}</span>
+          <span class="bold uppercase block">{{$ctrl.order.deliveryDetails.phone}}</span>
+        </div>
+        <div class="delivery-data-box">
+          <span class="block" tabindex="0">PAYMENT METHOD</span>
+          <span class="bold uppercase">{{$ctrl.order.deliveryDetails.paymentMethod}}</span>
+        </div>
+      </div>
+      <div class="col-xs-15 col-sm-6 col-md-6 col-lg-6 print-layout print-layout-right">
+        <div class="delivery-data-box personal-info" ng-if="$ctrl.order.deliveryDetails.dpCart">
+          <span class="block" tabindex="0">PERSONAL INFO</span>
+          <span class="bold uppercase block">{{$ctrl.order.deliveryDetails.name}}</span>
+          <span class="bold uppercase block">{{$ctrl.order.deliveryDetails.address.street}}, {{$ctrl.order.deliveryDetails.address.apartment}}</span>
+          <span class="bold uppercase block">{{$ctrl.order.deliveryDetails.address.city}} {{$ctrl.order.deliveryDetails.address.state}} {{$ctrl.order.deliveryDetails.address.zip}}</span>
+          <span class="bold uppercase block">{{$ctrl.order.deliveryDetails.phone}}</span>
+        </div>
+        <div class="delivery-data-box" ng-if="!$ctrl.order.deliveryDetails.dpCart">
+          <span class="block" tabindex="0">ORDER STATUS</span>
+          <span class="bold uppercase">{{$ctrl.order.deliveryDetails.status}}</span>
+        </div>
+        <div class="delivery-data-box" ng-if="!$ctrl.order.deliveryDetails.dpCart">
+          <span class="block" tabindex="0">ORDER NUMBER</span>
+          <span class="bold uppercase">{{$ctrl.order.deliveryDetails.number}}</span>
+        </div>
+        <div ng-if="$ctrl.order.deliveryDetails.deliveryInstruction && !$ctrl.order.deliveryDetails.dpCart" class="delivery-data-box">
+          <span class="block" tabindex="0">DELIVERY INSTRUCTIONS</span>
+          <span class="bold uppercase">{{$ctrl.order.deliveryDetails.deliveryInstruction}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div ng-if="$ctrl.order.cartInfo.affiliates.length" class="rp-bag-details">
+    <p class="title col-xs-15 col-sm-15 col-md-15 col-lg-15">BAG DETAILS</p>
+    <div ng-repeat="affiliate in $ctrl.order.cartInfo.affiliates">
+      <div class="affilate-name col-xs-15 col-sm-15 col-md-15 col-lg-15">{{affiliate.name}}</div>
+      <div class="products col-xs-15 col-sm-14 col-md-14 col-lg-14" ng-repeat="lineItem in affiliate.lineItems" ng-if="!lineItem.dlvPassProduct">
+        <span class="col-xs-0 col-sm-1 col-md-1 col-lg-1"></span>
+        <div class="receipt-image col-xs-3 col-sm-3 col-md-2 col-lg-2">
+          <img class="image" ng-if="lineItem.productConfiguration" ng-src="{{(lineItem.productConfiguration.productPotato.productData.productZoomImage)}}" alt=""></img>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9">
+          <div class="brand">{{lineItem.productConfiguration.productPotato.productData.brandName}}</div>
+          <span class="product">{{lineItem.productConfiguration.productPotato.productData.productNameNoBrand}}</span>
+        </div>
+        <span class="col-xs-1 col-sm-1 col-md-1 col-lg-1">{{lineItem.productConfiguration.quantity}}</span>
+        <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+          <span class="right block">{{lineItem.price|currency:'$':2}}</span>
+          <span class="right block">{{lineItem.unitPrice}}</span>
+        </div>
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+      </div>
+    </div>
+  </div>
+  <div class="rp-cart-details">
+    <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1"></div>
+    <div class="col-xs-14 col-sm-14 col-md-13 col-lg-13">
+      <div ng-if="$ctrl.order.cartDetails.wineNumber !== undifined">
+        <span class="cart-lines col-xs-12 col-sm-12 col-md-12 col-lg-12">FD WINE SUBTOTAL:</span>
+        <span class="bold right col-xs-3 col-sm-3 col-md-3 col-lg-3">{{$ctrl.order.cartDetails.wineTotal|currency:'$':2}}</span>
+        <span class="cart-lines col-xs-12 col-sm-12 col-md-12 col-lg-12">WINE TAX:</span>
+        <span class="bold right col-xs-3 col-sm-3 col-md-3 col-lg-3">{{$ctrl.order.cartDetails.wineTax|currency:'$':2}}</span>
+        <div class="col-xs-15 col-sm-15 col-md-15 col-lg-15 border-line"></div>
+      </div>
+      <div>
+        <span class="cart-lines col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-if="$ctrl.order.cartDetails.deliveryPassCharge > 0">DELIVERYPASS SUBSCRIPTION:</span>
+        <span class="bold right amount col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="$ctrl.order.cartDetails.deliveryPassCharge > 0">{{$ctrl.order.cartDetails.deliveryPassCharge |currency:'$':2}}</span>
+        <span class="cart-lines col-xs-12 col-sm-12 col-md-12 col-lg-12">ORDER SUBTOTAL:</span>
+        <span class="bold right amount estimated col-xs-3 col-sm-3 col-md-3 col-lg-3">{{$ctrl.order.cartDetails.orderSubtotal | currency:'$':2}}</span>
+        <div ng-repeat="charge in $ctrl.order.cartDetails.charges" ng-class="{taxable: charge.taxable, discount: charge.discount, 'display-amount': charge.displayAmount, waived: charge.waived, deliveryLabel: charge.label === 'Delivery Charge', dpCart: $ctrl.order.deliveryDetails.dpCart}">
+          <div class="cart-lines uppercase col-xs-12 col-sm-12 col-md-12 col-lg-12">{{charge.label}}:</div>
+          <div class="amount bold right col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="charge.displayAmount">{{charge.amount | currency:"$":2}}</div>
+          <div class="amount bold right col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="!charge.displayAmount">{{charge.description}}</div>
+        </div>
+        <div ng-if="$ctrl.order.cartDetails.promoCode">
+          <span class="cart-lines col-xs-12 col-sm-12 col-md-12 col-lg-12">PROMO CODE:</span>
+          <span class="bold right col-xs-3 col-sm-3 col-md-3 col-lg-3">{{$ctrl.order.cartDetails.promoCode|currency:'$':2}}</span>
+        </div>
+        <span class="bold cart-lines col-xs-12 col-sm-12 col-md-12 col-lg-12">{{$ctrl.order.deliveryDetails.status === 'Delivered' ? 'ORDER TOTAL': 'ESTIMATED TOTAL'}}:</span>
+        <span class="bold right amount estimated col-xs-3 col-sm-3 col-md-3 col-lg-3">{{$ctrl.order.cartDetails.estimatedTotal|currency:'$':2}}</span>
+        <div class="col-xs-15 col-sm-15 col-md-15 col-lg-15 border-line"></div>
+      </div>
+    </div>
+  </div>
+  <div class="note-wrapper">
+    <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1"></div>
+    <div class="notes col-xs-14 col-sm-14 col-md-13 col-lg-13">
+      <span class="col-xs-15 col-sm-15 col-md-15 col-lg-15">† = TAXABLE ITEM</span>
+      <span class="col-xs-15 col-sm-15 col-md-15 col-lg-15">º = SPECIAL PRICE</span>
+      <span class="col-xs-15 col-sm-15 col-md-15 col-lg-15">‡ = STATE BOTTLE DEPOSIT</span>
+      <span class="col-xs-15 col-sm-15 col-md-15 col-lg-15">ª = CUSTOMIZATION PRICE MAY INCLUDE SPECIAL PACKAGING, MARINADES, ETC.</span>
+      <span class="col-xs-15 col-sm-15 col-md-15 col-lg-15"> * = AT TIME OF DELIVERY WE ASSEMBLE YOUR ORDER AND WEIGH EACH ITEM TO DETERMINE ITS FINAL PRICE</span>
+    </div>
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+    <button type="button" ng-if="$ctrl.order.deliveryDetails.modifiable && $ctrl.order.deliveryDetails.status !== 'Processing'" class="button-primary receipt-cancel-button" ng-click="$ctrl.cancelOrder()">CANCEL ORDER</button>
+  </div>
+</div>
+<fk-icon class="spinner receipt-spinner" fk-icon-id="#spinner"></fk-icon>

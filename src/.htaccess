@@ -1,0 +1,25 @@
+# send the prerender token via HTTP header
+<IfModule mod_headers.c>
+	RequestHeader set X-Prerender-Token "JC7IWXJrtebAEJnqQigP"
+</IfModule>
+
+# forward the request to prerender if the user agent is a bot, or _escaped_fragment_ is included in the query parameters
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteCond %{QUERY_STRING} (.*)_escaped_fragment_=([^&]+?)((?:&|$).*)
+	RewriteRule (.*) %2?%1_escaped_fragment_=%3 [L,R=301]
+
+<IfModule mod_proxy_http.c>
+	RewriteCond %{HTTP_USER_AGENT} baiduspider|facebookexternalhit|twitterbot|rogerbot|linkedinbot|embedly|quora\ link\ preview|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator [NC,OR]                 
+	RewriteCond %{QUERY_STRING} _escaped_fragment_
+	# Only proxy the request to Prerender if it's a request for HTML
+	RewriteRule ^(?!.*?(\.js|\.css|\.xml|\.less|\.png|\.jpg|\.jpeg|\.gif|\.pdf|\.doc|\.txt|\.ico|\.rss|\.zip|\.mp3|\.rar|\.exe|\.wmv|\.doc|\.avi|\.ppt|\.mpg|\.mpeg|\.tif|\.wav|\.mov|\.psd|\.ai|\.xls|\.mp4|\.m4a|\.swf|\.dat|\.dmg|\.iso|\.flv|\.m4v|\.torrent|\.ttf|\.woff))(.*) http://service.prerender.io/https://www.foodkick.com/$2 [P,L]
+</IfModule>
+
+# rewrite to /index.html if the requested path does not exists (HTML5 pushState support)
+RewriteBase /
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+</IfModule>

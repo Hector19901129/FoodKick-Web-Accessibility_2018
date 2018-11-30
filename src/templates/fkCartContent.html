@@ -1,0 +1,79 @@
+<div class="cartcontent--header">
+  <span class="main" tabindex="0">BAG ({{fkCartService.nrItemsInCart}}<span class="offscreen"> items</span>)</span>
+  <span class="subtotal" ng-if="fkCartService.cartDetail" tabindex="0">SUBTOTAL ${{fkCartService.cartDetail.estimatedTotal | fkMoney}}</span>
+  <button class="offscreen" ng-click="$ctrl.viewRecommendations()">View Product Recommendations</button>
+</div>
+<fk-cart-recommenders-selector class="cr-selector-sticky"></fk-cart-recommenders-selector>
+<div class="cartcontent--content">
+  <div class="cartcontent--error" ng-if="errors">
+    <span ng-repeat="(key, value) in errors">{{value}}</span>
+  </div>
+  <table ng-if="fkCartService.cartDetail && fkCartService.cartDetail.affiliates.length">
+    <tbody ng-repeat="affiliate in fkCartService.cartDetail.affiliates" class="cart-section" fk-type="AFFILIATE">
+      <tr>
+        <td ng-if="affiliate.name != 'FD WINES'" v-html="" colspan="4" class="affiliate" tabindex="0">{{affiliate.name}}</td>
+        <td ng-if="affiliate.name == 'FD WINES'" v-html="" colspan="4" class="affiliate wine" tabindex="0">
+          <div class="wine-logo">
+            <fk-icon fk-icon-id="#fd-wine-logo"></fk-icon>
+          </div>
+          <div class="wine-affiliate">WINES & SPIRITS</div>
+        </td>
+      </tr>
+      <tr class="item-row" ng-repeat="lineitem in affiliate.lineItems" fk-cart-line-item line-item="lineitem" ng-attr-invalid="{{lineitem.invalid}}" ng-attr-fk-type="{{lineitem.type}}" ng-class="lineitem.dlvPassProduct ? 'dpcartline': ''"></tr>
+      <tr ng-if="affiliate.lineItems[0].productConfiguration.productPotato.productData.usq" class="subtotal">
+        <td colspan="2">{{affiliate.name}} Subtotal:</td>
+        <td colspan="2" class="price" ng-class="{estimated: affiliate.estimatedPrice}">
+          <div>${{affiliate.subtotal|fkMoney}}</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table ng-if="fkCartService.cartDetail && fkCartService.cartDetail.affiliates.length">
+    <tbody class="overall-summary">
+      <tr class="order-total" tabindex="0">
+        <td colspan="2">Order Subtotal:</td>
+        <td colspan="2" class="price" ng-class="{estimated: fkCartService.cartDetail.estimatedPrice}">
+          <div>${{fkCartService.cartDetail.subtotal | fkMoney}}</div>
+        </td>
+      </tr>
+      <tr class="note">
+        <td colspan="2" tabindex="0">
+          T = Taxable Item
+          <br/> d = State Bottle Deposit
+          <br/> * = At time of delivery we assemble our order and weigh each item to determine its final price
+        </td>
+        <td colspan="2" class="need-help">
+          <div>
+            <button class="button-secondary-alt button-secondary-ghost" fk-track-click="CHAT INITIATED|CHAT" ng-click="triggerChat()">Need help ?</button>
+            <button class="offscreen" ng-click="$ctrl.viewRecommendations()">View Product Recommendations</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="shopnow" ng-if="!fkCartService.cartDetail || !fkCartService.cartDetail.affiliates.length">
+    <span tabindex="0">Your shopping bag is empty.</span><br>
+    <button class="button button-secondary-ghost" ng-click="shopnow()">SHOP NOW!</button>
+  </div>
+  <div class="col-sm-15 col-xs-15 cartcontent--recommendations" ng-if="$ctrl.ismobile">
+    <fk-cart-recommenders></fk-cart-recommenders>
+  </div>
+</div>
+<div ng-if="fkCartService.cartDetail && fkCartService.cartDetail.affiliates.length" class="empty-cart">
+    <button ng-click="$ctrl.emptyBag()"><fk-icon fk-icon-id="#trash_can"></fk-icon><span>Empty Bag</span></button>
+</div>
+<div class="cartcontent--footer" ng-if="!fkOrderModifyService.getModifyState()">
+  <div class="checkout-button--holder">
+    <button class="button button-primary checkout-button" ng-disabled="!fkCartService.cartDetail || !fkCartService.cartDetail.affiliates.length" ng-click="checkout()">CHECKOUT</button>
+  </div>
+  <fk-icon class="spinner cartline-update-spinner" fk-icon-id="#spinner"></fk-icon>
+</div>
+<div class="cartcontent-modify-footer" ng-if="fkOrderModifyService.getModifyState()">
+  <div class="modify-checkout-help">
+    <button class="button-secondary-ghost" fk-track-click="CHAT INITIATED|CHAT" ng-click="triggerChat()">HELP</button>
+  </div>
+  <div class="modify-order-continue">
+    <button class="button-secondary" ng-click="checkout()">CONTINUE</button>
+  </div>
+  <fk-icon class="spinner cartline-update-spinner" fk-icon-id="#spinner"></fk-icon>
+</div>

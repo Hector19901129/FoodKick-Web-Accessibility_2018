@@ -1,0 +1,20 @@
+<div class="ngdialog-header" ng-class="slide ? 'slide': ''">
+  <svg class="svgicon"><use xlink:href="#avatar"/></svg>
+  <div class="freshdirect">
+    <fk-icon  fk-icon-id="#avatar" class="account"></fk-icon>
+    <div class="content">SIGN IN WITH A ACCOUNT</div>
+  </div>
+</div>
+<fk-sign-in-form class="ngdialog-form" default-action="signup"></fk-sign-in-form>
+<div class="ngdialog-footer">
+  <div class="error" ng-attr-invalid="{{signUpErrors}}">
+    <div ng-repeat="(key, value) in signUpErrors">{{value}}</div>
+  </div>
+</div>
+<div class="register-with"><span>OR REGISTER WITH</span></div>
+<div class="social">
+  <button class="sign-in" type="button" name="account" aria-label="SIGN IN WITH A ACCOUNT" ng-click="slide= !slide"><span offscreen>SIGN IN WITH A ACCOUNT</span></button>
+  <div id="social-register"></div>
+</div>
+<fk-icon class="spinner login-spinner" fk-icon-id="#spinner"></fk-icon>
+

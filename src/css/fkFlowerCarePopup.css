@@ -1,0 +1,40 @@
+@import url(variables.css);
+
+.fk-flower-care-popup {
+
+  .fk-flower-care {
+    padding: calc(var(--fk-horizontal-space) * 2.5);
+    overflow: auto;
+    background: var(--fk-color-off-white);
+    color: var(--fk-color-gray-dark);
+
+    h3 {
+      font-family: var(--fk-font-sans-serif);
+      font-size: 18px;
+      color: var(--fk-color-gray-darker)
+    }
+
+    ol {
+      padding-left: calc(var(--fk-horizontal-space) * 2);
+    }
+
+    li {
+      padding-left: var(--fk-horizontal-space);
+      padding-bottom: calc(var(--fk-vertical-space) * 2.5);
+      list-style-type: decimal;
+      font-weight: 500;
+
+      span {
+        font-weight: 200;
+      }
+    }
+  }
+}
+
+@media (--fk-extra-small-screen) {
+  .fk-flower-care-popup {
+    & .close-continer {
+      margin-top: 40px;
+    }
+  }
+}

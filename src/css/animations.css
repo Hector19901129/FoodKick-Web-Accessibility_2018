@@ -1,0 +1,15 @@
+@import url(variables.css);
+
+@-webkit-keyframes hvr-pop {
+  50% {
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03);
+  }
+}
+
+@keyframes hvr-pop {
+  50% {
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03);
+  }
+}

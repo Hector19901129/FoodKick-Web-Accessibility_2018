@@ -1,0 +1,213 @@
+@import url(variables.css);
+.credits-wrapper {
+  .ab-title h2 {
+    font-size: var(--fk-font-size-large);
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    color: var(--fk-color-gray-darker);
+    font-family: var(--fk-font-sans-serif);
+    margin: 0;
+  }
+}
+
+fk-credits {
+  .buttons-wrapper {
+    padding: 0;
+    font-size: var(--fk-font-size-large);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    .redemption {
+      color: var(--fk-color-red);
+    }
+    .store-credit {
+      color: var(--fk-color-gray-darkest);
+    }
+  }
+
+  .block {
+    display: block;
+  }
+
+  .order-wrapper {
+    margin-bottom: calc(var(--fk-vertical-space)*3);
+    background-color: var(--fk-color-white);
+    box-shadow: 1px 1px 0 0 rgba(0, 0, 0, .2);
+    width: 100%;
+  }
+
+  .order-specifics-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .oh-button {
+    a {
+      cursor: pointer;
+    }
+    fk-icon svg {
+      margin-right: 5px;
+    }
+  }
+}
+
+@media (--fk-medium-screen),
+(--fk-large-screen) {
+
+  .credits-page {
+    background-color: var(--fk-color-off-white);
+
+    .ab-title {
+      font-size: var(--fk-font-size-large);
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      color: var(--fk-color-gray-darker);
+      margin-bottom: var(--fk-vertical-space);
+    }
+
+    fk-credits {
+      padding: 0;
+      background-color: var(--fk-color-white);
+      border-top: 2px solid var(--fk-color-primary);
+      box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.2);
+
+      .available-credit {
+        text-align: center;
+        margin: 40px 30px 10px;
+        background-color: var(--fk-color-off-white-dark);
+
+        .available-amount {
+          padding-top: calc(var(--fk-vertical-space) * 3);
+        }
+
+        .available {
+          text-transform: uppercase;
+          margin: 0;
+          font-size: var(--fk-font-size-medium);
+          padding-bottom: calc(var(--fk-vertical-space) * 3);
+        }
+
+        .amount {
+          font-size: var(--fk-font-size-large);
+          font-weight: bold;
+        }
+      }
+
+      .credit-info {
+        text-align: left;
+        margin: 40px 50px 50px;
+      }
+
+      .more-letter-spacing {
+        letter-spacing: 1px;
+      }
+
+      .hidden-row {
+        display: none;
+      }
+
+      .order-specifics-wrapper {
+        padding: 10px 10px 30px 10px;
+      }
+    }
+
+    fk-icon[fk-icon-id="#fk-logo"] svg {
+      width: 67px;
+      height: 16px;
+      opacity: 0.5;
+    }
+
+    fk-icon[fk-icon-id="#fd-logo"] svg {
+      width: 67px;
+      height: 16px;
+      opacity: 0.5;
+    }
+  }
+}
+
+@media (--fk-extra-small-screen),
+(--fk-small-screen) {
+
+  #account-details-page {
+    padding: 0;
+    height: auto;
+  }
+
+  .credits-wrapper {
+    padding: 0 calc(var(--fk-vertical-space)*2);
+    .ab-title {
+      margin-top: calc(var(--fk-vertical-space)*7.5);
+      margin-bottom: calc(var(--fk-vertical-space)*1.5);
+    }
+  }
+
+  .credits-page {
+    justify-content: space-between;
+    background-color: var(--fk-color-white);
+    fk-credits {
+      padding: 0;
+      border-top: 2px solid var(--fk-color-primary);
+      box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.2);
+
+      .credit-info {
+        text-align: left;
+        margin: 40px 30px 10px;
+      }
+
+      .amount {
+        font-size: var(--fk-font-size-large);
+        font-weight: bold;
+      }
+
+      .available-credit {
+        text-align: center;
+        background-color: var(--fk-color-off-white-dark);
+        margin-top: 30px;
+        margin-left: 20px;
+        margin-right: 20px;
+        .available-amount {
+          padding-top: 30px;
+        }
+        .available {
+          padding-bottom: 20px;
+          text-transform: uppercase;
+          margin: 0;
+          font-size: var(--fk-font-size-medium);
+        }
+      }
+
+      .buttons-wrapper {
+        margin-top: calc(var(--fk-vertical-space)*1.5);
+        font-size: var(--fk-font-size-base);
+      }
+
+      .oh-button {
+        margin-top: calc(var(--fk-vertical-space) + 5);
+      }
+
+      .order-specifics-wrapper {
+        padding: 10px 10px 25px 25px;
+      }
+
+      .more-letter-spacing {
+        letter-spacing: 0.3px;
+      }
+
+      .zero-padding {
+        padding: 0;
+      }
+
+      fk-icon[fk-icon-id="#fk-logo"] svg {
+        width: 67px;
+        height: 16px;
+        opacity: 0.5;
+      }
+
+      fk-icon[fk-icon-id="#fd-logo"] svg {
+        width: 67px;
+        height: 16px;
+        opacity: 0.5;
+      }
+    }
+  }
+}

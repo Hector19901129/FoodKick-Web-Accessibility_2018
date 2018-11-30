@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="25px" height="25px" viewBox="0 0 20 20" version="1.1" aria-labelledby="cancelled-icon-fkw" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title id="cancelled-icon-fkw">cancelled</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="d---Order-History-FINAL-" transform="translate(-1036.000000, -358.000000)">
+            <g id="cancelled">
+                <g transform="translate(1036.000000, 358.000000)">
+                    <g>
+                        <path d="M20,10 C20,15.5227601 15.5230178,20 10,20 C4.47698215,20 0,15.5227601 0,10 C0,4.47723993 4.47698215,0 10,0 C15.5230178,0 20,4.47723993 20,10" id="Fill-1" fill="#BB3C3B"></path>
+                        <g id="Group-5" transform="translate(0.000000, 0.371760)"></g>
+                        <path d="M6.2277,13.7129 C5.9241,13.4093 5.9241,12.9177 6.2277,12.6141 L8.8717,9.9701 L6.2277,7.3261 C5.9245,7.0229 5.9245,6.5309 6.2277,6.2277 C6.5313,5.9241 7.0229,5.9241 7.3265,6.2277 L9.9705,8.8717 L12.6145,6.2277 C12.9177,5.9241 13.4097,5.9241 13.7129,6.2277 C14.0165,6.5309 14.0165,7.0229 13.7129,7.3261 L11.0689,9.9701 L13.7133,12.6145 C14.0165,12.9177 14.0165,13.4097 13.7133,13.7129 C13.4097,14.0165 12.9181,14.0165 12.6145,13.7129 L9.9705,11.0689 L7.3265,13.7129 C7.0229,14.0165 6.5313,14.0165 6.2277,13.7129" id="Fill-6" fill="#FFFFFF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

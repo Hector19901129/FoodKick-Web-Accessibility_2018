@@ -1,0 +1,30 @@
+@import url(variables.css);
+
+.oc--address-time {
+  font-size: var(--fk-font-size-medium);
+  width: 50%;
+  padding-top: calc(var(--fk-vertical-space) / 2);
+  float: left;
+  .oc--address,
+  .oc--time {
+    color: var(--fk-color-primary);
+    margin-bottom: calc(var(--fk-vertical-space) * 2);
+    text-transform: uppercase;
+    h3 {
+      font-size: var(--fk-font-size-base);
+      font-family: var(--fk-font-sans-serif);
+      text-transform: uppercase;
+      margin-top: 0;
+      color: var(--fk-color-gray-dark);
+    }
+  }
+}
+
+.cancel-order-details .oc--address-time {
+  width: 100%;
+  .oc--address,
+  .oc--time {
+    width: 50%;
+    float: left;
+  }
+}

@@ -1,0 +1,108 @@
+@import url(variables.css);
+
+fd-product-carousel {
+
+  * {
+    margin: 0px;
+  }
+
+
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  padding: 2px !important;
+  padding-bottom: 6px !important;
+
+  & > ng-transclude {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+  }
+
+  .carousel-items {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    /*FKW-347 Remove while don't show picture in product carousel insteed of the fourth tile*/
+    /*padding-left: 240px;*/
+  }
+
+  .product-carousel-item {
+    margin-left: 3px;
+    margin-right: 3px;
+
+    .product--tile {
+      box-shadow: 0px 0px rgba(0, 0, 0, 0);
+
+      .product--image {
+        background-size: contain;
+        background-color: white;
+        background-size: contain;
+      }
+    }
+  }
+
+  .carousel-controll {
+    width: 100%;
+    position: absolute;
+    top: calc(50% - 25px);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px;
+
+    .spacer {
+      pointer-events: none;
+      flex: 1;
+    }
+
+    button {
+      width: 36px;
+      height: 36px;
+      top: 50%;
+      pointer-events: all;
+      color: var(--fk-color-white);
+      fill: var(--fk-color-white);
+      background: lightgray;
+      border-radius: 50%;
+      margin: 0;
+      padding: 0;
+      display: block;
+      box-sizing: content-box;
+
+      svg {
+        width: 50%;
+        height: 50%;
+      }
+    }
+
+    .see-allbutton {
+      border-radius: 0;
+      border: 0;
+      margin-right:50px;
+      width: auto;
+      padding: .5em 1em 0.5em 2em;
+    }
+  }
+  &.firstpage .back-button {
+    visibility: hidden;
+  }
+}
+
+@media (--fk-large-screen) {
+  fd-product-carousel {
+    .product-carousel-item {
+      min-width: 232.5px;
+    }
+  }
+}
+
+@media (--fk-medium-screen) {
+  fd-product-carousel {
+    .product-carousel-item {
+      min-width: 240px;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+<fk-product-tile-list ng-if="$ctrl.module.sourceType === 'PRODUCT_CAROUSEL_MODULE' || $ctrl.module.sourceType === 'EDITORIAL_MODULE'" class="row" module="$ctrl.module" products="$ctrl.topProducts" limit="$ctrl.limit" item-class="'col-sm-5 col-xs-75'"></fk-product-tile-list>
+
+<fd-icon-tile-list class="row" ng-if="$ctrl.module.sourceType === 'ICON_CAROUSEL_MODULE'" module="$ctrl.module" item-class="col-sm-375 col-xs-75" products="$ctrl.module.moduleData.icons" limit="$ctrl.limit"></fd-icon-tile-list>
+
+<fk-section-more module="$ctrl.module" module-group="$ctrl.moduleGroup" ng-if="$ctrl.module.moduleData.products.length" products="$ctrl.module.moduleData.products" type="$ctrl.type" title="$ctrl.module.contentTitle" item-class="'col-sm-5 col-xs-75'"></fk-section-more>
+<!--<fk-section-more module="$ctrl.module" module-group="$ctrl.moduleGroup" ng-if="$ctrl.module.moduleData.icons.length" products="$ctrl.module.moduleData.icons" type="$ctrl.type" item-class="'col-sm-5 col-xs-75'"></fk-section-more>-->

@@ -1,0 +1,49 @@
+@import url(variables.css);
+
+fk-global-navigation-widget{
+	position: absolute;
+	z-index: 1000;
+	background-color: rgb(133, 39, 150);
+	color: white;
+	text-transform: uppercase;
+	/*padding: 25px;*/
+	font-weight: bold;
+	font-size:14px;
+	line-height: 31px;
+
+
+
+	.menu_dept{
+		padding:  5px 25px;
+
+		li{
+
+		}
+
+		li, a{
+			color: white;
+		}
+
+		&:hover,
+		&[fk-touched="hasTouched"] {
+			background-color:white;
+			color: rgb(133, 39, 150);
+
+			li, a{
+				color: rgb(133, 39, 150);
+			}
+
+			.menu_section{
+				display:block;
+				background-color:#636;
+				color:white;
+			}
+		}
+	}
+
+	.menu_section{
+		display:none;
+	}
+
+
+}

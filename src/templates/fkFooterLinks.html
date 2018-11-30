@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row third-row">
+    <div class="col-md-15 col-lg-75 col-sm-15 col-xs-15">
+      <div class="row">
+        <div class="col-md-75 col-lg-75 col-sm-75 col-xs-15">
+          <div class="footer-links-header"><h2>{{$ctrl.SITE.Site}}</h2></div>
+          <div class="footer-links"><a ng-click="$ctrl.goToTop()" href="/help/aboutus/">About Us</a></div>
+          <div class="footer-links" ng-if="$ctrl.SITE.URL.Careers"><a href="k{{$ctrl.SITE.URL.Careers}}" target="_blank" rel="noopener" class="noopener_class">Careers<span offscreen>will open in a new window</span></a></div>
+          <div class="footer-links"><a ng-click="$ctrl.goToTop()" href="/help/faq/iphonegeneral">Help/<abbr title="Frequently asked questions">FAQ</abbr></a></div>
+          <div class="footer-links"><a ng-click="$ctrl.goToTop()" href="/help/faq/fkaccessbility">Accessibility</a></div>
+          <div class="footer-links"><a ng-click="$ctrl.goToTop()" href="/help/legal/privacy">Privacy Policy</a></div>
+          <div class="footer-links"><a ng-click="$ctrl.goToTop()" href="/help/legal/agreement">Customer Agreement</a></div>
+          <div class="footer-links"><a ng-click="$ctrl.goToTop()" href="/help/legal/platformterms">Terms of Use</a></div>
+          <div class="footer-links"><a ng-click="$ctrl.goToTop()" href="/help/legal/promocodes">Promo Codes</a></div>
+          <div class="footer-links another-site-logo"><a href="{{$ctrl.SITE.URL.Anothersite}}" target="_blank" rel="noopener" class="noopener_class"><fk-icon fk-icon-id="{{$ctrl.SITE.AnothersiteLogo}}"></fk-icon><span offscreen>A new window will open to {{$ctrl.SITE.AnothersiteOffscreen}}</span></a>
+          </div>
+        </div>
+        <div class="col-md-75 col-lg-75 col-sm-75 col-xs-15">
+          <div class="footer-links-header"><h2>CONTACT</h2></div>
+          <div class="mail-to-header">Have a question?</div>
+          <div class="mail-to-header "><a class="secondary-dark-background" fk-track-click="CONTACT:HAVE A QUESTION?|CONTACT US" href="mailto:{{$ctrl.SITE.URL.EmailQuestion}}">{{$ctrl.SITE.URL.EmailQuestion}}</a></div>
+          <div class="mail-to-header">Press inquiries</div>
+          <div class="mail-to-header"><a class="secondary-dark-background" fk-track-click="CONTACT:PRESS INQUIRIES|CONTACT US" href="mailto:{{$ctrl.SITE.URL.EmailPress}}">{{$ctrl.SITE.URL.EmailPress}}</a></div>
+          <div class="mail-to-header">Want to partner?</div>
+          <div class="mail-to-header"><a class="secondary-dark-background" fk-track-click="CONTACT:WANT TO PARTNER?|CONTACT US" href="mailto:{{$ctrl.SITE.URL.EmailPartners}}">{{$ctrl.SITE.URL.EmailPartners}}</a></div>
+          <div class="mail-to-header">Request a product</div>
+          <div class="mail-to-header"><a class="secondary-dark-background" fk-track-click="CONTACT:REQUEST A PRODUCT?|CONTACT US" href="mailto:{{$ctrl.SITE.URL.EmailProductRequest}}">{{$ctrl.SITE.URL.EmailProductRequest}}</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-15 col-lg-75 col-sm-15 col-xs-15">
+      <div class="row">
+        <div class="col-md-75 col-lg-75 col-sm-75 col-xs-15">
+          <div class="footer-links-header"><h2>FOLLOW US</h2></div>
+          <div class="footer-links">
+            <a href="{{$ctrl.SITE.URL.Facebook}}" fk-track-click="FACEBOOK|SOCIAL MEDIA" target="_blank" rel="noopener" class="noopener_class"> <span class="social-icon"><fk-icon fk-icon-id="#f-b-f-logo-printpackaging"></fk-icon></span>Facebook<span offscreen>will open in a new window</span></a>
+          </div>
+          <div class="footer-links">
+            <a href="{{$ctrl.SITE.URL.Instagram}}" fk-track-click="INSTAGRAM|SOCIAL MEDIA" target="_blank" rel="noopener" class="noopener_class"> <span class="social-icon"><fk-icon fk-icon-id="#glyph-logo-may-2016"></fk-icon></span>Instagram<span offscreen>will open in a new window</span></a>
+          </div>
+          <div class="footer-links">
+            <a href="{{$ctrl.SITE.URL.Twitter}}" fk-track-click="TWITTER|SOCIAL MEDIA" target="_blank" rel="noopener" class="noopener_class"> <span class="social-icon"><fk-icon fk-icon-id="#twitter-logo-white-on-image"></fk-icon></span>Twitter<span offscreen>will open in a new window</span></a>
+          </div>
+        </div>
+        <div class="col-md-75 col-lg-75 col-sm-75 col-xs-15">
+          <div class="apps">
+            <div class="get-app footer-links-header"><h2>GET THE APP</h2></div>
+            <div class="app-google-store">
+              <span class="app-store">
+                <a href="{{$ctrl.SITE.URL.Appstore}}" fk-track-click="IOS|GET THE APP" target="_blank" rel="noopener" class="noopener_class">
+                  <fk-icon fk-icon-id="#app-store"></fk-icon><span offscreen>A new window will open to {{$ctrl.SITE.DownloadiOsOffscreen}}</span>
+                </a>
+              </span>
+            </div>
+            <div class="app-google-store">
+              <span class="google-play">
+                <a href="{{$ctrl.SITE.URL.Playstore}}" fk-track-click="ANDROID|GET THE APP" target="_blank" rel="noopener" class="noopener_class">
+                  <fk-icon fk-icon-id="#google-play"></fk-icon><span offscreen>A new window will open to {{$ctrl.SITE.DownloadAndroidOffscreen}}</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="row" ng-style="{height: $ctrl.height }">
+  <div class="header col-lg-3 col-md-3 col-sm-15 col-xs-15">
+    <div ng-if="$ctrl.columns.length === 0" class="nav">Shop Departments</div>
+    <div ng-if="$ctrl.columns.length > 0">
+      <div ng-click="$ctrl.back()" class="nav"><fk-icon fk-icon-id="#left"> BACK</fk-icon></div>
+      <div class="name">{{$ctrl.getCurrentSelected().name}}</div>
+      <div class="shopall">
+        <a fk-href="{{$ctrl.fkGlobalNavService.currentItem}}" fk-touch="$ctrl.navigate($ctrl.fkGlobalNavService.currentItem)" ng-click="$ctrl.click($ctrl.getCurrentSelected().name)">Shop all {{$ctrl.getCurrentSelected().name}}</a>
+      </div>
+    </div>
+  </div>
+  <div class="lists mobile-menu-list">
+    <fk-department-list on-select="$ctrl.selectItem(departmentId,0)" on-navigate="$ctrl.navigate(departmentId)" selected="$ctrl.columns[0]" class="fk-department-list col-lg-3 col-md-3 col-sm-15 col-xs-15"></fk-department-list>
+    <ul class="col-lg-3 col-md-3 col-sm-15 col-xs-15 nav-sublists" ng-repeat="col in $ctrl.columns" ng-if="$ctrl.fkGlobalNavService.getItem(col).children.length > 0" role="tablist">
+      <li ng-repeat="child in $ctrl.fkGlobalNavService.getItem(col).children" class="col{{$parent.$index}}" tabindex="0" role="tab" ng-focus="$ctrl.focus($event, child, $parent.$index+1)" ng-keyup="$ctrl.keyEnter($event, $parent.$index, child)">
+        <a ng-class="{selected:child === $ctrl.columns[$parent.$index+1]}" fk-href="{{child}}" fk-mouse-slow="$ctrl.selectItem(child)" fk-touch="$ctrl.touchHandler($event, child, $parent.$index+1)" ng-click="$ctrl.click($ctrl.fkGlobalNavService.getItem(child).name)" tabindex="-1">{{$ctrl.fkGlobalNavService.getItem(child).name}}</a>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+@import url(variables.css);
+
+.fk-modify-timeup {
+  .modification-time-remainder {
+    background-color: var(--fk-color-off-white);
+    color: var(--fk-color-gray-darker);
+    padding: calc(var(--fk-vertical-space) * 3) calc(var(--fk-horizontal-space) * 3);
+    width: 100%;
+    font-family: var(--fk-font-sans-serif);
+    font-size: var(--fk-font-size-large);
+    text-align: center;
+    line-height: 1.17;
+    font-weight: 500;
+    button {
+      width: 100%;
+      height: calc(var(--fk-vertical-space) * 6);
+    }
+    p {
+      font-weight: normal;
+    }
+  }
+}
+
+
+@media (--fk-small-screen),
+(--fk-extra-small-screen) {
+  .ngdialog.ngdialog-theme-default.ngdialog-theme-fk.fk-modify-timeup .ngdialog-content {
+    justify-content: flex-end;
+  }
+  .modification-time-remainder {
+    font-size: calc(var(--fk-font-size-base) + 2);
+  }
+}

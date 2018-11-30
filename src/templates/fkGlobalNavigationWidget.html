@@ -1,0 +1,25 @@
+<div>
+  <nav class="global-navigation">
+    <ul>
+      <li ng-repeat="department in menu.departments" class="menu_dept" fk-touch>
+        <a href="{{department.id}}">{{department.name}}</a>
+        <ul>
+          <li ng-repeat="section in department.sections" class="menu_section">
+            <a href="{{section.id}}">{{section.name}}</a>
+            <ul>
+              <li ng-repeat="category in section.categories" class="menu_category">
+                <a href="{{category.href}}">{{category.name}}</a>
+
+                <!--<ul>
+                  <li ng-repeat="category in section.categories">
+                    <a href={{category.href}}>{{category.sectionHeader}}</a>
+                  </li>
+                </ul>-->
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</div>

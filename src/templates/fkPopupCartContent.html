@@ -1,0 +1,15 @@
+<div class="popup-cart--content container">
+  <div class="row">
+    <div class="popup-cart--recommenders col-lg-9 col-md-9" ng-if="!$ctrl.ismobile && !showCheckout">
+      <fk-cart-recommenders></fk-cart-recommenders>
+    </div>
+    <div class="popup-cart--cart col-lg-6 col-md-6 col-sm-15 col-xs-15">
+      <fk-cart-content></fk-cart-content>
+    </div>
+    <div class="popup-cart--checkout col-lg-6 col-md-6 col-sm-15 col-xs-15">
+      <fk-checkout ng-if="showCheckout" on-place-order="closeCart()"></fk-checkout>
+    </div>
+  </div>
+</div>
+<fk-secondary-header></fk-secondary-header>
+<fk-ngdialog-close ng-click="closeThisDialog()" fkA11yClick tabindex="0"></fk-ngdialog-close>

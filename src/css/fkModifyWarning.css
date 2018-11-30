@@ -1,0 +1,33 @@
+@import url(variables.css);
+
+.ngdialog.ngdialog-theme-fk.fk-modify-warning .content {
+  text-align: center;
+  padding: calc(var(--fk-vertical-space)*4) calc(var(--fk-vertical-space)*5);
+  background: var(--fk-color-white);
+  color: var(--fk-color-gray-darker);
+  font-size: var(--fk-font-size-large);
+
+  h3 {
+    font-size: 1.1em;
+    margin:0;
+  }
+
+  p {
+    margin: var(--fk-vertical-space) 0;
+    line-height: 1.27em;
+  }
+
+  button {
+    margin-left:0;
+    margin-right: 0;
+    width: 100%;
+  }
+}
+
+@media (--fk-extra-small-screen) {
+  .fk-modify-warning {
+    & .close-continer {
+      margin-top: 40px;
+    }
+  }
+}

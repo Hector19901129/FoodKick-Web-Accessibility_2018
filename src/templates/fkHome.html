@@ -1,0 +1,45 @@
+<div class="page-home">
+  <div class="double-click-container" ng-if="isDoubleClick">
+    <fk-double-click-ad ng-if="fkDoubleClickService.initialized" targets="fkDoubleClickService.fkMainTopTargets" name="FKMainCarusel"></fk-double-click-ad>
+  </div>
+  <div class="carousel-container" ng-if="!isDoubleClick">
+    <div class="carousel">
+      <fk-carousel class="cover" images="carouselImages" imagestyle="cover" dotstyle="secondary" showarrow="true" autoplay="5000"></fk-carousel>
+    </div>
+  </div>
+  <div class="container">
+    <div class="page-greeting-full row" ng-if="fkFeedService.feed.page.greeting">
+      <h2>
+        <span ng-if="fkFeedService.feed.page.greeting.captionText" class="section-caption">{{ fkFeedService.feed.page.greeting.captionText | fkGreetingFilter}}</span>
+        <span ng-if="fkFeedService.feed.page.greeting.headlineText" class="section-title">{{ fkFeedService.feed.page.greeting.headlineText | fkGreetingFilter}}</span>
+        <span ng-if="fkFeedService.feed.page.greeting.bodyText" class="section-content">{{ fkFeedService.feed.page.greeting.bodyText | fkGreetingFilter}}</span>
+      </h2>
+    </div>
+    <div class="feed-sticky-ref"></div>
+    <fk-feed-selector feed-type="feedType" ng-show="isDoubleClick || !isDoubleClick"></fk-feed-selector>
+    <div class="row">
+      <div class="home-feed col-lg-9 col-md-9 col-sm-15 col-xs-15" ng-class="feedType === 'home' ? 'selected': 'hide-feed'">
+        <div class="section-wrapper container-fluid">
+          <div class="page-greeting row" ng-if="pageFeedHeader.greeting">
+            <h2>
+              <span ng-if="pageFeedHeader.greeting.captionText" class="section-caption">{{ pageFeedHeader.greeting.captionText | fkGreetingFilter}}</span>
+              <span ng-if="pageFeedHeader.greeting.headlineText" class="section-title">{{ pageFeedHeader.greeting.headlineText | fkGreetingFilter}}</span>
+              <span ng-if="pageFeedHeader.greeting.bodyText" class="section-content">{{ pageFeedHeader.greeting.bodyText | fkGreetingFilter}}</span>
+            </h2>
+          </div>
+          <fk-section ng-repeat="section in pageFeedHeader.sections track by $index" type="feed" use-lazy-img="false" column="'feed'" position="$index + 1" section="section" limit="mainLimit" class="row" item-class="'col-lg-5 col-md-5 col-sm-5 col-xs-75'"></fk-section>
+          <fk-section ng-repeat="section in pageFeedBody.sections track by $index" type="feed" last="$last" use-lazy-img="true" column="'feed'" position="$index + 1 + pageFeedHeader.sections.length" section="section" limit="mainLimit" class="row" item-class="'col-lg-5 col-md-5 col-sm-5 col-xs-75'"></fk-section>
+        </div>
+      </div>
+      <div class="home-sidebar col-lg-6 col-md-6 col-sm-15 col-xs-15" ng-class="feedType === 'todaysPicks' ? 'selected': 'hide-feed'">
+        <div class="section-wrapper container-fluid">
+          <div class="pick-title row" ng-if="pickFeedHeader.title">
+            <h2 ng-bind="pickFeedHeader.title"></h2>
+          </div>
+          <fk-section ng-repeat="section in pickFeedHeader.sections track by $index" type="picklist" use-lazy-img="false" column="'picks'" position="$index + 1" section="section" limit="sideLimit" class="row" item-class="'col-lg-75 col-md-75 col-sm-5 col-xs-75'"></fk-section>
+          <fk-section ng-repeat="section in pickFeedBody.sections track by $index" type="picklist" last="$last" use-lazy-img="true" column="'picks'" position="$index + 1 + pickFeedHeader.sections.length" section="section" limit="sideLimit" class="row" item-class="'col-lg-75 col-md-75 col-sm-5 col-xs-75'"></fk-section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

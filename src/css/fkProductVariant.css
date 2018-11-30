@@ -1,0 +1,117 @@
+@import url(variables.css);
+
+fk-product-variant {
+  display: block;
+
+  .missing {
+    outline: 2px solid var(--fk-color-red);
+  }
+
+  button.light {
+    background: transparent;
+    color: var(--fk-color-primary);
+    fill: var(--fk-color-primary);
+    text-transform: uppercase;
+    border: 1px solid var(--fk-color-primary);
+  }
+
+  h3 {
+    border-bottom: 1px solid var(--fk-color-gray-light );
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height:60px;
+    margin:0;
+    font-size:var(--fk-font-size-base);
+    letter-spacing: 0.7px;
+    font-weight: 600;
+    div {
+      flex:1;
+    }
+  }
+
+  li {
+    height: 90px;
+  }
+
+  .variant-values {
+    background: var(--fk-color-white);
+  }
+
+  .variant-name {
+    background: var(--fk-color-white);
+    border-radius: 3px;
+    box-shadow: 1px 1px 0 0 var(--fk-color-gray-light);
+
+    span {
+      align-self: center;
+      padding-left: 5px;
+      line-height: 1.2em;
+    }
+
+    span:empty::before {
+      content:'CHOOSE OPTION';
+      font-weight: bold;
+      padding-left: 40px;
+    }
+
+    label {
+      border-left: 1px solid var(--fk-color-gray-light);
+      color: var(--fk-color-primary);
+      padding: 25px var(--fk-horizontal-space);
+      text-align: center;
+      line-height: 20px;
+      min-width: 60px;
+    }
+
+    .variant-edit {
+      cursor: pointer;
+    }
+  }
+
+  .value-image {
+    background-position: center;
+    background-size: auto 70px;
+    background-repeat: no-repeat;
+    min-width: 90px;
+
+    &:not(.selected-value-image) {
+      height: 90px;
+    }
+  }
+
+  .selected-value-image {
+    height: 70px;
+  }
+
+  .value-name {
+    div {
+      white-space: nowrap;
+      border-bottom: 1px solid var(--fk-color-gray-light );
+
+      &.value-label {
+        width: 100%;
+      }
+    }
+
+    span {
+      line-height: 1.2em;
+      display: inline-block;
+      white-space: normal;
+      vertical-align: middle;
+      padding-left: 5px;
+    }
+
+    div:before {
+      display: inline-block;
+      height:100%;
+      width:1px;
+      content:'';
+      vertical-align: middle;
+    }
+
+    fk-icon[fk-icon-id="#done"] {
+      fill: var(--fk-color-primary);
+    }
+  }
+}

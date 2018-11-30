@@ -1,0 +1,58 @@
+<div class="row primary">
+  <div class="current_plan col-lg-7 col-lg-push-8 col-md-7 col-md-push-8 col-sm-15 col-xs-15">
+    <h3>Current Plan</h3>
+    <div class="info" tabindex="0"><span offscreen>You currently have</span> Monthly Membership</div>
+  </div>
+  <div class="benefits_section col-lg-8 col-lg-pull-7 col-md-8 col-md-pull-7 col-sm-15 col-xs-15">
+    <h3>Your Benefits</h3>
+    <ul tabindex="0"><span offscreen>Your Benefits</span>
+      <li>
+        <fk-icon fk-icon-id="#bike-purple"></fk-icon><span class="text">Unlimited Free Deliveries</span></li>
+      <li>
+        <fk-icon fk-icon-id="#star-copy"></fk-icon><span class="text">Exclusive Perks.</span></li>
+    </ul>
+    <div class="benefits_info">
+      <div>
+        <h3>Member Since</h3>
+        <div class="label_info" tabindex="0"><span offscreen>You've been a DeliveryPass member since</span>{{settings.purchaseDate}}</div>
+      </div>
+      <div ng-if="settings.dPSavings > 0">
+        <h3>You've Saved</h3>
+        <div class="label_info" tabindex="0"><span offscreen>you've saved</span>{{settings.dPSavings|currency:'$':2}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row secondary">
+  <div class="col-lg-15 col-md-15 col-sm-15 col-xs-15">
+    <div class="auto-notice">
+      <span ng-if="!toggle.switch">Your plan will expire on <strong>{{settings.expDate}}</strong></span>
+      <span ng-if="toggle.switch">Your plan will be renewed automatically on <strong>{{settings.autoRenewalDate}}</strong></span>
+    </div>
+    <div class="dp-auto-renew">
+     <h3>Auto-Renewal</h3>
+      <label class="auto-switch">
+        <input type="checkbox" ng-click="setAutopayPreference(toggle.switch = !toggle.switch)" ng-checked="toggle.switch">
+        <span class="slider"></span><span offscreen ng-if="toggle.switch">Auto-Renewal is currently ON</span><span offscreen ng-if="!toggle.switch">Auto-Renewal is currently OFF</span>
+      </label>
+    </div>
+    <p tabindex="0">By turning off Auto-Renewal, you will continue on your current plan until it expires. If you wish to cancel your plan, please call 718-513-2785.</p>
+    <a href="/help/faq/deliverypass">Learn more about Auto-Renewals.</a>
+  </div>
+</div>
+<div class="row tertiary">
+  <div class="col-lg-15 col-md-15 col-sm-15 col-xs-15">
+    <h3><span class="payment_label">Payment Method:</span></h3>
+    <div class="payment-info {{selectedPaymentMethod().cardType}}" ng-class="hideElement('payment')" ng-attr-card="{{selectedPaymentMethod().cardType}}" ng-if="selectedPaymentMethod()" tabindex="0">{{ (selectedPaymentMethod().cardType === "ECheck" ? selectedPaymentMethod().description : selectedPaymentMethod().cardType) + ' Ending: '}}{{selectedPaymentMethod().maskedAccountNumber | limitTo : -4}}
+      <span ng-if="selectedPaymentMethod().cardType !== 'ECheck'">{{' Exp. ' + selectedPaymentMethod().expirationMonth | date:'d'}}/{{selectedPaymentMethod().expirationYear | limitTo: -2}}</span>
+      <p>Your default payment method will be charged for auto-renewal.</p>
+    </div>
+    <div ng-if="!selectedPaymentMethod()">Please add a <a href="/account/paymentMethods/">payment method</a></div>
+    <a href="#" ng-click="$ctrl.openReceipt(settings.originalOrderId)">View your most recent invoice</a>
+  </div>
+</div>
+<div class="row footer">
+  <div class="col-lg-15 col-md-15 col-sm-15 col-xs-15">
+    <a href="/help/faq/deliverypass">Learn more about Pass</a>
+  </div>
+</div>

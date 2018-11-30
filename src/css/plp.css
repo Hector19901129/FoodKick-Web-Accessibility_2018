@@ -1,0 +1,103 @@
+@import url(variables.css);
+
+.page-past-items,
+.page-search,
+.page-plp {
+
+  .wineandspirits {
+    height:40px;
+    margin-bottom:10px;
+
+    svg {
+      width: 400px;
+    }
+  }
+
+  fk-sort-options {
+    float: right;
+    margin-top: .5em;
+  }
+
+  h1.category-title {
+    font-size: var(--fk-font-size-xlarge);
+    font-family: var(--fk-font-sans-serif);
+    margin-top: var(--fk-vertical-space);
+    clear: none;
+
+    .nrOfProducts {
+      font-weight: 400;
+      font-size: .8em;
+    }
+  }
+
+  fk-left-nav {
+    display: none;
+  }
+
+  .breadcrumb {
+    display: none;
+
+    li {
+      list-style-type: none;
+      display: inline-block;
+      cursor: pointer;
+
+      fk-icon {
+        display: inline-block;
+        font-size: .8em;
+        line-height: .8em;
+        vertical-align: middle;
+        padding: 0 var(--fk-vertical-space);
+      }
+    }
+  }
+
+  fk-product-tile-list {
+    clear: both;
+  }
+
+  fk-sort-options {
+    label {
+      display: none;
+    }
+  }
+
+  fk-refine-button {
+    float: right;
+    margin-left: var(--fk-vertical-space);
+
+    button {
+      margin-top: 6px;
+    }
+  }
+}
+
+@media (--fk-extra-small-screen ) {
+  .page-plp .wineandspirits svg {
+    width: 100%;
+  }
+}
+
+@media (--fk-large-screen ), (--fk-medium-screen ) {
+  .page-past-items,
+  .page-search,
+  .page-plp {
+    fk-left-nav {
+      display: block;
+    }
+
+    .breadcrumb {
+      display: block;
+    }
+
+    fk-sort-options {
+      label {
+        display: inline-block;
+      }
+    }
+
+    fk-refine-button {
+      display: none;
+    }
+  }
+}

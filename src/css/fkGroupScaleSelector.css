@@ -1,0 +1,76 @@
+@import url(variables.css);
+
+fk-group-scale-selector {
+  background-color: var(--fk-color-white);
+  display: block;
+  position: static;
+  margin-left: calc(var(--fk-vertical-space)*-1);
+  margin-right: calc(var(--fk-vertical-space)*-1);
+
+  .gs-selector-container {
+      align-items: center;
+      border-bottom: 1px solid var(--fk-color-primary-darkest-a);
+      margin-bottom: calc(var(--fk-vertical-space)*1.5);
+      display: flex;
+      justify-content: center;
+      position: relative;
+
+    div {
+      border-bottom: 5px solid var(--fk-color-white);
+      color: var(--fk-color-gray-dark);
+      cursor: pointer;
+      fill: var(--fk-color-gray-dark);
+      font-size: var(--fk-font-size-base);
+      font-family: var(--fk-font-sans-serif);
+      font-weight: 600;
+      height: calc(var(--fk-vertical-space)*6);
+      line-height: calc(var(--fk-vertical-space)*6);
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .selected {
+      border-bottom: 5px solid var(--fk-color-primary);
+      color: var(--fk-color-primary);
+      fill: var(--fk-color-primary);
+    }
+
+    .pulse {
+      z-index: 2;
+    }
+
+    .pulse::after, .pulse::before {
+      content: "";
+      display: block;
+      animation-duration: 12s;
+      animation-iteration-count: infinite;
+      animation-name: circle-pulsing;
+      animation-timing-function: ease-in-out;
+      background-color: var(--fk-color-primary);
+      border-radius: 50%;
+      opacity: .08;
+      position: absolute;
+      height: 150px;
+      width: 150px;
+      left: 50%;
+      top: 50%;
+      margin-left: -75px;
+      margin-top: -75px;
+      pointer-events: none;
+    }
+
+    .pulse::before {
+      animation-delay: -4s;
+    }
+  }
+}
+
+@media (--fk-medium-screen), (--fk-large-screen) {
+  fk-group-scale-selector {
+    .gs-selector-container {
+      div {
+        margin-right: calc(var(--fk-horizontal-space)*6);
+      }
+    }
+  }
+}

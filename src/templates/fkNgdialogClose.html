@@ -1,0 +1,10 @@
+<div class="close-continer">
+  <div class="label-container">
+    <div class="title">
+      <fk-icon ng-if="$ctrl.icon" fk-icon-id="#{{$ctrl.icon}}" class="$ctrl.icon before-icon"></fk-icon>
+      <div ng-if="$ctrl.content" class="header-content">{{$ctrl.content}}</div>
+      <div class="header-content" ng-transclude></div>
+    </div>
+    <fk-icon fk-icon-id="#close" class="close-icon ngdialog-close" ng-click="close()" fk-a11y-click tabindex="0"><li offscreen>Close overlay</li></fk-icon>
+  </div>
+</div>

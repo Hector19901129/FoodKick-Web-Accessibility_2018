@@ -1,0 +1,17 @@
+<div class="past-order-details-holder">
+  <div class ="total-and-status-wrapper">
+    <div tabindex="0">Total: <span class="order-total">{{$ctrl.orderDetails.total | currency:"$":2}}</span></div>
+    <div tabindex="0">Order <span class="order-status">{{$ctrl.orderDetails.deliveryStatus}}</span><fk-icon fk-icon-id="{{$ctrl.orderDetails.deliveryIcon}}"></fk-icon></div>
+  </div>
+  <div class="delivery-and-payment-details">
+    <span class="uppercase order-details-subtitle" tabindex="0">Delivery date</span>
+    <span class="bold uppercase order-delivery-date" tabindex="0">{{$ctrl.orderDetails.deliveryDate}}</span>
+    <span class="uppercase order-details-subtitle" tabindex="0">Delivery address</span>
+    <span class="bold order-delivery-address" tabindex="0">{{$ctrl.orderDetails.deliveryAddressStreet1}}</span>
+    <span class="bold order-delivery-address" tabindex="0" ng-if="$ctrl.orderDetails.deliveryAddressApt">Apt {{$ctrl.orderDetails.deliveryAddressApt}}</span>
+    <span class="bold order-delivery-address" tabindex="0">{{$ctrl.orderDetails.deliveryAddressCity}}</span>
+    <span class="uppercase order-details-subtitle" tabindex="0">Payment method</span>
+    <span class="bold order-payment-method" tabindex="0">{{$ctrl.orderDetails.paymentMethod}}</span>
+  </div>
+  <fk-receipt-button class="receipt-primary receipt-order-details" order="$ctrl.orderDetails.orderId"></fk-receipt-button>
+</div>

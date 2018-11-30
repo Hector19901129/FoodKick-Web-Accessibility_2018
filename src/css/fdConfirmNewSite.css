@@ -1,0 +1,33 @@
+@import url(variables.css);
+
+.fd-confirm-new-site {
+  .ngdialog-content {
+    .content {
+      background-color: white;
+      color: black;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      .ngdialog-header {
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0px;
+        .logo svg {
+          margin-left: auto;
+          margin-right: auto;
+          width: 300px;
+          height: 126px;
+          fill: var(--fk-color-primary);
+        }
+      }
+      h3, p, span {
+        text-align: center;
+      }
+      button {
+        width: 100%;
+        height: 60px;
+      }
+    }
+  }
+}

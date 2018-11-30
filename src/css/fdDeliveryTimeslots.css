@@ -1,0 +1,135 @@
+@import url(variables.css);
+
+.fd-delivery-timeslots{
+
+  .date-label{
+    margin-left: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    color: #555555;
+  }
+
+  .time-label{
+    margin-top: 0;
+    margin-left: 15px;
+  	font-size: 14px;
+  	letter-spacing: 0.3px;
+  	color: #888888;
+  }
+
+  .fd-delivery-timeslots-title{
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color:  var(--fd-color-gray-lighter);
+
+    .left{
+      text-align: left;
+    }
+  }
+
+  .week-selector{
+    cursor: pointer;
+    width: 95%;
+    height: 80px;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+    margin: 20px auto;
+
+    .week-label{
+      font-size: 16px;
+      padding-top: 25px;
+
+      .date-label{
+        display: block;
+      }
+
+      .thanksgiving{
+        font-family: GraphikApp;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        text-align: center;
+        color: #ffffff;
+        background-color: #00afcc;
+        position: relative;
+        top: -70px;
+        padding: 3px 35px;
+        height: 20px;
+        clip-path: polygon(0 0, 100% 0, 95% 50%, 100% 100%, 0 100%, 5% 50%);
+      }
+
+      .description{
+        font-family: Verdana;
+      	font-size: 12px;
+      	letter-spacing: 0.3px;
+      	text-align: center;
+      	color: #888888;
+        font-weight: 500;
+        text-transform:none;
+        padding-top: 5px;
+        display: block;
+      }
+    }
+
+    fk-icon{
+      display: block;
+      position: relative;
+      right: 20px;
+      float: right;
+      top: 5px;
+    }
+
+    .edit{
+      display: block;
+      position: relative;
+      right: 20px;
+      float: right;
+      top: 5px;
+      font-weight: normal;
+      letter-spacing: 0.3px;
+      font-size: 14px;
+      color: #4fa157;
+    }
+  }
+
+  .delivery-day-cointainer{
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+  }
+
+  .back-button{
+    font-family: Verdana;
+    font-size: 14px;
+    letter-spacing: 0.4px;
+    color: #4fa157;
+    margin: 0;
+    padding: 0 0 0 10px;
+    background: transparent;
+  }
+
+  .selected-week-label{
+    padding-top: 20px;
+  }
+}
+
+@media (--fk-extra-small-screen) {
+  .fd-delivery-timeslots{
+    .week-selector{
+      fk-icon{
+        display: block;
+        position: relative;
+        right: 10px;
+        float: right;
+        top: 5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,245 @@
+@import url(variables.css);
+
+fk-deliverypass-settings {
+  padding: 0;
+  background-color: var(--fk-color-white);
+  border-top: 2px solid var(--fk-color-primary);
+  box-shadow: 1px 1px 0 0 rgba(0, 0, 0, .2);
+  font-size: var(--fk-font-size-medium);
+  background-color: var(--fk-color-white);
+  a {
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+      color: var(--fk-color-primary-lightest);
+    }
+  }
+
+  .auto-notice {
+    margin-top: var(--fk-vertical-space);
+  }
+
+  .dp-auto-renew {
+    margin-top: calc(var(--fk-vertical-space) + 5);
+    h3 {
+      display: inline-block;
+      margin-right: var(--fk-horizontal-space);
+      font-size: var(--fk-font-size-base);
+      font-weight:  500;
+      margin: 0;
+    }
+
+    .auto-switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+      vertical-align: top;
+      margin-left: var(--fk-horizontal-space);
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--fk-color-gray-light);
+      border-radius: 34px;
+      transition: .4s;
+      border: 1px solid var(--fk-color-gray-dark);
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 22px;
+      left: 1px;
+      bottom: 1px;
+      background-color: var(--fk-color-white);
+      border-radius: 50%;
+      transition: .4s;
+    }
+
+    input:checked+.slider {
+      background-color: var(--fk-color-primary);
+    }
+
+    input:checked+.slider:before {
+      transform: translateX(18px);
+    }
+
+    input:checked + .slider {
+      background-color: var(--fk-color-primary);
+      border-color: var(--fk-color-primary);
+    }
+
+    /* Hovered */
+    input:hover + .slider {
+      border: 1px solid var(--fk-color-primary);
+    }
+
+    input:focus:hover + .slider{
+      border: 1px solid #666666;
+    }
+
+    input:checked:focus:hover + .slider{
+      border: 1px solid var(--fk-color-primary);
+    }
+
+    /* Focused */
+    input:focus + .slider {
+      box-shadow: 0 0 0 1px #666666;
+    }
+
+    input:checked:focus + .slider {
+      box-shadow: 0 0 0 1px var(--fk-color-primary);
+    }
+
+    /* Slider States */
+    input:focus + .slider:before,
+    input:hover + .slider:before {
+      background-color: var(--fk-color-primary);
+    }
+
+    input:hover + .slider:before {
+      transform: translateX(4px);
+    }
+
+    input:checked:focus + .slider:before,
+    input:checked:hover + .slider:before {
+      background-color: var(--fk-color-white);
+    }
+
+    input:checked:hover + .slider:before {
+      transform: translateX(16px);
+    }
+  }
+
+  .auto-notice strong {
+    font-size: var(--fk-font-size-base);
+  }
+
+  .primary,
+  .secondary,
+  .tertiary {
+    border-bottom: 2px solid #e5e5e5;
+    padding: var(--fk-vertical-space) 5px;
+  }
+
+  .footer {
+    text-align: center;
+    padding: calc(var(--fk-vertical-space) * 2) 0;
+    a {
+      font-family: var(--fk-font-sans-serif);
+      font-size: var(--fk-font-size-medium);
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: var(--fk-color-primary);
+    }
+  }
+
+  h3 {
+    font-size: var(--fk-font-size-base);
+  }
+
+  p {
+    margin-bottom: 0px;
+    margin-top: 20px;
+  }
+
+  .benefits_section {
+
+    fk-icon[fk-icon-id="#bike-purple"] svg {
+      height: 32px;
+      width: 30px;
+      margin-right: calc(var(--fk-horizontal-space) + 5);
+    }
+
+    fk-icon[fk-icon-id="#star-copy"] svg {
+      height: 32px;
+      width: 30px;
+      margin-right: calc(var(--fk-horizontal-space) + 5);
+    }
+
+    .benefits_info {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      .label_info {
+        font-family: var(--fk-font-sans-serif);
+        font-size: 20px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: var(--fk-color-primary);
+      }
+    }
+  }
+
+  .current_plan {
+    text-align: center;
+    .info {
+      width: 180px;
+      height: 98px;
+      background-color: var(--fk-color-gray-darker);
+      text-align: center;
+      color: var(--fk-color-white);
+      margin: auto;
+      font-family: var(--fk-font-sans-serif);
+      font-size: 26px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.7;
+      letter-spacing: normal;
+      padding: 5px;
+    }
+  }
+
+  .payment_label {
+    font-size: var(--fk-font-size-base);
+    font-weight:  500;
+  }
+
+  .payment-info:before {
+    background-size: cover;
+    content: "";
+    display: inline-block;
+    height: 32px;
+    padding-right: calc(var(--fk-horizontal-space) + 5);
+    vertical-align: bottom;
+    width: 44px;
+    margin-right: 5px;
+  }
+
+  .payment-info.ECheck:before {
+    width: 1px;
+    padding: 0px;
+    margin: 0px -2px;
+  }
+
+  .payment-info[card="Amex"]:before {
+    background-image: url(/assets/img/amex.png);
+  }
+
+  .payment-info[card="Discover"]:before {
+    background-image: url(/assets/img/discover.png);
+  }
+
+  .payment-info[card="MasterCard"]:before {
+    background-image: url(/assets/img/mastercard.png);
+  }
+
+  .payment-info[card="Visa"]:before {
+    background-image: url(/assets/img/visa.png);
+  }
+}

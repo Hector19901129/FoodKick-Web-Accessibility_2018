@@ -1,0 +1,36 @@
+@import url(variables.css);
+
+fk-product-variant-list {
+  display: block;
+
+  .list-item {
+    background: white;
+    display:flex;
+    flex-direction: row;
+    cursor: pointer;
+    &:not(li) {
+      height: 70px;
+      margin-bottom: var(--fk-vertical-space);
+    }
+
+    &.variant-name span {
+      flex:2;
+      padding-right: var(--fk-horizontal-space);
+      overflow: hidden;
+
+      &.selected-value-price {
+        flex:1;
+      }
+    }
+
+    fk-icon {
+      font-size:35px;
+      height:1em;
+      width: 1em;
+      margin: 0 var(--fk-horizontal-space);
+      fill: var(--fk-color-gray);
+      align-self: center;
+    }
+  }
+
+}

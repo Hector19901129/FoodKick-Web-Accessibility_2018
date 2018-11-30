@@ -1,0 +1,14 @@
+<div class="container-background print-hide">
+  <div class="container header-content">
+    <button aria-label="Shop Store" aria-expanded="false" ng-if="($ctrl.showButtons || $ctrl.showMenuButton)" fk-icon fk-icon-id="{{(!$ctrl.isMenuOpen) ? '#shop-burger' : '#close'}}" class="menu print-hide" ng-class="{showmenu: $ctrl.showMenuButton}" ng-click="$ctrl.toggleMenu()" ng-mouseenter="$ctrl.openMenu()" id="shopBtn"></button>
+    <fk-navigation-bar-widget></fk-navigation-bar-widget>
+    <fk-logo></fk-logo>
+    <div ng-if="$ctrl.showButtons" class="search_wrapper"><fk-search-button on-open="$ctrl.searchOpened()" on-close="$ctrl.searchClosed()"></fk-search-button></div>
+    <fk-address-picker ng-if="$ctrl.showButtons"></fk-address-picker>
+    <fk-sign-in-button ng-if="$ctrl.showButtons && $ctrl.$location.path() !== '/referral'"></fk-sign-in-button>
+    <fk-past-items-button ng-if="$ctrl.showButtons"></fk-past-items-button>
+    <fk-profile-button ng-if="$ctrl.fkUserService.user" fk-touch></fk-profile-button>
+    <fk-popup-cart ng-if="$ctrl.showButtons"></fk-popup-cart>
+  </div>
+</div>
+<fk-menu ng-if="$ctrl.isMenuOpen" on-leave="$ctrl.closeMenu()" on-navigate="$ctrl.closeMenu()"></fk-menu>

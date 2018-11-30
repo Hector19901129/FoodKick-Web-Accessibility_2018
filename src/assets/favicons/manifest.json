@@ -1,0 +1,12 @@
+{
+	"name": "FreshDirect",
+	"icons": [
+		{
+			"src": "\/fd-icon-green.png",
+			"sizes": "192x192",
+			"type": "image\/png"
+		}
+	],
+	"theme_color": "#ffffff",
+	"display": "standalone"
+}

@@ -1,0 +1,59 @@
+@import url(variables.css);
+
+fk-feed-selector {
+  display: none;
+}
+
+@media (--fk-extra-small-screen), (--fk-small-screen) {
+  fk-feed-selector {
+    background-color: var(--fk-color-white);
+    display: block;
+    position: static;
+
+    .feed-selector-container {
+      align-items: center;
+      border-bottom: 1px solid var(--fk-color-primary-darkest-a);
+      display: flex;
+      justify-content: space-between;
+
+      div {
+        border-bottom: 5px solid var(--fk-color-white);
+        color: var(--fk-color-gray-dark);
+        cursor: pointer;
+        fill: var(--fk-color-gray-dark);
+        flex: 1;
+        font-size: var(--fk-font-size-small);
+        font-family: var(--fk-font-sans-serif);
+        font-weight: bold;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+
+        fk-icon {
+          display: inline-block;
+          margin-right: 5px;
+          vertical-align: super;
+        }
+
+        fk-icon>svg {
+          height: 2.5em;
+          width: 2.5em;
+        }
+      }
+
+      .selected {
+        border-bottom: 5px solid var(--fk-color-primary);
+        color: var(--fk-color-primary);
+        fill: var(--fk-color-primary);
+      }
+    }
+
+    &.sticky {
+      position: fixed;
+      top: 50px;
+      z-index: 5;
+      width: 100%;
+    }
+  }
+
+}

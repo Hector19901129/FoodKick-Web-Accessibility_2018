@@ -1,0 +1,82 @@
+@import url(variables.css);
+
+.page-past-items {
+  .header {
+    background-color: var(--fk-color-white);
+    border-bottom: 1px solid var(--fk-color-primary-darkest-a);
+    display: flex;
+    font-family: var(--fk-font-sans-serif);
+    font-size: var(--fk-font-size-base);
+    font-weight: 600;
+    height: 60px;
+    letter-spacing: .5px;
+    justify-content: center;
+    margin-top: -var(--fk-vertical-space);
+    margin-bottom: calc(var(--fk-vertical-space) * 3);
+    text-transform: uppercase;
+
+    .current-page {
+      color: var(--fk-color-primary);
+      border-bottom: 5px solid var(--fk-color-primary);
+      padding: 0 calc(var(--fk-vertical-space) * 2);
+      padding-top: calc(var(--fk-horizontal-space) * 3);
+    }
+
+    a {
+      color: var(--fk-color-gray-dark);
+      cursor: pointer;
+      padding-top: calc(var(--fk-horizontal-space) * 3);
+      &:hover,
+      &:focus-within {
+        border-bottom: 5px solid var(--fk-color-gray-light);
+      }
+    }
+  }
+
+  .products-wrapper {
+    fk-sort-options {
+      text-align: right;
+      margin-bottom: calc(var(--fk-horizontal-space) * 3);
+    }
+
+    .no-past-items {
+      color: var(--fk-color-gray-darker);
+      font-family: var(--fk-font-sans-serif);
+      font-size: var(--fk-font-size-large);
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: 500;
+      margin-top: var(--fk-horizontal-space);
+      margin-bottom: calc(var(--fk-horizontal-space) * 6);
+      text-align: center;
+
+      button {
+        font-family: var(--fk-font-sans-serif);
+        font-size: var(--fk-font-size-large);
+        font-stretch: normal;
+        font-style: normal;
+        font-weight: 500;
+        height: 60px;
+        letter-spacing: 1px;
+        margin-top: calc(var(--fk-horizontal-space) * 3);
+        text-align: center;
+        text-transform: uppercase;
+        width: 100%;
+        max-width: 370px;
+      }
+    }
+  }
+
+  fk-left-nav .departments {
+    .fk-custom-field input[type=radio]+label:before {
+      display: none;
+    }
+  }
+}
+
+@media (--fk-extra-small-screen),
+(--fk-small-screen) {
+  .page-past-items .header {
+    margin-bottom: var(--fk-vertical-space);
+  }
+}

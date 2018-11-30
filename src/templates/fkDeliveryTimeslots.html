@@ -1,0 +1,17 @@
+<div class="delivery-time-slots-section">
+  <div ng-if="fkDeliveryTimeslotService.timeslot.isTodayTimeslot">
+    <div class="label"><h2>TODAY</h2></div>
+    <div class="today-timeslot">
+      <fk-timeslots day="todayTimeslot" set-timeslot="setTimeslot(data, errors)"></fk-timeslots>
+    </div>
+  </div>
+  <div ng-if="fkDeliveryTimeslotService.timeslot.isTomorrowTimeslot">
+    <div class="label"><h2>TOMORROW</h2></div>
+    <div class="tomorrow-timeslot">
+      <fk-timeslots day="tomorrowTimeslot" set-timeslot="setTimeslot(data, errors)"></fk-timeslots>
+    </div>
+  </div>
+</div>
+<div class="no-timeslot" ng-if="!fkDeliveryTimeslotService.timeslot.isTodayTimeslot && !fkDeliveryTimeslotService.timeslot.isTomorrowTimeslot">
+  No available timeslots found.
+</div>

@@ -1,0 +1,13 @@
+<div class="page-home">
+  <div class="carousel-container">
+    <div class="carousel">
+      <fk-carousel class="cover" images="$ctrl.fkCarouselService.getCarouselItems().images" imagestyle="cover" dotstyle="secondary" showarrow="true" autoplay="5000"></fk-carousel>
+    </div>
+  </div>
+  <div class="container homepage-module-container">
+    <div>
+      <fd-module-group ng-repeat="moduleGroup in $ctrl.fdHomeService.modules" module-group="moduleGroup" limit="$ctrl.sideLimit"></fd-module-group>
+    </div>
+  </div>
+
+</div>

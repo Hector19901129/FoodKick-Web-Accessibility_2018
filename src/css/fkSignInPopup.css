@@ -1,0 +1,38 @@
+@import url(variables.css);
+
+@media (--fk-small-screen) {
+  .ngdialog.ngdialog-theme-fk.fk-sign-in.narrow .ngdialog-content {
+  }
+  .ngdialog.ngdialog-theme-fk fk-tabs {
+    overflow: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media (--fk-medium-screen) {
+  .ngdialog.ngdialog-theme-fk.fk-sign-in.narrow .ngdialog-content {
+  }
+  .ngdialog.ngdialog-theme-fk fk-tabs {
+    overflow: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media (--fk-large-screen) {
+  .ngdialog.ngdialog-theme-fk.fk-sign-in.narrow .ngdialog-content {
+    fk-tabs {
+      overflow: auto;
+      overflow-x: hidden;
+    }
+  }
+}
+
+@media (--fk-extra-small-screen) {
+  .ngdialog.ngdialog-theme-fk.fk-sign-in.narrow .ngdialog-content {
+    fk-tabs {
+      width: 100%;
+      overflow: auto;
+      overflow-x: hidden;
+    }
+  }
+}

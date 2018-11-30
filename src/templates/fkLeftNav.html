@@ -1,0 +1,55 @@
+<form ng-submit="filtersChanged()">
+  <div class="menubox" ng-if="$ctrl.menuBoxes" ng-repeat="menuBox in $ctrl.menuBoxes" ng-attr-boxtype="menuBox.boxType" ng-attr-displaytype="menuBox.displayType">
+
+    <!-- sub/sibling categories -->
+    <div ng-if="$ctrl.categories !== false && menuBox.displayType === 'SIMPLE' && menuBox.selectionType === 'SINGLE' && (menuBox.boxType === 'CATEGORY' || menuBox.boxType === 'SUB_CATEGORY' || menuBox.boxType === 'SUB_SUB_CATEGORY')" class="noninput-filter">
+      <h2 class="categories">{{menuBox.name || 'CATEGORIES'}}</h2>
+      <nav class="leftnav-categories">
+        <ul>
+          <li ng-repeat="item in menuBox.items" ng-if="item.id" ng-class="{selected: item.selected, inactive: !item.active}" class="non-input">
+            <a ng-if="item.active" ng-click="categoryClicked($event, item.id)" ng-href="{{$ctrl.categoryUrl(item.id)}}">{{item.name}}</a>
+            <i ng-if="!item.active">{{item.name}}</i>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- multiselect filters -->
+    <div ng-if="$ctrl.filters !== false && menuBox.displayType === 'SIMPLE' && menuBox.selectionType === 'MULTI' && menuBox.boxType === 'FILTER'" class="onlyShow">
+      <h2 class="filters">{{menuBox.name || 'Filter by'}}</h2>
+      <nav class="leftnav-filters" ng-attr-filter-id="{{menuBox.id}}" id="{{menuBox.id}}">
+        <ul>
+          <li ng-repeat="item in menuBox.items" ng-if="item.id" class="fk-custom-field form-radio" ng-class="{selected: item.selected, inactive: !item.active}"><input type="checkbox" name="{{menuBox.id}}" value="{{item.urlParameter}}" id="{{menuBox.id+$ctrl.prefix+item.id}}" ng-checked="item.selected"><label ng-click="filtersChanged(item.name)" for="{{menuBox.id+$ctrl.prefix+item.id}}"><span class="filter-name">{{item.name}}</span></label>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- singleselect filters -->
+    <div ng-if="$ctrl.filters !== false && menuBox.displayType === 'SIMPLE' && menuBox.selectionType === 'SINGLE' && menuBox.boxType === 'FILTER'" ng-class="menuBox.id === 'DEPARTMENTS' ? 'departments': 'department-radio'">
+      <h2 class="filters">{{menuBox.name || 'Filter by'}}</h2>
+      <nav class="leftnav-filters" ng-attr-filter-id="{{menuBox.id}}">
+        <ul>
+          <li ng-repeat="item in menuBox.items" ng-if="item.id" class="fk-custom-field form-radio" ng-class="{selected: item.selected, inactive: !item.active}"><input type="radio" name="{{menuBox.id}}" value="{{item.urlParameter}}" id="{{menuBox.id+$ctrl.prefix+item.id}}" ng-checked="item.selected"><label ng-click="filtersChanged(item.name)" for="{{menuBox.id+$ctrl.prefix+item.id}}" tabindex="0" fk-a11y-click><span class="filter-name">{{item.name}}</span><span class="product-number" ng-if="item.hitCount"> {{item.hitCount}}</span></label>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- singleselect popup filters -->
+    <div ng-if="$ctrl.filters !== false && menuBox.displayType === 'POPUP' && menuBox.selectionType === 'SINGLE' && menuBox.boxType === 'FILTER'">
+      <h2 class="filters">{{menuBox.name || 'Filter by'}}</h2>
+      <div class="leftnav-filters fk-custom-field popup-filter" ng-attr-filter-id="{{menuBox.id}}">
+        <label for="{{$ctrl.prefix+menuBox.id}}" class="offscreen">{{menuBox.name || 'Filter by'}} Selection</label>
+        <div class="select--wrapper" ng-if="$ctrl.filterIdentifier">
+          <select class="sort-options" name="{{menuBox.id}}" fk-change="filtersChanged(item.name)" id="{{$ctrl.prefix+menuBox.id}}" aria-label ="{{menuBox.name}} Selection">
+            <option ng-repeat="item in menuBox.items" value="{{item.urlParameter}}" name="{{menuBox.id}}" ng-selected="item.selected" class="filter-name">{{item.name}}</option>
+          </select>
+          <fk-icon fk-icon-id="#down"></fk-icon>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <button offscreen type="submit" role="button">Change filters</button>
+</form>

@@ -1,0 +1,37 @@
+@import url(variables.css);
+
+body {
+  background-color: white;
+}
+
+.page-home {
+  margin-top: -60px;
+}
+
+.page-home .carousel {
+  height: 400px;
+  position: relative;
+
+  fk-carousel {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    max-width: 1660px;
+  }
+}
+
+#fakebody.top40 {
+  top: 40px;
+}
+
+@media (--fk-large-screen), (--fk-medium-screen) {
+  .page-home {
+    .homepage-module-container {
+      background-color: var(--fd-color-gray-light);
+    }
+  }
+}

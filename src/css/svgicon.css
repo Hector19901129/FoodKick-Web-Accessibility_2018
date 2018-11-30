@@ -1,0 +1,7 @@
+@import url(variables.css);
+
+svg.svgicon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}

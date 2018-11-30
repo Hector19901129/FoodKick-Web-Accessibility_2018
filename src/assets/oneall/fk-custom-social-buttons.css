@@ -1,0 +1,44 @@
+.plugin {
+  padding: 0;
+}
+
+.plugin #providers .provider {
+  width: 100px !important;
+  padding: 0;
+}
+
+.plugin #providers .provider .button {
+  height: 64px !important;
+  width: 101px !important;
+  margin: 0;
+}
+
+.plugin #providers .providers_row {
+  width: 210.5px !important;
+}
+
+/* Buttons */
+.plugin #providers .provider #button_facebook {
+  background-position: 50% 0px !important;
+  background-image: url('icon-fbook.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 101px 64px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.plugin #providers .provider #button_facebook:focus,
+.plugin #providers .provider #button_google:focus  {
+  border: 2px solid var(--fk-color-secondary-lighter);
+}
+
+.plugin #providers .provider #button_google {
+  background-position: 50% 0px !important;
+  background-image: url('icon-gplus.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 101px 64px;
+  position: absolute;
+  right: 0;
+}

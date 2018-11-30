@@ -1,0 +1,65 @@
+<div class="fk-delivery-address-selection-wrapper">
+  <div class="remaining-time" ng-if="show != 'address' && show != 'timeslot' && fkDeliveryTimeslotService.timeslot.selectedTimeslot.startDate && remainingTime">
+    <span>{{remainingTime |fkTimeDifference}} to Place Order</span>
+  </div>
+  <div class="delivery-selection-module">
+    <div class="primary-header" ng-if="show != 'address' && show != 'timeslot'">
+      <span><fk-icon fk-icon-id="#bike-purple"><span class="text">WHERE SHOULD WE DELIVER?</span></fk-icon>
+      </span>
+    </div>
+    <div class="delivery-address" ng-class="[isSelected('address'), isHidden('address')]" ng-click="open('address')" fk-a11y-click tabindex="0">
+      <div ng-class="hideElement('address')">
+        <div ng-if="fkAddressService.selectedAddress.street1 || show === 'address'" ng-class="fkAddressService.selectedAddress.street1 ? 'address-selected':'unselected'" class="address-picker">
+          <div class="picker-label" ng-class="{'label-color': fkAddressService.selectedAddress.street1}"><span>Delivering to</span></div>
+          <div class="picker-info">
+            <span class="address" ng-if="fkAddressService.selectedAddress.street1" ng-class="hideElement('address')">
+              {{fkAddressService.selectedAddress.street1 | lowercase}}...
+            </span>
+          </div>
+          <div class="down-arrow">
+            <fk-icon fk-icon-id="#down"></fk-icon>
+          </div>
+        </div>
+      </div>
+      <div ng-class="isSelectedElem('address')">
+        <div class="header-addresses">
+          <span>DELIVERY ADDRESS</span>
+          <button class="button-primary-ghost done-button" ng-class="isSelectedElem('address')" ng-click="done($event)" aria-label="Delivery address selection completed">DONE</button>
+        </div>
+        <fk-address-book class="pretty-list" ng-class="elemSelector('address')" set-address="setSelected(type, data, errors)"></fk-address-book>
+        <div class="button-container manage-address-book">
+          <button class="button-primary manage-account" type="button" ng-click="accounts()" aria-label="Manage address book">Manage Address Book</button>
+        </div>
+        <fk-icon class="spinner checkout-address-spinner" fk-icon-id="#spinner"></fk-icon>
+      </div>
+    </div>
+    <div class="delivery-timeslot" ng-class="[isSelected('timeslot'), isHidden('timeslot'), isError(timeslot)]" ng-click="open('timeslot')" fk-a11y-click tabindex="0">
+      <div ng-class="show === 'timeslot' ? 'hidden' : 'selected-timeslot'">
+        <div ng-if="fkDeliveryTimeslotService.timeslot.selectedTimeslot.startDate || show !== 'timeslot'" ng-class="fkDeliveryTimeslotService.timeslot.selectedTimeslot.startDate ? 'timeslot-selected':'unselected'" class="timeslot-picker">
+          <div class="picker-label" ng-class="{'label-color': fkDeliveryTimeslotService.timeslot.selectedTimeslot.startDate}"><span>Arriving by </span></div>
+          <div class="picker-info">
+            <span ng-if="!fkDeliveryTimeslotService.timeslot.selectedTimeslot.startDate" ng-class="show === 'timeslot' ? 'hidden' : 'selected-timeslot'">{{fkDeliveryTimeslotService.timeslot.preSelectedTimeSlot.startDate}}</span>
+            <span ng-if="fkDeliveryTimeslotService.timeslot.selectedTimeslot.startDate" ng-class="show === 'timeslot' ? 'hidden' : 'selected-timeslot'">{{fkDeliveryTimeslotService.timeslot.selectedTimeslot | fkDateTime}}</span>
+          </div>
+          <div class="down-arrow">
+            <fk-icon fk-icon-id="#down"></fk-icon>
+          </div>
+        </div>
+      </div>
+      <div ng-if="fkDeliveryTimeslotService.timeslot.deliveryRestrictions[0].message" ng-class="isSelectedElem('timeslot')" class="timeslots-alert">
+        <fk-icon fk-icon-id=""></fk-icon>Temporary Delivery Restriction <a ng-click="learnMore()"> Learn More</a>
+      </div>
+      <div class="delivery-timeslots-wrapper" ng-class="isSelectedElem('timeslot')">
+        <div class="header-addresses">
+          <span>DELIVERY TIME</span>
+          <button class="button-primary-ghost" ng-click="done($event)" aria-label="Delivery time selection completed">DONE</button>
+        </div>
+        <fk-delivery-timeslots set-timeslot="setSelected(type, data, errors)"></fk-delivery-timeslots>
+      </div>
+      <fk-icon class="spinner checkout-timeslot-spinner" fk-icon-id="#spinner"></fk-icon>
+    </div>
+    <div class="available-time" ng-if="fkDeliveryTimeslotService.timeslot.nextAvailableTimeslot.length > 0  && !fkDeliveryTimeslotService.timeslot.selectedTimeslot.startDate && show != 'address' && show != 'timeslot'">
+      Next Available is <span>{{fkDeliveryTimeslotService.timeslot.nextAvailableTimeslot[0] | fkDateTime}}</span>
+    </div>
+  </div>
+</div>

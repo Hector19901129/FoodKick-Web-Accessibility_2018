@@ -1,0 +1,19 @@
+@import url(variables.css);
+
+/* permanent until we will get the design to the buttons */
+
+fk-quantity-selector {
+  display: flex;
+}
+fk-quantity-selector .quantity-input {
+  width: 50px;
+  border: none;
+  background: none;
+  text-align: center;
+  font-weight: bold;
+  padding: 0;
+}
+fk-quantity-selector .quantity-input:focus {
+  background: var(--fk-color-white);
+  outline: none;
+}

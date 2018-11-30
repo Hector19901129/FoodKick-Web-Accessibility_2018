@@ -1,0 +1,19 @@
+@import url(variables.css);
+
+fk-rating {
+  display: block;
+  overflow: hidden;
+  height: 1.5em;
+  width: 6.2em;
+  position: relative;
+  letter-spacing: 0;
+
+  .empty,
+  .full {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}

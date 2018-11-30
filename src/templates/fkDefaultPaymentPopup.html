@@ -1,0 +1,12 @@
+<div class="default-payment">
+  <span>Set this as your default payment method?</span>
+  <div class="cancel-changes-buttons">
+    <div class="cancel-changes">
+      <button class="button-primary-ghost" ng-click="setDefault('Y')">Yes</button>
+    </div>
+    <div class="payment-continuation">
+      <button class="button-primary" ng-click="setDefault()">No</button>
+    </div>
+  </div>
+</div>
+<fk-ngdialog-close ng-click="closeThisDialog()"></fk-ngdialog-close>

@@ -1,0 +1,101 @@
+@import url(variables.css);
+
+.fk-guaranteed-fresh-popup {
+  .fk-guaranteed-fresh {
+    max-width: 630px;
+    overflow: auto;
+    background: var(--fk-color-off-white);
+    color: var(--fk-color-gray-dark);
+    font-family: var(--fk-font-sans-serif);
+    font-size: var(--fk-font-size-base);
+  }
+
+  h2 {
+    font-family: var(--fk-font-sans-serif);
+    font-size: var(--fk-font-size-large);
+    color: var(--fk-color-gray-darker);
+    font-weight: 600;
+    margin-top: calc(var(--fk-vertical-space) + 5);
+  }
+
+  h4 {
+    font-family: var(--fk-font-sans-serif);
+    color: var(--fk-color-gray-darker);
+    margin-top: calc(var(--fk-vertical-space) * 2);
+    margin-bottom: 0px;
+    font-size: var(--fk-font-size-base);
+  }
+
+  p {
+    font-family: var(--fk-font-sans-serif);
+    color: var(--fk-color-gray-darker);
+    font-weight: 100;
+    margin-bottom: var(--fk-vertical-space);
+    margin-top: var(--fk-vertical-space);
+  }
+  ul {
+    padding-left: calc(var(--fk-horizontal-space) * 3);
+    line-height: 22px;
+    margin-top: var(--fk-vertical-space);
+    font-size: var(--fk-font-size-base);
+  }
+  li {
+    padding-left: 5px;
+    list-style-type: disc;
+    font-weight: 100;
+    padding-bottom: var(--fk-vertical-space);
+    span {
+      font-weight: 200;
+    }
+  }
+}
+
+@media (--fk-medium-screen), (--fk-large-screen) {
+  .fk-guaranteed-fresh-popup {
+    .fk-guaranteed-fresh {
+      padding: 30px;
+    }
+    .close-continer {
+      max-width: 500px;
+      margin-top: 45px;
+    }
+  }
+}
+
+@media (--fk-small-screen) {
+  .fk-guaranteed-fresh-popup {
+    .fk-guaranteed-fresh {
+      height: 80%;
+      padding: 30px;
+      h2 {
+        margin-top: var(--fk-vertical-space);
+        margin-bottom: calc(var(--fk-vertical-space) + 5);
+      }
+      ul {
+        padding-left: calc(var(--fk-horizontal-space) * 2);
+      }
+    }
+  }
+}
+
+@media (--fk-extra-small-screen) {
+  .fk-guaranteed-fresh-popup {
+    .fk-guaranteed-fresh {
+      padding: 25px;
+      padding-left: 25px;
+      padding-right: 25px;
+      height: calc(100% - 50px);
+      h2 {
+        margin-top: var(--fk-vertical-space);
+        margin-bottom: calc(var(--fk-vertical-space) + 5);
+      }
+      ul {
+        padding-left: calc(var(--fk-horizontal-space) * 2);
+      }
+    }
+
+    & .close-continer {
+      margin-top: 40px;
+    }
+  }
+}

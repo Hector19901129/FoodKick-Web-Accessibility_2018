@@ -1,0 +1,5 @@
+<div payment-id="{{ $ctrl.paymentMethod.id }}" class="{{ $ctrl.paymentMethod.selected ? 'selected' : ''}}">
+  <h3><b>{{$ctrl.paymentMethod.description || $ctrl.paymentMethod.cardType}}</b></h3>
+  <h3 ng-if="$ctrl.paymentMethod.expirationMonth">Ending: {{$ctrl.paymentMethod.maskedAccountNumber | limitTo : -4}}{{' Exp. ' + $ctrl.paymentMethod.expirationMonth | date:'d'}}/{{$ctrl.paymentMethod.expirationYear | limitTo: -2}}</h3>
+  <h3 ng-if="!$ctrl.paymentMethod.expirationMonth">Ending: {{$ctrl.paymentMethod.maskedAccountNumber | limitTo : -4}}</h3>
+</div>

@@ -1,0 +1,72 @@
+@import url(variables.css);
+
+.fk-general-notifications {
+  display: block;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  & .close-continer {
+    margin-top: 30px;
+    max-width: 940px;
+  }
+
+  & .button-container{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+  }
+
+  & .button{
+    height: 60px;
+    width: 420px;
+  }
+
+   .content {
+    background-color: var(--fk-color-off-white);
+    font-size: var(--fk-font-size-large);
+    font-weight: bold;
+    text-align: center;
+    max-width: 500px;
+    padding: 0 20px;
+    position: relative;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: var(--fk-color-gray-dark);
+  }
+}
+
+@media (--fk-extra-small-screen) {
+
+  .fk-general-notifications {
+    & .header-content {
+      font-size: 19px;
+    }
+
+    & .close-continer {
+      margin: 0;
+    }
+
+    & .content {
+      padding: 0 20px;
+    }
+
+    & .button-container {
+      display: block;
+    }
+
+    & .button {
+      width: 100%;
+    }
+  }
+}
+
+@media (--fk-extra-small-screen) {
+  .ngdialog.ngdialog-theme-fk.fk-general-notifications .ngdialog-content {
+    .close-continer {
+      margin-top: 40px;
+    }
+  }
+}
+

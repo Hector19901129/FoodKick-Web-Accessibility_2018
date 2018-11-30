@@ -1,0 +1,148 @@
+<div class="checkout--header">
+  <span class="main">CHECKOUT</span>
+  <span class="back" ng-click="hideCheckout()" fk-a11-click tabindex="0"><fk-icon fk-icon-id="#down" fk-a11-click tabindex="0"></fk-icon> BAG</span>
+</div>
+<div class="checkout">
+  <div class="checkout-error" ng-if="error()">
+    <span ng-repeat="(key, value) in errors">{{value}}</span>
+  </div>
+  <div class="checkout-top">
+    <div class="delivery-address" ng-class="[isSelected('address'), isHidden('address')]" ng-click="open('address')" fk-a11y-click tabindex="0">
+      <div class="add" ng-if="!fkAddressService.selectedAddress.street1 && show !== 'address'">
+        <fk-icon fk-icon-id="#open" class="icon-pin"></fk-icon>
+        <h2>ADD DELIVERY ADDRESS <fk-icon fk-icon-id="#down"></fk-icon></h2>
+      </div>
+      <div ng-if="fkAddressService.selectedAddress.street1 || show === 'address'" ng-class="isSelectedDone('address')">
+        <h2><p>DELIVERY ADDRESS</p><fk-icon fk-icon-id="#down"></fk-icon><button class="button-primary-ghost" ng-class="isSelectedElem('address')" ng-click="done($event)" aria-label="delivery address selection completed">Done</button></h2>
+        <div class="info">
+          <h3 class="address" ng-if="fkAddressService.selectedAddress" ng-class="hideElement('address')"><fk-icon  fk-icon-id="#pin" class="icon-pin"></fk-icon><fk-address-field address="fkAddressService.selectedAddress"></fk-address-field></h3>
+          <h3 ng-class="hideElement('address')"><fk-icon  fk-icon-id="#phone" class="icon-phone"></fk-icon> {{fkAddressService.selectedAddress.contactPhoneNumber.phone}}</h3>
+        </div>
+      </div>
+      <fk-address-book class="pretty-list" ng-class="elemSelector('address')" set-address="setSelected(type, data, errors)"></fk-address-book>
+      <fk-icon class="spinner checkout-address-spinner" fk-icon-id="#spinner"></fk-icon>
+    </div>
+    <div class="delivery-payment" ng-class="[isSelected('payment'), isHidden('payment')]" ng-click="open('payment')" fk-a11y-click tabindex="0">
+      <div class="add" ng-if="!selectedPaymentMethod() && show !== 'payment'">
+        <fk-icon  fk-icon-id="#open" class="icon-pin"></fk-icon>
+        <h2>ADD PAYMENT METHOD <fk-icon fk-icon-id="#down"></fk-icon></h2>
+      </div>
+      <div ng-if="selectedPaymentMethod() || show === 'payment'" ng-class="isSelectedDone('payment')">
+        <h2><p>PAYMENT METHOD</p><fk-icon fk-icon-id="#down"></fk-icon><button class="button-primary-ghost" ng-class="isSelectedElem('payment')" ng-click="done($event)" aria-label="payment method selection completed">Done</button></h2>
+        <h3 class="payment-info {{selectedPaymentMethod().cardType}}" ng-class="hideElement('payment')" ng-attr-card="{{selectedPaymentMethod().cardType}}">
+          {{ (selectedPaymentMethod().cardType === "ECheck" ? selectedPaymentMethod().description : selectedPaymentMethod().cardType) + ' Ending: '}}{{selectedPaymentMethod().maskedAccountNumber | limitTo : -4}}
+          <span ng-if="selectedPaymentMethod().cardType !== 'ECheck'">{{' Exp. ' + selectedPaymentMethod().expirationMonth | date:'d'}}/{{selectedPaymentMethod().expirationYear | limitTo: -2}}</span>
+        </h3>
+      </div>
+      <fk-payment-methods class="pretty-list" ng-class="elemSelector('payment')" show-edit="true" payment-type="creditCards" payment-validation="true" source="cart" title="CREDIT/DEBIT CARD" button-title="ADD CREDIT / DEBIT CARD" set-payment="setSelected(type, data, errors)"></fk-payment-methods>
+      <fk-payment-methods class="pretty-list" ng-class="elemSelector('payment')" show-edit="true" payment-type="electronicChecks" source="cart" payment-validation="true" title="BANK ACCOUNT" button-title="ADD BANK ACCOUNT" set-payment="setSelected(type, data, errors)" ng-if="bankFormOn()"></fk-payment-methods>
+      <fk-icon class="spinner checkout-payment-spinner" fk-icon-id="#spinner"></fk-icon>
+    </div>
+    <div class="delivery-timeslot" ng-class="[isSelected('timeslot'), isHidden('timeslot'), isError(timeslot)]" ng-click="open('timeslot')" fk-a11y-click tabindex="0">
+      <div class="add" ng-if="!fkDeliveryTimeslotService.timeslot.selectedTimeslot.startDate && show !== 'timeslot'">
+        <fk-icon  fk-icon-id="#open" class="icon-pin"></fk-icon>
+        <h2>SELECT DELIVERY TIME <fk-icon fk-icon-id="#down"></fk-icon></h2>
+      </div>
+      <div ng-if="fkDeliveryTimeslotService.timeslot.deliveryRestrictions[0].message" ng-class="isSelectedElem('timeslot')" class="timeslots-alert"><fk-icon fk-icon-id=""></fk-icon>Temporary Delivery Restriction <a ng-click="learnMore()"> Learn More</a></div>
+      <div ng-if="fkDeliveryTimeslotService.timeslot.selectedTimeslot.startDate || show === 'timeslot'" ng-class="isSelectedDone('timeslot')" class="sticky">
+        <h2><p>DELIVERY TIME</p><fk-icon fk-icon-id="#down"></fk-icon><button class="button-primary-ghost" ng-class="isSelectedElem('timeslot')" ng-click="done($event)" aria-label="delivery time selection done">Done</button></h2>
+        <h3 ng-if="fkDeliveryTimeslotService.timeslot.selectedTimeslotId" ng-class="show === 'timeslot' ? 'hidden' : 'selected-timeslot'">
+          {{fkDeliveryTimeslotService.timeslot.selectedTimeslot | fkDateTime}}
+        </h3>
+      </div>
+      <fk-delivery-timeslots ng-class="elemSelector('timeslot')" set-timeslot="setSelected(type, data, errors)"></fk-delivery-timeslots>
+      <fk-icon class="spinner checkout-timeslot-spinner" fk-icon-id="#spinner"></fk-icon>
+    </div>
+    <div class="age-verification" ng-hide="show !== 'age'">
+      <div class="content">
+        We can only sale alcoholic products to customers over the age of 21. You will be asked for ID upon order delivery.
+        <br>
+      </div>
+      <div class="button-container">
+        <button class="button button-primary" ng-click="verifyAge()">I'm over the age of 21</button>
+        <button class="button button-primary-ghost" ng-click="removeAlcohol()">Remove Alcoholic Items</button>
+      </div>
+    </div>
+    <div class="alcohol-address" ng-hide="show !== 'alcohol-address'">
+      <div>
+        <p>
+        We currently do not deliver alcohol to your address.
+        </p>
+      </div>
+      <button class="button button-primary-ghost" ng-click="removeAlcohol()">Remove All Alcohol</button>
+      <button class="button button-primary-ghost" ng-click="show = 'address'">Change My Address</button>
+    </div>
+    <div class="alcohol-timeslot" ng-hide="show !== 'alcohol-timeslot'">
+      <div>
+        <p>
+        We do not deliver alcohol in the selected timeslot.
+        </p>
+      </div>
+      <button class="button button-primary-ghost" ng-click="removeAlcohol()">Remove All Alcohol</button>
+      <button class="button button-primary-ghost" ng-click="show = 'timeslot'">Change Delivery Time</button>
+    </div>
+  </div>
+  <div class="checkout-bottom" ng-class="show !== null ? 'hidden' : ''">
+    <div class="delivery-tip" ng-click="open('tip')" ng-class="tip ? 'show-tip-form' : ''" fk-a11y-click tabindex="0">
+      <h2>TIP <fk-icon fk-icon-id="#down"></fk-icon></h2>
+      <h3 ng-class="tip ? 'show-order-detail-tip' : ''">{{fkCartService.orderDetail.tip | currency:"$":2}}</h3>
+      <fk-e-tipping-form></fk-e-tipping-form>
+    </div>
+    <div class="fk_promo_section">
+    <fk-promo-code></fk-promo-code>
+    </div>
+    <div class="cost dp-remove" ng-if="fkCartService.orderDetail.dlvPassCharge > 0 || dpcartLineItem.price" tabindex="0">
+      <div class="label">DeliveryPass Subscription:</div>
+      <div class="amount">{{fkCartService.orderDetail.dlvPassCharge | currency:"$":2}} <a href="" ng-click="removeDeliveryPass(dpcartLineItem)">Remove</a></div>
+    </div>
+    <div class="subtotal cost" ng-class="[{estimated: fkCartService.orderDetail.estimatedPrice}, (error() && subTotal) ? 'error': '']" tabindex="0">
+      <div class="label">Order Subtotal:</div>
+      <div class="amount">{{fkCartService.orderDetail.subtotal | currency:"$":2}}</div>
+    </div>
+    <div class="charges cost" ng-repeat="charge in fkCartService.orderDetail.summaryLineCharges" ng-class="{taxable: charge.taxable, discount: charge.discount, 'display-amount': charge.displayAmount, waived: charge.waived}" tabindex="0">
+      <div class="label">{{charge.label.replace('Delivery Charge','Delivery Fee')}}:</div>
+      <div class="amount dp_link" ng-if="charge.displayAmount && charge.label === 'Delivery Charge'">
+        <span ng-if="charge.amount > 0 && fkCartService.orderDetail.purchaseDlvPassEligible">{{charge.amount | currency:"$":2}}<sup>T</sup>or <a href="#" ng-click="addDeliveryPass()"><strong>FREE</strong></a></span>
+        <span ng-if="charge.amount > 0 && !fkCartService.orderDetail.purchaseDlvPassEligible">{{charge.amount | currency:"$":2}}<sup>T</sup></span>
+        <span ng-if="charge.amount === 0">{{charge.amount | currency:"$":2}}</span>
+      </div>
+      <div class="amount" ng-if="!charge.displayAmount">{{charge.description}}</div>
+      <div class="amount" ng-if="charge.displayAmount && charge.label !== 'Delivery Charge'">{{charge.amount | currency:"$":2}}</div>
+    </div>
+    <div class="promo_code" ng-repeat="disount in fkCartService.orderDetail.discounts" ng-if="!disount.automatic" tabindex="0">
+      <div class="label">Promo Code: {{disount.redemptionCode | uppercase}}</div>
+      <div class="amount">-{{disount.amount | currency:"$":2}}</div>
+    </div>
+    <div class="total cost" ng-class="{estimated: fkCartService.orderDetail.estimatedPrice}" tabindex="0">
+      <div class="label">{{fkCartService.orderDetail.estimatedPrice ? 'ESTIMATED ' : ''}}TOTAL:</div>
+      <div class="amount">{{fkCartService.orderDetail.estimatedTotal | currency:"$":2}}</div>
+    </div>
+    <div class="total_promo_discount" ng-show="fkCartService.orderDetail.discounts.length > 0" tabindex="0">
+        <div class="label">You've Saved:</div>
+        <div class="amount">{{fkCartService.orderDetail.totalSavedAmount | currency:"$":2}}</div>
+    </div>
+    <div class="footer">
+      <div class="note">
+        T = Taxable item<br/>
+        d = State Bottle Deposit<br/>
+        * = At time of delivery we assemble our order and weigh each item to determine its final price.
+      </div>
+      <div class="need-help">
+        <button fk-track-click="CHAT INITIATED|CHAT" ng-click="triggerChat()" class="button-secondary-ghost">Need help ?</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="timeslot-delivery-indicators" ng-class="elemSelector('timeslot')" ng-if="show">
+  <fk-icon fk-icon-id="#no-alcohol"><span class="text"></span>No Alcohol Delivery</fk-icon>
+</div>
+<div class="checkout--footer" ng-if="!show && !isModify()">
+  <button class="button-secondary place-order" type="button" name="button" ng-click="submit()" ng-disabled="avoidMultipleClick">{{$ctrl.submitText}}</button>
+</div>
+<div class="checkout-modify-footer" ng-if="!show && isModify()">
+  <button class="button-secondary place-order" type="button" name="button" ng-click="submit()" ng-disabled="avoidMultipleClick">{{$ctrl.modifySubmitText}}</button>
+</div>
+<div class="checkout--atp">
+  <fk-checkout-atp></fk-checkout-atp>
+</div>
+<fk-icon class="spinner checkout-spinner" fk-icon-id="#spinner"></fk-icon>

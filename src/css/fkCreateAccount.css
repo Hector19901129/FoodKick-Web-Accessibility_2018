@@ -1,0 +1,268 @@
+@import url(variables.css);
+
+fk-create-account {
+  font-size: var(--fk-font-size-medium);
+  line-height: var(--fk-font-size-medium);
+}
+
+.ngdialog-theme-fk fk-create-account .ngdialog-header .freshdirect{
+  text-align: center;
+}
+
+.ngdialog-theme-fk fk-create-account .ngdialog-header,
+.ngdialog-theme-fk fk-create-account #sign_up_form,
+.ngdialog-theme-fk fk-create-account .register-with,
+.ngdialog-theme-fk fk-create-account .social,
+.ngdialog-theme-fk fk-create-account .ngdialog-footer {
+  background-color: var(--fk-color-white);
+  padding: 0 calc(var(--fk-vertical-space) * 2);
+  text-align: center;
+  margin: 0;
+}
+
+.ngdialog-theme-fk fk-create-account form button {
+  height: 60px;
+  width: 100%;
+}
+
+
+.ngdialog-theme-fk fk-create-account .social {
+  padding-bottom: var(--fk-horizontal-space);
+  padding-top: var(--fk-horizontal-space);
+}
+
+.ngdialog-theme-fk fk-create-account .ngdialog-header {
+  height: 14.5em;
+  padding-top: var(--fk-horizontal-space);
+  position: relative;
+}
+
+fk-create-account .freshdirect {
+  display: none;
+  font-weight: bold;
+}
+
+fk-create-account .slide .freshdirect {
+  min-height: 3.5em;
+  position: absolute;
+  bottom: 0.2em;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0 calc(var(--fk-vertical-space) * 2);
+  animation-duration: 1s;
+  animation-name: fd-animation;
+  z-index: 2;
+  left: 50%;
+  margin-left: -50%;
+}
+
+fk-create-account .freshdirect fk-icon.freshdirect-logo {
+  background-color: var(--fd-color-green);
+  height: 3.5em;
+  width: 3.5em;
+  flex-grow: 1;
+}
+fk-create-account .freshdirect fk-icon.freshdirect-logo svg {
+  height: 3.5em;
+  padding: .5em;
+  width: 3.5em;
+}
+
+fk-create-account .freshdirect .content{
+  flex-grow: 9;
+  background-color: var(--fd-color-green-light);
+  color: var(--fk-color-white);
+  height: 3.5em;
+  width: auto;
+  vertical-align: middle;
+  margin: 0;
+  vertical-align: middle;
+  padding-top: 1.25em;
+}
+
+fk-create-account svg.foodkick-logo {
+  height: 9em;
+  width: auto;
+  margin-top: 3.5em;
+  transition: margin-top .5s ease;
+}
+
+fk-create-account .slide svg.foodkick-logo {
+  margin-top: .5em;
+}
+
+/* TODO refactor this for forms in general */
+fk-create-account .error {
+  color: var(--fk-color-red);
+  min-height: 2em;
+}
+
+fk-create-account .ngdialog-button {
+  display: flex;
+}
+
+fk-create-account .ngdialog-button button {
+  height: 50px;
+  margin: 0;
+}
+
+fk-create-account .sign-in-note .login-required {
+  display: none;
+  color: var(--fk-color-red); /* TODO */
+}
+
+fk-create-account [login-required] .sign-in-note .login-required {
+  display: block;
+}
+
+fk-create-account .ngdialog-sign-in-logo {
+  text-align: center;
+}
+
+fk-create-account .ngdialog-ok-button {
+  font-weight: bold;
+  width: 100%;
+  color: var(--fk-color-white);
+  background-color: var(--fk-color-gray);
+}
+
+fk-create-account .ngdialog-body .email {
+  border-bottom: solid 0.1em var(--fk-color-gray-dark);
+}
+
+fk-create-account .ngdialog-body .password,
+fk-create-account .ngdialog-body .email,
+fk-create-account .ngdialog-button {
+  height: 3.5em;
+}
+
+fk-create-account .ngdialog-body {
+  height: 10.6em;
+}
+
+fk-create-account .ngdialog-footer {
+  min-height: 65px;
+}
+
+fk-create-account .register-with{
+  color: var(--fk-color-gray-darker);
+  line-height: 1em;
+  margin: 0 var(--fk-horizontal-space);
+  padding: 0;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+}
+
+fk-create-account .register-with:before {
+  background-color: var(--fk-color-primary);
+  content: ' ';
+  display: block;
+  height: 2px;
+  left: 70px;
+  position: absolute;
+  right: 70px;
+  top: 50%;
+}
+
+fk-create-account .register-with span {
+  background-color: #fff;
+  display: inline-block;
+  padding: 0 3em;
+  position: relative;
+  z-index: 2;
+}
+
+fk-create-account .social {
+  color: var(--fk-color-white);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+fk-create-account .social button {
+  font-size: var(--fk-font-size-medium);
+  height: 64px;
+  width: 101px;
+  margin: 0;
+  padding: 0;
+}
+
+fk-create-account .social .freshdirect-sign-in {
+  background-color: transparent;
+  background-image: url('/assets/oneall/icon-fd.png');
+  background-size: 101px 64px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 8.5px;
+  &:focus {
+    outline: 2px solid var(--fk-color-secondary-lightest);
+  }
+}
+
+#social-register iframe {
+  height: 64px !important;
+  width: 210.5px !important;
+}
+
+fk-create-account .policy {
+  color: var(--fk-color-gray-darkest);
+  background-color: var(--fk-color-white);
+  text-align: center;
+  line-height: 1.4em;
+  opacity: .75;
+  padding: 0 calc(var(--fk-vertical-space) * 2);
+  padding-top: calc(var(--fk-horizontal-space) * 2.5);
+}
+
+fk-create-account .fields .captcha-block {
+  margin-top: calc(var(--fk-vertical-space) * 3);
+  display: inline-block;
+}
+
+@keyframes fd-animation {
+  from {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@media (--fk-extra-small-screen) {
+  .ngdialog-theme-fk fk-create-account .ngdialog-header,
+  .ngdialog-theme-fk fk-create-account #sign_up_form,
+  .ngdialog-theme-fk fk-create-account .ngdialog-footer {
+    padding: 0 var(--fk-vertical-space);
+  }
+
+  .ngdialog-theme-fk fk-create-account .register-with,
+  .ngdialog-theme-fk fk-create-account .social {
+    padding: 0;
+  }
+
+  .ngdialog-theme-fk fk-create-account .social {
+    padding-top: var(--fk-horizontal-space);
+  }
+
+  .ngdialog-theme-fk fk-create-account .register-with {
+    width: 320px;
+    margin: auto;
+    text-align: center;
+  }
+
+  fk-create-account .register-with:before {
+    left: 0;
+    right: 0;
+  }
+
+  fk-create-account .slide .freshdirect {
+    padding: 0 var(--fk-vertical-space);
+
+  }
+
+}

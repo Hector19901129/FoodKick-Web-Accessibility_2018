@@ -1,0 +1,13 @@
+<div class="order-cancellation-popup">
+  <h1><b>Need to cancel?</b><br>
+  It’s OK—stuff comes up</h1>
+  <div class="order-cancellation-buttons">
+    <div class="ignore-cancellation">
+      <button class="button-primary-ghost" ng-click="ignoreCancellation()">NEVERMIND</button>
+    </div>
+    <div class="confirm-cancellation">
+      <button class="button-primary" ng-click="initCancellation()">CANCEL ORDER</button>
+    </div>
+  </div>
+</div>
+<fk-ngdialog-close ng-click="closeThisDialog()"></fk-ngdialog-close>

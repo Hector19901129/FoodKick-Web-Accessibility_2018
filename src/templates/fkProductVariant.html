@@ -1,0 +1,22 @@
+<div class="col-lg-75 col-md-75 col-sm-75 col-xs-15" ng-if="!$ctrl.open">
+  <label>{{$ctrl.getVariantLabel()}}</label>
+  <div class="list-item variant-name" ng-class="{missing:$ctrl.missing}">
+    <img class="value-image selected-value-image" ng-src="{{$ctrl.selectedValueImage()}}" ng-if="$ctrl.selected && $ctrl.selectedValueImage()" alt="">
+    <span>{{$ctrl.selectedValueText()}}</span><span ng-if="$ctrl.selectedValuePrice() || ($ctrl.selectedValueCvp() | fkMoneyCvp)" class="selected-value-price">{{($ctrl.selectedValuePrice() | currency:"$":2) || $ctrl.selectedValueCvp()}}</span>
+    <fk-icon fk-icon-id="#down" ng-if="!$ctrl.selected"></fk-icon>
+    <label class="variant-edit" ng-if="$ctrl.selected && $ctrl.variant.values.length > 1">Edit</label>
+  </div>
+</div>
+<div ng-if="$ctrl.open" class="variant-values container-fluid">
+  <h3>
+    <div>{{$ctrl.getVariantLabel()}}</div>
+    <button class="light" ng-click="$ctrl.close($event)">Close</button>
+  </h3>
+  <ul class="row">
+    <li ng-repeat="item in $ctrl.variant.values" class="col-lg-75 col-md-75 col-sm-75 col-xs-15 list-item value-name" ng-click="$ctrl.select(item.name, $event)">
+      <fk-icon fk-icon-id="{{$ctrl.valueSelectedIcon(item.name)}}"></fk-icon>
+      <img class="value-image" ng-src="{{(item.imagePath)}}" ng-if="item.imagePath" alt="">
+      <div class="value-label"><span>{{item.label}}</span><span ng-if="item.suPrice || (item.cvp | fkMoneyCvp)">{{(item.suPrice | currency:"$":2) || item.cvp }}</span></div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,18 @@
+<div class="cancel-order-content">
+  <fk-order-map-url map="orderService.order.mapUrl" address="orderService.order.address"></fk-order-map-url>
+  <div class="cancel-order-details">
+    <fk-order-detail-fields details="orderService.order"></fk-order-detail-fields>
+    <div class="order-history">
+      <div>
+        <button class="button-primary-ghost" ng-click="$ctrl.goToHistory()">ORDER HISTORY</button>
+      </div>
+    </div>
+  </div>
+  <div class="oc--order-total" ng-class="{estimated: orderService.order.estimatedPrice}" tabindex="0">
+    {{orderService.order.estimatedPrice ? 'Est. ' : ''}} ORDER TOTAL: <span class="amount">{{orderService.order.total | currency:"$":2 }}</span>
+  </div>
+</div>
+<div class="oc--header cancel-order-header">
+  <h2 tabindex="0">We've canceled  your order.</h2>
+</div>
+<fk-ngdialog-close ng-click="$ctrl.goHome()"></fk-ngdialog-close>

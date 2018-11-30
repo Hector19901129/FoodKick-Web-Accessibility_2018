@@ -1,0 +1,9 @@
+@import url(variables.css);
+
+@media (--fk-extra-small-screen) {
+  .fk-address-change {
+    .close-continer {
+      margin-top: 40px;
+    }
+  }
+}

@@ -1,0 +1,84 @@
+<div class="nutrition-panel-wrapper DRUG" ng-if="$ctrl.nutritionPanel.type === 'DRUG'">
+  <div class="nutrition-panel" ng-repeat="section in $ctrl.nutritionPanel.sections">
+    <div class="section importance{{section.importance}}">
+      <div class="title">{{section.title}}</div>
+        <div class="section-item" ng-class="{important: item.important, dotted: item.ingredientValue}" ng-repeat="item in section.items">
+          <div ng-if="item.separator" class="separator"></div>
+          <span  ng-if="item.bulleted" class="bullet"></span>
+          <span ng-if="item.value1" class="value1">{{item.value1}}</span>
+          <span  class="dotted-wrapper" ng-if="item.value2">
+            <span class="value2-wrapper">
+              <span class="value2">{{item.value2}}</span>
+              <span ng-if="item.ingredientValue">{{item.ingredientValue}}</span>
+              <span ng-if="item.uom">{{item.uom}}</span>
+            </span>
+            <span  class="dot"></span>
+          </span>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="nutrition-panel-wrapper PET" ng-if="$ctrl.nutritionPanel.type === 'PET'">
+  <div class="nutrition-panel" ng-repeat="section in $ctrl.nutritionPanel.sections">
+    <div class="section importance{{section.importance}}">
+      <div class="title">{{section.title}}</div>
+        <div class="section-item" ng-class="{important: item.important, dotted: item.ingredientValue}" ng-repeat="item in section.items">
+          <div ng-if="item.separator" class="separator"></div>
+          <span  ng-if="item.bulleted" class="bullet"></span>
+          <span ng-if="item.value1" class="value1">{{item.value1}}</span>
+          <span  class="dotted-wrapper" ng-if="item.value2">
+            <span class="value2-wrapper">
+              <span class="value2">{{item.value2}}</span>
+              <span ng-if="item.ingredientValue">{{item.ingredientValue}}</span>
+              <span ng-if="item.uom">{{item.uom}}</span>
+            </span>
+            <span  class="dot"></span>
+          </span>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="nutrition-panel-wrapper BABY" ng-if="$ctrl.nutritionPanel.type === 'BABY'">
+  <div class="nutrition-panel" ng-repeat="section in $ctrl.nutritionPanel.sections">
+    <div class="section importance{{section.importance}}">
+      <div class="title">{{section.title}}</div>
+        <div class="section-item" ng-class="{important: item.important, dotted: item.value1, separatorholder: item.separator}" ng-repeat="item in section.items">
+          <div ng-if="item.separator" class="separator"></div>
+          <span  ng-if="item.bulleted" class="bullet"></span>
+          <span ng-if="item.value1" class="value1">{{item.value1}}</span>
+          <span  class="dotted-wrapper" ng-if="!section.importance">
+            <span class="value2-wrapper">
+              <span class="value2" ng-if="item.value2">{{item.value2}}</span>
+              <span ng-if="item.value2">{{item.ingredientValue}}</span>
+              <span ng-if="item.uom">{{item.uom}}</span>
+            </span>
+            <span  class="dot"></span>
+          </span>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="nutrition-panel-wrapper SUPPL" ng-if="$ctrl.nutritionPanel.type === 'SUPPL'">
+  <div class="nutrition-panel" ng-repeat="section in $ctrl.nutritionPanel.sections">
+    <div class="section importance{{section.importance}}">
+      <div class="title">{{section.title}}</div>
+        <div class="section-item" ng-class="{important: item.important, dotted: item.ingredientValue, separatorholder: item.separator}" ng-repeat="item in section.items">
+          <div ng-if="item.separator" class="separator"></div>
+          <span  ng-if="item.bulleted" class="bullet"></span>
+          <span ng-if="item.value1" class="value1">{{item.value1}}</span>
+          <span  class="dotted-wrapper" ng-if="item.value2">
+            <span class="value2-wrapper">
+              <span class="value2">{{item.value2}}</span>
+              <span ng-if="item.ingredientValue">{{item.ingredientValue}}</span>
+              <span ng-if="item.uom">{{item.uom}}</span>
+            </span>
+            <span  class="dot"></span>
+          </span>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="nutrition-panel OLD" ng-if="$ctrl.oldNutritionPanel" ng-bind-html="$ctrl.oldNutritionPanel"></div>

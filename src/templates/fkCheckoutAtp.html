@@ -1,0 +1,23 @@
+<div class="atp-header">
+  <div>{{currentItem.description}}</div>
+  <div ng-if="+currentItem.availableQuantity === 0">This item will be removed.</div>
+  <div ng-if="+currentItem.availableQuantity > 0">The quantity you requested will be reduced.</div>
+</div>
+<div class="atp-content">
+  <div class="atp-product">
+    <fk-product-tile product="currentProduct" orientation="vertical" fk-touch></fk-product-tile>
+    <div ng-if="+currentItem.availableQuantity > 0" class="atp-keep-or-remove fk-custom-field">
+      <input type="radio" class="nobullet" ng-model="removeOrKeep.value" id="atp-KOR-{{currentItem.cartLineId}}-keep" name="atp-keep-or-remove" value="keep"/><label for="atp-KOR-{{currentItem.cartLineId}}-keep" class="keep"><fk-icon fk-icon-id="#check"></fk-icon><fk-icon fk-icon-id="#done"></fk-icon>Keep {{currentItem.availableQuantity}} available</label>
+      <input type="radio" class="nobullet" ng-model="removeOrKeep.value" id="atp-KOR-{{currentItem.cartLineId}}-remove" name="atp-keep-or-remove" value="remove"/><label for="atp-KOR-{{currentItem.cartLineId}}-remove" class="remove-all"><fk-icon fk-icon-id="#check"></fk-icon><fk-icon fk-icon-id="#done"></fk-icon>Remove all</label>
+    </div>
+  </div>
+  <div ng-if="replacement" class="atp-recommendation">
+    <div class="atp-recommendation-header">
+      Replacement Ideas
+    </div>
+    <fk-product-tile-list channel="'checkout'" location="'atp_'+currentProduct.productData.productId" products="currentItem.recommendedProducts" orientation="vertical"></fk-product-tile-list>
+  </div>
+</div>
+<div class="atp-footer">
+  <button class="button-primary atp-continue" type="button" name="button" ng-click="continue()">CONTINUE <span class="progress">({{currentItemIndex + 1}} of {{unavItems.length}})</span></button>
+</div>

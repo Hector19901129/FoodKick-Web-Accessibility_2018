@@ -1,0 +1,11 @@
+<button class="section-more--button button-primary feed" ng-click="$ctrl.showPopup()" ng-if="$ctrl.type === 'feed' && !module" aria-label="View All">
+  <span> ALL <fk-icon fk-icon-id="#down"></fk-icon></span>
+</button>
+
+<button class="section-more--button button-primary-ghost pick" ng-click="$ctrl.showPopup()" ng-if="$ctrl.type === 'picklist' && !module" aria-label="View All">
+  <span> ALL <fk-icon fk-icon-id="#down"></fk-icon></span>
+</button>
+
+<button class="section-more--button button-primary-ghost pick" ng-click="$ctrl.showPopup()" ng-if="module">
+  VIEW ALL
+</button>

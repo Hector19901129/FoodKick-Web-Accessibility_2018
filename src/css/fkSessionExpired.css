@@ -1,0 +1,57 @@
+@import url(variables.css);
+
+.fk-session-expired-warning {
+  display: block;
+
+  & .close-continer {
+    margin-top: 20px;
+    max-width: 940px;
+  }
+
+  & .button-container{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+  }
+
+  & .button{
+    height: 60px;
+    width: 420px;
+  }
+
+   .content {
+    background-color: var(--fk-color-off-white);
+    color: var(--fk-color-gray-darker);
+    font-size: var(--fk-font-size-large);
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    max-width: 460px;
+    padding: 0 20px;
+  }
+}
+
+@media (--fk-extra-small-screen) {
+
+  .fk-session-expired-warning {
+    & .header-content {
+      font-size: 19px;
+    }
+
+    & .close-continer {
+      margin-top: 40px;
+    }
+
+    & .content {
+      padding: 0 20px;
+    }
+
+    & .button-container {
+      display: block;
+    }
+
+    & .button {
+      width: 100%;
+    }
+  }
+}

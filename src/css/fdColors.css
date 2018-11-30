@@ -1,0 +1,61 @@
+:root {
+
+  /* colors*/
+  --fk-color-primary: #4fa157;
+  --fk-color-primary-darker: #458d4e;
+  --fk-color-primary-darkest: #34723d;
+  --fk-color-primary-bg: #458d4e;
+  --fk-color-primary-lighter: #5fb067;
+  --fk-color-primary-lightest: #61b769;
+  --fk-color-primary-fade: #edf5ee;
+  --fk-color-secondary: #e77630;
+  --fk-color-secondary-darker: #e45e0b;
+  --fk-color-secondary-lighter: #f68139;
+  --fk-color-secondary-lightest: #fc8e46;
+
+  --fd-color-gray-light: #F2F3F4;
+  --fk-color-gray-dark: #111111;
+  --fk-color-secondary-fade: #effdff;
+  --fk-color-gray: #a6a8b1;
+  --fk-color-gray-darkest: #1b1b21;
+  --fk-color-gray-darker: #3e3f49;
+  /*--fk-color-gray-dark: #575860;*/
+  --fk-color-gray-light: #e1e1e1;
+  --fk-color-gray-lighter: #f4f4f3;
+  --fk-color-off-white: #fafafa;
+  --fk-color-off-white-dark: #f4f4f3;
+  --fk-color-white: #fff;
+  --fk-color-fd-logo: #FFF;
+  --fk-color-gray-bg: #f2f3f4;
+  --fk-color-gray-plp-bg: #f2f3f4;
+
+  --fk-color-red: #e42b22;
+  --fk-color-black: #000;
+
+  /* ?? */
+  --fd-color-green: #4fa157;
+  --fd-color-green-light: #5fb067;
+  --fb-color-blue: #3b5998;
+  --gp-color-red: #dd4b39;
+  --fd-color-yellow: #fffef2;
+  --fd-color-red: #e42b22;
+  --fd-color-claret: #790033;
+
+  /* semi trasparent colors*/
+  --fk-color-white-a: rgba(255,255,255,.6);
+  --fk-color-white-medium-a: rgba(255,255,255,.7);
+  --fk-color-white-light-a: rgba(255,255,255,.2);
+  --fk-color-primary-bg-a: rgba(69, 141, 78, .94);
+  --fk-color-primary-darker-a: rgba(69, 141, 78, .94);
+  --fk-color-primary-darker-medium-a: rgba(79, 161, 87, .7);
+  --fk-color-primary-darker-light-a: rgba(95, 176, 103, .2);
+  --fk-color-primary-darkest-a: rgba(52, 114, 61, .1);
+  --fk-color-primary-lighter-a: rgba(79, 161, 87, .9);
+  --fk-color-primary-g-a: rgba(79, 161, 87, .8);
+  --fk-color-primary-transparent: rgba(95, 176, 103, 0);
+  --fk-color-off-white-a: rgba(250,250,250,.9);
+  --fk-color-black-a: rgba(0,0,0,.3);
+  --fk-color-gray-a: rgba(166,168,177,.3);
+  --fk-color-secondary-medium-a: rgba(246, 129, 57, .6);
+
+}

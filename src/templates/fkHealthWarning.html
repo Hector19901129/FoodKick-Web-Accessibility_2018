@@ -1,0 +1,27 @@
+<div class="hw--content">
+  <p>When shopping for alcohol, we want to make sure you know:</p>
+  <ul class="hw--unordered-list">
+    <li> Alcohol cannot be delivered outside of New York State so beer, wine, and spirits will be removed from your cart during checkout if an address outside of New York State is selected for delivery.</li>
+  </ul>
+  <p>When shopping for alcohol, we want to make sure you know:</p>
+  <div class="hw--button-container">
+    <button class="button button-primary-ghost hw-button" ng-click="closeHW()">I Decline</button>
+    <button class="button button-primary hw-button" ng-click="agree()">I Agree</button>
+  </div>
+  <h3>Proof of Age</h3>
+  <p>You must be over 21 years of age to purchase alcoholic beverages. We reserve the right to refuse service, terminate accounts, remove alcohol, or cancel orders in our sole discretion.
+  It is a violation punishable under the law for any person under the age of twenty-one to present any written evidence of age which is false, fraudulent, or not actually her own for the purpose of attempting to purchase any alcoholic beverage.</p>
+  <p>If your order contains alcoholic beverages, the person accepting the delivery must show identification verifying she is over the age of 21 for each delivery and will be required to provide her signature to release the delivery. If no one over the age of 21 can accept the delivery, the driver will remove alcoholic beverages from the order.</p>
+  <h3>Government Warning:</h3>
+  <p>According to the surgeon general, women shouldn't drink alcohol beverages during pregnancy because of the risk of birth defects.</p>
+  <h3>Warning:</h3>
+  <p>No person shall sell or give away any alcoholic beverages to:</p>
+  <ul class="hw--ordered-list">
+    <li>Any person under the age of twenty-one (21) years; or </li>
+    <li>Any visibly intoxicated person.</li>
+  </ul>
+</div>
+<div class="hw--header">
+  <svg class="svgicon"><use xlink:href="#wines-spirits-logo-label"/></svg>
+</div>
+<fk-ngdialog-close ng-click="closeHW()"></fk-ngdialog-close>

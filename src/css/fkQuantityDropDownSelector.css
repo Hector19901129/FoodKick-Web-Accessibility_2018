@@ -1,0 +1,39 @@
+@import url(variables.css);
+
+fk-quantity-drop-down-selector {
+  display: flex;
+
+  & label.offscreen {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    left: -10000px;
+  }
+
+  & input.quantity-input {
+    width: 60px;
+    text-align: center;
+  }
+
+  & .select--wrapper {
+    width: 60px;
+  }
+
+  & select.quantity-select {
+    width: 60px;
+    padding-left: 9px;
+  }
+
+  & select::-ms-expand {
+    display: none;
+  }
+
+  & .input--wrapper button {
+    font-size: var(--fk-font-size-small);
+    line-height: 1.2;
+    height: 30px;
+    width: 60px;
+    margin: 10px 0;
+    padding: 0;
+  }
+}

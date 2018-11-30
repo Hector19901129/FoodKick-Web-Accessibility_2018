@@ -1,0 +1,28 @@
+<div class="carousel-wrapper" ng-mouseover="wait()" ng-mouseleave="reStart()">
+  <div class="arrow-controll container {{$ctrl.arrowstyle}}" ng-if="$ctrl.showarrow && $ctrl.images.length > 1">
+    <div class="arrow left" ng-click="$ctrl.arrowMove(carouselIndex - 1)">
+      <fk-icon fk-icon-id="#left"></fk-icon>
+    </div>
+    <div class="arrow right" ng-click="$ctrl.arrowMove(carouselIndex + 1)">
+      <fk-icon fk-icon-id="#right"></fk-icon>
+    </div>
+  </div>
+  <ul class="carousel-images-list" ng-style="{'width': $ctrl.images ? $ctrl.images.length * 100 + '%' : '0%'}">
+    <li ng-repeat="image in $ctrl.images" ng-style="{'width':$ctrl.images ? (100 / $ctrl.images.length) + '%': '100%'}" ng-swipe-left="$ctrl.arrowMove(carouselIndex + 1)" ng-swipe-right="$ctrl.arrowMove(carouselIndex - 1)">
+      <div class="carousel-image {{$ctrl.imagestyle}}" ng-class="image.type" ng-style="{'background-image':'url({{image.source}})'}">
+        <div class="container">
+          <div ng-if="image.html" class="caption">
+            <span ng-bind-html="image.html"></span>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div class="carousel-controll" ng-if="$ctrl.images.length > 1">
+    <ul>
+      <li ng-repeat="image in $ctrl.images" ng-click="$ctrl.move($index)">
+        <div class="dot {{$ctrl.dotstyle}}" ng-class="{'active': $index === carouselIndex }"></div>
+      </li>
+    </ul>
+  </div>
+</div>

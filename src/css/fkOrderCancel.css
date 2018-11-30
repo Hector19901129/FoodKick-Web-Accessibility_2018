@@ -1,0 +1,40 @@
+@import url(variables.css);
+
+.order-cancellation-popup {
+    background-color: var(--fk-color-off-white);
+    color: var(--fk-color-gray-darker);
+    padding: calc(var(--fk-vertical-space) * 3) calc(var(--fk-horizontal-space) * 2);
+    width: 100%;
+    text-align: center;
+    button {
+        margin: 0;
+        height: 60px;
+        width: 100%;
+        font-size: var(--fk-font-size-base);
+    }
+    h1 {
+        font-family: var(--fk-font-sans-serif);
+        font-size: var(--fk-font-size-large);
+        margin: 0;
+    }
+    .order-cancellation-buttons {
+        width: 100%;
+        text-align: center;
+        padding: calc(var(--fk-vertical-space) * 3) 0;
+    }
+    .ignore-cancellation {
+        float: left;
+        margin: 0 var(--fk-horizontal-space);
+        width: 45%;
+    }
+    .confirm-cancellation {
+        width: 45%;
+        float: left;
+    }
+}
+
+@media (--fk-small-screen), (--fk-extra-small-screen) {
+  .ngdialog.ngdialog-theme-default.ngdialog-theme-fk.fk-order-cancellation .ngdialog-content {
+    justify-content: flex-end;
+  }
+}

@@ -1,0 +1,43 @@
+@import 'fkColors.css';
+
+:root {
+
+  /* screen sizes */
+  --fk-small-container-size: 768px;
+  --fk-medium-container-size: 992px;
+  --fk-large-container-size: 1200px;
+
+  /* font-sizes */
+  --fk-font-size-huge: 46px;
+  --fk-font-size-xlarge: 28px;
+  --fk-font-size-large: 22px;
+  --fk-font-size-base: 16px;
+  --fk-font-size-medium: 14px;
+  --fk-font-size-small: 12px;
+  --fk-font-size-xsmall: 10px;
+  --fk-font-size-tiny: 8px;
+
+  --fk-font-serif: 'Georgia', 'Times New Roman', serif;
+  --fk-font-sans-serif: 'graphik', 'Helvetica', 'Arial', sans-serif;
+
+  --fk-horizontal-space: 10px;
+  --fk-vertical-space: 10px;
+
+  --fk-primary-header-height: 40px;
+  --fk-secondary-header-height: 50px;
+  --fk-secondary-header-height-mobile: 50px;
+
+  --fk-input-padding: 9px var(--fk-horizontal-space) 6px var(--fk-horizontal-space);
+
+  --fk-product-tile-height: 366px;
+  --fk-product-tile-vertical-height: 210px;
+
+  --fk-background-image-darker: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0AQMAAADxGE3JAAAABlBMVEXh4eEAAAADCLnaAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAANUlEQVR4nO3BMQEAAADCoPVP7WENoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABufQAAAYUS2PYAAAAASUVORK5CYII=');
+  --fk-background-image-lighter: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0AQMAAADxGE3JAAAABlBMVEX09PMAAAACA60UAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAANUlEQVR4nO3BMQEAAADCoPVP7WENoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABufQAAAYUS2PYAAAAASUVORK5CYII=');
+}
+
+/* breakpoints */
+@custom-media --fk-extra-small-screen (max-width: 568px);
+@custom-media --fk-small-screen (min-width: 568px) and (max-width: 992px);
+@custom-media --fk-medium-screen (min-width: 992px) and (max-width: 1200px);
+@custom-media --fk-large-screen (min-width: 1200px);

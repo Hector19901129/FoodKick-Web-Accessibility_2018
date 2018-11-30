@@ -1,0 +1,59 @@
+@import url(variables.css);
+
+fk-raf-registration-form {
+  .fields {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
+  .fields .full {
+    width: 100%;
+  }
+
+  .fields .half {
+    width: 48%;
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .buttons>button {
+    height: 53px;
+    width: 50%;
+  }
+
+  .policy {
+    width: 100%;
+    text-align: center;
+    color: var(--fk-color-gray-dark);
+    font-size: var(--fk-font-size-medium);
+  }
+
+  .policy.extraMargin {
+      margin-top: calc( var(--fk-horizontal-space) * 2);
+      margin-bottom: calc( var(--fk-horizontal-space) * 2);
+    }
+}
+
+@media (--fk-extra-small-screen),
+(--fk-small-screen) {
+
+  fk-raf-registration-form {
+    .fields .full {
+      padding: 0 var(--fk-horizontal-space);
+    }
+
+    .fields .half:first-child {
+      padding: 0 calc(var(--fk-horizontal-space) / 2) 0 var(--fk-horizontal-space);
+      width: 44%;
+    }
+    .fields .half:nth-child(even) {
+      padding-right: var(--fk-horizontal-space);
+      width: 44%;
+    }
+  }
+}

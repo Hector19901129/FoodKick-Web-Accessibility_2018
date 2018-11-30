@@ -1,0 +1,17 @@
+<div class="fk-cart-recommenders" ng-if="$ctrl.recommendations">
+  <div class="recommendation-sticky-ref"></div>
+  <fk-cart-recommenders-selector class="cr-selector-non-sticky cr-visible"></fk-cart-recommenders-selector>
+  <div class="cr-recommendations">
+    <div ng-repeat="recommendation in $ctrl.recommendations" id="cr-{{recommendation.id}}-wrapper" class="cr-recommendation">
+      <div class="cr-separator" ng-if="!$first">
+        <div class="cr-separator-line"></div>
+        <span tabindex="0">{{recommendation.title}}<span offscreen> recommendations</span></span>
+        <div class="cr-separator-line"></div>
+      </div>
+      <div id="cr-{{recommendation.id}}">
+        <div ng-if="recommendation.dealInfo" class="cr-dealinfo" tabindex="0">{{recommendation.dealInfo}}</div>
+        <fk-product-tile-list class="cr-content" channel="'rec_'+(recommendation.tracking.variant || recommendation.id)" location="'view_cart'" list-title="recommendation.slug || recommendation.id" products="recommendation.products" item-class="'col-lg-5 col-md-5 col-sm-75 col-xs-75'"></fk-product-tile-list>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+<div>
+  <button  ng-click="$ctrl.modifyDayStatus()" class="delivery-day-header delivery-timeslot sticky">{{$ctrl.day.name}}<fk-icon fk-icon-id="#down" class="icon-pin"></fk-icon></button>
+  <fd-timeslots  ng-class="[$ctrl.openedDay ? '' : 'closed']" day="$ctrl.day.slots" set-timeslot="setTimeslot(data, errors)"></fd-timeslots>
+</div>

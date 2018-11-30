@@ -1,0 +1,19 @@
+@import url(variables.css);
+
+fk-help-menu {
+  display: block;
+  background: var(--fk-color-gray-lighter);
+  overflow-x: hidden;
+  
+  #chat-holder {
+    padding: 30px 0;
+    text-align: center;
+    p {
+      line-height: 0;
+    }
+    .small {
+      font-size: 10px;
+      line-height: 0;
+    }
+  }
+}

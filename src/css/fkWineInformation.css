@@ -1,0 +1,23 @@
+@import url(variables.css);
+
+.fk-wine-information {
+
+  h3 {
+    padding-top: calc(var(--fk-vertical-space)*1.5);
+  }
+
+  .wi-wrapper {
+    display: inline-block;
+  }
+
+  .wi-bold-heading {
+    display: block;
+    font-weight: 500;
+  }
+
+  .wi-underlined {
+    border-bottom: 1px solid var(--fk-color-gray-light);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+}

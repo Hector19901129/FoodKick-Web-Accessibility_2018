@@ -1,0 +1,159 @@
+@import url(variables.css);
+
+fk-promo-code {
+  .promo-field {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .promo-left {
+    width: 70%;
+  }
+
+  .promo-right {
+    float: right;
+    button {
+      font-size: 14px;
+      font-weight: 300;
+      height: 45px;
+      font-weight: 500;
+    }
+  }
+
+  .label {
+    font-size: var(--fk-font-size-medium);
+    font-weight: 600;
+    letter-spacing: 0.9px;
+    color: var(--fk-color-gray-dark);
+    float: left;
+  }
+
+  .promoTextEnabled {
+    background-color: var(--fk-color-gray-light);
+    font-family: var(--fk-font-sans-serif);
+    font-size: var(--fk-font-size-medium);
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    border: none;
+    border-bottom: 2px solid var(--fk-color-gray);
+    outline: none;
+    padding: calc(var(--fk-vertical-space)-4) 0;
+    width: 100%;
+  }
+
+  .promoTextDisabled {
+    background-color: var(--fk-color-gray-a);
+    font-family: var(--fk-font-sans-serif);
+    font-size: var(--fk-font-size-medium);
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    border: none;
+    border-bottom: 2px solid var(--fk-color-gray);
+    outline: none;
+    padding: calc(var(--fk-vertical-space)-4) 0;
+    width: 100%;
+  }
+
+  .promoStatusInvalid {
+    font-size: var(--fk-font-size-medium);
+    font-weight: 600;
+    letter-spacing: 0.9px;
+    color: var(--fk-color-primary);
+    float: right
+  }
+
+  .promoStatusSuccess {
+    font-size: var(--fk-font-size-medium);
+    font-weight: 600;
+    letter-spacing: 0.9px;
+    color: var(--fk-color-primary);
+    float: right;
+  }
+
+  .error-container {
+    color: var(--fk-color-red);
+  }
+
+  .remove_button {
+    border: solid 1px var(--gp-color-red);
+    color: var(--gp-color-red);
+    font-weight: 300;
+    background-color: var(--fk-color-gray-light);
+  }
+}
+
+fk-promo-code {
+  margin-bottom: calc(var(--fk-vertical-space)*2);
+  display: block;
+
+  ::-webkit-input-placeholder {
+    color: var(--fk-color-gray);
+    text-transform: initial;
+  }
+
+  ::-moz-placeholder {
+    color: var(--fk-color-gray);
+    text-transform: initial;
+  }
+
+  :-ms-input-placeholder {
+    color: var(--fk-color-gray);
+    text-transform: initial;
+  }
+
+  :-moz-placeholder {
+    color: var(--fk-color-gray);
+    text-transform: initial;
+  }
+
+  input:focus {
+    border-color: var(--fk-color-primary);
+  }
+}
+
+
+@media (--fk-small-screen) {
+  fk-promo-code {
+    .promoTextEnabled {
+      width: 90%;
+    }
+    .promoTextDisabled {
+      width: 90%;
+    }
+    .promoStatusInvalid {
+      padding-right: calc(var(--fk-horizontal-space) * 5);
+    }
+    .promoStatusSuccess {
+      padding-right: calc(var(--fk-horizontal-space) * 5);
+    }
+  }
+}
+
+@media (--fk-medium-screen),
+(--fk-large-screen) {
+  fk-promo-code {
+    .promoTextEnabled {
+      width: 100%;
+    }
+    .promoTextDisabled {
+      width: 100%;
+    }
+  }
+}
+
+@media (--fk-extra-small-screen) {
+  fk-promo-code {
+    .promoStatusSuccess {
+      padding-right: calc(var(--fk-horizontal-space)*2.5);
+    }
+    .promoStatusInvalid {
+      padding-right: calc(var(--fk-horizontal-space)*2.5);
+    }
+    .promoTextEnabled {
+      width: 90%;
+    }
+    .promoTextDisabled {
+      width: 90%;
+    }
+  }
+}

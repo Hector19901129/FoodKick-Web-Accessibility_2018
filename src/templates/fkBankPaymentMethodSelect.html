@@ -1,0 +1,20 @@
+<fk-bank-payment-method-select>
+	<ul class="{{$ctrl.showEdit ? 'show-edit' : ''}}">
+		<li><h2>Choose to Edit:</h2></li>
+
+		<li ng-repeat="paymentMethod in paymentMethods.electronicChecks">
+			<fk-icon ng-if="paymentMethod.selected" fk-icon-id="#done" class="icon-done"></fk-icon>
+			<fk-icon ng-if="!paymentMethod.selected" fk-icon-id="#check" class="icon-check"></fk-icon>
+			<div class="payment">
+				<div payment-id="{{ paymentMethod.id }}" class="{{ paymentMethod.selected ? 'selected' : ''}}">
+					<h2>{{ paymentMethod.bankName }}</h2>
+					<h3><b>{{paymentMethod.description || paymentMethod.cardType}}</b></h3>
+					<h3 ng-if="paymentMethod.expirationMonth">Ending: {{paymentMethod.maskedAccountNumber | limitTo : -4}}{{' Exp. ' + paymentMethod.expirationMonth | date:'d'}}/{{paymentMethod.expirationYear | limitTo: -2}}</h3>
+					<h3 ng-if="!paymentMethod.expirationMonth">Ending: {{paymentMethod.maskedAccountNumber | limitTo : -4}}</h3>
+
+					<button ng-click="selectBankInfoPopulate(paymentMethod)" class="button-edit">Select</button>
+				</div>
+			</div>
+		</li>
+	</ul>
+</fk-bank-payment-method-select>

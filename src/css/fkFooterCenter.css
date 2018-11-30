@@ -1,0 +1,118 @@
+@import url(variables.css);
+
+fk-footer {
+  margin-top: var(--fk-vertical-space);
+  display: block;
+}
+
+fk-footer-center {
+  display: block;
+  background-color: var(--fk-color-gray-darker);
+}
+
+footer .email-label {
+  font-family: var(--fk-font-sans-serif);
+  font-size: var(--fk-font-size-medium);
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.43;
+  letter-spacing: 0.9px;
+  color: var(--fk-color-white);
+}
+
+footer .footer-fklogo {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+
+  a svg {
+    height: 50px;
+    width: 158px;
+    fill: var(--fk-color-white);
+  }
+}
+
+footer .no-margin-left {
+  margin-left: 0;
+}
+
+footer .place-holder-text {
+  background: transparent;
+  border: none;
+  padding-bottom: calc(var(--fk-vertical-space)/2);
+  outline: none;
+  font-family: var(--fk-font-sans-serif);
+  font-size: var(--fk-font-size-medium);
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.43;
+  letter-spacing: 0.9px;
+  color: var(--fk-color-gray);
+}
+
+footer .second-row {
+  width: 100%;
+  padding: calc(var(--fk-vertical-space)*3) 0 calc(var(--fk-vertical-space)*4) 0;
+  color: var(--fk-color-white);
+  margin-left: 0;
+}
+
+footer .signup {
+  width: 146px;
+  height: 46px;
+  font-family: var(--fk-font-sans-serif);
+  font-size: var(--fk-font-size-base);
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: 0.9px;
+  text-align: center;
+  color: var(--fk-color-white);
+}
+
+footer .Stay-in-Touch-Be-th {
+  font-family: var(--fk-font-sans-serif);
+  font-size: var(--fk-font-size-base);
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.63;
+  letter-spacing: 0.5px;
+  color: var(--fk-color-white);
+}
+
+footer .Stay-in-Touch-Be-th > span {
+  font-size: var(--fk-font-size-medium);
+  font-weight: 600;
+}
+
+footer .textbox-line {
+  border-bottom: solid 2px var(--fk-color-gray);
+}
+
+@media (--fk-small-screen) {
+  footer .textbox-line {
+    margin-top: calc(var(--fk-vertical-space) * 3);
+  }
+  footer .signup {
+    margin-top: calc(var(--fk-vertical-space) * 3);
+  }
+}
+
+@media (--fk-extra-small-screen) {
+  footer .footer-fklogo {
+    padding: calc(var(--fk-vertical-space)*4.5) 0;
+  }
+  footer .padding-mobile {
+    margin: 10px;
+  }
+  footer .place-holder-text {
+    width: 100%;
+  }
+  footer .signup {
+    width: 96%;
+  }
+}

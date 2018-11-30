@@ -1,0 +1,25 @@
+<form name="qtyForm" ng-submit="emitEvent(true)" class="fk-custom-field">
+  <label ng-if="showSelect" class="offscreen" ng-attr-for="{{$ctrl.prefix && $ctrl.prefix+'-qty-select'}}">Currently got {{$ctrl.quantity}} in bag{{$ctrl.price ? ' for ' + $ctrl.price : ''}}. Change quantity.</label>
+  <div class="select--wrapper" ng-if="showSelect">
+    <select
+        class="quantity-select"
+        role="listbox"
+        tabindex="0"
+        ng-attr-id="{{$ctrl.prefix && $ctrl.prefix+'-qty-select'}}"
+        ng-model="$ctrl.quantity"
+        ng-options="item.value as item.label for item in dropDownValues"
+        ng-model-options="{updateOn: 'change'}"
+        ng-change="emitEvent()">
+    </select>
+    <fk-icon fk-icon-id="#down"></fk-icon>
+  </div>
+  <div class="input--wrapper" ng-if="!showSelect">
+    <label class="offscreen" ng-attr-for="{{$ctrl.prefix && $ctrl.prefix+'-qty-input'}}">Currently got {{$ctrl.quantity}} in bag{{$ctrl.price ? ' for ' + $ctrl.price : ''}}. Enter quantity</label>
+    <input
+        class="quantity-input"
+        type="number"
+        ng-attr-id="{{$ctrl.prefix && $ctrl.prefix+'-qty-input'}}"
+        ng-model="$ctrl.quantity"/>
+    <button class="button button-primary" ng-click="emitEvent()" ng-if="$ctrl.emitEvent">APPLY</button>
+  </div>
+</form>

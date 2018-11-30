@@ -1,0 +1,424 @@
+@import url(variables.css);
+
+.delivery-selection-picker {
+  display: flex;
+}
+
+fk-delivery-address-selection {
+  display: flex;
+  width: 100%;
+
+  .fk-delivery-address-selection-wrapper {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .timeslots-alert {
+    background-color: var(--fk-color-red);
+    font-size: var(--fk-font-size-base);
+    font-weight: 600;
+    line-height: 2.13;
+    color: var(--fk-color-white);
+    padding: 10px;
+    a {
+      line-height: 1.13;
+      cursor: pointer;
+      color: var(--fk-color-white);
+      font-weight: 200;
+      font-size: var(--fk-font-size-medium);
+      text-decoration: underline;
+    }
+    fk-con svg {
+      vertical-align: middle;
+    }
+  }
+
+  .remaining-time {
+    text-align: center;
+    color: var(--fk-color-off-white);
+    background-color: var(--fk-color-secondary);
+    font-size: var(--fk-font-size-base);
+    font-weight: 500;
+    line-height: 1.22;
+    padding: var(--fk-horizontal-space) var(--fk-vertical-space);
+  }
+
+  .available-time {
+    font-size: 16px;
+    text-align: center;
+    color: #3e3f49;
+    padding-top: 15px;
+    font-weight: 300;
+    span {
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+  }
+
+  .delivery-selection-module {
+    background-color: var(--fk-color-gray-lighter);
+    padding: calc(var(--fk-vertical-space) * 3) calc(var(--fk-horizontal-space) * 2);
+    font-family: var(--fk-font-sans-serif);
+    width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+    .header-addresses {
+      top: 0;
+      position: sticky;
+      z-index: 2;
+      height: 70px;
+      padding: 10px;
+      border-bottom: 1px solid rgba(79, 23, 90, .2);
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      button {
+        float: right;
+        margin: 5px;
+      }
+      span {
+        font-size: var(--fk-font-size-base);
+        margin-right: calc(var(--fk-horizontal-space) * 4);
+        letter-spacing: 0.9px;
+        color: var(--fk-color-gray-dark);
+        padding: 0px;
+        line-height: 50px;
+      }
+    }
+    .primary-header {
+      color: var(--fk-color-gray-darker);
+      font-size: calc(var(--fk-font-size-base) + 2);
+      font-weight: 500;
+      line-height: 1.22;
+      text-align: center;
+      margin-bottom: calc( var(--fk-horizontal-space) * 1.5);
+      svg {
+        height: 30px;
+        width: 50px;
+        margin-bottom:5px;
+      }
+      .text {
+        margin-left: var(--fk-vertical-space);
+      }
+    }
+    .unselected {
+      background-color: var(--fk-color-primary);
+      color: var(--fk-color-white);
+      fill: var(--fk-color-white);
+      &:hover {
+        background-color: var(--fk-color-primary-lighter);
+      }
+      &:focus {
+        background-color: var(--fk-color-primary-lighter);
+        box-shadow: inset 0 0 0 1px var(--fk-color-primary-darker), 0 0 2px #aaaaaa, 0 0 8px #aaaaaa;
+      }
+    }
+    .timeslot-selected,
+    .address-selected {
+      color: var(--fk-color-primary);
+      background-color: var(--fk-color-white);
+      fill: var(--fk-color-primary);
+    }
+    .timeslot-picker,
+    .address-picker {
+      position: relative;
+      width: 100%;
+      cursor: pointer;
+      font-size: var(--fk-font-size-medium);
+      height: 60px;
+      .picker-info {
+        float: left;
+        width: 60%;
+        height: 60px;
+        font-size: var(--fk-font-size-base);
+        padding: 0 5px 0 25px;
+        text-transform: capitalize;
+        line-height: 60px;
+        fk-icon {
+          margin-left: calc(var(--fk-horizontal-space) * 2.5);
+        }
+      }
+      .picker-label {
+        float: left;
+        text-align: center;
+        background-color: transparent;
+        width: 30%;
+        padding: 0px 20px 0 10px;
+        height: 60px;
+        font-size: var(--fk-font-size-base);
+        line-height: 60px;
+        border-right: 1px solid var(--fk-color-gray-light);
+      }
+      .label-color {
+        color:  var(--fk-color-gray-darker);
+        font-weight:  500;
+      }
+      .down-arrow {
+        width: 10%;
+        float: left;
+        padding: calc(var(--fk-vertical-space) * 2) calc(var(--fk-horizontal-space)/2);
+      }
+    }
+  }
+  .delivery-address {
+    .address-picker {
+      margin-bottom: var(--fk-vertical-space);
+    }
+    .manage-address-book {
+      margin-left: calc(var(--fk-vertical-space) * 2);
+      margin-right: calc(var(--fk-vertical-space) * 2);
+      button {
+        height: 41px;
+        width: 100%;
+      }
+    }
+    .pretty-list ul li {
+      margin-top: 0;
+      h3 {
+        float: left;
+      }
+      .selected-background h3 {
+        color: var(--fk-color-primary-darker);
+      }
+    }
+    fk-address-book ul li .button-edit {
+      display: none;
+    }
+    fk-address-book ul li .element {
+      padding: calc(var(--fk-vertical-space)*2) 0;
+      position: relative;
+    }
+    .selected-background {
+      background-color: var(--fk-color-primary-fade);
+      color: var(--fk-color-primary-darker);
+    }
+    fk-address-book ul {
+      overflow-y: scroll;
+      max-height: 45vh;
+      background: var(--fk-color-white);
+    }
+  }
+  .delivery-timeslot {
+    fd-delivery-days {
+      button {
+        top: 70px;
+      }
+    }
+    
+    fk-delivery-timeslots {
+      .delivery-time-slots-section {
+        overflow-y: scroll;
+        max-height: 45vh;
+        background: var(--fk-color-white);
+      }
+    }
+
+    fk-timeslots {
+      font-family: var(--fk-font-sans-serif);
+      font-size: var(--fk-font-size-medium);
+      font-weight: normal;
+      letter-spacing: 0.9px;
+      color: #1b1a21;
+      ul {
+        background: var(--fk-color-white);
+      }
+      ul .selected-time-slot {
+        background-color: var(--fk-color-primary-fade);
+        color: var(--fk-color-primary);
+      }
+      .timeslot-disable {
+        color: var(--fk-color-gray);
+        cursor: not-allowed;
+        border-bottom: 1px solid var(--fk-color-primary-darker-light-a);
+      }
+      .timeslot-selection-not-allowed {
+        cursor: not-allowed;
+      }
+      .timeslot-gray-out {
+        color: var(--fk-color-gray);
+        cursor: not-allowed;
+        text-decoration: line-through;
+        border-bottom: 1px solid var(--fk-color-primary-darker-light-a);
+        display: flex;
+        flex: 1;
+      }
+      .timeslot-disable p {
+        text-align: right;
+      }
+      .timeslot-selection-disabled {
+        margin-bottom: 0;
+        width: 50px;
+        cursor: not-allowed;
+      }
+      ul li .delivery-fee .original-delivery-fee.promo {
+        color: var(--fk-color-gray);
+        text-decoration: line-through;
+      }
+    }
+    .pretty-list ul li> .button-container {
+      border-bottom: none;
+    }
+  }
+}
+
+/* animation */
+
+fk-delivery-address-selection .delivery-address fk-address-book ul li .element,
+.element.selected-background:before,
+fk-delivery-address-selection .element:after,
+fk-delivery-address-selection .delivery-timeslot fd-timeslots ul .selected-time-slot:before,
+fk-delivery-address-selection .delivery-timeslot fk-timeslots ul .selected-time-slot:before,
+fk-delivery-timeslots .timeslot,
+fk-delivery-timeslots .timeslot:after,
+button.global-nav-chat,
+[fk-icon]>svg>use,
+.shop-list fk-secondary-header fk-logo,
+fk-secondary-header .search_wrapper {
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.delivery-address.selected,
+.delivery-timeslot.selected {
+  animation: ngdialog-flyin .5s!important;
+  box-shadow: 1px 1px 0 0 rgba(0, 0, 0, .2);
+  background: var(--fk-color-off-white-dark);
+  padding-bottom: var(--fk-vertical-space);
+}
+
+fk-delivery-address-selection .delivery-timeslot fd-timeslots .timeslot-gray-out,
+fk-delivery-address-selection .delivery-timeslot fd-timeslots .timeslot-disable {
+  border: none;
+}
+
+fk-delivery-address-selection fk-address-book ul li .element:hover,
+fk-delivery-address-selection fd-timeslots ul li .timeslot:hover,
+fk-delivery-address-selection fk-timeslots ul li .timeslot:hover {
+  background: var(--fk-color-primary-fade);
+}
+
+.element.selected-background:after,
+fk-delivery-address-selection .delivery-address fk-address-book ul li .element:hover:after,
+fk-delivery-address-selection .delivery-timeslot fd-timeslots ul .selected-time-slot:after,
+fk-delivery-address-selection .delivery-timeslot fk-timeslots ul .selected-time-slot:after,
+fk-delivery-timeslots .timeslot:hover:after {
+  width: 100%;
+}
+
+fk-delivery-address-selection .element:after,
+fk-delivery-timeslots .timeslot:after {
+  background: var(--fk-color-primary-darker-light-a);
+  height: 1px;
+  bottom: 0;
+  right: 0px;
+}
+
+fk-delivery-address-selection .element:after {
+  width: 310px;
+}
+
+fk-delivery-timeslots .timeslot:after {
+  width: 340px;
+}
+
+fk-delivery-address-selection .element.selected-background:before,
+fk-delivery-address-selection .delivery-timeslot fk-timeslots ul .selected-time-slot:before {
+  content: "";
+  position: absolute;
+  background: #732282;
+  width: 4px;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+fk-address-book ul li, fk-timeslots ul li {
+  position: relative;
+}
+
+fk-delivery-address-selection .delivery-timeslot fk-delivery-timeslots {
+  .today-timeslot,
+  .tomorrow-timeslot {
+    margin-right: 5px;
+  }
+}
+
+@media (--fk-medium-screen), (--fk-large-screen) {
+  .ngdialog.ngdialog-theme-fk .ngdialog-content .delivery-selection-picker {
+    overflow-x: hidden;
+  }
+  fk-delivery-address-selection {
+    .delivery-timeslot {
+      overflow: hidden;
+
+      fd-delivery-days {
+        button {
+          top: 0;
+        }
+      }
+    }
+
+    .scrollable-delivery-days {
+      height: 440px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+  }
+}
+
+@media (--fk-extra-small-screen), (--fk-small-screen) {
+  fk-delivery-address-selection {
+    .fk-delivery-address-selection-wrapper {
+      width: 100%;
+    }
+  }
+}
+
+@media (--fk-extra-small-screen) {
+  fk-delivery-address-selection {
+    font-size: var(--fk-font-size-medium);
+    ul li .timeslot-selected {
+      width: 30px;
+    }
+    .delivery-timeslot fk-timeslots {
+      font-size: var(--fk-font-size-small);
+      .timeslot-selection-disabled {
+        width: 30px;
+      }
+    }
+
+    fk-delivery-timeslots ul li {
+      font-size: var(--fk-font-size-small);
+    }
+
+    .delivery-selection-module {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      .primary-header {
+        font-size: var(--fk-font-size-base);
+        fk-address-book ul {
+          max-height: 250px;
+        }
+      }
+      .header-addresses {
+        padding: 10px;
+        span {
+          letter-spacing: .9px;
+          width: 40%;
+          line-height: 100%;
+          padding-top: 10px;
+          margin-right: 40px;
+        }
+      }
+      .address-picker,
+      .timeslot-picker {
+        .picker-label {
+          font-size: var(--fk-font-size-small);
+        }
+        .picker-info {
+          font-size: var(--fk-font-size-small);
+        }
+      }
+    }
+  }
+}

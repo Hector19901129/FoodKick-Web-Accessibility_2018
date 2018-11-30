@@ -1,0 +1,24 @@
+<nav class="past-orders-menu-holder">
+  <li ng-repeat="menuItem in $ctrl.menuItems" ng-if="(menuItem.entries.length > 0) || !$ctrl.ismobile">
+    <div class="menu-group" ng-click="$ctrl.openMenuGroup(menuItem.title)" fk-a11y-click tabindex="0">
+      <div class="dot-and-line">
+        <div class="dot" ng-class="{'has-element': (menuItem.entries.length > 0) }"></div>
+        <div class="dot-vertical" ng-if="menuItem.entries.length > 0" ng-show="menuItem.title === $ctrl.pastOrderGroup"></div>
+      </div>
+      <div class="menu-group-texts" ng-class="{'active-group': (menuItem.title === $ctrl.pastOrderGroup)}">
+        <span class="first-word vertical-space-around" ng-class="{'has-element': (menuItem.entries.length > 0)}"><span offscreen>In </span>{{menuItem.date | date:'MMMM'}}</span>{{menuItem.date | date:'yyyy'}}<span offscreen> you have</span><span class="right-floated" ng-class="{'bold': (menuItem.title === $ctrl.pastOrderGroup)}">{{menuItem.entries.length}}</span><span offscreen> past orders</span>
+      </div>
+    </div>
+    <ul ng-if="menuItem.entries">
+      <li class="menu-entry" ng-repeat="subtopic in menuItem.entries" ng-class="{'closed-subtopic-group': subtopic.group !== $ctrl.pastOrderGroup}">
+        <div class="vertical-line"></div>
+        <div class="sub-menu-item" ng-class="{'active': (subtopic.id === $ctrl.pastOrderId)}">
+          <a href="/pastorders/{{subtopic.id}}">
+            <span class="first-word vertical-space-around"><span offscreen>View your </span>{{subtopic.day}}</span>{{subtopic.time | date:'h:mm a'}}<span offscreen> order</span>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </li>
+</nav>
+<fk-icon class="spinner get-order" fk-icon-id="#spinner"></fk-icon>

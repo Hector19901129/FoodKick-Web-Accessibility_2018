@@ -1,0 +1,10 @@
+<div class="group-scale-details-page">
+  <div class="col-xs-15 col-sm-15 col-md-13 col-lg-13 gsd-wrapper">
+    <div class="gsd-info-wrapper">
+      <div class="deal-info">{{$ctrl.dealInfo}}</div>
+      <div class="save-info uppercase">{{$ctrl.gsdProductsFromGroup}} In cart / <span class="red">you saved {{$ctrl.gsdSavings | currency:"$":2}}</span></div>
+    </div>
+    <fk-product-tile-list class="row" products="$ctrl.gsdProducts" channel="'rec_groupscale'" location="'pdp_'+$ctrl.product.productData.productId" pdp-feed-type="$ctrl.pdpFeedType" gsdpage="$ctrl.gsdpage" item-class="'col-lg-5 col-md-5 col-sm-75 col-xs-75'"></fk-product-tile-list>
+  </div>
+</div>
+<fk-icon class="spinner product-spinner" fk-icon-id="#spinner"></fk-icon>

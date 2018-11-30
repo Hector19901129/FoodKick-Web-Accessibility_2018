@@ -1,0 +1,33 @@
+<td ng-if="lineItem.type !== 'PRODUCT'" colspan="3" ng-attr-cartline-id="{{lineItem.cartLineId}}" class="section">{{lineItem.name}}</td>
+
+<td class="image">
+  <div>
+    <a ng-click="openPDP('details', lineItem.productConfiguration.product, lineItem.productConfiguration.productId, $event)" ng-href="/product/{{lineItem.productConfiguration.productId}}"><img ng-src="{{lineItem.productConfiguration.productPotato.productData.productDetailImage}}" class="product-image"><span offscreen>{{lineItem.productConfiguration.productPotato.productData.productNameNoBrand || lineItem.productConfiguration.product.fullName}}</span></a>
+  </div>
+</td>
+
+<td ng-if="lineItem.type === 'PRODUCT'" ng-attr-cartline-id="{{lineItem.cartLineId}}" ng-attr-product-id="{{lineItem.productConfiguration.productPotato.productData.productId}}" class="name">
+  <h3 class="brandName">
+    {{lineItem.productConfiguration.productPotato.productData.brandName}}
+  </h3>
+  <a class="productname" ng-click="openPDP('details', lineItem.productConfiguration.product, lineItem.productConfiguration.productId, $event)" ng-href="/product/{{lineItem.productConfiguration.productId}}">
+    {{lineItem.productConfiguration.productPotato.productData.productNameNoBrand || lineItem.productConfiguration.product.fullName}}
+  </a>
+  <div class="salesunit" ng-if="lineItem.productConfiguration.productPotato.productData.price">{{lineItem.productConfiguration.productPotato.productData.price|currency:'$':2}}/{{lineItem.productConfiguration.productPotato.productData.suRatios[0].salesUnit || lineItem.productConfiguration.productPotato.productData.salesUnitDescrPDP || lineItem.productConfiguration.salesUnit.name}}</div>
+  <!-- <div class="configuration" ng-repeat="config in renderOptions() track by $index">{{config}}</div> -->
+  <div ng-if="lineItem.invalid || !lineItem.productConfiguration.productPotato.productData.price" class="invalid">Product not available!</div>
+  <div class="available-stock" ng-if="fkCartService.productsInCart[lineItem.productConfiguration.productPotato.productData.productId].quantity >= lineItem.productConfiguration.productPotato.productData.availableQty && lineItem.productConfiguration.productPotato.productData.availableQty > 0">Only {{lineItem.productConfiguration.productPotato.productData.availableQty}} left in stock</div>
+</td>
+
+<td ng-if="lineItem.type === 'PRODUCT'" ng-attr-cartline-id="{{lineItem.cartLineId}}" ng-attr-product-id="{{lineItem.productConfiguration.productPotato.productData.productId}}" class="quantity">
+  <fk-quantity-drop-down-selector ng-if="!lineItem.invalid && lineItem.productConfiguration.productPotato.productData.price" prefix="lineItem.cartLineId" product="lineItem.productConfiguration.productPotato" quantity="lineItem.productConfiguration.quantity" emit-event="true" price="lineItem.price" min="lineItem.productConfiguration.product.productData.quantity.qMin" max="lineItem.productConfiguration.product.productData.quantity.qMax" available="lineItem.productConfiguration.product.productData.availableQty"></fk-quantity-drop-down-selector>
+  <div ng-if="lineItem.invalid || !lineItem.productConfiguration.productPotato.productData.price" class="quantity-invalid">{{lineItem.productConfiguration.quantity}}</div>
+</td>
+
+<td ng-if="lineItem.type === 'PRODUCT'" ng-attr-cartline-id="{{lineItem.cartLineId}}" ng-attr-product-id="{{lineItem.productConfiguration.productPotato.productData.productId}}" class="cart-line-subtotal" ng-class="{estimated: lineItem.estimatedPrice, taxable: lineItem.hasTax, deposit: lineItem.hasDepositValue}">
+  <div class="subtotal-price" tabindex="0">{{lineItem.price|currency:'$':2}}</div>
+    <button class="delete" ng-click="delete()" tabindex="0" aria-label="Remove {{lineItem.productConfiguration.productPotato.productData.productNameNoBrand}} from bag">
+    <fk-icon fk-icon-id="#trash-default" class="cartline-delete default" cartline-id="{{lineItem.cartLineId}}"></fk-icon>
+    <fk-icon fk-icon-id="#trash-open" class="cartline-delete open" cartline-id="{{lineItem.cartLineId}}"></fk-icon>
+  </button>
+</td>

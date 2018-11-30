@@ -1,0 +1,49 @@
+@import 'variables.css';
+@import 'base.css';
+
+/* common rules */
+@import 'animations.css';
+@import 'buttons.css';
+@import 'boldChat.css';
+@import 'cart.css';
+@import 'footer.css';
+@import 'fkGrid.css';
+@import 'grid.css';
+@import 'editorialmedia.css';
+@import 'mobile-menu-list.css';
+@import 'ngdialog-theme-fk.css';
+@import 'notifications.css';
+@import 'pretty-list.css';
+@import 'spinners.css';
+@import 'svgicon.css';
+@import 'tooltip.css';
+
+/*
+ * components
+ * TODO remove
+ */
+@import 'fkAddBankFormConfirm.css';
+@import 'fkAddressSelector.css';
+@import 'fkBankPaymentMethodSelect.css';
+@import 'fkConfirmPopup.css';
+@import 'fkInfoIcon.css';
+@import 'fkOrderCancel.css';
+@import 'fkRefine.css';
+@import 'fkSignInPopup.css';
+@import 'fkTimeslotPopup.css';
+@import 'fkPaymentMethodFailed.css';
+@import 'fkDefaultPaymentPopup.css';
+@import 'fkGeneralNotificationsPopup.css';
+@import 'fkContactUs.css';
+@import 'fkDeliveryRestrictionAlert.css';
+@import 'fkEmptyBag.css';
+@import 'fkAtpRecommendationPopup.css';
+@import 'fkReferalSignin.css';
+@import 'fkReferalPopup.css';
+@import 'fkAddressChange.css';
+@import 'fkCheckoutOptions.css';
+@import 'fkDeliveryPassCart.css';
+@import 'fkDpCheckout.css';
+/* page related */
+@import 'fkHome.css';
+@import 'fkFeed.css';

@@ -1,0 +1,24 @@
+<div class="row" ng-class="{'open':$ctrl.opened}" ng-if="$ctrl.products.length > 0"><!-- ng-if condition for FOOD-257 -->
+  <div class="col-xs-15 header-image" lazy-img="{{$ctrl.image}}" ng-if="$ctrl.image"></div>
+  <h3 class="category-name col-xs-15">
+    <a class="category-name col-xs-15" fk-href="{{$ctrl.category.id}}"  fk-touch="$ctrl.toggle($event)" ng-click="$ctrl.goToTop()">
+      <span>{{$ctrl.category.name}}</span>
+      <span class="button-primary-ghost seeall">See All </span>
+      <fk-icon fk-icon-id="#right"></fk-icon>
+    </a>
+  </h3>
+</div>
+<div class="row main mobile-menu-list" ng-if="$ctrl.opened || !$ctrl.isXSScreen() && $ctrl.products.length > 0" lazy-img="{{$ctrl.image}}">
+  <ul class="col-lg-3 col-md-3 col-sm-5 col-xs-15 subcategories">
+    <li ng-repeat="subCategory in $ctrl.category.children">
+      <a fk-href="{{subCategory}}" ng-attr-title="{{$ctrl.globalNavService.getItem(subCategory).name}}">{{$ctrl.globalNavService.getItem(subCategory).name}}</a>
+    </li>
+    <li>
+      <a fk-href="{{$ctrl.category.id}}" ng-click="$ctrl.navigate($ctrl.category.name)" ng-attr-title="All {{$ctrl.category.name}}">All {{$ctrl.category.name}}</a>
+    </li>
+  </ul>
+  <fk-product-carousel nr-of-products="$ctrl.products.length" item-id="$ctrl.category.id" class="col-lg-12 col-md-12 col-sm-10 col-xs-15">
+    <p ng-if="$ctrl.sortLabel && $ctrl.products.length" class="sortLabel">{{$ctrl.sortLabel}}</p>
+    <fk-product-tile-list class="carousel-items" use-lazy-img="$ctrl.useLazyImg" products="$ctrl.products" channel="'browse'" location="'cat_' + $ctrl.category.id" item-class="'product-carousel-item'"></fk-product-tile-list>
+  </fk-product-carousel>
+</div>

@@ -1,0 +1,49 @@
+@import url(variables.css);
+
+fk-icon> svg, fk-icon> svg> use, *[fk-icon]> svg, *[fk-icon]> svg> use {
+  width: inherit;
+  height: inherit;
+  box-sizing: inherit;
+  color: inherit;
+  vertical-align: middle;
+}
+
+fk-icon > svg {
+  width: 1em;
+  height: 1em;
+}
+
+#star .st0,  #star-empty .st0, #product-card-count-copy-2 {
+  fill: var(--fk-color-primary);
+}
+
+#TOP--SIGNED-IN {
+  fill: var(--fk-color-fd-logo);
+}
+
+#atc-plus-extra {
+  .cls-1 {
+    fill: white;
+  }
+  .cls-2 {
+    fill: var(--fk-color-secondary);
+  }
+}
+
+#ds-submitted {
+  circle {
+    fill: var(--fk-color-primary-lighter);
+  }
+  path {
+    fill: white;
+  }
+}
+
+#ds-checked {
+  #Fill-1 {
+    fill: var(--fk-color-secondary-lighter);
+  }
+  #Fill-6 {
+    fill: #FEFEFE;
+  }
+}

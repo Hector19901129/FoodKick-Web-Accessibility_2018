@@ -1,0 +1,27 @@
+<div class="product--tile {{$ctrl.orientation}}" fk-product-id="{{$ctrl.product.productData.productId}}" ng-class="{available: $ctrl.product.productData.available, unavailable: !$ctrl.product.productData.available}" ng-attr-atc-status="{{atcData.status}}">
+  <div class="product--wrapper">
+    <div class="product--image-holder">
+      <div class="product--image" ng-style="!$ctrl.useLazyImg && {'background-image':'url(' +  $ctrl.product.productData.productZoomImage + ')'}" ng-attr-lazy-img="{{$ctrl.useLazyImg? $ctrl.product.productData.productZoomImage : undefined}}"></div>
+      <span offscreen>{{$ctrl.product.productData.productNameNoBrand}}</span>
+    </div>
+    <div class="product--details">
+      <div class="product--brand" ng-bind-html="$ctrl.product.productData.brandName">{{$ctrl.product.productData.brandName}}</div>
+      <div class="product--name" ng-bind-html="$ctrl.product.productData.productNameNoBrand">{{$ctrl.product.productData.productNameNoBrand}}</div>
+      <div class="product-total-price" ng-if="fkCartService.productsInCart[$ctrl.product.productData.productId].subtotal">Estimated price: <span>{{fkCartService.productsInCart[$ctrl.product.productData.productId].subtotal|currency:'$':2}}</span>
+      </div>
+      <div ng-if="!$ctrl.product.productData.wasPrice" class="product--price">
+        <span ng-if="$ctrl.product.productData.configuredPrice && $ctrl.product.productData.quantity.qMin<=1">{{$ctrl.product.productData.configuredPrice || $ctrl.product.productData.price|currency:'$':2}}</span>
+        <span ng-if="$ctrl.product.productData.price && $ctrl.product.productData.quantity.qMin>=2  && $ctrl.product.productData.scaleUnit ==='ea'">{{$ctrl.product.productData.price || $ctrl.product.productData.configuredPrice|currency:'$':2}}</span>
+        <span ng-if="$ctrl.product.productData.price && $ctrl.product.productData.quantity.qMin>=2 && $ctrl.product.productData.scaleUnit ==='lb'">{{($ctrl.product.productData.configuredPrice /  $ctrl.product.productData.quantity.qMin) |currency:'$':2}}</span>
+      </div>
+      <div ng-if="$ctrl.product.productData.wasPrice" class="product--price">
+        <span class="promo-price" ng-if="$ctrl.product.productData.price && $ctrl.product.productData.scaleUnit === 'ea'">{{$ctrl.product.productData.price|currency:'$':2}}</span>
+        <span class="promo-price-configured" ng-if="$ctrl.product.productData.configuredPrice && !$ctrl.product.productData.utPrice && $ctrl.product.productData.scaleUnit === 'lb'">{{$ctrl.product.productData.configuredPrice|currency:'$':2}}</span>
+        <span class="was-price" ng-if="$ctrl.product.productData.quantity.qMin<=1 && $ctrl.product.productData.scaleUnit ==='ea'">{{$ctrl.product.productData.wasPrice|currency:'$':2}}</span>
+      </div>
+      <div class="product--incart-alcoholic">
+        <fk-incart-badge product="$ctrl.product"></fk-incart-badge>
+      </div>
+    </div>
+  </div>
+</div>

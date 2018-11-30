@@ -1,0 +1,39 @@
+<div class="confirmation_content">
+  <div class="description">
+    <ul>
+      <li>You have purchased a DeliveryPass Plan!</li>
+      <li>Your selected payment method has been charged.</li>
+      <li>Visit your DeliveryPass Settings for more details.</li>
+    </ul>
+  </div>
+  <div class="details">
+    <div class="subtotal cost" tabindex="0">
+      <div class="label">DeliveryPass®: All Week, Monthly</div>
+      <div class="amount">{{dpConfirmDetails.dlvPassCharge | currency:"$":2}}</div>
+    </div>
+    <div class="tax cost" ng-repeat="charge in dpConfirmDetails.summaryLineCharges" tabindex="0" ng-if="charge.label !== 'Delivery Charge'">
+      <div class="label">{{charge.label.replace('Delivery Charge','Delivery Fee')}}:</div>
+      <div class="amount">{{charge.amount | currency:"$":2}}</div>
+    </div>
+    <div class="charges cost" ng-repeat="disount in dpConfirmDetails.discounts" ng-if="disount.amount > 0" tabindex="0">
+      <div class="label">Promo Code: {{disount.redemptionCode | uppercase}}</div>
+      <div class="amount">-{{disount.amount | currency:"$":2}}</div>
+    </div>
+    <div class="total cost" tabindex="0">
+      <div class="label">TOTAL:</div>
+      <div class="amount">{{dpConfirmDetails.estimatedTotal | currency:"$":2}}</div>
+    </div>
+    <div class="info">
+      <button class="button-primary close-btn" ng-click="$ctrl.startShopping()">START SHOPPING</button>
+      <br>
+      <a href="" ng-click="$ctrl.deliverySettings()">DeliveryPass Settings</a>
+    </div>
+  </div>
+</div>
+<div class="confirmation_header">
+  <div class="confirm-icon">
+    <fk-icon fk-icon-id="#check"></fk-icon>
+  </div>
+  <h2>Success!</h2>
+</div>
+<fk-ngdialog-close ng-click="closeThisDialog()"></fk-ngdialog-close>

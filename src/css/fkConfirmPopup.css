@@ -1,0 +1,9 @@
+@import url(variables.css);
+
+.ngdialog.ngdialog-theme-fk.confirm-popup.narrow .ngdialog-content fk-confirmation {
+  background-color: var(--fk-color-white);
+  font-family: var(--fk-font-sans-serif);
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}

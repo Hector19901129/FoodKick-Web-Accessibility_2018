@@ -1,0 +1,275 @@
+@import url(variables.css);
+
+fk-receipt {
+  margin:calc(var(--fk-horizontal-space) * 4) auto 0;
+  max-width: 800px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: 14px;
+  color: var(--fk-color-gray-dark);
+  height: auto;
+
+
+  & .receipt{
+    background-color: #f5f5f5;
+
+    & .title{
+      font-size: 20px;
+      letter-spacing: 0.1px;
+      color: #4d4d4d;
+      margin-bottom: calc(var(--fk-horizontal-space) * 1);
+    }
+  }
+
+  & .note-wrapper{
+    background-color: #f5f5f5;
+    padding: 0 calc(var(--fk-horizontal-space) * 2) calc(var(--fk-horizontal-space) * 2);
+    font-size: 10px;
+    line-height: 1.2;
+    letter-spacing: 0.1px;
+    overflow: auto;
+  }
+
+  & .receipt-cancel-button{
+    margin:  calc(var(--fk-horizontal-space) * 3) 0;
+    height: 50px;
+    width:100%;
+  }
+
+  .rp-bag-details{
+    background-color: white;
+    overflow: auto;
+    padding: 0 calc(var(--fk-vertical-space) * 2);
+
+
+    & .affilate-name{
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.1px;
+      margin: calc(var(--fk-horizontal-space) * 2) 0 calc(var(--fk-horizontal-space) * 2) var(--fk-vertical-space);
+      color: #666666;
+    }
+
+    & .brand {
+      font-size: 14px;
+      letter-spacing: 0.3px;
+      color: #666666;
+    }
+
+    & .image {
+      height: 75px;
+      width: 75px;
+      background-image: var(--fk-background-image-lighter);
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: inline-block;
+
+    }
+    &:nth-child(even) .image {
+      background-image: var(--fk-background-image-darker);
+    }
+  }
+
+  & .rp-delivery-details{
+    overflow: auto;
+    padding: calc(var(--fk-horizontal-space) * 2) calc(var(--fk-vertical-space) * 2);
+
+
+    & .delivery-data-box{
+      margin-top: var(--fk-horizontal-space);
+    }
+
+    & .personal-info span{
+      line-height: 1.5;
+    }
+  }
+
+  & .estimated .amount:after,
+  & .estimated.amount:after {
+    content: '*';
+    position: absolute;
+    font-size: 1em;
+    top: 0;
+  }
+
+  & .taxable .amount:after {
+    content: '†';
+    position: absolute;
+    font-size: .9em;
+    top: 0;
+  }
+
+  & .uppercase {
+    text-transform: uppercase;
+  }
+
+  & .deliveryLabel.dpCart {
+    display: none;
+  }
+
+  & .rp-cart-details{
+    overflow: auto;
+    background-color: #f5f5f5;
+    padding: calc(var(--fk-horizontal-space) * 2) calc(var(--fk-vertical-space) * 2);
+
+    & .cart-lines{
+      font-size: 14px;
+      letter-spacing: 0.1px;
+      color: #4d4d4d;
+    }
+
+    & .border-line{
+      border-top: 1px solid #cccccc;
+      margin: calc(var(--fk-horizontal-space) * 1) 0;
+    }
+  }
+
+  & .right{
+    text-align: right;
+  }
+
+  .bold {
+    font-weight: 600;
+  }
+
+  .print-button-cointainer{
+    margin-top: 20px;
+    text-align: right;
+  }
+
+
+  & .button-primary-ghost{
+    padding: calc(var(--fk-horizontal-space) * 1.5) calc(var(--fk-horizontal-space) * 5);
+    max-width: 200px;
+  }
+
+  & .inline{
+    display: inline;
+  }
+
+  & .block{
+    display: block;
+  }
+
+  & .rp-delivery-details{
+    display: block;
+    overflow: auto
+  }
+}
+
+
+@media (--fk-extra-small-screen) {
+  fk-receipt {
+    .receipt{
+      .title{
+        margin-bottom: calc(var(--fk-horizontal-space) * 0.5);
+      }
+    }
+
+    .button-primary-ghost{
+      max-width: 100px;
+      padding: 0;
+    }
+
+    .rp-delivery-details{
+      padding: var(--fk-horizontal-space) 0;
+    }
+    .rp-cart-details{
+      padding: var(--fk-horizontal-space) 0;
+    }
+    .rp-bag-details{
+      padding: var(--fk-horizontal-space) 0;
+
+      .affilate-name{
+        margin: var(--fk-horizontal-space) 0 var(--fk-horizontal-space) var(--fk-vertical-space);
+      }
+
+      .image {
+        height: 50px;
+        width: 50px;
+      }
+
+      .brand{
+        letter-spacing: 0.1px;
+      }
+
+      .product{
+        font-size: 12px;
+      }
+    }
+    .note-wrapper{
+      padding: var(--fk-horizontal-space) 0;
+    }
+  }
+}
+
+.receipt-print-page{
+  max-width: 800px;
+  width: 80%;
+  margin: 0 auto;
+
+  & .hide-print{
+    display: none;
+  }
+
+  & .receipt{
+    margin: 0;
+  }
+
+  & .fklogo-print svg{
+    width: 200px;
+    height: 50px;
+    fill: gray;
+  }
+}
+
+.fklogo-print{
+  display: none;
+}
+
+.receipt-print-page  .fklogo-print{
+  display: block;
+}
+
+
+@media print {
+
+  .print-hide{
+    display: none;
+  }
+
+    .affilate-name{
+    margin: 0 0 0 var(--fk-vertical-space);
+  }
+
+  .print-layout {
+    width: 40%;
+    overflow: hidden !important;
+  }
+
+  .print-layout-right {
+    float: left;
+    margin-left: calc(var(--fk-vertical-space) * 8);
+  }
+
+  div {
+    overflow: visible !important;
+  }
+
+  .print-grid {
+    position: relative;
+    display: inline-flex;
+    width: 80%;
+  }
+
+  .fklogo-print {
+    margin-left: 20%;
+  }
+
+  footer,
+  fk-header,
+  fk-secondary-header,
+  .receipt-cancel-button {
+    display: none;
+  }
+}

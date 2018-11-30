@@ -1,0 +1,38 @@
+@import url(variables.css);
+
+fk-zip-code-change {
+  display: none;
+  height: 150px;
+  fill: white;
+  text-align: center;
+  width: 200px;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  opacity: 0.95;
+  background-color: var(--fk-color-primary-darker);
+  color: var(--fk-color-white);
+  padding-bottom: calc(var(--fk-vertical-space) * 5);
+  .zip-change {
+    margin-top: calc(var(--fk-vertical-space)/2);
+    clear: both;
+  }
+  fk-icon {
+    cursor: pointer;
+    float: right;
+  }
+}
+
+@media (--fk-extra-small-screen){
+  fk-zip-code-change {
+    height: 80px;
+    width: 100%;
+    .zip-header {
+      float: left;
+      margin-left: calc(var(--fk-horizontal-space) * 3.5);
+    }
+    .zip-change {
+      margin: var(--fk-vertical-space) calc(var(--fk-horizontal-space) * 2);
+    }
+  }
+}

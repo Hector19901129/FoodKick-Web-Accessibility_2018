@@ -1,0 +1,19 @@
+<div class="page-menu-holder">
+  <nav>
+    <ul>
+      <li ng-repeat="topic in $ctrl.topics" ng-class="showsubitem === $index || $state.params.partial === topic.path ? 'subitem-open' : ''">
+        <span class="item" ui-sref-active="active">
+          <a ui-sref="{{$ctrl.state}}({partial:topic.path,subpartial:''})">{{topic.title}}</a><fk-icon fk-icon-id="#down" ng-if="topic.entries"></fk-icon>
+          <span ng-click="togglesubitem($index, topic.path, topic.entries[0].path || '')" class="togglesubitem"></span>
+        </span>
+        <ul ng-if="topic.entries" ui-sref-active="active" ng-show="showsubitem === $index || $state.params.partial === topic.path">
+          <li ng-repeat="subtopic in topic.entries" class="subitem">
+            <span ui-sref-active="active">
+              <a ui-sref="{{$ctrl.state}}({partial:topic.path,subpartial:subtopic.path})">{{subtopic.title}}</a>
+            </span>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</div>

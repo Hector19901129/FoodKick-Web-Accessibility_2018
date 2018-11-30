@@ -1,0 +1,23 @@
+<div class="page-past-items">
+  <div class="header">
+    <div class="current-page">Past Items</div>
+    <a href="/pastorders/">Past Orders</a>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="past-items-nav col-lg-3 col-md-3 col-sm-15 col-xs-15">
+        <fk-left-nav menu-boxes="fkPastItemsService.category.menuBoxes.menuBoxes" filter-string="filterString"></fk-left-nav>
+      </div>
+      <div class="products-wrapper col-lg-12 col-md-12 col-sm-15 col-xs-15">
+        <fk-refine-button category="fkPastItemsService.category" filter-string="filterString" hide-categories="true" ng-if="fkPastItemsService.items.length > 0" show-result="showResult"></fk-refine-button>
+        <fk-sort-options sort-options="fkPastItemsService.category.sortOptions" ng-if="fkPastItemsService.items.length > 0"></fk-sort-options>
+        <fk-product-tile-list class="row" ng-if="fkPastItemsService.items" products="fkPastItemsService.items" channel="'reorder'" location="'past_items'" item-class="'col-lg-375 col-md-375 col-sm-75 col-xs-75'"></fk-product-tile-list>
+        <div class="no-past-items" ng-if="fkPastItemsService.items.length < 1">
+          <div tabindex="0">This list will display your frequently purchased items.</div>
+          <a href="/"><button class="button-primary uppercase">Start shopping</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<fk-icon class="spinner get-past-items-spinner" fk-icon-id="#spinner"></fk-icon>

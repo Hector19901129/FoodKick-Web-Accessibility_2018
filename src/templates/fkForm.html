@@ -1,0 +1,12 @@
+<form id="{{formId}}" name="form" novalidate ng-submit="submit()">
+  <ng-transclude></ng-transclude>
+  <div class="errors" ng-if="!$ctrl.ismobile">
+  </div>
+  <div class="fields">
+  </div>
+  <div class="buttons">
+  </div>
+  <div class="errors" ng-if="$ctrl.ismobile">
+  </div>
+  <fk-icon class="spinner form-submit-spinner" fk-icon-id="#spinner"></fk-icon>
+</form>

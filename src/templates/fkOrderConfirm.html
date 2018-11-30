@@ -1,0 +1,27 @@
+<div class="oc--footer" ng-if="orderService.order.estimatedPrice">
+  <p>An estimated order total is provided above. When your order is ready we'll weigh and assemble your goods and email you the final total.</p>
+</div>
+<div class="oc--content">
+<fk-order-map-url map="orderService.order.mapUrl"></fk-order-map-url>
+  <div class="oc--order-details">
+<fk-order-detail-fields details="orderService.order"></fk-order-detail-fields>
+    <div class="oc--buttons">
+      <fk-receipt-button class="receipt-primary" order="orderService.order.orderId" onclicked="$ctrl.closeDialog()"></fk-receipt-button>
+      <div ng-if="isThisOrderModifiable()">
+        <button class="button-primary-ghost modify-order-btn" ng-click="modifyOrder()">MODIFY ORDER</button>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-text">Have questions about your order? <a fk-track-click="CHAT INITIATED|CHAT" ng-click="triggerChat()" class="chatLink link-secondary" href=""> Contact us</a></div>
+  <div class="oc--order-total" ng-class="{estimated: orderService.order.estimatedPrice}">
+    {{orderService.order.estimatedPrice ? 'Est. ' : ''}}Order Total: <span class="amount">{{orderService.order.total | currency:"$":2 }}</span>
+  </div>
+</div>
+<div class="oc--header">
+  <div class="oc--opnote" ng-if="!orderFromModifyOrder">Order Placed</div>
+  <div class="oc--opnote modify-order-text" ng-if="orderFromModifyOrder">ORDER UPDATED</div>
+  <h2>Picking. Packing. It’s all happening!</h2>
+</div>
+<div class="dp_notify" ng-if="orderService.order.dpInRegularCart">Welcome to DeliveryPass!</div>
+<fk-ngdialog-close ng-click="closeThisDialog()"></fk-ngdialog-close>
+<fk-icon class="spinner initiate-order-modify-spinner" fk-icon-id="#spinner"></fk-icon>

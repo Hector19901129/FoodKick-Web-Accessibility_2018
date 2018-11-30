@@ -1,0 +1,130 @@
+@import url(variables.css);
+
+.fk-delivery-pass-confirm {
+  display: block;
+
+  .confirmation_header {
+    color: var(--fk-color-white);
+    background-color: var(--fk-color-primary);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    min-height: 160px;
+
+    .confirm-icon {
+      margin-bottom: 15px;
+      fk-icon>svg {
+        fill: #fff;
+        height: 50px;
+        width: 50px;
+      }
+    }
+
+    h2 {
+      margin: 0 auto;
+      padding: 0;
+      font-family: Graphik;
+      font-weight: 600;
+      font-size: 46px;
+    }
+  }
+
+  .confirmation_content {
+    background-color: var(--fk-color-gray-lighter);
+    color: var(--fk-color-gray-dark);
+    font-size: var(--fk-font-size-base);
+    width: 100%;
+    overflow-y: auto;
+
+    .details {
+      padding: calc(var(--fk-vertical-space) * 2);
+      text-align: center;
+      font-size: 14px;
+
+      .cost {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .total {
+        font-weight: 600;
+      }
+
+      .total_promo_discount {
+        color: #852796;
+        font-weight: 500;
+      }
+    }
+
+    .description {
+      padding: calc(var(--fk-vertical-space) * 2);
+      overflow: hidden;
+      text-align: center;
+      line-height: 2;
+      border-bottom: 1px solid #d4d4d4;
+    }
+
+    .info {
+      padding: calc(var(--fk-vertical-space) * 3) var(--fk-horizontal-space);
+      text-align: center;
+
+      .delivery-settings-btn {
+        width: 70%;
+        box-shadow: none;
+      }
+
+      .close-btn {
+        width: 70%;
+      }
+    }
+  }
+
+  .dp_failure {
+    font-family: var(--fk-font-sans-serif);
+    line-height: 1.25;
+    text-align: center;
+    color: #2d323e;
+    font-size: 22px;
+    padding: 20px;
+    background-color: var(--fk-color-gray-lighter);
+    .button-container {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-around;
+      button {
+        height: 60px;
+        width: 80%;
+      }
+    }
+  }
+
+  .dp_promotion {
+    font-family: var(--fk-font-sans-serif);
+    line-height: 1.25;
+    text-align: center;
+    color: #2d323e;
+    font-size: 20px;
+    padding: 20px;
+    background-color: var(--fk-color-gray-lighter);
+    span {
+      font-weight: 500;
+    }
+    .button-container {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-around;
+      button {
+        height: 60px;
+        width: 80%;
+      }
+    }
+  }
+}
+
+@media (--fk-extra-small-screen) {
+  .fk-delivery-pass-confirm {
+    .confirmation_content {
+      font-size: 14px;
+    }
+  }
+}

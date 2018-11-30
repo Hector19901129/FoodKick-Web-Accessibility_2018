@@ -1,0 +1,12 @@
+<a href="/cart" ng-click="openCart($event)" title="View cart" ng-attr-items="{{fkCartService.nrItemsInCart ? fkCartService.nrItemsInCart : '0'}}" fk-icon fk-icon-id="#bag" ng-focus="$ctrl.focus()">
+  <sup>{{fkCartService.nrItemsInCart > 99 ? '99+' : fkCartService.nrItemsInCart}}</sup></fk-icon><span>BAG</span>
+</a>
+<div class="atp-alert" ng-if="$ctrl.showAtpAlert">
+  <div>
+    <fk-icon fk-icon-id="#warning_icon"></fk-icon><span>Sorry, it looks like some item(s) in your bag are no longer available.</span>
+  </div>
+  <div>
+    <button class="button button-primary-ghost" ng-click="ignore()">IGNORE</button>
+    <button class="button button-primary-ghost" ng-click="$ctrl.showPopup()">REPLACE ITEMS</button>
+  </div>
+</div>

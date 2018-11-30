@@ -1,0 +1,30 @@
+@import url(variables.css);
+
+fk-address-book ul .disable-address> div {
+  cursor: not-allowed;
+}
+
+fk-address-book ul .disable-address h3 {
+  color: var(--fk-color-gray);
+}
+
+fk-address-book ul .disable-address>div fk-icon>svg {
+  fill: var(--fk-color-gray);
+}
+
+fk-address-book ul .selected-elem>div>fk-icon>svg {
+  fill: var(--fk-color-primary-darker);
+}
+
+fk-address-book .content div {
+  margin: 0;
+  color: var(--fk-color-gray-darkest);
+  font-family: var(--fk-font-sans-serif);
+  font-size: var(--fk-font-size-medium);
+  font-weight: 400;
+  line-height: 2;
+}
+
+fk-address-book .content .user-details {
+  text-transform: uppercase;
+}

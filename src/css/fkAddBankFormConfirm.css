@@ -1,0 +1,10 @@
+@import url(variables.css);
+
+.fk-add-bank-form-confirm{
+	background-color: var(--fk-color-white);
+	color: var(--fk-color-gray-dark);
+	width: 460px;
+	padding-bottom: var(--fk-secondary-header-height);
+	text-align: center;
+	vertical-align: top;
+}

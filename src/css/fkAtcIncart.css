@@ -1,0 +1,28 @@
+@import url(variables.css);
+
+fk-atc-incart {
+
+  padding-top: 10px;
+  display: block;
+  overflow: hidden;
+  height: 36px;
+
+  &.product--atc-quick {
+    box-sizing: content-box;
+  }
+
+  & button.incart--add {
+    border: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+
+  }
+
+  fk-product-tile.removing & .incart--quantity span,
+  fk-product-tile.adding & .incart--quantity span {
+    margin-top: 36px;
+    transition: all .3s ease;
+    transition-delay: 0.22s;
+  }
+}

@@ -1,0 +1,41 @@
+@import url(variables.css);
+
+.fk-deliverypass-checkout {
+  display: block;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  & .close-continer {
+    margin-top: 30px;
+    max-width: 940px;
+  }
+
+  & .dp-checkout {
+    background-color: var( --fk-color-white);
+    color: var(--fk-color-gray-darker);
+    font-size: var(--fk-font-size-base);
+    width: 100%;
+    max-width: 860px;
+    overflow-y: auto;
+    padding: calc( var(--fk-vertical-space) * 3) 0;
+    margin-top: calc( var(--fk-vertical-space) * 8);
+  }
+}
+
+@media (--fk-extra-small-screen) {
+
+  .fk-deliverypass-checkout {
+
+    & .close-continer {
+      margin: 0;
+      margin-top: calc( var(--fk-vertical-space) * 3);
+    }
+  }
+}
+
+@media (--fk-medium-screen), (--fk-large-screen) {
+  .ngdialog.ngdialog-theme-fk.fk-deliverypass-checkout .ngdialog-content {
+    width: 950px;
+  }
+}

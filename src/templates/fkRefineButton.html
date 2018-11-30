@@ -1,0 +1,9 @@
+<button class="refine--button button-primary-ghost" type="button" ng-click="refine()">
+  REFINE
+  <div class="result" ng-if="$ctrl.showResult && ($ctrl.category.products.length > 1 || $ctrl.category.productsResult > 1)">
+    {{$ctrl.category.products.length || $ctrl.category.productsResult}} Results
+  </div>
+  <div class="result" ng-if="$ctrl.showResult && ($ctrl.category.products.length === 1 || $ctrl.category.productsResult === 1)">
+    {{$ctrl.category.products.length || $ctrl.category.productsResult}} Result
+  </div>
+</button>

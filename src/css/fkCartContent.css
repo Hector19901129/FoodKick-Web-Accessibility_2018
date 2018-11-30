@@ -1,0 +1,306 @@
+@import url(variables.css);
+
+fk-cart-content {
+  width: 100%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--fk-font-size-medium);
+  font-family: var(--fk-font-sans-serif);
+  color: var(--fk-color-gray-darker);
+
+  table {
+    border-spacing: 0px;
+  }
+
+  & .cartcontent--header {
+    background: var(--fk-color-primary-darker);
+    color: var(--fk-color-primary-fade);
+    font-weight: normal;
+    line-height: 1em;
+    padding: var(--fk-vertical-space);
+  }
+
+  & .cartcontent--header .main {
+    text-align: left;
+    font-weight: bold;
+  }
+
+  & .cartcontent--header .subtotal {
+    float: right;
+  }
+
+  & .cartcontent--content {
+    display: flex;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-direction: column;
+  }
+
+  .cartcontent--error {
+    background-color: var(--fk-color-red);
+    color: var(--fk-color-white);
+    font-family: var(--fk-font-sans-serif);
+    font-size: var(--fk-font-size-base);
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    text-align: center;
+    padding: var(--fk-vertical-space) var(--fk-horizontal-space);
+  }
+
+  & .cartcontent--content .shopnow {
+    margin: auto;
+    padding: 15px;
+    text-align: center;
+    button {
+      width: calc(var(--fk-vertical-space) * 15);
+    }
+  }
+
+  & .cartcontent--content .text-empty-bag {
+    font-size: var(--fk-font-size-medium);
+    color: var(--fk-color-gray-darker);
+  }
+
+  & table {
+    width:100%;
+  }
+
+  & tbody {
+    background: var(--fk-color-white);
+    border-spacing: 0;
+  }
+
+  & tbody td {
+    text-align: left;
+  }
+
+  & tbody tr td {
+    padding-top: var(--fk-vertical-space);
+    padding-bottom: var(--fk-vertical-space);
+    padding-left: var(--fk-horizontal-space);
+    padding-right: var(--fk-horizontal-space);
+    border-top: 1px solid var(--fk-color-gray-light);
+    font-weight: normal;
+    background: var(--fk-color-gray-lighter);
+    vertical-align: baseline;
+  }
+
+  & tbody tr[fk-type="DEPT"] {
+    display: none;
+  }
+
+  & tbody tr[invalid] {
+    td {
+      background: var(--fk-color-gray-light);
+    }
+  }
+
+  & tbody tr {
+    .invalid {
+      font-weight: bold;
+      color: var(--fk-color-red);
+    }
+
+    .quantity-invalid {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .available-stock {
+      font-weight: 500;
+      color: var(--fk-color-red);
+    }
+  }
+
+  & tbody tr.subtotal td.price {
+    font-weight: normal;
+  }
+
+  & tbody tr td.affiliate {
+    font-weight: bold;
+    background: var(--fk-color-white);
+    &.wine {
+      div {
+        display: inline-block;
+      }
+      .wine-logo {
+        width: 100px;
+        svg {
+          height: 23px;
+          width: 97px;
+        }
+      }
+      .wine-affiliate {
+        margin-left: 8px;
+      }
+    }
+  }
+
+  & tbody tr.dpcartline {
+    display: none;
+  }
+
+  & tbody tr.order-total td,
+  & tbody tr.order-total td.price {
+    font-weight: bold;
+  }
+
+  & td.price {
+    font-weight: bold;
+    text-align: right;
+    font-weight: 500;
+    color: var(--fk-color-gray-darker);
+  }
+
+  & .empty-cart-holder {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    button {
+      background-color: var(--fk-color-white);
+      cursor: pointer;
+      font-size: var(--fk-font-size-medium);
+      font-weight: 500;
+      text-align: center;
+      color: var(--fk-color-red);
+      text-align: center;
+      text-transform: uppercase;
+      fk-icon svg {
+        width: 17px;
+        height: 20px;
+        margin-bottom: calc(var(--fk-vertical-space) - 2);
+      }
+    }
+  }
+
+  & .empty-cart {
+    display: flex;
+    justify-content: center;
+    button {
+      background-color: var(--fk-color-white);
+      cursor: pointer;
+      font-size: var(--fk-font-size-medium);
+      font-weight: 500;
+      text-align: center;
+      color: var(--fk-color-red);
+      text-align: center;
+      text-transform: uppercase;
+      fk-icon svg {
+        width: 17px;
+        height: 20px;
+        margin-bottom: calc(var(--fk-vertical-space) - 2);
+      }
+    }
+  }
+
+  & .checkout-button--holder {
+    padding: var(--fk-horizontal-space);
+    background: var(--fk-color-primary-fade);
+  }
+
+  & .checkout-button {
+    margin: 0;
+    height: 60px;
+    display: block;
+    width: 100%;
+    font-size: var(--fk-font-size-large);
+  }
+
+   & .cartcontent-modify-footer{
+    padding: 10px;
+    background-color:#e1e1e1;
+    width: 100%;
+  }
+
+  & .modify-checkout-help {
+    float: left;
+    width: 25%;
+    button {
+      padding: 5px;
+      height: 60px;
+      width: 100%;
+      font-size: 20px;
+    }
+  }
+
+  & .modify-order-continue{
+    width: 73%;
+    float: left;
+    padding-left: 10px;
+    button {
+      height: 60px;
+      width: 100%;
+      font-size: 20px;
+    }
+  }
+
+  & td.price > div {
+    position: relative;
+  }
+
+  & td.price.estimated > div:first-child:after {
+    content: '*';
+    position: absolute;
+    font-size: 1em;
+    top: 0;
+    right: -.5em;
+  }
+
+  & td.price.deposit > div:first-child:after {
+    content: 'd';
+    position: absolute;
+    font-size: .5em;
+    top: 0;
+    right: -.7em;
+    line-height: 2em;
+  }
+
+  & td.price.taxable > div:first-child:after {
+    content: 'T';
+    position: absolute;
+    font-size: .5em;
+    top: 0;
+    right: -.7em;
+    line-height: 2em;
+  }
+
+  & tr.note td.need-help button {
+    width: 130px;
+    padding: 0;
+    text-transform: uppercase;
+  }
+
+  tbody.overall-summary {
+    background-color: white;
+    width: 100%;
+    tr.note {
+      .need-help {
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .overall-summary > tr > td {
+    background-color: white;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    border-collapse: collapse;
+  }
+}
+
+@media (--fk-extra-small-screen), (--fk-small-screen) {
+  fk-cart-content {
+    .cartcontent--recommendations {
+      &.col-sm-15,
+      &.col-xs-15 {
+        padding: 0;
+      }
+    }
+  }
+}
+
+
+

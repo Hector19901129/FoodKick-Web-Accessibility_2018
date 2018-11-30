@@ -1,0 +1,27 @@
+@import url(variables.css);
+
+.dp-page {
+  .dp-title h2 {
+    font-size: var(--fk-font-size-large);
+    font-weight: 600;
+    letter-spacing: .4px;
+    color: var(--fk-color-gray-darker);
+    padding-bottom: var(--fk-horizontal-space);
+    margin: 0;
+    font-family: var(--fk-font-sans-serif);
+  }
+
+  fk-deliverypass-component .delivery-pass-wrapper {
+    padding-top: calc(var(--fk-vertical-space) * 3);
+  }
+
+}
+
+@media (--fk-extra-small-screen), (--fk-small-screen) {
+  .dp-page {
+    .dp-title {
+      margin-top: calc( var(--fk-vertical-space) * 6);
+      padding: 0 var(--fk-horizontal-space);
+    }
+  }
+}

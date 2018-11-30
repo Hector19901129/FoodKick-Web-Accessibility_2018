@@ -1,0 +1,211 @@
+@import url(variables.css);
+
+fd-module-group {
+  margin-top: 20px;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .module:hover {
+    .module-content {
+      .back-button,
+      .forward-button {
+        background: var(--fk-color-primary-darker-medium-a);
+
+        &:hover {
+          background: var(--fk-color-primary-darker);
+        }
+      }
+    }
+  }
+
+  .module-group-header {
+    * {
+      margin: 0px;
+    }
+    height: 70px;
+    padding: 17px;
+    margin-top: 10px;
+    background-size: 0;
+    background-repeat: no-repeat;
+
+    .module-group-header-text {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      align-items: center;
+
+      .module-group-name, .module-text-banner {
+        display: inline-block;
+        font-weight: bold;
+      }
+
+      .module-group-name {
+        text-transform: uppercase;
+        padding-right: 27px;
+        font-size: 25px;
+      }
+
+      .module-text-banner {
+        color: white;
+        position: relative;
+        background-color: var(--fk-color-secondary);
+        height: 24px;
+        line-height: 24px;
+        padding-left: 5px;
+        padding-right: 5px;
+
+        &::after {
+          content: "";
+          width: 18px;
+          height: 12px;
+          position: absolute;
+          left: 100%;
+          background: linear-gradient(-45deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, var(--fk-color-secondary) 51%, var(--fk-color-secondary) 100%);
+        }
+
+        &::before {
+          content: "";
+          width: 18px;
+          height: 12px;
+          position: absolute;
+          left: 100%;
+          top: 12px;
+          background: linear-gradient(45deg,  var(--fk-color-secondary) 0%, var(--fk-color-secondary) 50%, rgba(0,0,0,0) 51%, rgba(0,0,0,0) 100%);
+        }
+      }
+    }
+  }
+
+  .module {
+    margin-bottom: 20px;
+    overflow: hidden;
+
+    .module-content-header {
+      * {
+        margin: 0px;
+      }
+      width: 100%;
+      height: 60px;
+      padding: 17px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--fd-color-gray-light);
+
+      .category-category-name {
+        height: auto
+      }
+
+      button {
+        text-transform: uppercase;
+        height: 35px;
+        width: 120px;
+        padding-top: 3px;
+      }
+    }
+
+    .module-content {
+      overflow: hidden;
+      border: 2px solid var(--fd-color-gray-light);
+      background-color: var(--fd-color-gray-light);
+
+      .placeholder {
+        width: 100%;
+        height: 300px;
+      }
+    }
+  }
+}
+
+@media (--fk-large-screen), (--fk-medium-screen) {
+  fd-module-group {
+
+    fd-product-carousel {
+      display: flex;
+    }
+
+    fd-section {
+      display: none;
+    }
+  }
+}
+
+@media (--fk-extra-small-screen), (--fk-small-screen) {
+  fd-module-group {
+
+    &:first-child .module-group-header {
+      margin-top: 10px;
+    }
+
+    fd-product-carousel {
+      display: none;
+    }
+
+    fd-section {
+      display: block;
+    }
+
+    .module-group-header {
+      height: 230px;
+      background-color: var(--fk-color-primary-lightest);
+      margin-top: 20px;
+      background-size: cover;
+      padding-top: 25px;
+      padding-bottom: 25px;
+
+      .module-group-header-text {
+        flex-direction: column;
+        justify-content: center;
+        width: 90%;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        .module-group-name {
+          color: white;
+          font-size: 30px;
+          padding: 10px;
+          margin-bottom: 10px;
+          word-wrap: break-word;
+          background-color: var(--fk-color-primary-darker-medium-a);
+        }
+
+        .module-text-banner {
+          margin-top: 10px;
+          padding: 5px 10px;
+          height: auto;
+          line-height: 16px;
+          width: auto;
+
+          &:before {
+            display: none;
+          }
+
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .module {
+      margin-bottom: 0px;
+
+      .module-content-header {
+        .module-category-name {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        button {
+          display: none;
+        }
+      }
+    }
+  }
+}

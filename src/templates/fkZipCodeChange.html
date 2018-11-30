@@ -1,0 +1,13 @@
+<fk-icon ng-if='showPopUp' fk-icon-id="#close" class="close-icon" ng-click="$ctrl.close()" fk-a11y-click tabindex="0">
+  <li offscreen>Close overlay</li>
+</fk-icon>
+<div ng-if='showPopUp' class="zip-change">
+  <div class="zip-header"><strong>SHOPPING IN</strong>
+    <br>Zip code
+    <br><strong>{{zipCheckData.zipCode}}</strong>
+    <br>
+  </div>
+  <div class="zip-change-btn">
+    <button class="button-secondary" ng-click="$ctrl.checkAnotherZip()">CHANGE</button>
+  </div>
+</div>

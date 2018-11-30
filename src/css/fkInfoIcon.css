@@ -1,0 +1,63 @@
+@import url(variables.css);
+
+
+/*copy from here until EU Edge allows postcss imports*/
+
+/* for that little I symbol.  '$selector_pre' can be a classname, element type or element id */
+@define-mixin info_icon $selector_pre: .info-icon, $size: 21px, $bgcolor: var(--fk-color-gray), $bgcolorH: var(--fk-color-primary) {
+
+  $(selector_pre)-i{
+    position:relative;
+    cursor:pointer;
+
+    svg{
+      background-color: $bgcolor;
+      width: $size;
+      height: $size;
+      border-radius: calc( $size / 2 );
+      position: relative;
+      top: 20px;
+      z-index: 4;
+    }
+
+    $(selector_pre)-content{
+      /*display:none;*/
+
+      opacity:0.0;
+
+      width: 1px;
+      height: 1px;
+      -webkit-transition: width 0.5s, height 2s, opacity 0.5s;
+      transition: width 0.5s, height 0.5s, opacity 0.5s;
+
+      overflow:hidden;
+
+      background-repeat: no-repeat;
+      z-index: 3;
+      left: -254px;
+      top: -147px;
+      position: absolute;
+      /* border: 2px outset red; */
+      background-size: 258px 88px;
+      background-position: 20px 60px;
+
+      background-color: var(--fk-color-white);
+      box-shadow: 0 2px 2px 0 var(--fk-color-black-a);
+    }
+
+    &:hover{
+      svg{
+        background-color: $bgcolorH;
+      }
+
+      $(selector_pre)-content{
+        opacity:1;
+        width: 293px;
+        height: 202px;
+      }
+    }
+
+    /*potential overrides go here*/
+    @mixin-content;
+  }
+}

@@ -1,0 +1,63 @@
+@import url(variables.css);
+
+.fk-plantid-change-warning {
+
+  & .button-container{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+  }
+
+  & .button {
+    height: 60px;
+    width: 420px;
+  }
+
+  & .content {
+    background-color: var(--fk-color-off-white);
+    color: var(--fk-color-gray-darker);
+    font-size: var(--fk-font-size-large);
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    padding: 0 20px;
+    h3 fk-icon svg{
+      height: 30px;
+      width: 30px;
+    }
+  }
+
+  & .notice {
+  font-family: Graphik;
+  font-size: 16px;
+  line-height: 1.38;
+  text-align: center;
+  color: #1b1a21;
+  padding: 0 20px;
+  }
+}
+
+@media (--fk-extra-small-screen) {
+
+  .fk-plantid-change-warning {
+    & .header-content {
+      font-size: 19px;
+    }
+
+    & .close-continer {
+      margin-top: 40px;
+    }
+
+    & .content {
+      padding: 0 20px;
+    }
+
+    & .button-container {
+      display: block;
+    }
+
+    & .button {
+      width: 100%;
+    }
+  }
+}

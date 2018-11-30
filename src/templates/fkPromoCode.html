@@ -1,0 +1,42 @@
+<form id="promo-form">
+  <div class="promo-field" ng-if="$ctrl.dpCart">
+    <div class="promo-left">
+      <div class="label">
+        <label for="Promo Code">Promo Code</label>
+      </div>
+      <div ng-class="{ promoStatusSuccess: $ctrl.promoStatus.class, promoStatusInvalid: !$ctrl.promoStatus.class}" ng-show="$ctrl.promoStatus.show"><span>{{$ctrl.promoStatus.message}}</span>
+      </div>
+      <div class="promo_field">
+        <input type="text" class="promo_input_field" id="Promo Code" ng-model-options="{updateOn: 'default blur'}" ng-model="code.promoCode" ng-focus="$ctrl.showApply = true;" placeholder="Enter Promo Code" ng-disabled="$ctrl.promoApplied" ng-class="{promoTextDisabled: $ctrl.promoApplied, promoTextEnabled: !$ctrl.promoApplied}">
+      </div>
+    </div>
+    <div class="promo-right">
+      <button class="button-primary" ng-click="$ctrl.validatePromo(code.promoCode, $ctrl.dpCart)" ng-if="$ctrl.showApply" ng-disabled="!code.promoCode"><span>APPLY</span>
+      </button>
+      <button class="remove_button" ng-click="$ctrl.removePromo(code.promoCode, $ctrl.dpCart)" ng-if="$ctrl.promoApplied"><span>REMOVE</span></button>
+    </div>
+  </div>
+    <div class="promo-field" ng-if="!$ctrl.dpCart">
+    <div class="promo-left">
+      <div class="label">
+        <label for="Promo Code"> Promo Code</label>
+      </div>
+      <div ng-class="{ promoStatusSuccess: $ctrl.promoStatus.class, promoStatusInvalid: !$ctrl.promoStatus.class}" ng-show="$ctrl.promoStatus.show"><span>{{$ctrl.promoStatus.message}}</span>
+      </div>
+      <div class="promo_field">
+        <input type="text" class="promo_input_field" id="Promo Code" ng-model-options="{updateOn: 'default blur'}" ng-model="code.promoCode" ng-focus="$ctrl.showApply = true;" placeholder="Enter Promo Code" ng-disabled="$ctrl.promoApplied" ng-class="{promoTextDisabled: $ctrl.promoApplied, promoTextEnabled: !$ctrl.promoApplied}">
+      </div>
+    </div>
+    <div class="promo-right">
+      <button class="button-primary" ng-click="$ctrl.validatePromo(code.promoCode, $ctrl.dpCart)" ng-if="$ctrl.showApply" ng-disabled="!code.promoCode"><span>APPLY</span>
+      </button>
+      <button class="remove_button" ng-click="$ctrl.removePromo(code.promoCode, $ctrl.dpCart)" ng-if="$ctrl.promoApplied"><span>REMOVE</span></button>
+    </div>
+  </div>
+</form>
+<div ng-if="dpError && $ctrl.dpCart">
+  <span class="error-container">{{dpError}}</span>
+</div>
+<div ng-if="errorMessage && !$ctrl.dpCart">
+  <span class="error-container">{{errorMessage}}</span>
+</div>

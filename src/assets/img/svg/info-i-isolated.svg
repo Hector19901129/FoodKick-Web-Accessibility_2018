@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 12.0.0, SVG Export Plug-In  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
+	<!ENTITY ns_svg "http://www.w3.org/2000/svg">
+	<!ENTITY ns_xlink "http://www.w3.org/1999/xlink">
+]>
+<svg  version="1.1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" aria-labelledby="information-icon-fkw" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 width="21" height="22" viewBox="-6.949 -3.21 21 22" enable-background="new -6.949 -3.21 21 22" xml:space="preserve">
+   <title id="information-isolated-icon-fkw">information isolated</title>
+<defs>
+</defs>
+<path fill="#FFFFFF" d="M4.598,0C3.967,0,3.48,0.186,3.137,0.559C2.793,0.902,2.621,1.26,2.621,1.633
+	c0,0.43,0.115,0.759,0.344,0.988C3.251,2.85,3.609,2.965,4.039,2.965c0.572,0,1.018-0.158,1.332-0.473
+	c0.344-0.344,0.516-0.745,0.516-1.203C5.887,0.43,5.457,0,4.598,0L4.598,0z"/>
+<path fill="#FFFFFF" d="M1.934,13.063c0.487,0,1.103-0.186,1.848-0.559c0.83-0.4,1.604-0.975,2.32-1.719L5.715,10.27
+	c-0.688,0.516-1.217,0.773-1.59,0.773c-0.172,0-0.201-0.271-0.086-0.816l0.945-3.524c0.373-1.404,0.215-2.105-0.473-2.105
+	c-0.459,0-1.117,0.215-1.977,0.645C1.561,5.729,0.716,6.273,0,6.875l0.344,0.559c0.802-0.487,1.346-0.73,1.633-0.73
+	c0.172,0,0.172,0.244,0,0.73l-0.773,3.352C0.831,12.303,1.074,13.063,1.934,13.063L1.934,13.063z"/>
+</svg>

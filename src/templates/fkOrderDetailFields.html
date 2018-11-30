@@ -1,0 +1,12 @@
+<div class="oc--address-time">
+  <div class="oc--address">
+    <div tabindex="0">
+      <h3>Delivery Address</h3>
+      <fk-address-field address="$ctrl.details.address"></fk-address-field>
+    </div>
+    <div tabindex="0"><span offscreen>Phone Number</span>{{$ctrl.details.phone}}</div>
+  </div>
+  <div class="oc--time" tabindex="0">
+    <h3>Delivery Time</h3> {{$ctrl.details.time}}
+  </div>
+</div>

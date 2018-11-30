@@ -1,0 +1,88 @@
+@import url(variables.css);
+
+fk-product-carousel {
+  display: block;
+  overflow: visible;
+  position: relative;
+
+  & > ng-transclude {
+    display: block;
+    overflow: hidden;
+  }
+
+  .carousel-items {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: visible !important;
+    transition: all 0.3s ease;
+    /*FKW-347 Remove while don't show picture in product carousel insteed of the fourth tile*/
+    /*padding-left: 240px;*/
+  }
+
+  .product-carousel-item {
+    margin: var(--fk-horizontal-space);
+    min-width: 213px;
+    max-width: 213px;
+  }
+
+  .carousel-controll {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: -30px;
+    right: -30px;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+
+    .spacer {
+      pointer-events: none;
+      flex: 1;
+    }
+
+    button {
+      width: 25px;
+      height: 25px;
+      top: 50%;
+      pointer-events: all;
+      color: var(--fk-color-white);
+      fill: var(--fk-color-white);
+      background: var(--fk-color-primary-lighter);
+      border: 12px solid var(--fk-color-primary-lighter);
+      border-radius: 50%;
+
+      margin: 0;
+      padding: 0;
+      display: block;
+      box-sizing: content-box;
+
+    }
+
+    .see-allbutton {
+      border-radius: 0;
+      border: 0;
+      margin-right:50px;
+      width: auto;
+      padding: .5em 1em 0.5em 2em;
+    }
+  }
+  &.firstpage .back-button {
+    visibility: hidden;
+  }
+
+}
+
+@media (--fk-extra-small-screen), (--fk-small-screen) {
+  fk-product-carousel {
+    ng-transclude {
+      overflow: scroll;
+    }
+    .carousel-controll {
+      display: none;
+    }
+
+    .carousel-items {
+      padding-left: 0;
+    }
+  }
+}

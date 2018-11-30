@@ -1,0 +1,294 @@
+@import url(variables.css);
+
+:root {
+  --info-icon-size: 20px;
+}
+
+@define-mixin input_placeholder_styles $color: var(--fk-color-gray) {
+  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: $color;
+    @mixin-content;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: $color;
+    @mixin-content;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: $color;
+    @mixin-content;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $color;
+    @mixin-content;
+  }
+}
+
+/* for that little I symbol.  '$selector_pre' can be a classname, element type or element id */
+@define-mixin info_icon $selector_pre: .info-icon, $size: 21px, $bgcolor: var(--fk-color-gray), $bgcolorH: var(--fk-color-primary) {
+
+  $(selector_pre)-i{
+    position:relative;
+    cursor:pointer;
+
+    margin-left: -24px;
+    float: right;
+
+    svg{
+      background-color: $bgcolor;
+      width: $size;
+      height: $size;
+      border-radius: calc( $size / 2 );
+      position: relative;
+      top: 20px;
+      z-index: 3;
+    }
+
+    $(selector_pre)-content{
+      /*display:none;*/
+
+      opacity:0.0;
+
+      width: 1px;
+      height: 1px;
+      -webkit-transition: width 0.5s, height 2s, opacity 0.5s;
+      transition: width 0.5s, height 0.5s, opacity 0.5s;
+
+      overflow:hidden;
+
+      background-repeat: no-repeat;
+      z-index: 2;
+      left: -254px;
+      top: -147px;
+      position: absolute;
+      /* border: 2px outset red; */
+      background-size: 258px 88px;
+      background-position: 20px 60px;
+
+      background-color: var(--fk-color-white);
+      box-shadow: 0 2px 2px 0 var(--fk-color-black-a);
+    }
+
+    &:hover{
+      svg{
+        background-color: $bgcolorH;
+      }
+
+      $(selector_pre)-content{
+        opacity:1;
+        width: 293px;
+        height: 202px;
+      }
+    }
+
+    /*potential overrides go here*/
+    @mixin-content;
+  }
+}
+
+@define-mixin info_icon_formfield $selector_main: .info-icon-acct, $selector_1: .Find-your-account-nu, $selector_2: .Account-number {
+  @mixin info_icon $(selector_main), var(--info-icon-size){
+    $(selector_1), & $(selector_2) {
+      font-family: var(--fk-font-sans-serif);
+      font-size: var(--fk-font-size-medium);
+      font-style: normal;
+      font-stretch: normal;
+      display:block;
+    }
+
+    /*text above */
+    $(selector_1) {
+      width: 248px;
+      height: 34px;
+
+      font-weight: normal;
+      line-height: 1.21;
+      color: var(--fk-color-gray-dark);
+
+      padding-top: 17px;
+      margin-left: 20px;
+      /*margin-top: 46px;*/
+    }
+
+    /*text below*/
+    $(selector_2) {
+      width: 136px;
+      height: 14px;
+      font-weight: 500;
+      text-align: center;
+      color: var(--fk-color-primary);
+      margin-top: 118px;
+      margin-left: 109px;
+
+      &::before {
+        width:2px;
+        height:19px;
+        background-color: var(--fk-color-primary);
+        content:"";
+        display:block;
+        position:absolute;
+        margin-left: 60px;
+        margin-top: -14px;
+      }
+    }
+  }
+
+  /*potential overrides go here*/
+  @mixin-content;
+}
+
+fk-bank-form{
+  background-color: var(--fk-color-off-white);
+  max-height:80vh;
+  min-height:400px;
+  overflow:auto;
+  overflow-x: hidden;
+  padding: 25px;
+
+  fk-confirm-button{
+    button {
+      background-color: transparent;
+      color: var(--fk-color-gray-dark);
+      height: 53px;
+    }
+  }
+
+  .buttons{
+    button{
+      text-transform: uppercase;
+
+      &.button-primary{
+        width:100%;
+        height: 60px;
+
+        &.half{
+          width:60%;
+          float: right;
+          margin-right: 0px;
+        }
+      }
+    }
+  }
+
+  .fields{
+    #existingAddress{
+      float:left;
+      position: relative;
+      z-index: 3;
+
+      .fk-custom-field{
+        margin-bottom:15px;
+      }
+    }
+
+    .errors{
+      color: var(--fk-color-red);
+    }
+
+    .optionalDisabledField, .optionalDisabledField label, .optionalDisabledField input, .optionalDisabledField select{
+      cursor: not-allowed;
+
+      border-color: var(--fk-color-gray-light);
+      color: var(--fk-color-gray);
+      -webkit-text-fill-color: var(--fk-color-gray);
+      opacity: 1;
+
+      label.optional:after{
+        content: '';
+      }
+    }
+
+    fk-form-field{
+      &[field-name="bankAccountType"]{
+
+        div.field--container{
+          margin-bottom:20px;
+
+          & > div.ng-scope{
+            margin-right: 30px;
+            float:left;
+
+            label::before{
+              height:1.5em;
+              width:1.5em;
+              border-radius: 1.5em;
+              margin-right: .5em;
+            }
+          }
+        }
+      }
+
+      input, & select{
+        background-color:transparent;
+      }
+
+      &[field-name="accountNumber"], &[field-name="abaRouteNumber"]{
+        width: calc( 100% - 1px );
+        float:left;
+
+        input[type="text"]{
+          width: calc( 100% + 1px );
+        }
+      }
+
+      &.full{
+        width: 100%;
+      }
+
+      &.half{
+        width: 50%;
+        height: 80px;
+        float: left;
+
+        input{
+          margin-top: 3px;
+          width: calc(100% - 20px);
+        }
+      }
+
+      @mixin input_placeholder_styles var(--fk-color-gray);
+    }
+
+    /* icon one */
+    @mixin info_icon_formfield;
+
+    /* icon two */
+    @mixin info_icon_formfield .info-icon-rout, .Find-your-routing-nu, .Routing-Number{
+      .info-icon-rout-i{
+        svg{
+          z-index:5;
+        }
+
+        ng-transclude{
+          .info-icon-rout-content{
+            z-index:4;
+          }
+
+          .Routing-Number{
+            margin-left:19px;
+          }
+        }
+      }
+    };
+
+    label, & div.field--container label, & .fk-custom-field label{
+      font-weight:500;
+    }
+
+    select.address-selector{
+      margin-bottom:20px;
+    }
+  }
+
+  .delete-card{
+    background-color:transparent;
+    width:35%;
+
+    ng-transclude span.ng-scope{
+      text-transform: capitalize;
+    }
+  }
+
+  & .showAddresses .billing {
+    display: none;
+  }
+}

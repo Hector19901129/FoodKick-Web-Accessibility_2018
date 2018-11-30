@@ -1,0 +1,32 @@
+<div class="page-plp container" ng-if="!category.htmlTemplate">
+  <div class="row" ng-if="category.descriptiveContent.wineDepartment">
+    <div class="col-lg-15 col-md-15 col-sm-15 col-xs-15 wineandspirits" fk-icon fk-icon-id="#wines-spirits-logo-label"></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-15 col-xs-15">
+      <fk-left-nav menu-boxes="category.menuBoxes.menuBoxes" filter-string="filterString"></fk-left-nav>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-15 col-xs-15">
+      <ul class="breadcrumb" ng-if="category.breadCrumbs.breadCrumbs">
+        <li ng-repeat="breadcrumb in category.breadCrumbs.breadCrumbs" ng-if="!$last">
+          <a fk-href="{{breadcrumb.id}}">{{breadcrumb.name}}<fk-icon fk-icon-id="#right"></fk-icon></a>
+      </ul>
+      <fk-refine-button category="category" filter-string="filterString"></fk-refine-button>
+      <fk-sort-options sort-options="category.sortOptions"></fk-sort-options>
+      <h1 class="category-title">
+        <span class="category-text">
+          {{category.breadCrumbs.breadCrumbs[category.breadCrumbs.breadCrumbs.length-1].name}}
+        </span>
+        <span ng-if="category.products" class="nrOfProducts">
+          ({{pager.itemCount}})
+        </span>
+      </h1>
+      <fk-product-tile-list class="row" ng-if="category.products" products="category.products" location="'cat_' + category.descriptiveContent.contentId" channel="'browse'" item-class="'col-lg-375 col-md-375 col-sm-75 col-xs-75'"></fk-product-tile-list>
+      <fd-pager pager="pager" ng-if="pager && category.products.length"></fd-pager>
+    </div>
+  </div>
+</div>
+<div class="page-plp container" ng-if="category.htmlTemplate">
+  <div data-ng-bind-html="htmlString"></div>
+</div>
+<!-- <fk-icon class="spinner plp--spinner" fk-icon-id="#spinner"></fk-icon> -->

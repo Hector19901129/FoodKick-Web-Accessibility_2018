@@ -1,0 +1,33 @@
+@import url(variables.css);
+
+fk-sort-options {
+  display: block;
+
+  .select--wrapper {
+    display: inline-block;
+    margin-left: var(--fk-vertical-space);
+    vertical-align: middle;
+  }
+
+  button.asc-desc-button {
+    line-height: 2.25em;
+    height: 2.25em;
+    background: transparent;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 2.25em;
+    vertical-align: middle;
+    margin-left: var(--fk-vertical-space);
+
+    fk-icon {
+      font-size: 2.25em;
+      margin-right: 0;
+
+      svg {
+        vertical-align: top;
+      }
+    }
+  }
+}

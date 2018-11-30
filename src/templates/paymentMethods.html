@@ -1,0 +1,11 @@
+<div class="row payment-methods-page-wrapper col-lg-14 col-md-14" id="account-details-page">
+  <div class="col-sm-15 col-xs-15 mobile-title payment-methods-only-mobile">
+    <fk-icon fk-icon-id="#close" id="close-details" ng-click="goBack()"></fk-icon>
+  </div>
+  <div class="payment-methods-wrapper">
+    <div class="col-sm-15 col-xs-15 pm-title"><h2>Payment Options</h2></div>
+    <fk-payment-methods class="col-sm-15 col-xs-15 pretty-list payment-methods-page" source="settings" show-edit="true" payment-validation="false" payment-type="creditCards" title="CARD" button-title="ADD DEBIT OR CREDIT CARD"></fk-payment-methods>
+    <fk-payment-methods class="col-sm-15 col-xs-15 pretty-list payment-methods-page" source="settings" show-edit="true" payment-validation="false" payment-type="electronicChecks" title="BANK ACCOUNT" ng-if="bankFormOn()" button-title="ADD BANK ACCOUNT"></fk-payment-methods>
+  </div>
+</div>
+<fk-icon class="spinner setting-payment-spinner" fk-icon-id="#spinner"></fk-icon>

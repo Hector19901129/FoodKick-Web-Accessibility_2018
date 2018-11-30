@@ -1,0 +1,7 @@
+@import url(variables.css);
+
+fk-double-click-ad {
+  .fk-main-carusel-dfp-slot{
+    height: 400px;
+  }
+}

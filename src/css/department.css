@@ -1,0 +1,57 @@
+@import url(variables.css);
+
+.department {
+
+  h2 {
+    font-family: var(--fk-font-sans-serif);
+    font-size: var(--fk-font-size-huge);
+    color: var(--fk-color-gray);
+    font-weight: 600;
+    text-align: center;
+    margin:0;
+    text-transform: uppercase;
+  }
+
+  h2 fk-icon.wine-header > svg {
+    width: 100%;
+    height: 1.25em;
+    margin: .5em 0;
+  }
+
+  .categories-line {
+    color: var(--fk-color-primary);
+    text-align: center;
+    font-size: var(--fk-font-size-medium);
+    text-transform: uppercase;
+    font-weight: 500;
+
+    a {
+      display: inline-block;
+      margin: calc(var(--fk-horizontal-space)*0.5);
+      padding: 0 var(--fk-horizontal-space);
+      height: calc(var(--fk-vertical-space)*3);
+      line-height: 2.5em;
+      cursor: pointer;
+    }
+  }
+
+  fk-department-category {
+    margin-bottom: var(--fk-vertical-space);
+  }
+
+}
+
+
+@media (--fk-extra-small-screen) {
+  .department {
+    h2 {
+      font-size: var(--fk-font-size-xlarge);
+      text-align: left;
+      padding-bottom: var(--fk-vertical-space);
+    }
+
+    .categories-line {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@import url(variables.css);
+
+fk-incart-badge {
+  display: block;
+
+  fk-icon {
+    margin: 0;
+  }
+
+  .svgicon {
+    font-size: 39px;
+    fill: var(--fk-color-primary);
+  }
+
+
+  .incart--quantity {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    border: none;
+    line-height: 38px;
+    width: 36px;
+    height: 36px;
+    font-weight: bold;
+    font-size: var(--fk-font-size-base);
+    border-radius: 100%;
+    text-align: center;
+    background-color: var(--fk-color-secondary);
+    color: var(--fk-color-white);
+  }
+
+  .incart--quantity .extra-add {
+    position: absolute;
+    top: -22px;
+    right: -8px;
+    width: 26px;
+    height: 26px;
+    font-size: 26px;
+  }
+
+  .incart--quantity span {
+    display: inline-block;
+    transition: none;
+  }
+
+}

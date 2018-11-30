@@ -1,0 +1,12 @@
+@import url(variables.css);
+
+@media (--fk-extra-small-screen), (--fk-small-screen) {
+  .mobile-menu-list {
+    li, .shopall {
+      border: none;
+      border-bottom: 1px solid var(--fk-color-white-light-a);
+      left: 0px;
+      padding: var(--fk-vertical-space) 0;
+    }
+  }
+}

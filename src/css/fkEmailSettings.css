@@ -1,0 +1,166 @@
+@import url(variables.css);
+
+.email-setting-page {
+  background-color: var(--fk-color-off-white);
+
+  .settings-email h2 {
+    font-size: var(--fk-font-size-large);
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    color: var(--fk-color-gray-darker);
+    margin: 0;
+    font-family: var(--fk-font-sans-serif);
+  }
+}
+
+#fkEmailSettingsForm .buttons {
+  margin: 0;
+  background-color: var(--fk-color-gray-lighter);
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.email-setting-wrapper {
+  & .col-sm-15,
+  & .col-xs-15 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+fk-email-settings {
+  max-width: 740px;
+  background-color: white;
+  font-family: var(--fk-font-sans-serif);
+  font-style: normal;
+  font-stretch: normal;
+  border-top: 2px solid var(--fk-color-primary);
+  box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.2);
+
+
+  & .current-Email-container {
+    text-align: center;
+    padding: calc(var(--fk-vertical-space)*3) 0;
+    background-color: var(--fk-color-gray-lighter);
+    margin: 28px 30px 0;
+  }
+
+  & h4 {
+    margin-top: 0;
+    font-size: var(--fk-font-size-medium);
+    line-height: 1.43;
+    letter-spacing: 1px;
+    text-align: center;
+    color: var(--fk-color-gray-darker);
+  }
+
+  & .current-email {
+    margin: 0;
+    font-size: var(--fk-font-size-large);
+    color: var(--fk-color-gray-darker);
+    font-weight: 600;
+    line-height: 0.91;
+    letter-spacing: 0.4px;
+    padding-bottom: var(--fk-vertical-space);
+  }
+
+  & .fields {
+    overflow: hidden;
+    padding: 30px;
+    margin-bottom: 20px;
+  }
+
+  & button {
+    margin: 0;
+    height: 55px;
+    width: 260px;
+  }
+
+  & .button-secondary[disabled] {
+    background-color: var(--fk-color-gray-light);
+    text-shadow: none;
+  }
+
+  & .password {
+    padding-bottom: var(--fk-vertical-space);
+  }
+
+  & fk-form-field {
+    padding-left: 0px;
+    height: 90px;
+  }
+
+  & fk-form-field input {
+    font-family: Graphik;
+    font-size: var(--fk-font-size-medium);
+    color: var(--fk-color-gray);
+    background-color: transparent
+  }
+
+  & .save-changes {
+    font-weight: 500;
+    letter-spacing: 0.8px;
+  }
+
+  & .forgot-password {
+    clear: both;
+    a {
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+        color: var(--fk-color-primary-lightest);
+      }
+    }
+  }
+}
+
+@media(--fk-large-screen), (--fk-medium-screen) {
+  fk-email-settings {
+    .forgot-password {
+      padding-left: var(--fk-horizontal-space);
+    }
+  }
+
+  .email-setting-page {
+    .email-settings-only-mobile {
+      display: none;
+    }
+
+    .settings-email {
+      margin-bottom: var(--fk-vertical-space);
+    }
+  }
+}
+
+@media (--fk-extra-small-screen), (--fk-small-screen) {
+  .email-setting-page {
+    .settings-email {
+      margin-bottom: calc(var(--fk-vertical-space)*1.5);
+      margin-top: calc(var(--fk-vertical-space)*7.5);
+    }
+
+    .email-setting-wrapper {
+      padding: 0 calc(var(--fk-vertical-space)*2);
+    }
+
+    fk-email-settings {
+      .current-Email-container {
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        p {
+          font-size: 18px;
+          overflow-wrap: break-word;
+        }
+      }
+      .fields {
+        padding: 20px;
+      }
+    }
+  }
+}

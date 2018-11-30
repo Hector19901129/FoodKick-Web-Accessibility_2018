@@ -1,0 +1,11 @@
+<div class="incdec--holder" ng-class="(fkCartService.productsInCart[$ctrl.product.productData.productId].quantity ? 'incart' : 'not-incart') + ' '+ (fkCartService.productsInCart[$ctrl.product.productData.productId].quantity >= $ctrl.product.productData.availableQty && $ctrl.product.productData.availableQty > 0 ?  'available-inventory': '')">
+  <div class="atc">
+    <button class="button-secondary" ng-click="increase()">Add to bag</button>
+  </div>
+  <div class="incdec" ng-class="fkCartService.productsInCart[$ctrl.product.productData.productId].quantity >= $ctrl.product.productData.availableQty && $ctrl.product.productData.availableQty > 0 ?  'limited--inventory': ''">
+  <div class="quantity-indicator" ng-if="fkCartService.productsInCart[$ctrl.product.productData.productId].quantity >=  $ctrl.product.productData.availableQty && $ctrl.product.productData.availableQty > 0">Only {{$ctrl.product.productData.availableQty}} Available
+</div>
+    <button class="button incdec--remove" ng-click="decrease()"><svg class="svgicon"><use xlink:href="#minus"/></svg><span offscreen>{{$ctrl.product.productData.productNameNoBrand}} decrease quantity</span></button>
+    <button class="button incdec--add" ng-click="increase()" ng-disabled="fkCartService.productsInCart[$ctrl.product.productData.productId].quantity >=  $ctrl.product.productData.availableQty && $ctrl.product.productData.availableQty > 0" ><svg class="svgicon"><use xlink:href="#plus"/></svg><span offscreen>{{$ctrl.product.productData.productNameNoBrand}} increase quantity</span></button>
+  </div>
+</div>

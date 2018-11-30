@@ -1,0 +1,133 @@
+@import url(variables.css);
+
+fk-credit-card-form {
+  & .showAddresses .billing {
+    display: none;
+  }
+  & .showAddresses fk-address-book button {
+    display: none;
+  }
+  & fk-form-field[field-name="cardBrand"] label.ALL{
+    display: none;
+  }
+  & fk-form-field[field-name="cardBrand"] .field--container[fk-field-type="radio"] {
+    display: flex;
+    justify-content: center;
+  }
+  & fk-form.cardBrand_ALL fk-form-field[field-name="cardBrand"] label {
+    opacity: 1;
+  }
+  & fk-form-field[field-name="cardBrand"] label {
+    opacity: .5;
+  }
+  & fk-form.cardBrand_VISA fk-form-field[field-name="cardBrand"] label.VISA,
+  & fk-form.cardBrand_AMEX fk-form-field[field-name="cardBrand"] label.AMEX,
+  & fk-form.cardBrand_MC fk-form-field[field-name="cardBrand"] label.MC,
+  & fk-form.cardBrand_DISC fk-form-field[field-name="cardBrand"] label.DISC {
+    opacity: 1;
+  }
+  & fk-form-field[field-name="cardBrand"] label.VISA,
+  & fk-form-field[field-name="cardBrand"] label.AMEX,
+  & fk-form-field[field-name="cardBrand"] label.MC,
+  & fk-form-field[field-name="cardBrand"] label.DISC {
+    cursor: pointer;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 70px;
+    height: 45px;
+    margin-left: 7px;
+    margin-right: 7px;
+    border: 2px solid var(--fk-color-gray);
+    text-indent: -10000px;
+  }
+  & fk-form-field[field-name="cardBrand"] label.VISA {
+    background-image: url(/assets/img/visa.png);
+  }
+  & fk-form-field[field-name="cardBrand"] label.AMEX {
+    background-image: url(/assets/img/amex.png);
+  }
+  & fk-form-field[field-name="cardBrand"] label.MC {
+    background-image: url(/assets/img/mastercard.png);
+  }
+  & fk-form-field[field-name="cardBrand"] label.DISC {
+    background-image: url(/assets/img/discover.png);
+  }
+  & fk-form-field[field-name="cardBrand"] label.VISA::before,
+  & fk-form-field[field-name="cardBrand"] label.AMEX::before,
+  & fk-form-field[field-name="cardBrand"] label.MC::before,
+  & fk-form-field[field-name="cardBrand"] label.DISC::before {
+    display: none;
+  }
+  & #credit_card_form .fields {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  & #credit_card_form .fields .full {
+    padding-left: var(--fk-horizontal-space);
+    padding-right: var(--fk-horizontal-space);
+    width: 100%;
+  }
+  & #credit_card_form .fields .medium {
+    padding-left: var(--fk-horizontal-space);
+    padding-right: var(--fk-horizontal-space);
+    width: 60%;
+  }
+  & #credit_card_form .fields .half {
+    padding-left: var(--fk-horizontal-space);
+    padding-right: var(--fk-horizontal-space);
+    width: 50%;
+  }
+  & #credit_card_form .fields .small {
+    padding-left: var(--fk-horizontal-space);
+    padding-right: var(--fk-horizontal-space);
+    width: 20%;
+  }
+  & #credit_card_form .fields .captcha-block {
+    margin-top: calc( var(--fk-horizontal-space) * 2.5);
+    margin-bottom: calc( var(--fk-horizontal-space) * 2);
+  }
+  & #credit_card_form .fields .address-selector {
+    width: 100%;
+  }
+  & #credit_card_form .buttons {
+    padding: var(--fk-horizontal-space) var(--fk-vertical-space);
+  }
+  & #credit_card_form .buttons> button {
+    height: 53px;
+    width: 100%
+  }
+  & #credit_card_form .buttons fk-confirm-button[button-class="hide"] {
+    width: 0;
+  }
+  & #credit_card_form .buttons fk-confirm-button[button-class="delete-card"] {
+    width: 80%;
+  }
+  & #credit_card_form .buttons fk-confirm-button button {
+    background-color: transparent;
+    color: var(--fk-color-gray-dark);
+    height: 53px;
+    width: 100%;
+  }
+  & #credit_card_form .fields #credit_card_form_existingAddress {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    top: 5px;
+    left: 3px;
+    z-index: -10;
+  }
+
+  @media (--fk-extra-small-screen){
+    #credit_card_form .fields fk-form-field[field-name='accountNumber'] {
+      width: 100%;
+    }
+
+    #credit_card_form .fields fk-form-field[field-name='cardExpMonth'],
+    #credit_card_form .fields fk-form-field[field-name='cardExpYear']  {
+      width: 50%;
+    }
+  }
+
+}

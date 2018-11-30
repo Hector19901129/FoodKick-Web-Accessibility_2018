@@ -1,0 +1,101 @@
+@import url(variables.css);
+
+fk-mobile-notifications-form h4 {
+  padding-bottom: var(--fk-vertical-space);
+  font-size: var(--fk-font-size-base);
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.3px;
+  color: var(--fk-color-gray-dark);
+  text-transform: uppercase;
+}
+
+#mobile_notifications_form .buttons {
+  margin: 0;
+  background-color: var(--fk-color-gray-lighter);
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.notification-wrapper {
+  & .col-sm-15,
+  & .col-xs-15 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+fk-mobile-notifications-form {
+  padding: 0;
+  background-color: var(--fk-color-off-white);
+  box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: calc(var(--fk-vertical-space) + 5);
+
+  & .fields{
+    padding: 20px;
+    background-color: var(--fk-color-white);
+    border-top: 2px solid var(--fk-color-primary);
+    padding-bottom: calc(var(--fk-vertical-space) * 8);
+  }
+
+  & button{
+    margin: 0;
+    height: 55px;
+    width: 260px;
+  }
+
+  & input {
+    width: 50%;
+  }
+
+  & .terms-conditions{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin:0;
+    font-size: var(--fk-font-size-small);
+    a {
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+        color: var(--fk-color-primary-lightest);
+      }
+    }
+  }
+}
+
+fk-mobile-notifications-form .uppercased {
+  text-transform: uppercase;
+}
+
+fk-mobile-notifications-form a {
+  font-size: var(--fk-font-size-small);
+  padding: 5px;
+}
+
+@media (--fk-medium-screen), (--fk-large-screen) {
+  fk-mobile-notifications-form .leftFloated {
+    float: left;
+    width: 30%;
+  }
+}
+
+@media (--fk-extra-small-screen), (--fk-small-screen) {
+  fk-mobile-notifications-form {
+    .fields {
+      padding-bottom: 20px;
+    }
+    h4 {
+      text-transform: uppercase;
+    }
+    .terms-conditions {
+      text-align: center;
+    }
+  }
+}

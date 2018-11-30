@@ -1,0 +1,20 @@
+<ul>
+  <li ng-repeat="timeslot in $ctrl.timeSlots" ng-class="[timeslot.id === fkDeliveryTimeslotService.timeslot.selectedTimeslotId ? 'selected-elem selected-time-slot' : '']">
+    <div class="timeslot" ng-if="!timeslot.unavailable" ng-click="timeslot.full|| setTimeslot(timeslot)" fk-a11y-click tabindex="0">
+      <div class="timeslot-selected" ng-if="!timeslot.full"><fk-icon fk-icon-id="#tick"></fk-icon></div>
+      <div class="timeslot-selection-disabled" ng-if="timeslot.full"></div>
+      <div ng-class="timeslot.full ? 'timeslot-gray-out': 'timeslot-time'">{{timeslot | fkTime}}</div>
+      <div class="delivery-fee" ng-if="!timeslot.full">
+        <div class="alcohol-restricted" ng-if="timeslot.alcoholRestricted && !timeslot.unavailable">
+          <fk-icon fk-icon-id="#no-alcohol"></fk-icon>
+        </div>
+        <div class="original-delivery-fee" ng-class="timeslot.deliveryFee > timeslot.promoDeliveryFee ? 'promo' : timeslot.promoDeliveryFee === 0 ? 'promo' : ''">{{timeslot.deliveryFee | currency:"$":2}}</div>
+        <p class="promo-delivery-fee" ng-if="timeslot.deliveryFee > timeslot.promoDeliveryFee && timeslot.promoDeliveryFee > 0">{{timeslot.promoDeliveryFee | currency:"$":2}}</p>
+        <p class="promo-delivery-fee" ng-if="timeslot.promoDeliveryFee === 0">FREE</p>
+      </div>
+       <div class="timeslot-disable" ng-if="timeslot.full">
+        <p>SOLD OUT</p>
+        </div>
+    </div>
+  </li>
+</ul>

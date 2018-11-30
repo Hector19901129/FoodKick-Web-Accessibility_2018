@@ -1,0 +1,8 @@
+<div class="payment_failed">
+  <div>
+    <span ng-if="$ctrl.paymentFailed && $ctrl.paymentFailed.expiration">This card has expired.<br>Please update your payment information.</span>
+    <span ng-if="$ctrl.paymentFailed && !$ctrl.paymentFailed.expiration">There is a problem with this payment method.<br>Please update your payment information.</span>
+  </div>
+  <button class="button-primary" type="button" ng-click="addEditMethod(paymentValidation, $ctrl.selectedPayMethod)" aria-label="Edit payment method" ng-if="$ctrl.paymentFailed.expiration || $ctrl.paymentFailed.verificationFailed">EDIT</button>
+</div>
+<fk-ngdialog-close ng-click="closeThisDialog()"></fk-ngdialog-close>

@@ -1,0 +1,20 @@
+@import url(variables.css);
+
+.fk-receipt-popup {
+  .receiptClose {
+    .close-continer {
+      max-width: 800px;
+      margin-top: 40px;
+    }
+  }
+  fk-receipt {
+    margin-top: 90px;
+  }
+
+}
+
+@media (--fk-medium-screen), (--fk-large-screen) {
+  .ngdialog.ngdialog-theme-fk.fk-receipt-popup .ngdialog-content {
+    width: 950px;
+  }
+}

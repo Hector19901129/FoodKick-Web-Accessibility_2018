@@ -1,0 +1,5 @@
+@import url(variables.css);
+
+.page-view-cart {
+  background:var(--fk-color-primary-darker);
+}

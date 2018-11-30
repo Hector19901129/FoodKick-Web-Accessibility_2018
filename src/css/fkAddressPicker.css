@@ -1,0 +1,64 @@
+@import url(variables.css);
+
+fk-address-picker {
+  display: inline-block;
+  overflow: hidden;
+  height: 40px;
+}
+
+fk-address-picker {
+  .btn-address-picker {
+    background-color: transparent;
+    color: var(--fk-color-white);
+    margin: 0;
+    padding: 10px 0;
+    height: 40px;
+    position: relative;
+  }
+
+  .btn-address-picker:active {
+    background-color: var(--fk-color-white);
+    color: var(--fk-color-white);
+  }
+
+  .btn-address-picker:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--fk-color-white);
+  }
+
+  .btn-address-picker:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--fk-color-white);
+  }
+}
+
+fk-address-picker [fk-icon-id="#scooter"] {
+  & ng-transclude {
+    margin-left: calc(var(--fk-horizontal-space) - 6);
+    margin-right: calc(var(--fk-horizontal-space) - 6);
+  }
+  & .text {
+    display: inline-block;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-left: calc(var(--fk-horizontal-space)/2);
+  }
+  & svg {
+    height: 24px;
+    width: 45px;
+  }
+}
+
+@media (--fk-extra-small-screen),
+(--fk-small-screen) {
+  fk-address-picker [fk-icon-id="#scooter"] {
+    .text {
+      display: none;
+    }
+    svg {
+      height: 24px;
+      width: 45px;
+    }
+  }
+}

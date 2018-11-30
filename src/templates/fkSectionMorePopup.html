@@ -1,0 +1,10 @@
+<div class="container fk-section-more" id="section-more-scroll-bar">
+  <div class="row">
+    <div class="col-lg-9 col-md-9 col-sm-15 col-xs-15">
+      <fk-section-hero section="section" module="module" title="$ctrl.title"></fk-section-hero>
+    </div>
+    <fk-product-tile-list products="products" channel="$ctrl.channel" location="$ctrl.location" list-title="$ctrl.slug" displaytype="$ctrl.section.displayType" item-class="'col-lg-3 col-md-3 col-sm-5 col-xs-75'"></fk-product-tile-list>
+  </div>
+</div>
+<fk-secondary-header></fk-secondary-header>
+<fk-ngdialog-close ng-click="closeThisDialog()"></fk-ngdialog-close>

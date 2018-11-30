@@ -1,0 +1,88 @@
+@import url(variables.css);
+
+#help-details-page {
+
+  .mobile-title {
+    background: var(--fk-color-primary-darkest);
+    color: var(--fk-color-white);
+    text-transform: uppercase;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+  }
+
+  .title {
+    padding: 24px;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  #close-details{
+    fill: var(--fk-color-white);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 10px;
+    cursor: pointer;
+  }
+
+  .updated-product-recall-info {
+    div {
+      margin: 25px 0;
+      padding-top: 25px;
+      border-top: 1px solid black;
+
+      p {
+        margin-bottom: 0;
+        line-height: 35px;
+      }
+    }
+  }
+
+  .master-food-safety-back-to-top {
+    display: none;
+  }
+
+  .food-saftey-mobile-nav {
+    display: none;
+  }
+
+}
+
+@media (--fk-medium-screen), (--fk-large-screen) {
+  #help-details-page {
+    .fk-help-detail-only-mobile {
+      display: none;
+    }
+  }
+}
+
+@media (--fk-extra-small-screen), (--fk-small-screen) {
+  #help-details-page {
+    [data-sub="prodRecall"],
+    [data-sub="prodRecallComplete"] {
+      thead {
+        display:none;
+      }
+
+      tr {
+        display:block;
+        margin-bottom: 1em;
+      }
+
+      td {
+        display:block;
+      }
+
+      td:nth-of-type(4)::before {
+        content:'Does FreshDirect Carry? ';
+        font-weight: bold;
+      }
+
+    }
+
+    .fk-help-detail-only-desktop {
+      display: none;
+    }
+  }
+}

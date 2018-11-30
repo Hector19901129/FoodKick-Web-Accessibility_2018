@@ -1,0 +1,6 @@
+@import url(variables.css);
+
+/*FKW-520 remove 'Learn More' from preformatted HTML*/
+fk-product-details .product-description .”hideiPhone” {
+  display: none;
+}

@@ -1,0 +1,148 @@
+@import url(variables.css);
+
+fk-profile-button {
+  display:inline-block;
+  vertical-align: top;
+  height: 40px;
+  color: var(--fk-color-white);
+  fill: var(--fk-color-white);
+  font-family: var(--fk-font-sans-serif);
+  font-size: var(--fk-font-size-small);
+  position: relative;
+  padding: 10px;
+
+  & .account-menu {
+    position: absolute;
+    opacity: 0;
+    transform: scale(0);
+    left:0px;
+    margin-top: -var(--fk-vertical-space);
+    transform-origin: 50% 0;
+    transition: transform 350ms cubic-bezier(0.23, 1.2, 0.32, 1),
+    opacity 350ms cubic-bezier(0.23, 1.2, 0.32, 1),
+    -webkit-transform 350ms cubic-bezier(0.23, 1.2, 0.32, 1);
+    box-shadow: 0px 25px 20px -20px var(--fk-color-black-a), 0px 0px 40px 0px rgba(0, 0, 0, 0.2)!important;
+
+    .placeholder {
+      position:absolute;
+      top:-10px;
+      left:0;
+      width:100%;
+      height:10px;
+    }
+
+    ul {
+      border-bottom: 1px solid #e1e1e1;
+      padding: calc(var(--fk-vertical-space) * 2) calc(var(--fk-horizontal-space) * 2);
+      li {
+         line-height: 2;
+      }
+      a {
+        color: var(--fk-color-primary);
+        font-size: var(--fk-font-size-medium);
+      }
+      a:hover {
+        color: var(--fk-color-primary-lightest);
+        text-decoration: underline;
+      }
+    }
+
+    fk-logout-button {
+      margin-top:var(--fk-vertical-space);
+      padding: 0 calc(var(--fk-horizontal-space) * 2) calc(var(--fk-vertical-space) * 3);
+      div {
+        color: var(--fk-color-gray-dark);
+      }
+    }
+
+    .site-version-button {
+      width: 140px;
+      height: 40px;
+      margin-left: calc(var(--fk-horizontal-space) * 2);
+      margin-right: calc(var(--fk-horizontal-space) * 2);
+      margin-bottom: 0px;
+      margin-top: 16px
+    }
+  }
+
+}
+
+fk-profile-button:hover,
+fk-profile-button:focus-within {
+  background-color: hsla(0,0%,100%,.15);
+}
+
+fk-profile-button:hover,
+fk-profile-button[fk-touched="hasTouched"] {
+  & .account-menu {
+    display: inline-block;
+    position: absolute;
+    min-width:120px;
+    right: -70px;
+    left: auto;
+    text-align: left;
+    top: 100%;
+    margin-top: 5px;
+    z-index: 100;
+    background-color: var(--fk-color-white);
+    font-family: var(--fk-font-sans-serif);
+    font-size: var(--fk-font-size-small);
+    font-weight: 500;
+    line-height: 2.58;
+    letter-spacing: 1px;
+    color: var(--fk-color-primary-darker);
+    opacity: 1;
+    transform: scale(1);
+    padding: 0;
+    width: 180px;
+  }
+
+  & .account-menu:before {
+    position: absolute;
+    content: ' ';
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid var(--fk-color-white);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: none;
+    top: -10px;
+    margin: auto;
+    right: 15px;
+    left: 0;
+  }
+}
+
+fk-profile-button [fk-icon-id="#avatar"] {
+
+  & ng-transclude {
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+
+  & .text {
+    display: inline-block;
+    letter-spacing: 1px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: var(--fk-font-size-small);
+  }
+
+  & svg{
+    height: 24px;
+    width: 25px;
+  }
+}
+
+fk-profile-button [fk-icon-id="#down"] {
+  margin-left: 2px;
+}
+
+.sticky fk-secondary-header fk-profile-button [fk-icon-id="#down"] {
+  & svg{
+    height: 20px;
+    width: 16px;
+    padding-top: 10px;
+  }
+}
+

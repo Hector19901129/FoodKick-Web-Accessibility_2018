@@ -1,0 +1,38 @@
+
+
+<div class="editorial-container" module="$ctrl.module">
+  <div class="image-content">
+    <div class="image-container">
+      <!--<img ng-src="{{$ctrl.module.editorialContainer.heroGraphic}}" alt="testIMG">-->
+      <img ng-src="./../assets/img/editorialHeroImg.jpg">
+        <div class="hero-image-description">
+          <h3>{{$ctrl.module.editorialContainer.heroTitle}}</h1>
+          <h4>{{$ctrl.module.editorialContainer.heroSubtitle}}<h2>
+        </div>
+    </div>
+  </div>
+
+  <div class="text-content">
+    <div class="editorial-header">
+      <img ng-src="{{$ctrl.module.editorialContainer.headerGraphic}}">
+      <div class="editorial-title">
+        <h3>{{$ctrl.module.editorialContainer.headerTitle}}</h1>
+        <h6>{{$ctrl.module.editorialContainer.headerSubtitle}}</h6>
+      </div>
+    </div>
+    <div class="editorial-body" ng-bind-html="$ctrl.module.editorialContainer.editorialContent">
+      <!--<span>Learn More</span>-->
+    </div>
+  </div>
+</div>
+
+<div class="module-content-header" module="$ctrl.module">
+  <h3 class="module-category-name">{{$ctrl.module.contentTitle}}</h3>
+  <fk-section-more products="$ctrl.module.moduleData.products" module="$ctrl.module" title="$ctrl.module.contentTitle"></fk-section-more>
+</div>
+
+<fd-product-carousel module="$ctrl.module" nr-of-products="$ctrl.module.moduleData.products.length" item-id="$ctrl.module.moduleId" class="col-lg-15 col-md-15">
+  <fk-product-tile-list class="carousel-items"  products="$ctrl.module.moduleData.products" item-class="'product-carousel-item'"></fk-product-tile-list>
+</fd-product-carousel>
+
+<fd-section module="$ctrl.module" type="picklist" moduletype="picklist" limit="sideLimit" module-group="$ctrl.moduleGroup" class="" item-class="'col-sm-5 col-xs-75'"></fd-section>

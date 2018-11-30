@@ -1,0 +1,155 @@
+@import url(variables.css);
+
+.page-help {
+  .support-title {
+    font-family: Graphik;
+    font-size: var(--fk-font-size-xlarge);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--fk-color-gray-darker);
+    margin-left: calc(var(--fk-horizontal-space) * 3);
+  }
+  #helpmenu-holder {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .main {
+
+    &.mobilehelpdetails {
+      background: white;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 500;
+    }
+  }
+
+  #help-title {
+    padding: calc(var(--fk-vertical-space) * 2) calc(var(--fk-horizontal-space) * 3);
+    h2 {
+      font-size: 1.5em;
+      font-weight: bold;
+      font-family: var(--fk-font-sans-serif);
+      margin: 0;
+    }
+  }
+
+  #help-details-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    h1 {
+      display: none;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 2em;
+    }
+
+    .title {
+      padding: 0;
+      margin-bottom: 1em;
+      h2 {
+        font-family: var(--fk-font-sans-serif);
+        margin: 0;
+        font-size: var(--fk-font-size-large);
+      }
+    }
+
+    .content {
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: 0 calc(var(--fk-horizontal-space) * 2);
+    }
+  }
+
+  .help-padding {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+
+@media (--fk-medium-screen),
+(--fk-large-screen) {
+  .page-help {
+    .main {
+      border-left: 1px solid var(--fk-color-gray-light);
+      padding-left: calc(var(--fk-horizontal-space) * 2);
+    }
+
+    #help-details-page {
+      .content {
+        height: auto;
+      }
+    }
+
+    .support-help_background {
+      padding-top: calc(var(--fk-vertical-space) * 2);
+      background-image: url(/assets/img/fruitbowl4.jpg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      height: 300px;
+      background-size: cover;
+      h2 {
+        padding-left: calc(var(--fk-horizontal-space) * 3);
+        font-size: var(--fk-font-size-large);
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        font-family: var(--fk-font-sans-serif);
+        margin: 0;
+      }
+    }
+
+    .help-options-container {
+      height: 190px;
+      margin: 30px;
+      padding: 15px 15px 0;
+      background: var(--fk-color-white);
+    }
+  }
+}
+
+@media (--fk-extra-small-screen),
+(--fk-small-screen) {
+  .page-help {
+    .title {
+      margin-top: 1em;
+    }
+    .support-title {
+      font-size: var(--fk-font-size-large);
+      margin-left: 15px;
+    }
+    #help-details-page {
+      .content {
+        height: 100%;
+      }
+    }
+    .large-view {
+      display: none;
+    }
+    .help-background-container {
+      padding-top: calc(var(--fk-vertical-space) * 2);
+      background-image: url(/assets/img/fruitbowl4.jpg);
+      background-repeat: no-repeat;
+      background-position: 90%;
+      height: 170px;
+      background-size: cover;
+      span {
+        top: 25%;
+        padding-left: calc(var(--fk-horizontal-space) * 2);
+        position: absolute;
+        font-size: var(--fk-font-size-large);
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+    }
+    .help-options-module {
+      background: var(--fk-color-white);
+      height: 400px;
+    }
+  }
+}

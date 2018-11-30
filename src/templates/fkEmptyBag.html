@@ -1,0 +1,9 @@
+<div class="empty-bag-confirmation">
+  <span>Remove all items from your bag?<br>This action cannot be undone.</span>
+  <div class="cancel-changes-buttons">
+      <button class="button-primary" ng-click="deleteAll()">YES</button>
+      <button class="button-primary-ghost" ng-click="ignoreCancellation()">Nevermind</button>
+  </div>
+</div>
+<fk-icon class="spinner empty-bag-spinner" fk-icon-id="#spinner"></fk-icon>
+<fk-ngdialog-close ng-click="closeThisDialog()"></fk-ngdialog-close>

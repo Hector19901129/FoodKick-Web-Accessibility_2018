@@ -1,0 +1,215 @@
+@import url(variables.css);
+
+.fk-refine.ngdialog {
+  overflow: hidden;
+}
+
+.fk-refine .ngdialog-close .header-content {
+  padding: 0 var(--fk-vertical-space);
+
+  & > span {
+    text-transform: none;
+    font-size: .8em;
+  }
+}
+
+.refine-popup-content {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: var(--fk-color-off-white);
+  color: var(--fk-color-gray-dark);
+  font-size: var(--fk-font-size-medium);
+  letter-spacing: .9px;
+  outline: none;
+
+  .refine-group-button {
+    line-height: 70px;
+    height: 70px;
+    font-weight: bold;
+    background: var(--fk-color-white);
+    border-bottom: 1px solid var(--fk-color-gray);
+    cursor: pointer;
+    padding-left: var(--fk-vertical-space);
+
+    &:before {
+      display: inline-block;
+      color: var(--fk-color-primary);
+      font-size: 2.5em;
+      font-weight: normal;
+      vertical-align: middle;
+      margin: 0 var(--fk-vertical-space) 0 0;
+    }
+
+    & > fk-icon {
+      float: right;
+      margin: 0 var(--fk-vertical-space);
+    }
+
+    &.sort,
+    &.filters[filter]:not([filter=""]) {
+      line-height: 25px;
+      padding: var(--fk-vertical-space) 0 var(--fk-vertical-space) var(--fk-vertical-space);
+    }
+
+    &.sort > fk-icon,
+    &.filters[filter]:not([filter=""]) > fk-icon {
+      float: right;
+      margin: 0 var(--fk-vertical-space);
+      padding-top: 12px;
+    }
+
+    &.filters[filter]:not([filter=""])::before {
+      content: none;
+    }
+
+    & .active {
+      display: none;
+    }
+
+    &.sort[sort] .active,
+    &.filters[filter]:not([filter=""]) .active {
+      display: block;
+      font-weight: normal;
+      color: var(--fk-color-primary);
+      height: 25px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    &.filters:before {
+      content: '+';
+    }
+
+  }
+
+  .refine-group-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .refine-group-header {
+      line-height: 70px;
+      height: 70px;
+      font-weight: bold;
+      background: var(--fk-color-white);
+      border-bottom: 1px solid var(--fk-color-gray);
+      padding: 0 var(--fk-vertical-space);
+      letter-spacing: .9px;
+
+      button {
+        float: right;
+        margin: 14px;
+      }
+    }
+
+    .refine-group-body {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .refine-reset {
+      text-align: center;
+    }
+
+    .sort-options {
+      li {
+        line-height: 1.5em;
+        padding: 0 var(--fk-vertical-space);
+        font-weight: 500;
+
+        &.sort-group-title {
+          padding-top: 20px;
+          height: 50px;
+          text-transform: uppercase;
+          color: var(--fk-color-gray);
+        }
+
+        label {
+          display: flex;
+          align-items: center;
+
+          span {
+            display: block;
+            flex: 1;
+            border-bottom: 1px solid var(--fk-color-gray-light);
+            margin-left: var(--fk-vertical-space);
+            font-weight: 500;
+            padding: 1.2em 0 1em;
+          }
+        }
+      }
+    }
+
+    fk-left-nav {
+      background: transparent;
+      box-shadow: none;
+
+      h3 {
+        padding-left: var(--fk-vertical-space);
+      }
+
+      .menubox > div {
+        padding-bottom: calc(var(--fk-vertical-space) * 2);
+      }
+
+      &.categories .menubox > div {
+        border-bottom: none;
+      }
+
+      h3.categories {
+        display: none;
+      }
+
+      nav > li:last-child {
+        padding-bottom: 0;
+      }
+
+      nav > li > a {
+        padding: var(--fk-vertical-space) calc(3 * var(--fk-vertical-space));
+      }
+
+      nav > li {
+        padding: 0 var(--fk-vertical-space);
+      }
+
+      nav.leftnav-categories > li {
+        padding: 0;
+      }
+
+      nav > li.fk-custom-field input[type=radio] + label,
+      nav > li.fk-custom-field input[type=checkbox] + label {
+        display: flex;
+        align-items: center;
+        padding: 0;
+      }
+
+      nav > li > label > span {
+        display: block;
+        flex: 1;
+        border-bottom: 1px solid var(--fk-color-gray-light);
+        margin-left: var(--fk-vertical-space);
+        font-weight: 500;
+        padding: 1.2em 0 1em;
+      }
+
+      nav > li:last-child > label > span {
+        border-bottom: none;
+      }
+
+    }
+  }
+
+}
+
+@media (--fk-extra-small-screen) {
+  .refine-popup-content {
+    height:100%;
+  }
+  .ngdialog.ngdialog-theme-fk.fk-refine.narrow .ngdialog-content {
+    .close-continer {
+      margin-top: 40px;
+    }
+  }
+}

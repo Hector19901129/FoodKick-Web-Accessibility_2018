@@ -1,0 +1,26 @@
+<div class="available-credit">
+  <h3 class="available-amount amount" tabindex="0"><span offscreen>available credit is</span>{{$ctrl.availableAmt |currency:'$':2}}</h3>
+  <p class="available">available</p>
+</div>
+<div class="credit-info"><span>Credits are combined. They will automatically be deducted from your next order.</span></div>
+<div class="order-wrapper" ng-repeat="creditOrder in $ctrl.orders">
+  <div class="order-specifics-wrapper">
+    <div class="col-xs-5 col-sm-5 col-md-3 col-lg-3 zero-padding">
+      <span class="more-letter-spacing _oh-order-id" tabindex="0"><span offscreen>Order date</span>{{creditOrder.date}}</span>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-1 col-lg-1 zero-padding hidden-row">
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+      <span class="more-letter-spacing _oh-order-amount" ng-if="creditOrder.store === 'FK'" tabindex="0"><span offscreen>Store name</span><fk-icon fk-icon-id="#fk-logo"></fk-icon></span>
+      <span class="more-letter-spacing _oh-order-amount" ng-if="creditOrder.store === 'FD'" tabindex="0"><span offscreen>Store name</span><fk-icon fk-icon-id="#fd-logo"></fk-icon></span>
+    </div>
+    <div class="buttons-wrapper block col-xs-5 col-sm-5 col-md-3 col-lg-3"><span class="redemption" ng-if="creditOrder.type === 'Redemption'" tabindex="0"><span offscreen>Redemption of</span>-${{creditOrder.amount | fkRedemptionAmount}}</span>
+      <span class="store-credit" ng-if="creditOrder.type === 'Store Credit'" tabindex="0"><span offscreen>Store credit of</span>${{creditOrder.amount}}</span>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-1 col-lg-1 zero-padding hidden-row">
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 oh-button">
+      <a ng-if="creditOrder.store === 'FK'" ng-click="$ctrl.seeReceipt(creditOrder.order)" href=""><fk-icon fk-icon-id="#receipt icon"></fk-icon>Receipt</a>
+    </div>
+  </div>
+</div>

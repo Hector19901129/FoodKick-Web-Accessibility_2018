@@ -1,0 +1,70 @@
+@import url(variables.css);
+
+fd-icon-tile-list {
+  .icon-list {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    .fd-icon {
+      background-color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      img{
+        height: auto;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (--fk-medium-screen) {
+  fd-icon-tile-list {
+    .icon-list {
+      .fd-icon {
+        height: 238px;
+        width: 238px;
+        img {
+          margin-top: -10px;
+        }
+      }
+    }
+  }
+}
+
+@media (--fk-large-screen) {
+  fd-icon-tile-list {
+    .icon-list {
+      .fd-icon {
+        height: 290px;
+        width: 290px;
+        img {
+          margin-top: -10px;
+        }
+      }
+    }
+  }
+}
+
+@media (--fk-small-screen), (--fk-extra-small-screen) {
+  fd-icon-tile-list {
+    .icon-list {
+      display: block;
+      text-align: center;
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+      .fd-icon {
+        background-color: rgba(0,0,0,0);
+        display: inline-block;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    }
+  }
+}

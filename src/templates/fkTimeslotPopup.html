@@ -1,0 +1,7 @@
+<div class="fk-timeslot-popup">
+  <h2>Oopss</h2>
+  <h3>The {{fkDeliveryTimeslotService.timeslot.selectedTimeslot.startDate | date:'h:mm a'}} - {{fkDeliveryTimeslotService.timeslot.selectedTimeslot.endDate | date:'h:mm a'}} delivery slot has closed.</h3>
+  <h4>Please select a new time slot:</h4>
+  <fk-delivery-timeslots></fk-delivery-timeslots>
+</div>
+<fk-ngdialog-close ng-click="closeThisDialog()"></fk-ngdialog-close>

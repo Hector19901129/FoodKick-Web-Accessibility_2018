@@ -1,0 +1,8 @@
+@import url(variables.css);
+
+.fk-origin-information {
+  .bold {
+    font-weight: 500;
+    display: block;
+  }
+}

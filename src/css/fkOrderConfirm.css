@@ -1,0 +1,110 @@
+@import url(variables.css);
+
+.fk-order-confirm {
+
+  display: block;
+
+  & .oc--header {
+    color: var(--fk-color-white);
+    background-color: var(--fk-color-primary);
+    padding: var(--fk-vertical-space) calc(var(--fk-horizontal-space) * 2) calc(var(--fk-vertical-space) * 2);
+    text-align: center;
+    width:100%;
+    min-height:140px;
+  }
+
+  & .oc--header .oc--opnote {
+    font-size: var(--fk-font-size-base);
+    line-height: 2.5em;
+    font-weight: 500;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+  }
+
+  & .oc--header h2 {
+    margin: 0 auto;
+    padding: 0;
+    max-width: 270px;
+    font-size: 24px;
+  }
+
+  & .oc--content {
+    background-color: var(--fk-color-gray-lighter);
+    color: var(--fk-color-gray-dark);
+    width: 100%;
+    overflow-y: auto;
+
+    & .oc--order-details {
+      padding: calc(var(--fk-vertical-space) * 2);
+      overflow:hidden;
+
+      & .oc--buttons {
+        max-width: 50%;
+        width: 100%;
+        float:right;
+
+        & button{
+          height: 50px;
+          width: 100%;
+        }
+      }
+
+      & .oc--contact {
+        text-align: center;
+        width: 100%;
+        font-size: var(--fk-font-size-medium);
+        letter-spacing: .9px;
+        margin-top: calc(var(--fk-vertical-space) * 2);
+
+        & a {
+          white-space: nowrap;
+        }
+      }
+    }
+
+    & .oc--order-total {
+      background-color: var(--fk-color-gray-light);
+      padding: calc(var(--fk-vertical-space) * 3) calc(var(--fk-horizontal-space) * 3);
+      text-align: center;
+      text-transform: uppercase;
+
+      & .amount {
+        font-weight: bold;
+        display: inline-block;
+        position: relative;
+      }
+
+      &.estimated .amount:after {
+        content: '*';
+        position: absolute;
+        font-size: 1em;
+        top: 0;
+        right: -.5em;
+      }
+
+    }
+  }
+
+  & .oc--footer {
+    color: var(--fk-color-gray-light);
+    padding: calc(var(--fk-vertical-space) * 2) calc(var(--fk-horizontal-space) * 4) var(--fk-vertical-space);
+    font-size: var(--fk-font-size-small);
+    text-align: center;
+    width:100%;
+  }
+
+  & .dp_notify {
+    padding: calc(var(--fk-vertical-space) * 2) calc(var(--fk-horizontal-space) * 4) var(--fk-vertical-space);
+    text-align: center;
+    background-color: var(--fk-color-primary-fade);
+    color: var(--fk-color-gray-darker);
+    width: 100%;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  & .bottom-text{
+    text-align: center;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,53 @@
+@import url(variables.css);
+
+fk-section {
+  display: block;
+  margin: 0;
+}
+
+.page-greeting + fk-section,
+.pick-title + fk-section {
+  margin-top: 0;
+}
+
+fk-section > section {
+  overflow: hidden;
+  background: var(--fk-color-off-white-dark);
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.15);
+  margin-bottom: calc(var(--fk-vertical-space) * 4);
+}
+
+fk-section fk-product-tile-list {
+  padding: var(--fk-vertical-space) var(--fk-vertical-space) 0 var(--fk-vertical-space);
+}
+
+fk-section[section="greeting"] > section{
+  box-shadow: none;
+  margin-top: var(--fk-vertical-space);
+  margin-bottom: var(--fk-vertical-space);
+}
+
+fk-section[section="greeting"] .section-content-wrapper {
+  margin-top: 0;
+  background-color: var(--fk-color-primary);
+  color: var(--fk-color-white);
+}
+
+fk-section[section="greeting"] .section-caption {
+  font-family: var(--fk-font-sans-serif);
+  text-transform: uppercase;
+  background: transparent;
+  padding:0;
+  font-size: var(--fk-font-size-medium);
+}
+
+fk-section[section="greeting"] .section-title {
+  background: transparent;
+  padding:0;
+  font-weight: bold;
+}
+
+fk-section[section="greeting"] .section-content {
+  padding:0.5em;
+  background: transparent;
+}

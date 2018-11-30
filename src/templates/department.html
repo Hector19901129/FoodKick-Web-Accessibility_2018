@@ -1,0 +1,11 @@
+<div class="department container">
+  <div class="row">
+    <h2 class="col-lg-15" ng-if="!$ctrl.department.wine">{{$ctrl.department.name}}</h2>
+    <h2 class="col-lg-15" ng-if="$ctrl.department.wine"><fk-icon class="wine-header" fk-icon-id="#wines-spirits-logo-label"><span offscreen>{{$ctrl.department.name}}</span></fk-icon></h2>
+    <div class="categories-line col-lg-15"><a class="button button-primary-ghost" ng-repeat="child in $ctrl.children" fk-href="{{child.id}}">{{child.name}}</a></div>
+  </div>
+  <div class="row">
+    <fk-department-category class="col-lg-15 col-md-15 col-sm-15 col-xs-15" use-lazy-img="$index!==0" category="child" ng-repeat="child in $ctrl.children" http-async="false" http-last="$index==($ctrl.children.length - 1 )" opened="$ctrl.opened == child.id" on-toggle="$ctrl.toggle(catId, opened)" id="{{child.id}}"></fk-department-category>
+  </div>
+</div>
+<!-- <fk-icon class="spinner department-spinner" fk-icon-id="#spinner"></fk-icon> -->

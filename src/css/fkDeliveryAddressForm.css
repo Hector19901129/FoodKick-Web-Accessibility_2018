@@ -1,0 +1,68 @@
+@import url(variables.css);
+
+fk-delivery-address-form {
+  height: auto;
+}
+
+fk-delivery-address-form #delivery_address_form .fields {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+fk-delivery-address-form #delivery_address_form .fields .full {
+  padding-left: var(--fk-horizontal-space);
+  padding-right: var(--fk-horizontal-space);
+  width: 100%;
+}
+
+fk-delivery-address-form #delivery_address_form .fields .half {
+  padding-left: var(--fk-horizontal-space);
+  padding-right: var(--fk-horizontal-space);
+  width: 50%;
+}
+
+fk-delivery-address-form #delivery_address_form .fields .state {
+  padding-left: var(--fk-horizontal-space);
+  padding-right: var(--fk-horizontal-space);
+  width: 30%;
+}
+
+fk-delivery-address-form #delivery_address_form .fields .zip {
+  padding-left: var(--fk-horizontal-space);
+  padding-right: var(--fk-horizontal-space);
+  width: 20%;
+}
+
+fk-delivery-address-form #delivery_address_form .buttons {
+  padding-right: var(--fk-horizontal-space);
+}
+
+fk-delivery-address-form #delivery_address_form .buttons> button {
+  height: 53px;
+  width: 100%
+}
+
+fk-delivery-address-form #delivery_address_form .buttons fk-confirm-button[button-class="hide"] {
+  width: 0;
+}
+
+fk-delivery-address-form #delivery_address_form .buttons fk-confirm-button[button-class="delete-address"] {
+  width: 80%;
+}
+
+fk-delivery-address-form #delivery_address_form .buttons fk-confirm-button button {
+  background-color: transparent;
+  color: var(--fk-color-gray-dark);
+  height: 53px;
+  width: 100%;
+}
+
+fk-delivery-address-form #delivery_address_form .fields fk-form-field #delivery_address_form_doorman {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  top: 5px;
+  left: 3px;
+  z-index: -10;
+}

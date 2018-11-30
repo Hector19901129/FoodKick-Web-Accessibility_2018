@@ -1,0 +1,21 @@
+<ul ng-if="!add" class="addressSelectorContainer">
+  <li><h1>Choose Address</h1></li>
+  <li ng-if="selectedAddress" class="selected">
+    <div ng-click="setDeliveryAddress(selectedAddress)">
+      <h2>{{selectedAddress.firstName}} {{selectedAddress.lastName}}</h2>
+      <h3>{{selectedAddress.street1}}, {{selectedAddress.contactPhoneNumber.phone}}</h3>
+    </div>
+    <button ng-click="selectDeliveryAddressPopulate(selectedAddress)" class="button-edit">Select</button>
+  </li>
+  <br/>
+
+  <li ng-if="!addresses" class="loader">loading ...</li>
+  <li ng-repeat="address in addresses" ng-if="selectedAddress.id !== address.id">
+    <div class="addresses" ng-click="setDeliveryAddress(address)">
+      <h2>{{address.firstName}} {{address.lastName}}</h2>
+      <h3>{{address.street1}}, {{address.contactPhoneNumber.phone}}</h3>
+    </div>
+    <button ng-click="selectDeliveryAddressPopulate(address)" class="button-edit">Select</button>
+  </li>
+</ul>
+<fk-ngdialog-close ng-click="closeThisDialog()"></fk-ngdialog-close>

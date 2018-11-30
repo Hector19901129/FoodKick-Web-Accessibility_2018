@@ -1,0 +1,30 @@
+<div class="page-home-feed" style="margin-top:10px">
+  <div class="container">
+    <div class="row">
+      <div class="home-feed col-lg-15 col-md-15 col-sm-15 col-xs-15" ng-class="feedType === 'home' ? 'selected': 'hide-feed'">
+        <div class="section-wrapper container-fluid">
+          <div class="page-greeting row" ng-if="pageFeedHeader.greeting">
+            <h2>
+              <span ng-if="pageFeedHeader.greeting.captionText" class="section-caption">{{ pageFeedHeader.greeting.captionText | fkGreetingFilter}}</span>
+              <span ng-if="pageFeedHeader.greeting.headlineText" class="section-title">{{ pageFeedHeader.greeting.headlineText | fkGreetingFilter}}</span>
+              <span ng-if="pageFeedHeader.greeting.bodyText" class="section-content">{{ pageFeedHeader.greeting.bodyText | fkGreetingFilter}}</span>
+            </h2>
+          </div>
+          <fk-section ng-repeat="section in pageFeedHeader.sections track by $index" type="feed" use-lazy-img="false" column="'promofeed'" position="$index + 1" section="section" limit="mainLimit" class="row" item-class="'col-lg-4 col-md-4 col-sm-5 col-xs-75'"></fk-section>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+	      <div class="home-feed col-lg-75 col-md-75 col-sm-15 col-xs-15" ng-class="feedType === 'home' ? 'selected': 'hide-feed'">
+	        <div class="section-wrapper container-fluid">
+	          <fk-section ng-repeat="section in pageFeedBody.sections track by $index" ng-if="$odd" type="feed" last="$last" use-lazy-img="true" column="'promofeed'" position="$index + 1 + pageFeedHeader.sections.length" section="section" limit="sideLimit" class="row" item-class="'col-lg-7 col-md-7 col-sm-7 col-xs-75'"></fk-section>
+	        </div>
+	      </div>
+	      <div class="home-feed col-lg-75 col-md-75 col-sm-15 col-xs-15" ng-class="feedType === 'home' ? 'selected': 'hide-feed'">
+			<div class="section-wrapper container-fluid">
+			  <fk-section ng-repeat="section in pageFeedBody.sections track by $index" ng-if="$even" type="feed" last="$last" use-lazy-img="true" column="'promofeed'" position="$index + 1 + pageFeedHeader.sections.length" section="section" limit="sideLimit" class="row" item-class="'col-lg-7 col-md-7 col-sm-7 col-xs-75'"></fk-section>
+			</div>
+	      </div>
+    </div>
+  </div>
+</div>

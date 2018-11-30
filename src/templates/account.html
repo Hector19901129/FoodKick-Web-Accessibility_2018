@@ -1,0 +1,14 @@
+<div class="page-account container">
+    <div class="row">
+      <div class="col-lg-15 col-md-15" id="account-title" ng-if="!hidemobile"><h2>Settings</h2></div>
+    </div>
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-15 col-xs-15" id="accountmenu-holder">
+      <fk-page-menu topics="topics" ismobile="ismobile" state="state" ng-if="!dpPropertyFlag"></fk-page-menu>
+      <fk-page-menu topics="newTopics" ismobile="ismobile" state="state" ng-if="dpPropertyFlag"></fk-page-menu>
+    </div>
+    <div ui-view class="col-lg-10 col-md-10 col-sm-15 col-xs-15 main" ng-class="{mobileaccountdetails: ismobiledetails}">
+    </div>
+    <div class="col-lg-1 col-md-1 empty-space"></div>
+  </div>
+</div>

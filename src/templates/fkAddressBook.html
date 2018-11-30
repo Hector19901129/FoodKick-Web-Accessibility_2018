@@ -1,0 +1,21 @@
+<ul role="tablist">
+  <li ng-repeat="address in addressService.addresses | orderBy:'-id'" ng-class="[addressService.selectedAddress.id === address.id ? 'selected-elem' : '']" ng-if="!address.availableServiceTypes || address.availableServiceTypes.indexOf('FDX') > -1" aria-controls="panel{{$index}}" aria-selected="false" id="panel{{$index}}" role="tab" tabindex="0" ng-keyup="checkAddress($event, address, $index)">
+    <div class="element" ng-class="getSelectType(address, $index)" ng-click="setDeliveryAddress(address)" fk-a11y-click>
+      <fk-icon ng-if="address.availableServiceTypes.indexOf('FDX') < 0 || addressService.selectedAddress.id === address.id" fk-icon-id="#done" class="icon-done"></fk-icon>
+      <fk-icon ng-if="(!address.availableServiceTypes || address.availableServiceTypes.indexOf('FDX') > -1) && addressService.selectedAddress.id !== address.id" fk-icon-id="#check" class="icon-check"></fk-icon>
+      <div class="content">
+        <div class="user-details"><fk-icon  fk-icon-id="#avatar" class="icon-pin"></fk-icon>{{address.firstName}} {{address.lastName}}</div>
+        <div><fk-icon  fk-icon-id="#pin" class="icon-pin"></fk-icon>{{address.street1}}</div>
+        <div><fk-icon  fk-icon-id="#phone" class="icon-phone"></fk-icon>{{address.contactPhoneNumber.phone}}</div>
+        <div ng-if="address.instructions"><fk-icon  fk-icon-id="#write" class="icon-write"></fk-icon> {{address.instructions}}</div>
+      </div>
+    </div>
+    <div class="button-container">
+      <button ng-click="edit(address)" class="button-edit">Edit<span offscreen>Delivery Address</span></button>
+    </div>
+  </li>
+</ul>
+<div class="button-container container-add-new-address">
+  <button class="button-primary-ghost add-new-address" type="button" ng-click="addAddress()">Add New Address</button>
+</div>
+<fk-delivery-address-form ng-if="add" default-action="addandset"></fk-delivery-address-form>

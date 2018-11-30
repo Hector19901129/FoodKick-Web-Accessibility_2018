@@ -1,0 +1,25 @@
+<div class="container global-nav-block" ng-mouseleave="$ctrl.leaveMenu()">
+  <div class="row">
+    <div class="col-sm-2 col-xs-3 navbar">
+      <button class="menuBrowse" ng-click="$ctrl.setSelected($ctrl.items.BROWSE)" ng-class="{selected: $ctrl.isSelected($ctrl.items.BROWSE)}"><fk-icon fk-icon-id="#browse"></fk-icon><div>BROWSE</div></button>
+      <button class="menuAccount" ng-click="$ctrl.setSelected($ctrl.items.ACCOUNT)" ng-class="{selected: $ctrl.isSelected($ctrl.items.ACCOUNT)}"><fk-icon fk-icon-id="#avatar"></fk-icon><div>ACCOUNT</div></button>
+      <button class="global-nav-chat" ng-click="$ctrl.triggerChatPopup()"><fk-icon fk-icon-id="#globalnavchat" class= "menu-chat-icon"></fk-icon><div>CHAT</div></button>
+    </div>
+    <fk-global-nav columns="$ctrl.selectedElements" on-navigate="$ctrl.navigate(url)" ng-if="$ctrl.isSelected($ctrl.items.BROWSE)" class="col-lg-15 col-md-15 col-sm-13 col-xs-12"></fk-global-nav>
+    <div ng-if="$ctrl.isSelected($ctrl.items.ACCOUNT)" class="col-lg-15 col-md-15 col-sm-13 col-xs-12 account">
+      <ul>
+        <li ng-if="$ctrl.userService.user" class="_pastorders" ><a href="/pastorders/" ng-click="$ctrl.closeMenu('pastorders')">Shop Past Orders</a></li>
+        <li ng-if="$ctrl.userService.user" class="_pastitems" ><a href="/pastitems" ng-click="$ctrl.closeMenu('pastitems')">Past Items</a></li>
+        <li ng-if="$ctrl.userService.user" class="_orderhistory" ><a href="/orderhistory" ng-click="$ctrl.closeMenu('pastitems')">Order History</a></li>
+        <li ng-if="$ctrl.userService.user" class="_settings" ><a href="/account" ng-click="$ctrl.closeMenu('account')">Settings</a></li>
+        <li class="_help"><a href="/help" ng-click="$ctrl.closeMenu('help')">Help</a></li>
+      </ul>
+      <fk-logout-button ng-if="$ctrl.userService.user"></fk-logout-button>
+      <!-- <fk-sign-in-button ng-if="!$ctrl.userService.user"></fk-sign-in-button> -->
+      <div class="button-container" ng-if="!$ctrl.userService.user">
+        <button class="button-primary-ghost" type="button" name="sign-in" ng-if="!fkUserService.user" ng-click="$ctrl.signIn()">Sign in</button>
+        <button class="button-secondary button-createaccount" type="button" name="createAccount" ng-if="!fkUserService.user" ng-click="$ctrl.signUp()">Create Account</button>
+      </div>
+    </div>
+  </div>
+</div>

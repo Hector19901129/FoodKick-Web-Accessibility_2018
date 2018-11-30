@@ -1,0 +1,2 @@
+<fk-product-tile ng-repeat="product in $ctrl.products track by $index" gsdpage="$ctrl.gsdpage" use-lazy-img="$ctrl.useLazyImg" pdp-feed-type="$ctrl.pdpFeedType" product="product" position="$index+1" ng-class="$ctrl.itemClass" class="product-tile-grid-item" orientation="{{$ctrl.orientation}}" fk-touch ng-if="!product.productData.discontinued && !product.productData.outOfSeason"></fk-product-tile>
+

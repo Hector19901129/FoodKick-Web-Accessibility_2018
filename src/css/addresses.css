@@ -1,0 +1,204 @@
+@import url(variables.css);
+
+.addresses-page {
+  background-color: var(--fk-color-off-white);
+
+  .ab-title h2 {
+    font-size: var(--fk-font-size-large);
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    color: var(--fk-color-gray-darker);
+    margin: 0;
+    font-family: var(--fk-font-sans-serif);
+  }
+
+  fk-address-book {
+    padding: 0;
+    background-color: white;
+    border-top: 2px solid var(--fk-color-primary);
+    box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.2);
+
+    .container-add-new-address {
+      margin: 0;
+      background-color: var(--fk-color-gray-lighter);
+      height: calc(var(--fk-vertical-space)*9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .add-new-address {
+        margin: 0;
+        padding: 0 calc(var(--fk-vertical-space)*4.5);
+        height: calc(var(--fk-vertical-space)*5.5);
+        width: inherit;
+        box-shadow: none;
+        line-height: calc(var(--fk-vertical-space)*6);
+        color: var(--fk-color-white);
+        text-transform: uppercase;
+        font-size: var(--fk-font-size-base);
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        line-height: 0.2;
+      }
+
+      .add-new-address {
+        background-color: var(--fk-color-secondary);
+        color: white;
+        &:hover {
+          background-color: var(--fk-color-secondary-darker);
+          color: var(--fk-color-white);
+          fill: var(--fk-color-white);
+        }
+        &:focus {
+          fill: var(--fk-color-white);
+          box-shadow: inset 0 0 0 1px var(--fk-color-secondary), 0 0 2px #aaaaaa, 0 0 8px #aaaaaa;
+        }
+      }
+
+    }
+
+    ul {
+      li:last-of-type .element .content,
+      li:last-of-type .button-container {
+        border: none;
+      }
+    }
+
+    ul li {
+      .button-container,
+      .element,
+      .element div,
+      .element fk-icon {
+        border: none;
+        margin: 0;
+      }
+    }
+
+    ul li .element {
+      .icon-done,
+      .icon-check {
+        svg {
+          height: 35px;
+          width: 35px;
+        }
+      }
+    }
+  }
+}
+
+@media (--fk-medium-screen), (--fk-large-screen) {
+  .addresses-page {
+    .ab-title {
+      margin-bottom: var(--fk-vertical-space);
+    }
+
+    .addresses-only-mobile {
+      display: none;
+    }
+
+    fk-address-book {
+      ul {
+        padding-top: 0;
+      }
+
+      ul li {
+        display: flex;
+        margin-top: calc(var(--fk-vertical-space)*3.5);
+      }
+
+      ul li .button-container {
+        display: flex;
+        align-items: center;
+        padding-bottom: calc(var(--fk-vertical-space)*3);
+        border-bottom: 1px solid rgba(225, 225, 225, 0.98);
+
+        button {
+          padding-right: calc(var(--fk-horizontal-space)*6);
+        }
+      }
+
+      ul li .element {
+        flex-grow: 1;
+
+        .icon-done,
+        .icon-check {
+          svg {
+            margin-left: calc(var(--fk-horizontal-space)*4.5);
+          }
+        }
+      }
+
+      ul li .element .content {
+        padding-bottom: calc(var(--fk-vertical-space)*3);
+        border-bottom: 1px solid rgba(225, 225, 225, 0.98);
+        flex-grow: 1;
+
+        svg {
+          margin-left: 0;
+        }
+      }
+    }
+
+    .pretty-list ul li>.button-container button {
+      width: 100%;
+    }
+  }
+
+}
+
+@media (--fk-extra-small-screen), (--fk-small-screen) {
+  #account-details-page {
+    padding: 0;
+  }
+
+  .addresses-page {
+    .address-book-wrapper {
+      padding: 0 calc(var(--fk-vertical-space)*2);
+    }
+
+    .ab-title {
+      margin-top: calc(var(--fk-vertical-space)*7.5);
+      margin-bottom: calc(var(--fk-vertical-space)*1.5);
+    }
+
+    fk-address-book {
+      ul li {
+        margin-top: calc(var(--fk-vertical-space)*3);
+      }
+
+      ul li .button-container {
+        margin-left: calc(var(--fk-horizontal-space)*7.5);
+        padding-bottom: calc(var(--fk-vertical-space)*1.5);
+        border-bottom: 1px solid rgba(225, 225, 225, 0.98);
+        margin-right: 15px;
+
+        button {
+          padding: 0;
+        }
+      }
+
+      ul li .element {
+        padding-right: calc(var(--fk-horizontal-space)*2);
+
+        .icon-done,
+        .icon-check {
+          svg {
+            margin-left: calc(var(--fk-horizontal-space)*2);
+          }
+        }
+      }
+
+      ul li .element .content {
+        div {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        svg {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}

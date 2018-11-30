@@ -1,0 +1,11 @@
+<div class="row dp-page col-lg-14 col-md-14" id="account-details-page">
+  <div class="col-sm-15 col-xs-15 mobile-title" ng-if="ismobile">
+    <fk-icon fk-icon-id="#close" id="close-details" ng-click="goBack()"></fk-icon>
+  </div>
+  <div class="dp-wrapper">
+    <div class="dp-title"><h2>DeliveryPass</h2></div>
+    <fk-deliverypass-component class="col-sm-15 col-xs-15" ng-if="!fkUserService.user.dpActive" source="dpsettings"></fk-deliverypass-component>
+    <fk-deliverypass-settings class="col-sm-15 col-xs-15 dp-page" ng-if="fkUserService.user.dpActive"></fk-deliverypass-settings>
+  </div>
+</div>
+<fk-icon class="spinner delivery-pass-setting-spinner" fk-icon-id="#spinner"></fk-icon>

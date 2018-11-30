@@ -1,0 +1,22 @@
+@import url(variables.css);
+
+.fk-browser-notification {
+  .browser-notification {
+    background: var(--fk-color-white);
+    color: var(--fk-color-gray-dark);
+    padding: var(--fk-vertical-space);
+    font-size: var(--fk-font-size-base);
+    line-height: 1.5;
+    font-family: Graphik;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    width: 455px;
+    line-height: 1.41;
+    letter-spacing: 1.4px;
+    p {
+      margin: 0;
+      text-align: center;
+    }
+  }
+}

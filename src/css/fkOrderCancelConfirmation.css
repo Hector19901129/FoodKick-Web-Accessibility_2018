@@ -1,0 +1,60 @@
+@import url(variables.css);
+
+.fk-order-cancellation {
+  display: block;
+
+  & .cancel-order-header {
+    color: var(--fk-color-white);
+    background-color: var(--fk-color-primary);
+    padding: calc(var(--fk-horizontal-space) * 2);
+    text-align: center;
+    width: 100%;
+    min-height: 110px;
+  }
+  & .cancel-order-header h2 {
+    margin: 0 auto;
+    max-width: 270px;
+  }
+  & .cancel-order-content {
+    background-color: var(--fk-color-gray-lighter);
+    color: var(--fk-color-gray-dark);
+    width: 100%;
+    overflow-y: auto;
+    & .cancel-order-details {
+      padding: calc(var(--fk-vertical-space) * 2);
+      overflow: hidden;
+      & .order-history {
+        width: 100%;
+        & button {
+          height: 50px;
+          width: 100%;
+        }
+      }
+    }
+    & .oc--order-total {
+      background-color: var(--fk-color-gray-light);
+      padding: calc(var(--fk-vertical-space) * 3) calc(var(--fk-horizontal-space) * 3);
+      text-align: center;
+      text-transform: uppercase;
+      & .amount {
+        font-weight: bold;
+        display: inline-block;
+        position: relative;
+      }
+      &.estimated .amount:after {
+        content: '*';
+        position: absolute;
+        font-size: 1em;
+        top: 0;
+        right: -.5em;
+      }
+    }
+  }
+  & .oc--footer {
+    color: var(--fk-color-gray-light);
+    padding: calc(var(--fk-vertical-space) * 2) calc(var(--fk-horizontal-space) * 4) var(--fk-vertical-space);
+    font-size: var(--fk-font-size-small);
+    text-align: center;
+    width: 100%;
+  }
+}

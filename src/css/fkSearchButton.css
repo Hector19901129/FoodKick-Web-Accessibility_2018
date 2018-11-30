@@ -1,0 +1,84 @@
+@import url(variables.css);
+
+fk-search-button {
+  box-sizing: content-box;
+  display: block;
+  height: auto;
+  width: auto;
+  margin-right: var(--fk-vertical-space);
+
+  .search-button {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    height: 36px;
+    width: 100%;
+    vertical-align: middle;
+    position: relative;
+    z-index: 0;
+    background: transparent;
+    fill: var(--fk-color-white);
+    color: var(--fk-color-white);
+    font-family: var(--fk-font-sans-serif);
+    font-size: var(--fk-font-size-medium);
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      background: var(--fk-color-primary-darkest);
+      border-radius: 100%;
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      -webkit-transition-property: transform;
+      transition-property: transform;
+      -webkit-transition-duration: 0.2s;
+      transition-duration: 0.2s;
+      -webkit-transition-timing-function: ease-out;
+      transition-timing-function: ease-out;
+    }
+
+    &:hover:before,
+    &:focus:before {
+      -webkit-transform: scale(2);
+      transform: scale(2);
+    }
+
+    &:hover,
+    &:focus {
+      -webkit-animation-name: hvr-pop;
+      animation-name: hvr-pop;
+      -webkit-animation-duration: 0.3s;
+      animation-duration: 0.3s;
+      -webkit-animation-timing-function: linear;
+      animation-timing-function: linear;
+      -webkit-animation-iteration-count: 1;
+      animation-iteration-count: 1;
+    }
+
+    svg {
+      width: 21px;
+    }
+
+    ng-transclude {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 21px;
+      margin-left: 0.5em;
+    }
+  }
+}
+
+@media (--fk-medium-screen), (--fk-large-screen)  {
+  fk-search-button {
+    background: var(--fk-color-primary-darker);
+  }
+}

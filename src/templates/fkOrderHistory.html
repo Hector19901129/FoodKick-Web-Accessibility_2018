@@ -1,0 +1,45 @@
+<div class="page-order-history container">
+  <div class="col-xs-15 col-sm-15 col-md-12 col-lg-12 order-history-wrapper">
+    <h2>Order History</h2>
+    <div class="no-order-wrapper" ng-if="noOrderHistory">
+      <div class="bold gray-darker">Your past orders will be displayed here.</div>
+      <div class="col-xs-13 col-sm-13 col-md-6 col-lg-6">
+        <a href="/" class="button button-primary uppercase more-letter-spacing bold">Start shopping</a>
+      </div>
+    </div>
+    <div ng-if="!noOrderHistory">
+      <div class="order-wrapper" ng-repeat="order in orderHistory">
+        <div class="order-heading-wrapper">
+          <div class="bold flex-grow timeslot-header">
+            <div class="_oh-delivery-date">{{order.deliveryTimeslot | fkDayDate}}</div>
+            <div class="_oh-delivery-timeslot">{{order.deliveryTimeslot | fkTimeSlot}}</div>
+          </div>
+          <span class="vertical-offset right-text-align">{{order.status}}</span>
+          <fk-icon fk-icon-id="{{deliveryStatusIcons[order.status]}}"></fk-icon>
+        </div>
+        <div class="order-specifics-wrapper">
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 zero-padding">
+            <span class="uppercase specifics-headers block">Order#</span>
+            <span class="more-letter-spacing _oh-order-id">{{order.id}}</span>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 zero-padding">
+          </div>
+          <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2 zero-padding">
+            <span class="uppercase specifics-headers block">Total</span>
+            <span class="more-letter-spacing _oh-order-amount">{{order.amount | currency:"$":2}}</span>
+          </div>
+          <div class="buttons-wrapper block col-xs-15 col-sm-15 col-md-7 col-lg-7">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 oh-button-receipt">
+              <fk-receipt-button class="receipt-order" order="order.id"></fk-receipt-button>
+            </div>
+            <div  class="col-xs-9 col-sm-9 col-md-9 col-lg-9 oh-button">
+              <button class="button-primary" ng-if="!order.modifiable" ng-click="$ctrl.shopFromOrder(order.id)">Shop from order</button>
+              <button class="button-secondary" ng-if="order.modifiable && $ctrl.currentModifiedOrder() !== order.id" ng-click="$ctrl.modifyOrder(order.id)">Modify</button>
+              <button class="button-disabled" ng-if="order.modifiable && $ctrl.currentModifiedOrder() === order.id">Modifying...</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <fk-icon class="spinner get-order-spinner" fk-icon-id="#spinner"></fk-icon>

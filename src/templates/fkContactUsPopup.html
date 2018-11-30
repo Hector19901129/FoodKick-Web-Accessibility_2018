@@ -1,0 +1,20 @@
+<div>
+  <div class="content">
+    <div class="button-container">
+      <p class="small">Chat with our SideKicks</p>
+      <button class="button button-primary chat-button" fk-track-click="CHAT INITIATED|CHAT" ng-click="triggerChat()">
+        <fk-icon fk-icon-id="#chat-icon"></fk-icon>START CHAT</button>
+      <p class="extra-small">Hours: 6:30AM to 12AM</p>
+    </div>
+    <div class="button-container">
+      <button class="button button-primary-ghost" ng-click="openSupportMessage()">
+        <fk-icon fk-icon-id="#paperplane_message"></fk-icon>SEND A MESSAGE</button>
+      <button class="button button-primary-ghost">
+        <fk-icon fk-icon-id="#Phone-icon"></fk-icon><a href="tel:17185132785"><span offscreen>call us on</span>1-718-513-2785</a></button>
+    </div>
+  </div>
+  <div class="policy">
+    Want More Help ? <a href="/help/faq/iphonegeneral" class="secondary-dark-background"> Go To Our Help Center</a>
+  </div>
+</div>
+<fk-ngdialog-close ng-click="closeThisDialog()"></fk-ngdialog-close>

@@ -1,0 +1,19 @@
+<div ng-if="$ctrl.modifyState()" class="modify-alert-bar print-hide">
+    <strong>MODIFYING ORDER</strong>
+    <span class="cancel-changes"><a href="" ng-click="$ctrl.cancelChangesConfirm()">Cancel Changes</a></span>
+</div>
+<div class="global-alert-notice print-hide" ng-if="!$ctrl.modifyState() && $ctrl.modifiableCount() === 1">
+  <div class="delivery-content-onOtherDevice">
+    <strong>DELIVERY:</strong>&nbsp;{{$ctrl.nextModifiableOrder()|fkHeaderDeliveryTime}}
+  </div>
+  <div class="delivery-content-onMobile">
+    <strong>DELIVERY:</strong><br>{{$ctrl.nextModifiableOrder()|fkHeaderDeliveryTime}}
+  </div>
+  <button class="button-secondary modify-button print-hide" ng-click="$ctrl.modifyOrder()">MODIFY</button>
+</div>
+<div class="global-alert-notice print-hide" ng-if="!$ctrl.modifyState() && $ctrl.modifiableCount() > 1">
+  <div class="delivery-left-content">
+    <strong>DELIVERY:&nbsp;</strong>{{$ctrl.modifiableCount()}} UPCOMING ORDERS
+  </div>
+  <button class="button-secondary modify-button" ng-click="$ctrl.seeMore()">SEE MORE</button>
+</div>

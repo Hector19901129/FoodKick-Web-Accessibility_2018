@@ -1,0 +1,64 @@
+<div class="container">
+<p>
+  <button class="button-primary" ng-click="orderConfirm()">Order confirmation</button>
+</p>
+<p>
+  <fk-form id="testForm" form-data="testFormData" form-descriptor="testFormDescriptor"></fk-form>
+</p>
+
+<fk-e-tipping-form></fk-e-tipping-form>
+
+</br>
+<fk-delivery-address-form></fk-delivery-address-form>
+<a class="tooltip" href="" info="tooltip" fk-touch>?</a>
+<a class="tooltip info" href="" info="info" fk-touch>i</a>
+</br>
+
+</br>
+
+<svg class="svgicon"><use xlink:href="#star"/></svg>
+<svg class="svgicon"><use xlink:href="#star-empty"/></svg>
+<svg class="svgicon"><use xlink:href="#add-bag"/></svg>
+<svg class="svgicon"><use xlink:href="#user"/></svg>
+<svg class="svgicon"><use xlink:href="#delete"/></svg>
+<svg class="svgicon"><use xlink:href="#shopping-basket"/></svg>
+<svg class="svgicon"><use xlink:href="#add"/></svg>
+<svg class="svgicon"><use xlink:href="#remove"/></svg>
+<fk-icon fk-icon-id="#right"></fk-icon>
+<fk-icon fk-icon-id="#left"></fk-icon>
+
+</br>
+<fk-delivery-timeslots></fk-delivery-timeslots>
+<fk-address-book class="pretty-list" ng-if="!editData"></fk-address-book>
+<fk-delivery-address-form ng-if="editData" edit-data="editData" default-action="edit"></fk-delivery-address-form>
+<!---->
+</br>
+
+
+Add Bank Form
+</br>
+<fk-bank-form></fk-bank-form>
+
+<fk-payment-methods class="pretty-list" ng-if="!paymentToEdit" show-edit="true"></fk-payment-methods>
+<fk-credit-card-form ng-if="paymentToEdit" payment-method="paymentToEdit" default-action="edit"></fk-credit-card-form>
+
+
+<fk-tabs>
+  <fk-tab>
+    <fk-tabheading>
+      Alma
+    </fk-tabheading>
+    Alma tab content
+  </fk-tab>
+  <fk-tab tabheading="Simple html <b>beka</b>">
+    Beka tab content
+  </fk-tab>
+  <fk-tab>
+    <fk-tabheading>
+      More complex <b>html</b> <br> Cica
+    </fk-tabheading>
+    <div>Example:</div>
+    <fk-example-widget></fk-example-widget>
+  </fk-tab>
+</fk-tabs>
+</div>

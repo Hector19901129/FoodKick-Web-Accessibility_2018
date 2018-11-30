@@ -1,0 +1,58 @@
+@import url(variables.css);
+
+fk-payment-method {
+  display: block;
+  cursor: pointer;
+}
+
+fk-payment-method h3{
+  color: var(--fk-color-gray-darker);
+}
+
+fk-bank-payment-method-select{
+	h2, h3, h4 {
+		font-family: var(--fk-font-sans-serif);
+		font-weight: 500;
+		line-height: 1.25em;
+	}
+
+	ul li {
+		display: flex;
+		margin-top: calc(var(--fk-horizontal-space) * 2.5);
+	}
+
+	.button-container,
+	& ul li fk-icon>svg {
+		margin-left: calc(var(--fk-horizontal-space) * 2);
+		margin-right: calc(var(--fk-horizontal-space) * 2);
+	}
+
+	ul li fk-icon>svg {
+		fill: var(--fk-color-gray);
+		height: 40px;
+		width: 40px;
+	}
+
+	ul li> div {
+		border-bottom: 1px solid var(--fk-color-primary-darker-light-a);
+		width: 100%;
+	}
+
+	ul li> div button {
+		background-color: transparent;
+		color: var(--fk-color-secondary);
+		margin: 0;
+		float: right;
+		width: 25%;
+	}
+
+	.button-container {
+		margin-bottom: calc(var(--fk-vertical-space) * 2);
+		margin-top: calc(var(--fk-vertical-space) * 2);
+	}
+
+	.button-container button {
+		height: 41px;
+		width: 100%;
+	}
+}

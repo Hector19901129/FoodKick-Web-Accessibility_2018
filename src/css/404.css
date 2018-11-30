@@ -1,0 +1,32 @@
+@import url(variables.css);
+
+.page-404 {
+  background: url(/assets/img/icons-bg.svg);
+  text-align: center;
+  margin-bottom: calc(4 * var(--fk-horizontal-space));
+
+  h1 {
+    font-size: 120px;
+    font-family: var(--fk-font-sans-serif);
+    margin: .5em 0 .2em;
+
+    span {
+      font-weight: 300;
+    }
+  }
+
+  p {
+    font-size: var(--fk-font-size-large);
+  }
+
+  li {
+    display: inline-block;
+    font-weight: bold;
+    padding: 0 calc(var(--fk-vertical-space) * 2);
+    border-right: 1px solid var(--fk-color-gray);
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+}

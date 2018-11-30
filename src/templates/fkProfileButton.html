@@ -1,0 +1,18 @@
+<span ng-if="$ctrl.fkUserService.user">
+  <fk-icon fk-icon-id="#avatar"><span class="text">Hi, {{$ctrl.fkUserService.user.firstName}}</span></fk-icon>
+  <fk-icon fk-icon-id="#down"></fk-icon>
+  <div class="account-menu" tabindex = "0" ng-keyup="$ctrl.hitEnter($event)" role="tab" aria-label="Hi, {{$ctrl.fkUserService.user.firstName}} You should hit enter key to navigate items." aria-expanded="false">
+    <div class="placeholder"></div>
+    <ul>
+      <li class="_pastorders" ng-click="$ctrl.goToTop()"><a href="/pastorders/" tabindex="-1">Shop Past Orders</a></li>
+      <li class="_pastitems" ng-click="$ctrl.goToTop()"><a href="/pastitems" tabindex="-1">Past Items</a></li>
+      <li class="_orderhistory" ng-click="$ctrl.goToTop()"><a href="/orderhistory" tabindex="-1">Order History</a></li>
+      <li class="_settings" ng-click="$ctrl.goToTop()"><a href="/account/addresses/" tabindex="-1">Settings</a></li>
+      <li class="_raf" ng-if="$ctrl.fkUserService.user.isreferralEligible" ng-click="$ctrl.goToTop()"><a href="{{$ctrl.SITE.URL.RafReferral}}" target="_blank" rel="noopener" class="noopener_class"  tabindex="-1">Get $10</a></li>
+      <li class="_help" ng-click="$ctrl.goToTop()"><a href="/help/aboutus/" tabindex="-1">Help</a></li>
+    </ul>
+    <!-- switch back to classic version -->
+    <a href="{{$ctrl.SITE.URL.AnotherVersion}}" ng-if="$ctrl.SITE.AnotherVersion" tabindex="-1"><button class="site-version-button button button-primary-ghost" type="button"  tabindex="-1">{{$ctrl.SITE.AnotherVersion}}</button></a>
+    <fk-logout-button></fk-logout-button>
+  </div>
+</span>

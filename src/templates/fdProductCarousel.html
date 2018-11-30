@@ -1,0 +1,12 @@
+<ng-transclude></ng-transclude>
+
+<div class="carousel-controll" ng-if="$ctrl.nrOfProducts >= 0">
+
+  <button fk-icon fk-icon-id="#left" ng-click="$ctrl.back()" class="back-button"></button>
+
+  <button fk-icon fk-icon-id="#right" ng-click="$ctrl.forward()"  class="forward-button"></button>
+
+  <!--<button ng-click="$ctrl.seeAll()" ng-if="$ctrl.isLastPage" class="see-allbutton">SEE ALL <fk-icon fk-icon-id="#right"></fk-icon>
+  </button>-->
+
+</div>

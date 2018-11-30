@@ -1,0 +1,14 @@
+@import url(variables.css);
+
+.refine--button {
+  .result {
+    color: var(--fk-color-primary-darker);
+    font-family: var(--fk-font-sans-serif);
+    font-size: var(--fk-font-size-xsmall);
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: .3px;
+    text-align: center;
+  }
+}

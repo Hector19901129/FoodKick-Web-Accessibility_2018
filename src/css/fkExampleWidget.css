@@ -1,0 +1,9 @@
+@import url(variables.css);
+
+fk-example-widget {
+  display: inline-block;
+}
+
+fk-example-widget h1 {
+  color: blue;
+}

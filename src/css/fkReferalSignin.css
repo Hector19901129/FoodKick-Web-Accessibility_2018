@@ -1,0 +1,47 @@
+@import url(variables.css);
+
+@media (--fk-small-screen) {
+  .ngdialog.ngdialog-theme-fk.fk-Referal-signin.narrow .ngdialog-content {}
+  .ngdialog.ngdialog-theme-fk fk-sign-in {
+    overflow: auto;
+    overflow-x: hidden;
+    height: auto;
+    ng-transclude {
+      display: block;
+      overflow: visible;
+    }
+  }
+}
+
+@media (--fk-medium-screen) {
+  .ngdialog.ngdialog-theme-fk.fk-Referal-signin.narrow .ngdialog-content {}
+  .ngdialog.ngdialog-theme-fk fk-sign-in {
+    overflow: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media (--fk-large-screen) {
+  .ngdialog.ngdialog-theme-fk.fk-Referal-signin.narrow .ngdialog-content {
+    fk-sign-in {
+      overflow: auto;
+      overflow-x: hidden;
+    }
+  }
+}
+
+@media (--fk-extra-small-screen) {
+  .ngdialog.ngdialog-theme-fk.fk-Referal-signin.narrow .ngdialog-content {
+    fk-sign-in {
+      width: 100%;
+      overflow: auto;
+      overflow-x: hidden;
+      height: auto;
+      background-color: var(--fk-color-white);
+      ng-transclude {
+        display: block;
+        overflow: visible;
+      }
+    }
+  }
+}

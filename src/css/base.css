@@ -1,0 +1,274 @@
+@import url(variables.css);
+
+body {
+  color: var(--fk-color-gray-dark);
+  font-size: var(--fk-font-size-base);
+  font-family: var(--fk-font-sans-serif);
+  line-height: 1.5em;
+}
+
+:focus {
+  outline: var(--fk-color-gray-a) solid 1px;
+}
+
+.SVG svg {
+  height: 0;
+  width: 0;
+}
+
+html,body {
+  height:100%;
+}
+
+body {
+  background-color: var(--fk-color-off-white);
+  overflow-y: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  clear: both;
+  font-family: var(--fk-font-serif);
+  margin: 1.5em 0 .5em;
+  line-height: 1.3em;
+}
+
+h1 {
+  font-size: var(--fk-font-size-huge);
+  line-height: 1.05em;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: var(--fk-font-size-xlarge);
+  line-height: 1.25em;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: var(--fk-font-size-large);
+  font-family: var(--fk-font-sans-serif);
+  font-weight: 500;
+  line-height: 1.25em;
+}
+
+h4 {
+  font-size: var(--fk-font-size-medium);
+  font-family: var(--fk-font-sans-serif);
+  font-weight: 500;
+  line-height: 1.25em;
+}
+
+h5 {
+  font-size: var(--fk-font-size-small);
+  font-family: var(--fk-font-sans-serif);
+  font-weight: 500;
+  line-height: 1.05em;
+  letter-spacing: 0.05em;
+}
+
+h6 {
+  font-size: var(--fk-font-size-xsmall);
+  font-family: var(--fk-font-sans-serif);
+  font-weight: 500;
+  line-height: 1.05em;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+a {
+  color: var(--fk-color-primary);
+  text-decoration: none;
+}
+
+a.link-secondary {
+  color: var(--fk-color-secondary);
+  &:focus,
+  &:hover {
+    outline: 0;
+    color: var(--fk-color-secondary-lite-dark);
+    text-decoration: underline;
+  }
+}
+
+p a {
+  text-decoration: underline;
+}
+
+.dark-background a {
+  color: var(--fk-color-secondary);
+}
+
+a.secondary-dark-background {
+  color: var(--fk-color-secondary-lighter);
+  &:focus,
+  &:hover {
+    outline: 0;
+    text-decoration: underline;
+  }
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.page-content {
+  padding-top: 60px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* breakpoint detection helpers */
+
+.breakpointdetect > div {
+  display: none;
+}
+
+@media (--fk-extra-small-screen) {
+  .breakpointdetect > div.xs {
+    display: block;
+  }
+}
+
+@media (--fk-small-screen) {
+  .breakpointdetect > div.sm {
+    display: block;
+  }
+}
+
+@media (--fk-medium-screen) {
+  .breakpointdetect > div.md {
+    display: block;
+  }
+}
+
+@media (--fk-large-screen) {
+  .breakpointdetect > div.lg {
+    display: block;
+  }
+}
+
+@media (--fk-extra-small-screen), (--fk-small-screen) {
+  .page-content {
+    padding-top: 30px;
+  }
+}
+
+/* offscreen elements (A11y) */
+i.icon span,
+.offscreen,
+[offscreen] {
+  position: absolute;
+  top: auto;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: 'graphik';
+  src: url('../../assets/fonts/Graphik-Regular-Web.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'graphik';
+  src: url('../../assets/fonts/Graphik-Medium-Web.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'graphik';
+  src: url('../../assets/fonts/Graphik-Semibold-Web.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+#grid {
+  position:fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  background:yellow;
+  opacity:0.2;
+}
+
+#grid > .row {
+  height: 100%;
+}
+
+#grid > .row > div {
+  height:100%;
+  background: darkturquoise;
+  background-clip: content-box;
+  border-left:1px solid black;
+  padding-left: calc(var(--fk-horizontal-space)-1);
+}
+#grid > .row > div:first-child {
+  border-left:0px;
+  padding-left: var(--fk-horizontal-space);
+}
+
+#fakebody {
+  width:100%;
+  overflow:auto;
+  position:absolute;
+  top:0;
+  left:0;
+  bottom: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+body.ngdialog-open #fakebody {
+  -webkit-overflow-scrolling: auto;
+  position: fixed;
+}
+
+/* COMMON ANIMATIONS */
+
+/* vertical wobble animation */
+.vert-wobble {
+  animation: vert-wobble 1s ease-out;
+  animation-iteration-count: 1;
+}
+
+@keyframes vert-wobble {
+  10%, 90% {
+    transform: translateX(-1px);
+  }
+  20%, 80% {
+    transform: translateX(2px);
+  }
+  30%, 50%, 70% {
+    transform: translateX(-6px);
+  }
+  40%, 60% {
+    transform: translateX(6px);
+  }
+}
+
+@keyframes circle-pulsing {
+  0%,
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.13;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}

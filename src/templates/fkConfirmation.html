@@ -1,0 +1,5 @@
+<h2>{{$ctrl.title || 'Are you sure?'}}</h2>
+<p>{{$ctrl.message || ''}}</p>
+<div class="buttons">
+  <button ng-repeat="button in ($ctrl.buttons || $ctrl.defaultButtons)" type="button" class="{{button.cssClass}}" ng-click="action(button.action)">{{button.label}}</button>
+</div>

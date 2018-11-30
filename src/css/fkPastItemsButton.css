@@ -1,0 +1,30 @@
+@import url(variables.css);
+
+fk-past-items-button {
+  button {
+    box-sizing: content-box;
+    display: inline-block;
+    fill:var(--fk-color-white);
+    font-family: var(--fk-font-sans-serif);
+    font-size: var(--fk-font-size-small);
+    font-weight: 500;
+    height:36px;
+    letter-spacing: 1px;
+    margin: 0;
+    overflow:hidden;
+    padding:0;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+    width:190px;
+
+    fk-icon {
+      height: 100%;
+      width: 100%;
+      svg {
+        height: 24px;
+        width: 24px;
+      }
+    }
+  }
+}

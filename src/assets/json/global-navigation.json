@@ -1,0 +1,120 @@
+{
+    "submenus": [
+        {
+            "id": "submenu-beer",
+            "name": "BEER & BEVERAGES", 
+            "href": "#",
+            "categories": [
+                {
+                    "id": "category-beer",
+                    "name": "BEER", 
+                    "href": "#",
+                    "subcategories": [
+                        {
+                            "id": "subcategory-brewedinnyc",
+                            "name": "Brewed in NYC", 
+                            "href": "#"
+                        },
+                        {
+                            "id": "subcategory-domestic",
+                            "name": "Domestic", 
+                            "href": "#"
+                        },
+                        {
+                            "id": "subcategory-imported",
+                            "name": "Imported", 
+                            "href": "#"
+                        },
+                        {
+                            "id": "subcategory-lightbeer",
+                            "name": "Light Beer", 
+                            "href": "#"
+                        },
+                        {
+                            "id": "subcategory-ciderfruit",
+                            "name": "Cider & Fruit", 
+                            "href": "#"
+                        },
+                        {
+                            "id": "subcategory-largeformat",
+                            "name": "Large Format", 
+                            "href": "#"
+                        },
+                        {
+                            "id": "subcategory-nonalcoholic",
+                            "name": "Non-Alcoholic", 
+                            "href": "#"
+                        },
+                        {
+                            "id": "subcategory-maltbeverage",
+                            "name": "Malt Beverages", 
+                            "href": "#"
+                        }
+                    ]
+                },
+                {
+                    "id": "category-beverages",
+                    "name": "BEVERAGES", 
+                    "href": "#",
+                    "subcategories": [
+                        {
+                            "id": "subcategory-stillewater",
+                            "name": "Stille Water", 
+                            "href": "#"
+                        },
+                        {
+                            "id": "subcategory-sparkingwater",
+                            "name": "Sparking Water", 
+                            "href": "#"
+                        },
+                        {
+                            "id": "subcategory-enhancedwater",
+                            "name": "Enhanced Water", 
+                            "href": "#"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "submenu-wine",
+            "name": "WINES & SPIRITES", 
+            "href": "#"
+        },
+        {
+            "id": "submenu-meal",
+            "name": "MEALS", 
+            "href": "#"
+        },
+        {
+            "id": "submenu-fresh",
+            "name": "FRESH", 
+            "href": "#"
+        },
+        {
+            "id": "submenu-snack",
+            "name": "SNACKS", 
+            "href": "#"
+        },
+        {
+            "id": "submenu-grocery",
+            "name": "GROCERY", 
+            "href": "#"
+        },
+        {
+            "id": "submenu-home",
+            "name": "HOME & DRUG", 
+            "href": "#"
+        },
+        {
+            "id": "submenu-baby",
+            "name": "BABY", 
+            "href": "#"
+        },
+        {
+            "id": "submenu-pastitem",
+            "name": "PAST ITEMS", 
+            "href": "#"
+        }
+    ]
+}

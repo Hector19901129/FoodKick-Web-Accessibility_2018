@@ -1,0 +1,162 @@
+@import url(variables.css);
+
+tr[fk-cart-line-item] {
+  & .brandName {
+    font-size: var(--fk-font-size-small);
+    color: var(--fk-color-gray-darker);
+    line-height: 1.33;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0 0 3px 0;
+  }
+
+  .productname {
+    display: inline-block;
+    line-height: 1.33;
+    font-weight: normal;
+    color: var(--fk-color-gray-darker);
+    margin: 0 0 3px 0;
+    max-height: 36px;
+    overflow: hidden;
+  }
+  .productname:hover {
+    color: var(--fk-color-primary-darker);
+  }
+  .salesunit {
+    line-height: 1.33;
+    margin-bottom: 3px;
+    text-transform: lowercase;
+  }
+  .price {
+    line-height: 1.33;
+    margin-bottom: 3px;
+  }
+
+  & td.section {
+    font-weight: bold;
+    background: var(--fk-color-white);
+  }
+
+  td.image {
+    /*vertical-align: top;*/
+    vertical-align: middle;
+    text-align: center;
+    background-color: white;
+    width: 80px;
+    div {
+      width: 60px;
+      height: 60px;
+      background-color: white;
+      text-align: center;
+      vertical-align: middle;
+      margin: auto;
+      a {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        img {
+          max-width: 100%;
+          max-height: 100%;
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  & td.quantity,
+  td.cart-line-subtotal {
+    vertical-align: baseline;
+  }
+
+  td.cart-line-subtotal {
+    text-align: center;
+    vertical-align: top;
+    .subtotal-price {
+      margin-top: 7px;
+      margin-bottom: 7px;
+    }
+    .delete {
+      width: 100%;
+      height: 33px;
+      background-color: transparent;
+      padding-top: 8px;
+      text-align: center;
+      margin-bottom: 7px;
+      transition: opacity 0.3s;
+      cursor: pointer;
+      fk-icon {
+        transition: all 0.2s;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .default {
+        display: block;
+        width: 17px;
+        height: 21px;
+        svg {
+          width: 17px;
+          height: 21px;
+        }
+      }
+      .open {
+        display: none;
+        position: relative;
+        z-index: 1;
+        top: -1.5px;
+        left: 0.5px;
+        width: 17px;
+        height: 24px;
+        svg {
+          width: 17px;
+          height: 24px;
+        }
+        &:before {
+          content: "";
+          width: 37px;
+          height: 37px;
+          border-radius: 100%;
+          background-color: white;
+          position: absolute;
+          top: -5px;
+          left: -10px;
+          z-index: -1;
+        }
+      }
+    }
+    .delete:hover,
+    .delete:focus {
+      .default {
+        display: none;
+      }
+      .open {
+        display: block;
+      }
+    }
+  }
+
+  & div.wine-store-trade-icon {
+    padding-top: 34px;
+
+    & fk-icon>svg {
+      height: 35px;
+      width: 43px;
+    }
+  }
+}
+
+@media (--fk-extra-small-screen),
+(--fk-small-screen) {
+  tr[fk-cart-line-item] {
+    .productname {
+      color: var(--fk-color-primary-darker);
+    }
+  }
+}
+
+@media (--fk-small-screen) {
+  tr[fk-cart-line-item] {
+    td.image {
+      width: 100px;
+    }
+  }
+}

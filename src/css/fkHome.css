@@ -1,0 +1,209 @@
+@import url(variables.css);
+
+.page-home {
+  margin-top: -60px;
+
+  .double-click-container{
+    margin-top: 50px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .pick-title {
+    display: none;
+    background: none;
+    color: var(--fk-color-primary);
+    border-bottom: 2px solid var(--fk-color-primary);
+    margin-bottom: 30px;
+    min-height: 94px;
+    position: relative;
+    padding: 10px;
+    margin-top: 6px;
+
+    h2 {
+      color: var(--fk-color-gray-dark);
+      font-size: 22px;
+      line-height: 64px;
+      text-align: center;
+      margin: 0;
+    }
+  }
+
+  .page-greeting-full {
+    display: block;
+    background: var(--fk-color-primary);
+    color: var(--fk-color-white);
+    padding: calc(var(--fk-vertical-space) * 1.5);
+    text-align: center;
+    h2 {
+      margin: 0;
+      span {
+        display: block;
+      }
+    }
+
+    .section-content,
+    .section-caption {
+      margin: 0;
+      font-size: var(--fk-font-size-small);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      font-weight: bold;
+      font-family: var(--fk-font-sans-serif);
+    }
+
+    .section-caption {
+      line-height: 1.25em;
+      font-family: var(--fk-font-sans-serif);
+    }
+
+    .section-content {
+      line-height: 1.5em;
+    }
+
+    .section-title {
+      margin: 0;
+      line-height: 1.5em;
+      font-size: var(--fk-font-size-base);
+      letter-spacing: .5px;
+      font-family: var(--fk-font-serif);
+    }
+  }
+
+  .page-greeting {
+    display: none;
+    background: none;
+    color: var(--fk-color-gray-dark);
+    border-bottom: 2px solid var(--fk-color-primary);
+    margin-bottom: 30px;
+    min-height: 94px;
+    position: relative;
+    padding: 10px;
+    margin-top: 6px;
+    text-align: center;
+    h2 {
+      margin: 0;
+      span {
+        display: block;
+      }
+    }
+
+    .section-content,
+    .section-caption {
+      margin: 0;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      font-weight: 700;
+      font-family: var(--fk-font-sans-serif);
+    }
+
+    .section-content {
+      line-height: 1.5em;
+    }
+
+    .section-caption {
+      line-height: 1.25em;
+    }
+
+    .section-title {
+      margin: 0;
+      line-height: 1.5em;
+      font-size: 22px;
+    }
+  }
+}
+
+.page-home .carousel {
+  height: 400px;
+  position: relative;
+
+  fk-carousel {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    max-width: 1660px;
+  }
+}
+
+.page-home.delivery-details-box {
+  color: var(--fk-color-white);
+  background-color: var(--fk-color-secondary);
+}
+
+.page-home.delivery-details-box h2 {
+  font-family: var(--fk-font-serif);
+  font-weight: normal;
+  font-size: var(--fk-font-size-large);
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5em;
+  padding-top: var(--fk-vertical-space);
+  padding-bottom: var(--fk-vertical-space);
+}
+
+.top-greeting-box {
+  background-color: var(--fk-color-primary);
+}
+
+.top40 {
+  top: 40px !important;
+}
+
+.heightWithModifyGlobalBar {
+  height: 95% !important;
+}
+
+.bcStatic {
+  display: none;
+}
+
+@media (--fk-large-screen ), (--fk-medium-screen ) {
+  .home-feed fk-section:first-child {
+    margin-top: var(--fk-vertical-space);
+  }
+
+  .home-sidebar fk-section:first-child {
+    margin-top: var(--fk-vertical-space);
+  }
+
+  .home-feed .page-greeting {
+    display: block;
+  }
+
+  .home-sidebar .pick-title {
+    display: block;
+  }
+
+  .page-home .page-greeting-full {
+    display: none;
+  }
+
+  .home-sidebar{
+    padding-left: calc(var(--fk-horizontal-space) * 2);
+  }
+}
+
+@media (--fk-extra-small-screen), (--fk-small-screen) {
+  .page-home .container {
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;
+
+    & .hide-feed {
+      display: none;
+    }
+  }
+
+  .home-feed fk-section:first-child {
+    margin-top: 0;
+  }
+
+  .home-sidebar fk-section:first-child {
+    margin-top: 0;
+  }
+}

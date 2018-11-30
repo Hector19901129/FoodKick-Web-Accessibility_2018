@@ -1,0 +1,36 @@
+@import url(variables.css);
+
+fd-delivery-days{
+
+  .delivery-day-header{
+    align-items: center;
+    background: var(--fk-color-primary);
+    height: 40px;
+    width: 100%;
+    color: var(--fk-color-white);
+
+    fk-icon {
+      font-size: 18px;
+      position: absolute;
+      right: 20px;
+    }
+
+    svg {
+      fill: var(--fk-color-white);
+    }
+  }
+
+  .timeslot {
+    margin-right: 10px;
+  }
+
+  .closed {
+    display: none;
+
+  }
+
+  .sticky{
+    position: sticky;
+    top: 56px;
+  }
+}

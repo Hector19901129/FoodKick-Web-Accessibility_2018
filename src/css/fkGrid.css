@@ -1,0 +1,78 @@
+@import url(variables.css);
+
+
+.fkly-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.fkly-item {
+  width: 100%;
+  padding: 0 5px;
+  box-sizing: border-box;
+}
+
+.fkly-item-left {
+  flex: 2;
+  margin: 5px;
+  display: flex;
+  padding: 5px;
+  justify-content: left;
+  flex-flow: wrap;
+}
+.fkly-item-right {
+  flex:1;
+  margin: 5px;
+  display: flex;
+  padding: 5px;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
+.fkly-item-three {
+  flex-grow: 1;
+  flex-basis: 33%;
+}
+
+.fkly-item-two {
+  flex-grow: 1;
+  flex-basis: 50%;
+}
+
+/* temporary just for visualisation the same as pablos example */
+.c-box {
+  border: 1px solid #ccc;
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+
+.fkly-container > div {
+  border: 1px solid #ccc;
+  background: #eee;
+}
+
+/* end of tmp styles */
+
+@media (--fk-small-screen) {
+  .fkly-container {
+    width: 740px;
+  }
+}
+
+@media (--fk-medium-screen) {
+  .fkly-container {
+    width: 960px;
+    display: flex;
+  }
+
+  .fkly-item {
+    flex-grow: 1;
+  }
+}
+
+@media (--fk-large-screen) {
+  .fkly-container {
+    width: 1200px;
+  }
+}

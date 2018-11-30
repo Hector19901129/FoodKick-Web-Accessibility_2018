@@ -1,0 +1,14 @@
+    <div class="row search-bar-row" ng-keydown="keypress($event)" >
+      <form class="search-form col-xs-15 col-sm-15 col-md-11 col-lg-11 col-md-offset-2 col-lg-offset-2" role="searchpanel" ng-submit="search(searchKey)">
+        <input type="text" id="fksearch" placeholder="SEARCH" class="search-input" ng-model="searchKey" ng-model-options="{debounce:200}" autocomplete="off"/><span offscreen>Type search term</span>
+        <button class="send" type="submit" aria-label="Submit Search"><fk-icon fk-icon-id="#search"></fk-icon></button>
+      </form>
+    </div>
+    <div class="row search-suggestion-row" ng-keydown="keypress($event)" >
+      <div class="search-suggestions col-xs-15 col-sm-15 col-md-11 col-lg-11 col-md-offset-2 col-lg-offset-2" ng-if="suggestions" fk-touch>
+        <ul>
+          <li ng-repeat="suggestion in suggestions">
+            <a href="/search/{{suggestion|fkURL}}" ng-click="search(suggestion)">{{suggestion}}</a></li>
+        </ul>
+      </div>
+    </div>

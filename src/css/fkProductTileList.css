@@ -1,0 +1,42 @@
+@import url(variables.css);
+
+fk-product-tile-list {
+  display:block;
+  overflow:hidden;
+
+  fk-product-tile[class*="col-lg-"],
+  fk-product-tile[class*="col-md-"],
+  fk-product-tile[class*="col-sm-"],
+  fk-product-tile[class*="col-xs-"] {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+
+  &[orientation=vertical] {
+    display:flex;
+    flex-direction: column;
+
+    & fk-product-tile {
+      flex:1;
+    }
+  }
+}
+
+
+fk-product-tile-list .product-tile-grid-item {
+}
+
+/*
+.product-tile-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.product-tile-list-item {
+  background: var(--fk-color-white);
+  box-shadow: 1px 1px 3px 0px var(--fk-color-gray);
+}
+*/

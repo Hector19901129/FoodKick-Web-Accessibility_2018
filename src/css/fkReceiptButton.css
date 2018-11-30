@@ -1,0 +1,20 @@
+@import url(variables.css);
+
+
+.receipt-primary .receiptButton{
+  background-color: var(--fk-color-primary);
+  color: var(--fk-color-white);
+  fill: var(--fk-color-white);
+  height: calc(var(--fk-horizontal-space)*4.5);
+}
+
+
+.receipt-primary .receiptButton .receipt-order-details{
+  margin-top: var(--fk-horizontal-space);
+}
+
+
+.receiptButton{
+  width: 100%;
+}
+

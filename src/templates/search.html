@@ -1,0 +1,26 @@
+<div class="page-search container">
+  <div class="row no-result" ng-if="search.searchParams && (!search.products || search.products.length === 0)">
+    <div class="col-lg-15 col-md-15 col-sm-15 col-xs-15">
+      Hey, it looks like we don’t have that (sad face). Please check your spelling or try a different search term.
+    </div>
+  </div>
+  <div class="row" ng-if="search.searchParams && search.products.length">
+    <div class="col-lg-3 col-md-3 col-sm-15 col-xs-15">
+      <fk-left-nav menu-boxes="search.menuBoxes.menuBoxes" filter-string="filterString"></fk-left-nav>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-15 col-xs-15">
+      <div class="did-you-mean" ng-if="search.searchParams.searchTerm && search.searchParams.searchParams !== search.searchParams.searchTerm">
+        Sorry, we couldn't find anything for "<b>{{search.searchParams.searchParams}},</b>" showing products for "<b>{{search.searchParams.searchTerm}}</b>" instead.
+      </div>
+      <div class="suggestions" ng-if="search.searchParams.suggestions.length">
+        Did you mean <span ng-repeat="suggestion in search.searchParams.suggestions"><a href="/search/{{suggestion}}">{{suggestion}}</a>{{ $last ? '' : ' or '}}</span>?
+      </div>
+      <fk-refine-button category="search" filter-string="filterString" hide-categories="true"></fk-refine-button>
+      <fk-sort-options sort-options="search.sortOptions"></fk-sort-options>
+      <h1 class="category-title">"{{search.searchParams.searchTerm || search.searchParams.searchParams}}" <span ng-if="search.products" class="nrOfProducts">({{search.pager.itemCount}})</span></h1>
+      <fk-product-tile-list class="row" ng-if="search.products" products="search.products" channel="'search'" location="'search_' + searchctrl.getTrimmedTerm()" item-class="'col-lg-375 col-md-375 col-sm-75 col-xs-75'"></fk-product-tile-list>
+      <fd-pager pager="search.pager" ng-if="search.pager && search.products"></fd-pager>
+    </div>
+  </div>
+</div>
+<!-- <fk-icon class="spinner search--spinner" fk-icon-id="#spinner"></fk-icon> -->
